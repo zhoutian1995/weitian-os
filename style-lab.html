@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Lab — 配色方案对比</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: #f0ede4;
+  color: #1A1A2E;
+  padding: 40px 24px 120px;
+}
+.lab-header { max-width: 1280px; margin: 0 auto 16px; }
+.lab-header h1 { font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 1.6rem; }
+.lab-header p { color: #777; font-size: 13px; margin-top: 6px; line-height: 1.7; }
+
+.scheme {
+  max-width: 1280px;
+  margin: 48px auto 0;
+}
+.scheme-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.scheme-desc { font-size: 13px; color: #777; margin-bottom: 16px; }
+.scheme-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 1000px) { .scheme-row { grid-template-columns: 1fr; } }
+
+.frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  position: relative;
+  aspect-ratio: 16 / 10.5;
+}
+.frame-label {
+  position: absolute;
+  top: 8px; right: 10px;
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  z-index: 50;
+  letter-spacing: 0.5px;
+}
+
+/* ===== shared mock pieces ===== */
+.m-titlebar {
+  display: flex; align-items: center; gap: 5px;
+  padding: 8px 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+}
+.m-dot { width: 8px; height: 8px; border-radius: 50%; }
+.m-dot.r { background: #ff5f57; } .m-dot.y { background: #ffbd2e; } .m-dot.g { background: #28ca41; }
+.m-title { margin: 0 auto; opacity: 0.55; }
+.m-term-body {
+  padding: 14px 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  line-height: 1.9;
+}
+.m-menubar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 5px 12px;
+  font-size: 9px;
+}
+.m-menubar .logo { font-family: 'Caveat', cursive; font-size: 13px; font-weight: 700; }
+.m-menubar .clk { margin-left: auto; font-family: 'Fira Code', monospace; opacity: 0.6; }
+.m-desk { position: relative; height: calc(100% - 24px); }
+.m-icons { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 9px; }
+.m-icon { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 54px; }
+.m-icon .art { width: 30px; height: 25px; border-radius: 3px; position: relative; }
+.m-icon .art.fold::before {
+  content: ''; position: absolute; top: -4px; left: 2px; width: 12px; height: 6px; border-radius: 2px 2px 0 0;
+  background: inherit;
+}
+.m-icon .lbl { font-family: 'Fira Code', monospace; font-size: 7.5px; }
+.m-win {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,30,0.25);
+}
+.m-win .wt { display: flex; align-items: center; gap: 5px; padding: 6px 9px; font-family: 'Fira Code', monospace; font-size: 8px; }
+.m-win .wt .wdot { width: 7px; height: 7px; border-radius: 50%; }
+.m-win .wb { padding: 12px 14px; font-size: 9px; line-height: 1.7; }
+.m-win .wb h4 { font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 11px; margin-bottom: 7px; }
+.m-card { border-radius: 5px; padding: 6px 9px; margin-bottom: 5px; font-size: 8.5px; font-weight: 500; }
+.m-exit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.m-exit .hl { font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; line-height: 1.1; }
+.m-exit .sub { font-family: 'Fira Code', monospace; font-size: 8px; letter-spacing: 1px; margin-top: 5px; opacity: 0.65; }
+.m-exit .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 18px; text-align: left; width: 100%; max-width: 420px; }
+.m-exit .col-t { font-size: 7px; font-weight: 700; letter-spacing: 1.5px; font-family: 'Fira Code', monospace; margin-bottom: 4px; }
+.m-exit .col-line { width: 22px; height: 2px; border-radius: 2px; margin-bottom: 8px; }
+.m-exit .it { font-size: 8.5px; font-weight: 600; margin-bottom: 2px; }
+.m-exit .id { font-size: 7.5px; opacity: 0.62; margin-bottom: 6px; line-height: 1.5; }
+
+/* pick bar */
+.pickbar {
+  position: fixed;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  background: #1A1A2E;
+  color: #fefcf6;
+  font-size: 12px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+  font-family: 'Fira Code', monospace;
+}
+</style>
+</head>
+<body>
+
+<div class="lab-header">
+  <h1>Style Lab · 三套配色 × 三个画面</h1>
+  <p>同一行配色 = 同一个叙事世界（终端 → zoom → 桌面 → 收尾总结）。三套方案蓝黄红比例不同。<br>
+  注：浅底上黄色当文字看不清，所以浅色方案里黄色一律做「高亮块」（黄底黑字），不做文字色。</p>
+</div>
+
+<!-- ============ SCHEME A: 深蓝世界（现状精修） ============ -->
+<section class="scheme">
+  <div class="scheme-title">方案 A — 深蓝世界 · 屏幕里是夜航模式</div>
+  <div class="scheme-desc">现状的精修版：饱和度压低（#1B4F8F→#173F73 渐变底），黄色只给关键字和光标，大面积文字用奶白。最强品牌感，但最重。</div>
+  <div class="scheme-row">
+
+    <!-- A1 terminal -->
+    <div class="frame" style="background: linear-gradient(165deg, #1B4F8F, #16365C);">
+      <span class="frame-label">1 · 终端开场</span>
+      <div class="m-titlebar" style="background: rgba(0,0,0,0.18); color: #FFF3CD;">
+        <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+        <span class="m-title">esther@universe ~ zsh</span>
+      </div>
+      <div class="m-term-body">
+        <div><span style="color:#F4D758">$ </span><span style="color:#FFF8E1">whoami</span></div>
+        <div style="color:rgba(255,255,255,0.82)">&gt; ESTHER不二</div>
+        <div><span style="color:#F4D758">$ </span><span style="color:#FFF8E1">cat about.md</span></div>
+        <div style="color:rgba(255,255,255,0.82)">&gt; 在AI时代认真生活的女生</div>
+        <div style="color:rgba(255,255,255,0.6)">&nbsp;&nbsp;INTJ / 南大·米理建筑 → AI</div>
+        <div><span style="color:#F4D758">$ </span><span style="color:#FFF8E1">echo "1 person + AI = 1 team"</span></div>
+        <div style="color:#F4D758; font-weight:700">&gt; 1 person + AI = 1 team</div>
+        <div><span style="color:#F4D758">$ </span><span style="color:#FFF8E1">open esther-os.app</span><span style="display:inline-block;width:6px;height:11px;background:#F4D758;vertical-align:middle;margin-left:2px;"></span></div>
+      </div>
+    </div>
+
+    <!-- A2 desktop -->
+    <div class="frame" style="background: linear-gradient(165deg, #1E5BA8, #173F73); background-image: radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px), linear-gradient(165deg, #1E5BA8, #173F73); background-size: 18px 18px, 100% 100%;">
+      <span class="frame-label">2 · 桌面</span>
+      <div class="m-menubar" style="background: rgba(8, 28, 56, 0.85); color: rgba(255,248,225,0.85);">
+        <span class="logo" style="color:#F4D758">esther OS</span>
+        <span style="opacity:0.5">About</span><span style="opacity:0.5">Values</span>
+        <span class="clk">02:46</span>
+      </div>
+      <div class="m-desk">
+        <div class="m-icons">
+          <div class="m-icon"><div class="art" style="background:#fefcf6; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></div><div class="lbl" style="color:#FFF3CD">values.md</div></div>
+          <div class="m-icon"><div class="art fold" style="background:#F4D758;"></div><div class="lbl" style="color:#FFF3CD">works/</div></div>
+          <div class="m-icon"><div class="art" style="background:#fefcf6; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></div><div class="lbl" style="color:#FFF3CD">不二.png</div></div>
+        </div>
+        <div class="m-win" style="left: 28%; top: 12%; width: 60%; background: #fefcf6;">
+          <div class="wt" style="background:#F4D758; color:#1A1A2E;"><span class="wdot" style="background:#E84A5F"></span><span style="margin:0 auto">values.md</span></div>
+          <div class="wb">
+            <h4 style="color:#1A1A2E"># 我是这样的人</h4>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #F4D758; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">做东西丑了我会睡不着觉</div>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #F4D758; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">人类是不会被AI替代的</div>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #F4D758; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">讨厌所有散播焦虑的信息</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A3 exit -->
+    <div class="frame" style="background: linear-gradient(165deg, #1B4F8F, #16365C);">
+      <span class="frame-label">3 · 收尾总结页</span>
+      <div class="m-exit">
+        <div class="hl" style="color:#F4D758">1 Person + AI = 1 Team</div>
+        <div class="sub" style="color:rgba(255,248,225,0.7)">ESTHER不二 · INTJ · 南大建筑 → 米兰理工 → AI</div>
+        <div class="cols" style="color:#FFF8E1">
+          <div><div class="col-t" style="color:rgba(255,248,225,0.6)">RESEARCH</div><div class="col-line" style="background:#F4D758"></div><div class="it">Daily Brief</div><div class="id">AI定时跑增长晨报</div><div class="it">竞品分析</div><div class="id">调研拆解策略推演</div></div>
+          <div><div class="col-t" style="color:rgba(255,248,225,0.6)">CREATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">内容创作</div><div class="id">图文脚本一鱼多吃</div><div class="it">工具开发</div><div class="id">NORUSH编辑器</div></div>
+          <div><div class="col-t" style="color:rgba(255,248,225,0.6)">OPERATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">项目管理</div><div class="id">多维表格自动化</div><div class="it">SOP搭建</div><div class="id">标准化复用</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEME B: 晨雾蓝（浅蓝调底） ============ -->
+<section class="scheme">
+  <div class="scheme-title">方案 B — 晨雾蓝 · 你说的"浅色但有淡淡的蓝"</div>
+  <div class="scheme-desc">底色是带蓝调的浅雾色（#EAF1F8 / #DEEAF6），线条和文字用品牌蓝，黄色做高亮块和文件夹，红色做关闭点。最轻盈，IP 图放上去最出挑。</div>
+  <div class="scheme-row">
+
+    <!-- B1 terminal -->
+    <div class="frame" style="background: #EAF1F8;">
+      <span class="frame-label">1 · 终端开场</span>
+      <div class="m-titlebar" style="background: #DEEAF6; color: #2B7FD8; border-bottom: 1px solid rgba(43,127,216,0.25);">
+        <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+        <span class="m-title">esther@universe ~ zsh</span>
+      </div>
+      <div class="m-term-body">
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">whoami</span></div>
+        <div style="color:#2B7FD8">&gt; ESTHER不二</div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">cat about.md</span></div>
+        <div style="color:#2B7FD8">&gt; 在AI时代认真生活的女生</div>
+        <div style="color:rgba(43,127,216,0.65)">&nbsp;&nbsp;INTJ / 南大·米理建筑 → AI</div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">echo "1 person + AI = 1 team"</span></div>
+        <div><span style="background:#F4D758; color:#1A1A2E; font-weight:700; padding: 1px 5px; border-radius:3px;">&gt; 1 person + AI = 1 team</span></div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">open esther-os.app</span><span style="display:inline-block;width:6px;height:11px;background:#2B7FD8;vertical-align:middle;margin-left:2px;"></span></div>
+      </div>
+    </div>
+
+    <!-- B2 desktop -->
+    <div class="frame" style="background: #DEEAF6; background-image: radial-gradient(rgba(43,127,216,0.18) 1px, transparent 1px); background-size: 18px 18px;">
+      <span class="frame-label">2 · 桌面</span>
+      <div class="m-menubar" style="background: rgba(255,255,255,0.75); color: #2B7FD8; border-bottom: 1px solid rgba(43,127,216,0.2);">
+        <span class="logo" style="color:#2B7FD8">esther OS</span>
+        <span style="opacity:0.6">About</span><span style="opacity:0.6">Values</span>
+        <span class="clk">02:46</span>
+      </div>
+      <div class="m-desk">
+        <div class="m-icons">
+          <div class="m-icon"><div class="art" style="background:#fff; border: 1px solid rgba(43,127,216,0.35);"></div><div class="lbl" style="color:#1E5BA8">values.md</div></div>
+          <div class="m-icon"><div class="art fold" style="background:#F4D758;"></div><div class="lbl" style="color:#1E5BA8">works/</div></div>
+          <div class="m-icon"><div class="art" style="background:#fff; border: 1px solid rgba(43,127,216,0.35);"></div><div class="lbl" style="color:#1E5BA8">不二.png</div></div>
+        </div>
+        <div class="m-win" style="left: 28%; top: 12%; width: 60%; background: #fff; border: 1.5px solid #2B7FD8;">
+          <div class="wt" style="background:#2B7FD8; color:#fff;"><span class="wdot" style="background:#E84A5F"></span><span style="margin:0 auto">values.md</span></div>
+          <div class="wb">
+            <h4 style="color:#1A1A2E"># 我是这样的人</h4>
+            <div class="m-card" style="background:#F7FAFD; border-left: 2px solid #F4D758;">做东西丑了我会睡不着觉</div>
+            <div class="m-card" style="background:#F7FAFD; border-left: 2px solid #F4D758;">人类是不会被AI替代的</div>
+            <div class="m-card" style="background:#F7FAFD; border-left: 2px solid #F4D758;">讨厌所有散播焦虑的信息</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B3 exit -->
+    <div class="frame" style="background: #EAF1F8;">
+      <span class="frame-label">3 · 收尾总结页</span>
+      <div class="m-exit">
+        <div class="hl" style="color:#2B7FD8">1 Person + AI = 1 Team</div>
+        <div class="sub" style="color:#5A7FA8">ESTHER不二 · INTJ · 南大建筑 → 米兰理工 → AI</div>
+        <div class="cols" style="color:#1A1A2E">
+          <div><div class="col-t" style="color:#2B7FD8">RESEARCH</div><div class="col-line" style="background:#F4D758"></div><div class="it">Daily Brief</div><div class="id">AI定时跑增长晨报</div><div class="it">竞品分析</div><div class="id">调研拆解策略推演</div></div>
+          <div><div class="col-t" style="color:#2B7FD8">CREATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">内容创作</div><div class="id">图文脚本一鱼多吃</div><div class="it">工具开发</div><div class="id">NORUSH编辑器</div></div>
+          <div><div class="col-t" style="color:#2B7FD8">OPERATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">项目管理</div><div class="id">多维表格自动化</div><div class="it">SOP搭建</div><div class="id">标准化复用</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEME C: 奶油纸面（品牌cream） ============ -->
+<section class="scheme">
+  <div class="scheme-title">方案 C — 奶油纸面 · Brand DNA 原教旨</div>
+  <div class="scheme-desc">底色用品牌奶油色（#fefcf6 / #faf6eb），蓝色承担线条+文字主角，黄色高亮块，红色点缀。跟你的小红书图文/组件库视觉完全同源，最"不二"。</div>
+  <div class="scheme-row">
+
+    <!-- C1 terminal -->
+    <div class="frame" style="background: #fefcf6;">
+      <span class="frame-label">1 · 终端开场</span>
+      <div class="m-titlebar" style="background: #faf6eb; color: #8A8A9A; border-bottom: 1px solid rgba(26,26,46,0.08);">
+        <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+        <span class="m-title">esther@universe ~ zsh</span>
+      </div>
+      <div class="m-term-body">
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">whoami</span></div>
+        <div style="color:#2B7FD8">&gt; ESTHER不二</div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">cat about.md</span></div>
+        <div style="color:#2B7FD8">&gt; 在AI时代认真生活的女生</div>
+        <div style="color:#8A8A9A">&nbsp;&nbsp;INTJ / 南大·米理建筑 → AI</div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">echo "1 person + AI = 1 team"</span></div>
+        <div><span style="background:#F4D758; color:#1A1A2E; font-weight:700; padding: 1px 5px; border-radius:3px;">&gt; 1 person + AI = 1 team</span></div>
+        <div><span style="color:#E84A5F">$ </span><span style="color:#1A1A2E">open esther-os.app</span><span style="display:inline-block;width:6px;height:11px;background:#E84A5F;vertical-align:middle;margin-left:2px;"></span></div>
+      </div>
+    </div>
+
+    <!-- C2 desktop -->
+    <div class="frame" style="background: #faf6eb; background-image: radial-gradient(rgba(43,127,216,0.22) 1px, transparent 1px); background-size: 18px 18px;">
+      <span class="frame-label">2 · 桌面</span>
+      <div class="m-menubar" style="background: #fefcf6; color: #4A4A5A; border-bottom: 1px solid rgba(26,26,46,0.08);">
+        <span class="logo" style="color:#2B7FD8">esther OS</span>
+        <span style="opacity:0.6">About</span><span style="opacity:0.6">Values</span>
+        <span class="clk">02:46</span>
+      </div>
+      <div class="m-desk">
+        <div class="m-icons">
+          <div class="m-icon"><div class="art" style="background:#fff; border: 1px solid rgba(26,26,46,0.15); box-shadow: 0 1px 3px rgba(0,0,0,0.08);"></div><div class="lbl" style="color:#4A4A5A">values.md</div></div>
+          <div class="m-icon"><div class="art fold" style="background:#F4D758;"></div><div class="lbl" style="color:#4A4A5A">works/</div></div>
+          <div class="m-icon"><div class="art" style="background:#fff; border: 1px solid rgba(26,26,46,0.15); box-shadow: 0 1px 3px rgba(0,0,0,0.08);"></div><div class="lbl" style="color:#4A4A5A">不二.png</div></div>
+        </div>
+        <div class="m-win" style="left: 28%; top: 12%; width: 60%; background: #fefcf6; border: 1.5px solid #1A1A2E;">
+          <div class="wt" style="background:#1A1A2E; color:#fefcf6;"><span class="wdot" style="background:#E84A5F"></span><span style="margin:0 auto">values.md</span></div>
+          <div class="wb">
+            <h4 style="color:#1A1A2E"># 我是这样的人</h4>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #2B7FD8; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">做东西丑了我会睡不着觉</div>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #2B7FD8; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">人类是不会被AI替代的</div>
+            <div class="m-card" style="background:#fff; border-left: 2px solid #2B7FD8; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">讨厌所有散播焦虑的信息</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C3 exit -->
+    <div class="frame" style="background: #fefcf6;">
+      <span class="frame-label">3 · 收尾总结页</span>
+      <div class="m-exit">
+        <div class="hl" style="color:#1A1A2E">1 Person + <span style="color:#2B7FD8">AI</span> = 1 Team</div>
+        <div class="sub" style="color:#8A8A9A">ESTHER不二 · INTJ · 南大建筑 → 米兰理工 → AI</div>
+        <div class="cols" style="color:#1A1A2E">
+          <div><div class="col-t" style="color:#2B7FD8">RESEARCH</div><div class="col-line" style="background:#F4D758"></div><div class="it">Daily Brief</div><div class="id">AI定时跑增长晨报</div><div class="it">竞品分析</div><div class="id">调研拆解策略推演</div></div>
+          <div><div class="col-t" style="color:#2B7FD8">CREATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">内容创作</div><div class="id">图文脚本一鱼多吃</div><div class="it">工具开发</div><div class="id">NORUSH编辑器</div></div>
+          <div><div class="col-t" style="color:#2B7FD8">OPERATE</div><div class="col-line" style="background:#F4D758"></div><div class="it">项目管理</div><div class="id">多维表格自动化</div><div class="it">SOP搭建</div><div class="id">标准化复用</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pickbar">挑一行：A 深蓝世界 · B 晨雾蓝 · C 奶油纸面（可混搭，告诉我哪屏用哪个）</div>
+
+</body>
+</html>

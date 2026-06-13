@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我终于拥有了第一个属于我自己的网页 — Esther不二</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Caveat:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --yellow: #F4D758;
+  --yellow-soft: #FFF3CD;
+  --blue: #2B7FD8;
+  --blue-deep: #1E5BA8;
+  --red: #E84A5F;
+  --cream: #fefcf6;
+  --cream-dark: #faf6eb;
+  --ink: #1A1A2E;
+  --ink-light: #4A4A5A;
+  --ink-faint: #8A8A9A;
+}
+
+::selection { background: #F4D758; color: #1a1a1a; }
+
+body {
+  background: var(--cream);
+  font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 40px);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 30%, rgba(244,215,88,0.1), transparent 60%);
+}
+
+.hero-img {
+  width: clamp(300px, 55vw, 480px);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+  line-height: 1.35;
+  z-index: 1;
+  position: relative;
+}
+
+.hero .domain-pill {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  padding: 6px 22px;
+  border-radius: 100px;
+  font-size: 0.8em;
+  margin-top: 12px;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0.5px;
+}
+
+.hero .handwrite {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--red);
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .float-pill {
+  position: absolute;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  z-index: 2;
+}
+.hero .float-pill.left { top: 20%; left: 5%; color: var(--blue); }
+.hero .float-pill.right { bottom: 25%; right: 5%; color: var(--red); }
+
+/* ===== ARTICLE ===== */
+article {
+  padding: clamp(40px, 8vh, 80px) 0;
+}
+
+article p {
+  margin-bottom: 16px;
+  color: var(--ink-light);
+  font-size: 0.95rem;
+}
+article p strong { color: var(--ink); }
+
+.img-block {
+  margin: 32px -20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.img-block img { width: 100%; display: block; }
+
+/* ===== CHAT BUBBLES ===== */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+  margin: 28px 0;
+}
+.chat-bubble {
+  padding: 14px 20px;
+  border-radius: 18px;
+  max-width: 80%;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.chat-bubble.user {
+  background: var(--yellow);
+  color: var(--ink);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.chat-bubble.ai {
+  background: var(--blue);
+  color: #fefcf6;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+/* ===== SECTION HEADER ===== */
+.sec-header {
+  margin-top: clamp(56px, 8vh, 100px);
+  margin-bottom: 24px;
+  position: relative;
+}
+.sec-header .num {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--blue);
+  opacity: 0.1;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  line-height: 1;
+}
+.sec-header h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  position: relative;
+}
+.sec-header .time {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+/* ===== HANDWRITE NOTE ===== */
+.note-box {
+  position: relative;
+  padding: 24px 24px;
+  border: 2px dashed rgba(43,127,216,0.25);
+  border-radius: 12px;
+  background: white;
+  margin: 24px 0;
+}
+.note-box .note-tag {
+  position: absolute;
+  top: -11px;
+  left: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--cream);
+  padding: 0 10px;
+}
+.note-box p {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  margin-bottom: 0;
+}
+
+/* ===== SUFFIX PILLS ===== */
+.suffixes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.suffixes span {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.suffixes .active { background: var(--blue); color: #fff; }
+.suffixes .inactive { background: #fff; color: var(--ink-light); border: 1.5px solid #eee; }
+
+/* ===== STEP CARDS ===== */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.step-item .num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--blue);
+  opacity: 0.5;
+  flex-shrink: 0;
+  width: 24px;
+}
+.step-item .text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+}
+.step-item .text strong { color: var(--ink); }
+
+/* ===== NOTEBOOK PANEL ===== */
+.notebook {
+  background: #fffef8;
+  border: 1px solid #e8e4d9;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 2px 3px 0 #e8e4d9;
+  margin: 24px 0;
+  overflow: hidden;
+}
+.notebook .red-line {
+  position: absolute;
+  left: 28px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(232,74,95,0.2);
+}
+.notebook .tab {
+  padding: 8px 16px 8px 48px;
+  border-bottom: 1px solid #e8e4d9;
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+.notebook .body {
+  padding: 16px 20px 16px 48px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  line-height: 2.2;
+  color: var(--ink);
+  background-image: repeating-linear-gradient(
+    transparent, transparent 31px, rgba(43,127,216,0.05) 31px, rgba(43,127,216,0.05) 32px
+  );
+}
+.notebook .body .t { color: var(--blue); font-weight: 600; }
+.notebook .body .v { color: var(--red); }
+
+.dns-warning {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  background: rgba(232, 74, 95, 0.06);
+  border-left: 3px solid var(--red);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+/* ===== PULLQUOTE ===== */
+.pullquote {
+  padding: 32px;
+  background: white;
+  border-radius: 16px;
+  border: 2px solid var(--yellow);
+  position: relative;
+  margin: 40px 0;
+}
+.pullquote::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
+  color: var(--yellow);
+  position: absolute;
+  top: -8px; left: 20px;
+  opacity: 0.6;
+  line-height: 1;
+}
+.pullquote p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  margin: clamp(40px, 6vh, 72px) 0;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 56px 20px 48px;
+  border-top: 1px solid #eee;
+}
+.site-footer .avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--yellow);
+  margin-bottom: 8px;
+}
+.site-footer .name { font-weight: 700; font-size: 0.95rem; }
+.site-footer .tagline { font-size: 0.75rem; color: var(--ink-faint); margin-top: 4px; }
+.site-footer .bar {
+  width: 80px; height: 3px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  border-radius: 2px;
+}
+
+/* ===== REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .hero { min-height: 90vh; }
+  .hero .float-pill { display: none; }
+  .img-block { margin: 24px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <span class="float-pill left">☕ 不到一小时</span>
+  <span class="float-pill right">💰 100块/年</span>
+  <img class="hero-img" src="img-02.png" alt="我的门牌号">
+  <h1>我终于拥有了第一个<br>属于我自己的网页</h1>
+  <span class="domain-pill">hiesther.me</span>
+  <p class="handwrite">非常激动！✨</p>
+</div>
+
+<!-- ===== ARTICLE ===== -->
+<article class="container">
+
+  <!-- 背景：对话气泡 -->
+  <div class="reveal">
+    <p>之前跟大家分享过我的个人网页，当时是用GitHub Pages部署的，非常方便也不用钱。但总觉得那个地址没有那么正式，没有自己的仪式感。</p>
+    <p>所以我就想要拥有一个真正属于自己的域名和网址。</p>
+  </div>
+
+  <div class="chat-container reveal">
+    <div class="chat-bubble user">我想要一个自己的域名，这个东西应该怎么办？</div>
+    <div class="chat-bubble ai">推荐用Cloudflare买，没有溢价，而且DNS管理很方便。来，我帮你选名字 👇</div>
+  </div>
+
+  <p class="reveal">于是我在Cloudflare里面挑选了一个我最喜欢、相对来说比较便宜的域名—— <strong>hiesther.me</strong>。</p>
+
+  <div class="divider"></div>
+
+  <!-- 第一步 -->
+  <div class="sec-header reveal">
+    <span class="num">01</span>
+    <h2>买域名</h2>
+    <span class="time">5 minutes ☕</span>
+  </div>
+
+  <div class="img-block reveal">
+    <img src="img-01.png" alt="选名字">
+  </div>
+
+  <div class="note-box reveal">
+    <span class="note-tag">简单说 ✦</span>
+    <p>域名 = 互联网上的"门牌号"。买域名 = 把这个名字注册成你的，别人就不能用了。</p>
+  </div>
+
+  <div class="steps reveal">
+    <div class="step-item"><span class="num">1</span><div class="text">去 <strong>cloudflare.com</strong> 注册账号</div></div>
+    <div class="step-item"><span class="num">2</span><div class="text">左侧菜单「域名注册」→ 搜索你想要的名字</div></div>
+    <div class="step-item"><span class="num">3</span><div class="text">选一个喜欢的后缀，付款，搞定</div></div>
+  </div>
+
+  <div class="suffixes reveal">
+    <span class="active">.me（我选的）</span>
+    <span class="inactive">.design</span>
+    <span class="inactive">.dev</span>
+    <span class="inactive">.ai</span>
+    <span class="inactive">.xyz</span>
+  </div>
+
+  <p class="reveal">一年100多块，比想象中便宜很多。选名字我让AI帮我一起头脑风暴的。</p>
+
+  <div class="divider"></div>
+
+  <!-- 第二步 -->
+  <div class="sec-header reveal">
+    <span class="num">02</span>
+    <h2>让域名指向你的网页</h2>
+    <span class="time">10 minutes 🔗</span>
+  </div>
+
+  <div class="img-block reveal">
+    <img src="img-03.png" alt="域名指向网站">
+  </div>
+
+  <div class="note-box reveal">
+    <span class="note-tag">什么意思？ 🤔</span>
+    <p>你买了个门牌号，但还没挂到家门口。这一步就是"把门牌号挂上去"——让别人输入你的域名时，能找到你的网页。</p>
+  </div>
+
+  <h3 class="reveal" style="font-family:'Noto Serif SC',serif;font-size:1.05rem;margin-top:32px;margin-bottom:12px;">GitHub那边：告诉它"我有自己的域名了"</h3>
+
+  <div class="steps reveal">
+    <div class="step-item"><span class="num">1</span><div class="text">仓库 → <strong>Settings</strong> → <strong>Pages</strong></div></div>
+    <div class="step-item"><span class="num">2</span><div class="text"><strong>Custom domain</strong> 填你的域名 → <strong>Save</strong></div></div>
+    <div class="step-item"><span class="num">3</span><div class="text">检查通过后勾选 <strong>Enforce HTTPS</strong></div></div>
+  </div>
+
+  <h3 class="reveal" style="font-family:'Noto Serif SC',serif;font-size:1.05rem;margin-top:32px;margin-bottom:12px;">Cloudflare那边：告诉互联网"我的网站在这里"</h3>
+
+  <p class="reveal">域名是"名字"，电脑只认数字地址。这一步告诉全世界：输入这个名字 → 去GitHub服务器找网页。</p>
+
+  <div class="notebook reveal">
+    <div class="red-line"></div>
+    <div class="tab">✏️ DNS 记录（添加4条）</div>
+    <div class="body">
+<span class="t">A</span>  @  <span class="v">185.199.108.153</span>
+<span class="t">A</span>  @  <span class="v">185.199.109.153</span>
+<span class="t">A</span>  @  <span class="v">185.199.110.153</span>
+<span class="t">A</span>  @  <span class="v">185.199.111.153</span>
+    </div>
+  </div>
+
+  <div class="dns-warning reveal">⚠️ 代理状态一定要关掉（灰色云，不是橙色云）。GitHub Pages不支持Cloudflare代理。</div>
+
+  <div class="divider"></div>
+
+  <!-- 第三步 -->
+  <div class="sec-header reveal">
+    <span class="num">03</span>
+    <h2>等几分钟</h2>
+    <span class="time">然后就好了 🎉</span>
+  </div>
+
+  <p class="reveal">DNS生效需要一点时间（快的话几分钟，慢的话几小时）。生效后，打开你的域名——你的网页出现了！</p>
+
+  <div class="img-block reveal">
+    <img src="img-05.png" alt="上线了">
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 遇到不会的 -->
+  <div class="sec-header reveal">
+    <span class="num">💡</span>
+    <h2>遇到不会的怎么办？</h2>
+  </div>
+
+  <div class="img-block reveal">
+    <img src="img-04.png" alt="截图问AI">
+  </div>
+
+  <div class="pullquote reveal">
+    <p>截图当前界面，发给AI，问"我现在应该填什么"。<br>不需要理解原理，填对了就能用。</p>
+  </div>
+
+  <p class="reveal">这也是AI时代做事的方式——你不需要先学会再做，你可以<strong>边做边问</strong>。</p>
+
+</article>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <img class="avatar" src="avatar.jpg" alt="avatar">
+  <div class="name">Esther不二</div>
+  <div class="tagline">AI时代的个人品牌实验 | 用AI让生活变好</div>
+  <div class="bar"></div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
