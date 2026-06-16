@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Window Content Styles — Playground</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500&family=Fraunces:ital,wght@0,400;0,900;1,400;1,900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #fefcf6;
+  --cream-dark: #faf6eb;
+  --blue: #2B7FD8;
+  --blue-deep: #1E5BA8;
+  --yellow: #F4D758;
+  --red: #E84A5F;
+  --ink: #1A1A2E;
+  --ink-light: #4A4A5A;
+  --ink-faint: #8A8A9A;
+  --orange: #2B7FD8;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  background: #eae8e4;
+  padding: 40px 24px;
+  color: var(--ink);
+}
+h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--blue-deep);
+}
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-bottom: 48px;
+  font-family: 'Fira Code', monospace;
+}
+
+.section-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: var(--blue);
+  letter-spacing: 2px;
+  margin: 60px 0 24px;
+  text-align: center;
+}
+.section-title:first-of-type { margin-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.card-label {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--blue);
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* =============================================
+   VALUES — from components.md
+   ============================================= */
+
+/* A: 1E-A 左粗线+大引号 */
+.val-a .items { display: flex; flex-direction: column; gap: 20px; }
+.val-a .item {
+  border-left: 6px solid var(--blue);
+  padding: 20px 20px 20px 28px;
+  position: relative;
+}
+.val-a .item::before {
+  content: '\201C';
+  font-family: 'Fraunces', serif;
+  font-size: 72px;
+  color: var(--blue);
+  opacity: 0.12;
+  position: absolute;
+  top: -10px; left: 8px;
+  line-height: 1;
+}
+.val-a .item p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 700;
+  color: var(--ink);
+  position: relative;
+}
+.val-a .item:nth-child(2) { border-left-color: var(--yellow); }
+.val-a .item:nth-child(2)::before { color: var(--yellow); }
+.val-a .item:nth-child(3) { border-left-color: var(--red); }
+.val-a .item:nth-child(3)::before { color: var(--red); }
+
+/* B: 3B 手写批注风 */
+.val-b .items { display: flex; flex-direction: column; gap: 14px; }
+.val-b .item {
+  position: relative;
+  padding: 18px 22px;
+  background: white;
+  border-radius: 10px;
+  border: 1.5px dashed rgba(43,127,216,0.3);
+}
+.val-b .item .tag {
+  position: absolute;
+  top: -9px;
+  left: 14px;
+  font-family: 'Caveat', cursive;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--cream);
+  padding: 0 6px;
+}
+.val-b .item:nth-child(2) { border-color: rgba(244,215,88,0.5); }
+.val-b .item:nth-child(2) .tag { color: #9a8100; }
+.val-b .item:nth-child(3) { border-color: rgba(232,74,95,0.3); }
+.val-b .item:nth-child(3) .tag { color: var(--red); }
+.val-b .item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-light);
+  font-weight: 500;
+}
+
+/* C: 6 Pull Quote (黄色边框) */
+.val-c .items { display: flex; flex-direction: column; gap: 16px; }
+.val-c .item {
+  padding: 24px 28px;
+  background: var(--cream);
+  border-radius: 16px;
+  border: 2px solid var(--yellow);
+  position: relative;
+}
+.val-c .item::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 3.5rem;
+  color: var(--yellow);
+  position: absolute;
+  top: -6px; left: 16px;
+  opacity: 0.5;
+  line-height: 1;
+}
+.val-c .item p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+  padding-left: 28px;
+}
+
+/* D: 10B 杂志排版 */
+.val-d .items { display: flex; flex-direction: column; gap: 24px; }
+.val-d .item {
+  position: relative;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(26,26,46,0.08);
+}
+.val-d .item:last-child { border-bottom: none; }
+.val-d .item .num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  display: block;
+}
+.val-d .item p {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+/* E: 10E 纯文字排版（色条分隔） */
+.val-e .items { display: flex; flex-direction: column; gap: 20px; }
+.val-e .item {
+  padding-left: 20px;
+  position: relative;
+}
+.val-e .item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 60%;
+  border-radius: 2px;
+}
+.val-e .item:nth-child(1)::before { background: var(--blue); }
+.val-e .item:nth-child(2)::before { background: var(--yellow); }
+.val-e .item:nth-child(3)::before { background: var(--red); }
+.val-e .item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* =============================================
+   NOW — from components.md
+   ============================================= */
+
+/* A: 10A 大编号叠底 */
+.now-a .items { display: flex; flex-direction: column; gap: 12px; }
+.now-a .item {
+  position: relative;
+  background: white;
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+.now-a .item .big-num {
+  position: absolute;
+  top: -12px; right: -4px;
+  font-family: 'Fraunces', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+.now-a .item:nth-child(1) .big-num { color: rgba(43,127,216,0.08); }
+.now-a .item:nth-child(2) .big-num { color: rgba(244,215,88,0.15); }
+.now-a .item:nth-child(3) .big-num { color: rgba(232,74,95,0.08); }
+.now-a .item h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  position: relative;
+}
+.now-a .item .desc {
+  font-size: 13px;
+  color: var(--ink-light);
+  position: relative;
+}
+
+/* B: 10C 手绘虚线框 */
+.now-b .items { display: flex; flex-direction: column; gap: 14px; }
+.now-b .item {
+  border: 2px dashed;
+  border-radius: 14px;
+  padding: 20px 18px;
+  position: relative;
+  background: white;
+}
+.now-b .item:nth-child(1) { border-color: rgba(43,127,216,0.3); }
+.now-b .item:nth-child(2) { border-color: rgba(244,215,88,0.5); }
+.now-b .item:nth-child(3) { border-color: rgba(232,74,95,0.3); }
+.now-b .item .label {
+  position: absolute;
+  top: -9px; left: 14px;
+  font-family: 'Caveat', cursive;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--cream);
+  padding: 0 6px;
+}
+.now-b .item:nth-child(1) .label { color: var(--blue); }
+.now-b .item:nth-child(2) .label { color: #9a8100; }
+.now-b .item:nth-child(3) .label { color: var(--red); }
+.now-b .item h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+.now-b .item .desc {
+  font-size: 12px;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+/* C: 10D 渐变底卡 */
+.now-c .items { display: flex; flex-direction: column; gap: 12px; }
+.now-c .item {
+  border-radius: 14px;
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.now-c .item:nth-child(1) { background: linear-gradient(145deg, rgba(43,127,216,0.08), rgba(43,127,216,0.02)); }
+.now-c .item:nth-child(2) { background: linear-gradient(145deg, rgba(244,215,88,0.15), rgba(244,215,88,0.03)); }
+.now-c .item:nth-child(3) { background: linear-gradient(145deg, rgba(232,74,95,0.08), rgba(232,74,95,0.02)); }
+.now-c .item .emoji { font-size: 20px; margin-bottom: 8px; }
+.now-c .item h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.now-c .item .desc {
+  font-size: 12px;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+/* D: 1D 侧边icon卡片 */
+.now-d .items { display: flex; flex-direction: column; gap: 12px; }
+.now-d .item {
+  display: flex;
+  align-items: stretch;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  min-height: 80px;
+}
+.now-d .item .icon-area {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.now-d .item:nth-child(1) .icon-area { background: rgba(43,127,216,0.06); }
+.now-d .item:nth-child(2) .icon-area { background: rgba(244,215,88,0.12); }
+.now-d .item:nth-child(3) .icon-area { background: rgba(232,74,95,0.06); }
+.now-d .item .content {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.now-d .item h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.now-d .item .desc {
+  font-size: 12px;
+  color: var(--ink-light);
+}
+
+/* E: 1B 编号主导卡片 */
+.now-e .items { display: flex; flex-direction: column; gap: 12px; }
+.now-e .item {
+  position: relative;
+  padding: 20px 20px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.now-e .item .card-number {
+  position: absolute;
+  top: -8px; right: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+.now-e .item:nth-child(1) .card-number { color: rgba(43,127,216,0.08); }
+.now-e .item:nth-child(2) .card-number { color: rgba(244,215,88,0.15); }
+.now-e .item:nth-child(3) .card-number { color: rgba(232,74,95,0.08); }
+.now-e .item h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  position: relative;
+}
+.now-e .item .desc {
+  font-size: 12px;
+  color: var(--ink-light);
+  position: relative;
+}
+</style>
+</head>
+<body>
+
+<h1>窗口内容样式 Playground</h1>
+<p class="subtitle">Esther Design System · 组件库选型</p>
+
+<!-- ======== VALUES ======== -->
+<div class="section-title">— VALUES.MD · 我是这样的人 —</div>
+
+<div class="grid">
+
+  <div class="card val-a">
+    <span class="card-label">A · 左粗线+大引号 (1E-A)</span>
+    <div class="items">
+      <div class="item"><p>做东西丑了我会睡不着觉</p></div>
+      <div class="item"><p>人类是不会被AI替代的</p></div>
+      <div class="item"><p>讨厌所有散播焦虑的信息</p></div>
+    </div>
+  </div>
+
+  <div class="card val-b">
+    <span class="card-label">B · 手写批注风 (3B)</span>
+    <div class="items">
+      <div class="item"><span class="tag">Belief #1 ✦</span><p>做东西丑了我会睡不着觉</p></div>
+      <div class="item"><span class="tag">Belief #2 ✦</span><p>人类是不会被AI替代的</p></div>
+      <div class="item"><span class="tag">Belief #3 ✦</span><p>讨厌所有散播焦虑的信息</p></div>
+    </div>
+  </div>
+
+  <div class="card val-c">
+    <span class="card-label">C · Pull Quote 黄框 (6)</span>
+    <div class="items">
+      <div class="item"><p>做东西丑了我会睡不着觉</p></div>
+      <div class="item"><p>人类是不会被AI替代的</p></div>
+      <div class="item"><p>讨厌所有散播焦虑的信息</p></div>
+    </div>
+  </div>
+
+  <div class="card val-d">
+    <span class="card-label">D · 杂志排版 (10B)</span>
+    <div class="items">
+      <div class="item"><span class="num">i.</span><p>做东西丑了我会睡不着觉</p></div>
+      <div class="item"><span class="num">ii.</span><p>人类是不会被AI替代的</p></div>
+      <div class="item"><span class="num">iii.</span><p>讨厌所有散播焦虑的信息</p></div>
+    </div>
+  </div>
+
+  <div class="card val-e">
+    <span class="card-label">E · 纯排版色条 (3C/10E)</span>
+    <div class="items">
+      <div class="item"><p>做东西丑了我会睡不着觉</p></div>
+      <div class="item"><p>人类是不会被AI替代的</p></div>
+      <div class="item"><p>讨厌所有散播焦虑的信息</p></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ======== NOW ======== -->
+<div class="section-title">— NOW.HTML · 正在做的事 —</div>
+
+<div class="grid">
+
+  <div class="card now-a">
+    <span class="card-label">A · 大编号叠底 (10A)</span>
+    <div class="items">
+      <div class="item"><span class="big-num">01</span><h4>ColaOS 运营</h4><div class="desc">国内增长 0→1</div></div>
+      <div class="item"><span class="big-num">02</span><h4>人生系统搭建</h4><div class="desc">Cola + Obsidian</div></div>
+      <div class="item"><span class="big-num">03</span><h4>IP 搭建</h4><div class="desc">小红书 @ESTHER不二 等社媒</div></div>
+    </div>
+  </div>
+
+  <div class="card now-b">
+    <span class="card-label">B · 手绘虚线框 (10C)</span>
+    <div class="items">
+      <div class="item"><span class="label">In Progress #1</span><h4>ColaOS 运营</h4><div class="desc">国内增长 0→1</div></div>
+      <div class="item"><span class="label">In Progress #2</span><h4>人生系统搭建</h4><div class="desc">Cola + Obsidian</div></div>
+      <div class="item"><span class="label">In Progress #3</span><h4>IP 搭建</h4><div class="desc">小红书 @ESTHER不二 等社媒</div></div>
+    </div>
+  </div>
+
+  <div class="card now-c">
+    <span class="card-label">C · 渐变底卡 (10D)</span>
+    <div class="items">
+      <div class="item"><div class="emoji">🚀</div><h4>ColaOS 运营</h4><div class="desc">国内增长 0→1</div></div>
+      <div class="item"><div class="emoji">🧠</div><h4>人生系统搭建</h4><div class="desc">Cola + Obsidian</div></div>
+      <div class="item"><div class="emoji">✨</div><h4>IP 搭建</h4><div class="desc">小红书 @ESTHER不二 等社媒</div></div>
+    </div>
+  </div>
+
+  <div class="card now-d">
+    <span class="card-label">D · 侧边icon卡片 (1D)</span>
+    <div class="items">
+      <div class="item"><div class="icon-area">🚀</div><div class="content"><h4>ColaOS 运营</h4><div class="desc">国内增长 0→1</div></div></div>
+      <div class="item"><div class="icon-area">🧠</div><div class="content"><h4>人生系统搭建</h4><div class="desc">Cola + Obsidian</div></div></div>
+      <div class="item"><div class="icon-area">✨</div><div class="content"><h4>IP 搭建</h4><div class="desc">小红书 @ESTHER不二 等社媒</div></div></div>
+    </div>
+  </div>
+
+  <div class="card now-e">
+    <span class="card-label">E · 编号主导 (1B)</span>
+    <div class="items">
+      <div class="item"><span class="card-number">01</span><h4>ColaOS 运营</h4><div class="desc">国内增长 0→1</div></div>
+      <div class="item"><span class="card-number">02</span><h4>人生系统搭建</h4><div class="desc">Cola + Obsidian</div></div>
+      <div class="item"><span class="card-number">03</span><h4>IP 搭建</h4><div class="desc">小红书 @ESTHER不二 等社媒</div></div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center; margin-top:60px; font-size:12px; color:var(--ink-faint); font-family:'Fira Code',monospace;">
+  values 选哪个 + now 选哪个？可以混搭
+</p>
+
+</body>
+</html>

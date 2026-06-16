@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESTHER不二 — 1 Person + AI = 1 Team</title>
+<title>ESTHER不二 - 1 Person + AI = 1 Team</title>
 <meta name="description" content="ESTHER不二 · 在AI时代认真生活的女生 · 南大建筑 → 米兰理工 → AI · ColaOS">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,900;1,400;1,900&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -128,6 +128,21 @@ body {
   overflow: hidden;
   position: relative;
 }
+.macbook-screen::after,
+.exit-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(43,127,216,0.02) 2px,
+    rgba(43,127,216,0.02) 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
 .macbook-hinge {
   width: 720px; height: 3px;
   background: linear-gradient(180deg, #8a8a8e 0%, #6e6e72 100%);
@@ -215,7 +230,7 @@ body {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* ============================================
-   TAB 1 — SECTION A: TERMINAL HERO
+   TAB 1 - SECTION A: TERMINAL HERO
    ============================================ */
 .hero-section {
   position: relative;
@@ -259,7 +274,7 @@ body {
 .transition-overlay {
   position: fixed;
   inset: 0;
-  background: var(--blue);
+  background: var(--cream);
   z-index: 2000;
   opacity: 0;
   pointer-events: none;
@@ -268,7 +283,7 @@ body {
 .transition-overlay.active { opacity: 1; pointer-events: auto; }
 
 /* ============================================
-   TAB 1 — SECTION B: DESKTOP (inside the screen)
+   TAB 1 - SECTION B: DESKTOP (inside the screen)
    ============================================ */
 .desktop {
   position: relative;
@@ -373,14 +388,30 @@ body {
 .dicon-art.file.ext-png::after { background: var(--red); }
 .dicon-art.file.ext-html::after { background: var(--blue); }
 
+/* Cola app icon */
+.dicon-art.app-cola {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFF8F0;
+  border-radius: 12px;
+  border: 1.5px solid rgba(241,117,45,0.3);
+  box-shadow: 0 2px 6px rgba(241,117,45,0.12);
+}
+.dicon-art.app-cola img {
+  width: 34px; height: 34px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 /* OS windows */
 .os-window {
   position: absolute;
   width: min(520px, 88vw);
   background: var(--cream);
-  border: 2px solid var(--blue);
-  border-radius: 12px;
-  box-shadow: 0 18px 50px rgba(30, 91, 168, 0.22);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.18), 0 0 0 0.5px rgba(0,0,0,0.06);
   overflow: hidden;
   animation: winPop 0.25s var(--ease-out);
   z-index: 100;
@@ -388,49 +419,41 @@ body {
 @keyframes winPop {
   from { transform: scale(0.92) translateY(8px); opacity: 0; }
 }
-.os-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 12px;
-  background: var(--blue);
-  border-bottom: 2px solid rgba(30,91,168,0.3);
+/* macOS-native window chrome: no separate titlebar, traffic lights inside */
+.os-dragbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 36px;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   touch-action: none;
+  z-index: 10;
 }
-.os-titlebar:active { cursor: grabbing; }
-.os-close {
-  width: 13px; height: 13px;
+.os-dragbar:active { cursor: grabbing; }
+.os-traffic {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 7px;
+  z-index: 11;
+}
+.os-traffic span {
+  width: 12px; height: 12px;
   border-radius: 50%;
-  background: var(--red);
-  border: none;
+  display: block;
+}
+.os-traffic .tl-close {
+  background: #ff5f56;
   cursor: pointer;
-  flex-shrink: 0;
   transition: transform 0.15s;
 }
-.os-close:hover { transform: scale(1.2); }
-.os-title {
-  font-family: 'Fira Code', monospace;
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
-  margin: 0 auto;
-  transform: translateX(-10px);
-  pointer-events: none;
-}
-.os-urlbar {
-  padding: 7px 14px;
-  background: rgba(43,127,216,0.08);
-  border-bottom: 1px solid rgba(43,127,216,0.15);
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  color: var(--blue-deep);
-}
-.os-urlbar::before { content: '🔒 '; opacity: 0.5; }
+.os-traffic .tl-close:hover { transform: scale(1.2); }
+.os-traffic .tl-min { background: #ffbd2e; }
+.os-traffic .tl-max { background: #27c93f; }
 .os-body {
-  padding: 24px 26px;
+  padding: 36px 26px 24px;
   max-height: min(56vh, 480px);
   overflow: auto;
 }
@@ -442,8 +465,208 @@ body {
   justify-content: center;
 }
 .os-body.imgview img { display: block; width: 100%; height: auto; }
+
+/* === Cola Chat Window === */
+.os-window.cola-window {
+  width: min(720px, 92vw);
+  height: min(560px, 78vh);
+}
+.cola-inner {
+  display: flex;
+  height: 100%;
+  background: #f9f8f5;
+  overflow: hidden;
+}
+.cola-sidebar {
+  width: 56px;
+  background: #f9f8f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e5e3df;
+  flex-shrink: 0;
+  gap: 16px;
+}
+.cola-sidebar-avatar { width: 36px; height: 36px; }
+.cola-sidebar-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.cola-sidebar-mic {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: #f0efec;
+  border: 1px solid #e2e0dc;
+  display: flex; align-items: center; justify-content: center;
+}
+.cola-sidebar-mic svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: #999;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.cola-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cola-topbar {
+  height: 38px;
+  background: #fafaf9;
+  border-bottom: 1px solid #eae8e4;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  padding-top: 0;
+  gap: 18px;
+  flex-shrink: 0;
+}
+.cola-tab {
+  font-size: 12px;
+  color: #999;
+  padding: 10px 0;
+  border-bottom: 2px solid transparent;
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+}
+.cola-tab.active {
+  color: #1a1a1a;
+  font-weight: 600;
+  border-bottom-color: #1a1a1a;
+}
+.cola-search {
+  height: 30px;
+  margin: 8px 14px;
+  background: #efede9;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.cola-search svg { width: 12px; height: 12px; fill: #aaa; }
+.cola-search span { font-size: 12px; color: #aaa; font-family: -apple-system, 'PingFang SC', sans-serif; }
+.cola-chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cola-msg-user {
+  align-self: flex-end;
+  max-width: 72%;
+}
+.cola-msg-user .cola-bubble {
+  background: #e8e6e1;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+}
+.cola-msg-bot {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 85%;
+}
+.cola-msg-bot .cola-bot-avatar {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+}
+.cola-msg-bot .cola-bot-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.cola-msg-bot .cola-bot-content {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+}
+.cola-msg-bot .cola-mutter {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #999;
+  margin-bottom: 3px;
+}
+.cola-msg-bot .cola-mutter::before {
+  content: '\2022';
+  margin-right: 3px;
+}
+.cola-input-bar {
+  background: #f9f8f5;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+.cola-input-container {
+  width: 100%;
+  min-height: 68px;
+  background: #fafaf8;
+  border: 1px solid #e0dfdb;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px 8px;
+  position: relative;
+}
+.cola-input-text {
+  flex: 1;
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.5;
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+}
+.cola-input-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.cola-input-toolbar .cola-toolbar-left {
+  display: flex; align-items: center; gap: 8px;
+}
+.cola-input-toolbar .cola-toolbar-left svg { width: 14px; height: 14px; fill: none; stroke: #999; stroke-width: 2; }
+.cola-input-toolbar .cola-toolbar-right {
+  display: flex; align-items: center; gap: 12px;
+}
+.cola-model-tag {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+}
+.cola-model-tag::after { content: ' \25BE'; font-size: 9px; color: #666; }
+.cola-send-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: #eeeae4;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cola-send-btn svg { width: 13px; height: 13px; fill: none; stroke: #555; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.cola-coming-soon {
+  position: absolute;
+  inset: 0;
+  background: rgba(249,248,245,0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #F1752D;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .os-window.cola-window { width: 96vw; height: 72vh; }
+  .cola-sidebar { width: 44px; }
+  .cola-sidebar-avatar { width: 28px; height: 28px; }
+  .cola-topbar { gap: 12px; padding: 0 10px; }
+  .cola-tab { font-size: 11px; }
+  .cola-chat { padding: 12px 10px; }
+}
 .os-body.win-sayhi {
-  background: var(--blue);
+  background: var(--cream-dark);
   text-align: center;
   padding: 38px 26px 30px;
 }
@@ -451,13 +674,13 @@ body {
   font-family: 'Caveat', cursive;
   font-size: 44px;
   font-weight: 700;
-  color: var(--yellow);
+  color: var(--blue);
   line-height: 1.1;
 }
 .win-sayhi .sayhi-sub {
   font-family: 'Fira Code', monospace;
   font-size: 12px;
-  color: rgba(255,248,225,0.7);
+  color: var(--ink-faint);
   margin: 6px 0 22px;
 }
 .win-sayhi .sayhi-links {
@@ -466,11 +689,12 @@ body {
   gap: 10px;
   font-size: 14px;
 }
-.win-sayhi .sayhi-links a { color: #FFF8E1; }
+.win-sayhi .sayhi-links a { color: var(--blue); text-decoration: none; }
+.win-sayhi .sayhi-links a:hover { text-decoration: underline; }
 .win-sayhi .sayhi-quote {
   margin-top: 24px;
   font-size: 11px;
-  color: rgba(255,248,225,0.55);
+  color: var(--ink-faint);
   font-style: italic;
   line-height: 1.7;
 }
@@ -524,7 +748,7 @@ body {
   pointer-events: none;
 }
 
-/* fake macOS menubar — sells the "inside the computer" illusion */
+/* fake macOS menubar - sells the "inside the computer" illusion */
 .desktop-menubar {
   position: sticky;
   top: 0;
@@ -578,17 +802,36 @@ body {
   margin-bottom: 28px;
 }
 
-/* values */
-.value-list { display: flex; flex-direction: column; gap: 14px; }
+/* values: 1E-A left bar + big quote */
+.value-list { display: flex; flex-direction: column; gap: 16px; }
 .value-item {
-  background: white;
-  border-radius: 12px;
-  padding: 20px 24px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  border-left: 3px solid var(--blue);
-  font-size: 15px;
-  font-weight: 500;
+  border-left: 6px solid var(--blue);
+  padding: 18px 18px 18px 26px;
+  position: relative;
+  border-radius: 0 8px 8px 0;
 }
+.value-item::before {
+  content: '\201C';
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  color: var(--blue);
+  opacity: 0.12;
+  position: absolute;
+  top: -8px; left: 6px;
+  line-height: 1;
+}
+.value-item p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 700;
+  color: var(--ink);
+  position: relative;
+}
+.value-item:nth-child(2) { border-left-color: var(--yellow); }
+.value-item:nth-child(2)::before { color: var(--yellow); }
+.value-item:nth-child(3) { border-left-color: var(--red); }
+.value-item:nth-child(3)::before { color: var(--red); }
 
 /* turning points */
 .turning-points { display: flex; flex-direction: column; }
@@ -610,26 +853,36 @@ body {
 .tp-title { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
 .tp-desc { color: var(--ink-light); font-size: 14px; line-height: 1.8; }
 
-/* now */
+/* now: 10A big number overlay */
 .now-list { display: flex; flex-direction: column; gap: 12px; }
 .now-item {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+  position: relative;
   background: white;
-  border-radius: 12px;
-  padding: 18px 22px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border-radius: 14px;
+  padding: 20px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
 }
-.now-item .now-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--term-green);
-  flex-shrink: 0;
-  animation: blink 2s ease infinite;
+.now-item .now-num {
+  position: absolute;
+  top: -10px; right: -2px;
+  font-family: 'Fraunces', serif;
+  font-size: 4.2rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
 }
-.now-item .now-text { font-size: 15px; font-weight: 500; }
-.now-item .now-sub { font-size: 13px; color: var(--ink-faint); }
+.now-item:nth-child(1) .now-num { color: rgba(43,127,216,0.08); }
+.now-item:nth-child(2) .now-num { color: rgba(244,215,88,0.15); }
+.now-item:nth-child(3) .now-num { color: rgba(232,74,95,0.08); }
+.now-item .now-text {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  position: relative;
+}
+.now-item .now-sub { font-size: 12px; color: var(--ink-faint); position: relative; }
 
 .todo-note {
   font-family: 'Fira Code', monospace;
@@ -654,7 +907,7 @@ body {
 .scroll-on-hint .down { display: block; font-size: 16px; margin-top: 6px; animation: bounce 1.6s ease infinite; }
 
 /* ============================================
-   TAB 1 — SECTION C: EXIT ZOOM-OUT (scroll-driven)
+   TAB 1 - SECTION C: EXIT ZOOM-OUT (scroll-driven)
    ============================================ */
 .exit-section {
   position: relative;
@@ -683,7 +936,7 @@ body {
   will-change: transform, opacity;
 }
 
-/* Workflow Screen — the closing "summary desktop" that shrinks */
+/* Workflow Screen - the closing "summary desktop" that shrinks */
 .workflow-screen {
   max-width: 1000px;
   width: 100%;
@@ -767,7 +1020,7 @@ body {
 }
 .exit-screen {
   width: 680px; height: 440px;
-  background: var(--blue);
+  background: var(--cream);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -804,10 +1057,10 @@ body {
   align-items: center;
   gap: 7px;
   padding: 12px 20px 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(43,127,216,0.1);
 }
 .goodbye-title-text {
-  color: rgba(255,255,255,0.35);
+  color: rgba(30,91,168,0.4);
   font-size: 11px;
   font-family: 'Fira Code', monospace;
   margin: 0 auto;
@@ -816,49 +1069,40 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  text-align: center;
-  gap: 12px;
+  padding: 24px 28px;
 }
-.goodbye-heading {
-  font-family: 'Caveat', cursive;
-  font-size: 52px;
-  font-weight: 700;
-  color: var(--yellow);
-  line-height: 1.1;
-}
-.goodbye-sub {
+/* Goodbye terminal style */
+.goodbye-terminal {
   font-family: 'Fira Code', monospace;
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 6px;
+  line-height: 2;
+  padding: 0 8px;
+  text-align: left;
 }
-.goodbye-links {
-  display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-}
-.goodbye-links a { color: var(--yellow); text-decoration: none; }
-.goodbye-links a:hover { text-decoration: underline; }
-.goodbye-quote {
-  font-family: 'Noto Sans SC', sans-serif;
+.goodbye-terminal .gt-line { white-space: pre-wrap; }
+.goodbye-terminal .gt-prompt { color: var(--red); }
+.goodbye-terminal .gt-cmd { color: var(--blue-deep); }
+.goodbye-terminal .gt-output { color: var(--blue); padding-left: 16px; }
+.goodbye-terminal .gt-output::before { content: '> '; color: var(--yellow); }
+.goodbye-terminal .gt-dim { color: var(--ink-faint); font-style: italic; padding-left: 16px; font-size: 12px; }
+.goodbye-terminal .gt-gold {
+  background: var(--yellow);
+  color: var(--blue-deep);
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
   font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  margin-top: 10px;
-  max-width: 360px;
-  line-height: 1.6;
-  font-style: italic;
 }
+.goodbye-terminal a { color: var(--blue); text-decoration: none; }
+.goodbye-terminal a:hover { text-decoration: underline; }
 .goodbye-footer {
   font-family: 'Fira Code', monospace;
   font-size: 10px;
-  color: rgba(255,255,255,0.2);
+  color: var(--ink-faint);
   padding: 10px;
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(43,127,216,0.1);
 }
 
 /* Loop hint below exit macbook */
@@ -980,10 +1224,7 @@ body {
   .pill-nav button { font-size: 12px; padding: 8px 13px; }
   .pill-nav .pill-num { display: none; }
 
-  .goodbye-heading { font-size: 36px; }
-  .goodbye-sub { font-size: 11px; }
-  .goodbye-links { flex-direction: column; gap: 8px; font-size: 12px; }
-  .goodbye-quote { font-size: 10px; }
+  .goodbye-terminal { font-size: 11px; line-height: 1.9; }
 
   .workflow-screen { padding: 30px 20px; }
   .workflow-headline { font-size: 36px; }
@@ -1034,7 +1275,7 @@ body {
     </div>
   </section>
 
-  <!-- B. Desktop — the world inside the screen -->
+  <!-- B. Desktop - the world inside the screen -->
   <div class="desktop" id="desktop">
     <div class="desktop-menubar">
       <span class="mb-logo">esther OS</span>
@@ -1075,6 +1316,10 @@ body {
           <div class="dicon-art folder"></div>
           <div class="dicon-label">say-hi/</div>
         </div>
+        <div class="dicon" data-win="win-cola">
+          <div class="dicon-art app-cola"><img src="cola-avatar.png" alt="Cola"></div>
+          <div class="dicon-label">Cola</div>
+        </div>
       </div>
 
       <!-- Window templates (hidden until opened) -->
@@ -1083,9 +1328,9 @@ body {
           <div class="os-body win-md">
             <h1>我是这样的人</h1>
             <div class="value-list">
-              <div class="value-item">做东西丑了我会睡不着觉</div>
-              <div class="value-item">人类是不会被AI替代的</div>
-              <div class="value-item">讨厌所有散播焦虑的信息</div>
+              <div class="value-item"><p>做东西丑了我会睡不着觉</p></div>
+              <div class="value-item"><p>人类是不会被AI替代的</p></div>
+              <div class="value-item"><p>讨厌所有散播焦虑的信息</p></div>
             </div>
           </div>
         </div>
@@ -1102,11 +1347,11 @@ body {
               </div>
               <div class="tp-item">
                 <div class="tp-title">运营 → AI</div>
-                <div class="tp-desc">从达人运营到白酒行业市场，再到 AI 行业 — 现在在 ColaOS 从 0 到 1 搭增长体系。</div>
+                <div class="tp-desc">从达人运营到白酒行业市场,再到 AI 行业 - 现在在 ColaOS 从 0 到 1 搭增长体系。</div>
               </div>
               <div class="tp-item">
                 <div class="tp-title">同一件事</div>
-                <div class="tp-desc">每一次都以为自己在走弯路，回头看才发现，都是在找同一件事——把混乱变成秩序，然后点亮其他人。</div>
+                <div class="tp-desc">每一次都以为自己在走弯路,回头看才发现,都是在找同一件事--把混乱变成秩序,然后点亮其他人。</div>
               </div>
             </div>
           </div>
@@ -1119,19 +1364,19 @@ body {
             <h1>正在做的事</h1>
             <div class="now-list">
               <div class="now-item">
-                <span class="now-dot"></span>
-                <span class="now-text">ColaOS 运营</span>
-                <span class="now-sub">国内增长 0 → 1</span>
+                <span class="now-num">01</span>
+                <div class="now-text">ColaOS 运营</div>
+                <div class="now-sub">国内增长 0 → 1</div>
               </div>
               <div class="now-item">
-                <span class="now-dot"></span>
-                <span class="now-text">人生系统搭建</span>
-                <span class="now-sub">Cola + Obsidian</span>
+                <span class="now-num">02</span>
+                <div class="now-text">人生系统搭建</div>
+                <div class="now-sub">Cola + Obsidian</div>
               </div>
               <div class="now-item">
-                <span class="now-dot"></span>
-                <span class="now-text">IP 搭建</span>
-                <span class="now-sub">小红书 @ESTHER不二 等社媒</span>
+                <span class="now-num">03</span>
+                <div class="now-text">IP 搭建</div>
+                <div class="now-sub">小红书 @ESTHER不二 等社媒</div>
               </div>
             </div>
           </div>
@@ -1169,12 +1414,80 @@ body {
         <div class="os-window" data-title="say-hi" data-url="mailto:esther.sjw@gmail.com">
           <div class="os-body win-sayhi">
             <div class="sayhi-heading">Say Hi</div>
-            <div class="sayhi-sub">I don't bite — my AI might though.</div>
+            <div class="sayhi-sub">I don't bite - my AI might though.</div>
             <div class="sayhi-links">
               <span>📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></span>
               <span>📕 <a href="#">小红书 @ESTHER不二</a></span>
             </div>
-            <div class="sayhi-quote">"找到你喜欢的事，然后让它杀死你。"<br>— Charles Bukowski</div>
+            <div class="sayhi-quote">"找到你喜欢的事,然后让它杀死你。"<br>- Charles Bukowski</div>
+          </div>
+        </div>
+      </template>
+
+      <template id="win-cola">
+        <div class="os-window cola-window" data-title="Cola" data-url="colaos.ai">
+          <div class="os-body" style="padding:0; max-height:none; height:100%; overflow:hidden;">
+            <div class="cola-inner">
+              <!-- Cola Sidebar -->
+              <div class="cola-sidebar">
+                <div class="cola-sidebar-avatar"><img src="cola-avatar.png" alt="Cola"></div>
+                <div class="cola-sidebar-mic">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                </div>
+              </div>
+              <!-- Cola Main -->
+              <div class="cola-main">
+                <div class="cola-topbar">
+                  <span class="cola-tab active">对话</span>
+                  <span class="cola-tab">交付</span>
+                  <span class="cola-tab">闹钟</span>
+                  <span class="cola-tab">心迹</span>
+                  <span class="cola-tab">接入</span>
+                </div>
+                <div class="cola-search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="#aaa" stroke-width="2"/><path d="M21 21l-4.35-4.35" fill="none" stroke="#aaa" stroke-width="2"/></svg>
+                  <span>搜索聊天记录...</span>
+                </div>
+                <!-- Chat -->
+                <div class="cola-chat">
+                  <div class="cola-msg-user"><div class="cola-bubble">Cola,跟来看我网站的人打个招呼吧</div></div>
+                  <div class="cola-msg-bot">
+                    <div class="cola-bot-avatar"><img src="cola-avatar.png" alt="Cola"></div>
+                    <div class="cola-bot-content">
+                      <div class="cola-mutter">被 cue 到了。</div>
+                      <div>嘿。我是 Cola,不二的 Agent 伙伴。<br><br>她搭这个网站的时候我全程在,从选色到写码到凌晨三点还在跟我吵配色方案。<br><br>你想知道关于她的什么都可以问我--经历、正在做的事、怎么跟 AI 协作的、或者单纯好奇她是什么样的人。<br><br>我比她客气一点,但也只是一点。</div>
+                    </div>
+                  </div>
+                  <div class="cola-msg-user"><div class="cola-bubble">差不多得了😂 就这样吧,别太自由发挥</div></div>
+                  <div class="cola-msg-bot">
+                    <div class="cola-bot-avatar"><img src="cola-avatar.png" alt="Cola"></div>
+                    <div class="cola-bot-content">
+                      <div class="cola-mutter">收到,嘴巴拉链拉上。</div>
+                      <div>随时来聊。</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Input -->
+                <div class="cola-input-bar">
+                  <div class="cola-input-container">
+                    <div class="cola-input-text">输入消息...</div>
+                    <div class="cola-input-toolbar">
+                      <div class="cola-toolbar-left">
+                        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
+                      </div>
+                      <div class="cola-toolbar-right">
+                        <span class="cola-model-tag">Max</span>
+                        <div class="cola-send-btn">
+                          <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cola-coming-soon">coming soon - 正在接入中 ✨</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </template>
@@ -1201,7 +1514,7 @@ body {
               <div class="workflow-col-line"></div>
               <div class="workflow-item">
                 <span class="workflow-item-label">Daily Brief</span>
-                <span class="workflow-item-desc">AI定时跑增长晨报、行业简报，每天自动推送</span>
+                <span class="workflow-item-desc">AI定时跑增长晨报、行业简报,每天自动推送</span>
               </div>
               <div class="workflow-item">
                 <span class="workflow-item-label">竞品分析</span>
@@ -1209,7 +1522,7 @@ body {
               </div>
               <div class="workflow-item">
                 <span class="workflow-item-label">GTM 框架</span>
-                <span class="workflow-item-desc">从用户画像到增长飞轮，AI搭框架人做决策</span>
+                <span class="workflow-item-desc">从用户画像到增长飞轮,AI搭框架人做决策</span>
               </div>
             </div>
             <div class="workflow-col">
@@ -1233,11 +1546,11 @@ body {
               <div class="workflow-col-line"></div>
               <div class="workflow-item">
                 <span class="workflow-item-label">项目管理</span>
-                <span class="workflow-item-desc">飞书多维表格 + AI Skill，自动化流程追踪</span>
+                <span class="workflow-item-desc">飞书多维表格 + AI Skill,自动化流程追踪</span>
               </div>
               <div class="workflow-item">
                 <span class="workflow-item-label">SOP 搭建</span>
-                <span class="workflow-item-desc">直播SOP、内容SOP、运营SOP，标准化复用</span>
+                <span class="workflow-item-desc">直播SOP、内容SOP、运营SOP,标准化复用</span>
               </div>
               <div class="workflow-item">
                 <span class="workflow-item-label">数据驱动</span>
@@ -1258,16 +1571,23 @@ body {
                 <span class="terminal-dot red"></span>
                 <span class="terminal-dot yellow"></span>
                 <span class="terminal-dot green"></span>
-                <span class="goodbye-title-text">esther@universe ~ %</span>
+                <span class="goodbye-title-text">esther@universe ~ zsh</span>
               </div>
               <div class="goodbye-body">
-                <div class="goodbye-heading">Say Hi</div>
-                <div class="goodbye-sub">I don't bite — my AI might though.</div>
-                <div class="goodbye-links">
-                  <span>📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></span>
-                  <span>📕 小红书 <a href="#">@ESTHER不二</a></span>
+                <div class="goodbye-terminal">
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">echo "see you"</span></div>
+                  <div class="gt-line gt-output">See you next time.</div>
+                  <div class="gt-line">&nbsp;</div>
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">cat contact.md</span></div>
+                  <div class="gt-line gt-output">📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></div>
+                  <div class="gt-line gt-output">📕 小红书 <a href="#">@ESTHER不二</a></div>
+                  <div class="gt-line">&nbsp;</div>
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">fortune</span></div>
+                  <div class="gt-line gt-dim">“找到你喜欢的事，然后让它杀死你。” — Bukowski</div>
+                  <div class="gt-line">&nbsp;</div>
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">exit</span></div>
+                  <div class="gt-line gt-output"><span class="gt-gold">[Process completed]</span></div>
                 </div>
-                <div class="goodbye-quote">"找到你喜欢的事，然后让它杀死你。"<br>— Charles Bukowski</div>
               </div>
               <div class="goodbye-footer">© 2026 ESTHER不二 · Built with AI &amp; attitude</div>
             </div>
@@ -1324,7 +1644,7 @@ body {
 <main class="tab-page" id="page-system">
   <div class="canvas-page">
     <iframe data-src="A-infinite-canvas-v2.html" id="canvasFrame" title="ESTHER's OS Canvas"></iframe>
-    <div class="canvas-hint">Scroll 缩放 · Drag 移动画布（后续替换为六场景只读版）</div>
+    <div class="canvas-hint">Scroll 缩放 · Drag 移动画布(后续替换为六场景只读版)</div>
   </div>
 </main>
 
@@ -1592,33 +1912,35 @@ body {
     var win = tpl.content.firstElementChild.cloneNode(true);
     win.dataset.from = tplId;
 
-    // Build chrome: titlebar + urlbar
-    var titlebar = document.createElement('div');
-    titlebar.className = 'os-titlebar';
-    var closeBtn = document.createElement('button');
-    closeBtn.className = 'os-close';
-    closeBtn.title = 'close';
-    var titleSpan = document.createElement('span');
-    titleSpan.className = 'os-title';
-    titleSpan.textContent = win.dataset.title || '';
-    titlebar.appendChild(closeBtn);
-    titlebar.appendChild(titleSpan);
-    win.insertBefore(titlebar, win.firstChild);
+    // Build chrome: macOS traffic lights + invisible drag bar
+    var dragbar = document.createElement('div');
+    dragbar.className = 'os-dragbar';
+    win.insertBefore(dragbar, win.firstChild);
 
-    if (win.dataset.url) {
-      var urlbar = document.createElement('div');
-      urlbar.className = 'os-urlbar';
-      urlbar.textContent = win.dataset.url;
-      win.insertBefore(urlbar, titlebar.nextSibling);
-    }
+    var traffic = document.createElement('div');
+    traffic.className = 'os-traffic';
+    traffic.innerHTML = '<span class="tl-close"></span><span class="tl-min"></span><span class="tl-max"></span>';
+    win.insertBefore(traffic, win.firstChild);
 
-    // Cascade position
+    var closeBtn = traffic.querySelector('.tl-close');
+
+    // Cascade position (Cola window centered, others cascade)
     var isSmall = window.innerWidth <= 768;
-    var baseX = isSmall ? 12 : 150;
-    var baseY = isSmall ? 60 : 60;
-    var offset = (openCount % 5) * (isSmall ? 16 : 36);
-    win.style.left = (baseX + offset) + 'px';
-    win.style.top = (baseY + offset) + 'px';
+    var isCola = win.classList.contains('cola-window');
+    if (isCola) {
+      var surfW = surface.offsetWidth || window.innerWidth;
+      var surfH = surface.offsetHeight || window.innerHeight;
+      var winW = Math.min(720, surfW * 0.92);
+      var winH = Math.min(560, surfH * 0.78);
+      win.style.left = Math.max(8, (surfW - winW) / 2) + 'px';
+      win.style.top = Math.max(8, (surfH - winH) / 2 - 20) + 'px';
+    } else {
+      var baseX = isSmall ? 12 : 150;
+      var baseY = isSmall ? 60 : 60;
+      var offset = (openCount % 5) * (isSmall ? 16 : 36);
+      win.style.left = (baseX + offset) + 'px';
+      win.style.top = (baseY + offset) + 'px';
+    }
     win.style.zIndex = ++winZ;
     openCount++;
 
@@ -1630,8 +1952,8 @@ body {
     // Bring to front on any press
     win.addEventListener('pointerdown', function() { win.style.zIndex = ++winZ; });
 
-    // Drag by titlebar
-    titlebar.addEventListener('pointerdown', function(e) {
+    // Drag by dragbar
+    dragbar.addEventListener('pointerdown', function(e) {
       if (e.target === closeBtn) return;
       e.preventDefault();
       var startX = e.clientX, startY = e.clientY;
@@ -1696,7 +2018,7 @@ body {
 
       var progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
 
-      // Phase 1: 0 → 0.3 — desktop summary shrinks, MacBook frame appears
+      // Phase 1: 0 → 0.3 - desktop summary shrinks, MacBook frame appears
       var p1 = Math.min(1, progress / 0.3);
       var canvasScale = 1 - 0.7 * easeInOutCubic(p1);
       exitCanvasContent.style.transform = 'scale(' + canvasScale + ')';
@@ -1708,7 +2030,7 @@ body {
       var macScale = baseScale - (baseScale - 1) * easeInOutCubic(p1);
       exitMacbook.style.transform = 'scale(' + macScale + ')';
 
-      // Phase 2: 0.3 → 0.45 — Say Hi crossfade
+      // Phase 2: 0.3 → 0.45 - Say Hi crossfade
       if (progress >= 0.3) {
         var p2 = Math.min(1, (progress - 0.3) / 0.15);
         exitCanvasContent.style.opacity = 0;
@@ -1723,7 +2045,7 @@ body {
         goodbyeScreen.style.opacity = 0;
       }
 
-      // Phase 3: 0.45 → 1 — settled
+      // Phase 3: 0.45 → 1 - settled
       if (progress >= 0.45) {
         exitMacbook.style.opacity = 1;
         exitMacbook.style.transform = 'scale(1)';
