@@ -199,6 +199,52 @@ img{max-width:100%;display:block}
   .chat-section{padding:24px 18px}
 }
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* Kimi第一次产出 + 提示词 */
+.kimi-first {
+  margin: clamp(24px, 4vw, 48px) 0;
+}
+.kimi-first-img { text-align: center; }
+.kimi-first-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 2px solid var(--yellow, #F4D758);
+}
+.kimi-first-caption {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+.kimi-first-prompt {
+  margin-top: clamp(16px, 2vw, 28px);
+}
+.kimi-prompt-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.kimi-prompt-box {
+  background: #faf6eb;
+  border-left: 4px solid var(--blue, #2B7FD8);
+  border-radius: 0 12px 12px 0;
+  padding: clamp(16px, 2.5vw, 28px);
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.7;
+  color: #333;
+}
+.kimi-prompt-box p { margin: 0 0 0.8em; }
+.kimi-prompt-box p:last-child { margin-bottom: 0; }
+.kimi-prompt-box ol {
+  padding-left: 1.2em;
+  margin: 0.5em 0 0;
+}
+.kimi-prompt-box li {
+  margin-bottom: 0.5em;
+}
 </style>
 </head>
 <body>
@@ -260,6 +306,29 @@ img{max-width:100%;display:block}
       </div>
       <div class="sticky-content">
         <div class="step-img reveal"><img src="img-03.png" alt="Kimi分析"></div>
+
+        <!-- Kimi第一次产出截图 + 提示词 -->
+        <div class="kimi-first reveal reveal-d1">
+          <div class="kimi-first-img">
+            <img src="img-kimi-first.png" alt="Kimi第一次产出">
+            <span class="kimi-first-caption">↑ Kimi第一次给我的产出</span>
+          </div>
+          <div class="kimi-first-prompt">
+            <span class="kimi-prompt-label">↓ 我第一次给Kimi的提示词</span>
+            <div class="kimi-prompt-box">
+              <p>我需要你读遍所有我在 Obsidian 里面的文档。这里面有一部分文档是 Agent 写的，所以它们不一定能代表我，但大部分文档以及我跟 Agent 的交流都能代表我。除了打标以外，请不要更改或删除我所有的文档。我需要先看到详细的分析报告之后，我们再一块决定是否要做调整。</p>
+              <p>暂时先不要做其他的任何改动，你唯一能做的改动就是打标。至于相应的报告、体系以及清单，你就另外写 Markdown 文档给我就行。</p>
+              <p>我需要你帮我完成几件事：</p>
+              <ol>
+                <li><strong>文档打标</strong> — 为每一个文档打标签。标签数量控制在20个以内，不要乱打，确保精准。</li>
+                <li><strong>个人分析报告</strong> — 读完所有文档后，生成一份非常详尽的个人介绍和报告。从心理、职场等不同角度深度分析我的个人品质。</li>
+                <li><strong>OB整理清单</strong> — 哪些内容前后矛盾/重复，哪些可以归档，对文档进行重新盘点。</li>
+                <li><strong>梳理人生体系</strong> — 在凌乱的文档里梳理出几个人生的体系系统（自媒体体系、Cola工作体系、自由体系等）。</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
         <div class="tl reveal reveal-d1">
           <div class="tc"><div class="emoji">🗑️</div><h3>OB减负</h3><p>过期/重复的删掉,仓库瘦身</p></div>
           <div class="tc"><div class="emoji">🏷️</div><h3>打标签归类</h3><p>每篇文档打标签,重新分类</p></div>
