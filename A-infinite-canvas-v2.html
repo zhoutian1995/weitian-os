@@ -1744,6 +1744,7 @@ html, body {
   <div class="zoom-pct" id="zoomPct">100%</div>
   <div class="zoom-btn" id="zoomIn">+</div>
   <div class="zoom-btn" id="zoomFit" title="Fit to view" style="font-size:12px;margin-left:4px;">⊞</div>
+  <div class="zoom-btn" id="saveLayout" title="保存布局" style="font-size:12px;margin-left:8px;background:var(--yellow);color:#1a1a1a;">💾</div>
 </div>
 
 <!-- ===== HELP HINT ===== -->
@@ -2987,6 +2988,67 @@ html, body {
   initConnectDots();
   updateUndoUI();
   applyTransform();
+  // ===== SAVE / RESTORE LAYOUT =====
+  const STORAGE_KEY = 'esther-canvas-layout-v1';
+
+  function saveLayout() {
+    const cards = document.querySelectorAll('.card');
+    const layout = {};
+    cards.forEach(card => {
+      if (!card.id) return;
+      layout[card.id] = {
+        left: card.style.left,
+        top: card.style.top,
+        width: card.style.width || '',
+        height: card.style.height || '',
+        transform: card.style.transform || '',
+        display: card.style.display || ''
+      };
+      // Save editable text content
+      const editables = card.querySelectorAll('.editable-area, .washi-title, .washi-body, .sticky-text');
+      if (editables.length) {
+        layout[card.id].editables = [];
+        editables.forEach(el => layout[card.id].editables.push(el.innerHTML));
+      }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(layout));
+    // Visual feedback
+    const btn = document.getElementById('saveLayout');
+    btn.textContent = '✓';
+    btn.style.background = '#28ca41';
+    btn.style.color = '#fff';
+    setTimeout(() => { btn.textContent = '💾'; btn.style.background = 'var(--yellow)'; btn.style.color = '#1a1a1a'; }, 1200);
+  }
+
+  function restoreLayout() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) return;
+    try {
+      const layout = JSON.parse(data);
+      Object.keys(layout).forEach(id => {
+        const card = document.getElementById(id);
+        if (!card) return;
+        const info = layout[id];
+        if (info.left) card.style.left = info.left;
+        if (info.top) card.style.top = info.top;
+        if (info.width) card.style.width = info.width;
+        if (info.height) card.style.height = info.height;
+        if (info.transform) card.style.transform = info.transform;
+        if (info.display) card.style.display = info.display;
+        // Restore editable content
+        if (info.editables) {
+          const editables = card.querySelectorAll('.editable-area, .washi-title, .washi-body, .sticky-text');
+          info.editables.forEach((html, i) => {
+            if (editables[i]) editables[i].innerHTML = html;
+          });
+        }
+      });
+    } catch(e) { /* ignore corrupt data */ }
+  }
+
+  document.getElementById('saveLayout').addEventListener('click', saveLayout);
+  restoreLayout();
+
   requestAnimationFrame(() => {
     updateConnections();
     initMinimapDots();
