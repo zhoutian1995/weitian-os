@@ -742,28 +742,63 @@ body {
   .cola-chat { padding: 12px 10px; }
 }
 .os-body.win-sayhi {
-  background: var(--cream-dark);
-  text-align: center;
-  padding: 38px 26px 30px;
+  background: var(--cream);
+  padding: 32px 28px;
+  position: relative;
+}
+.os-body.win-sayhi::before {
+  content: '';
+  position: absolute;
+  top: -4px; right: 30px;
+  width: 50px; height: 14px;
+  background: repeating-linear-gradient(90deg, var(--yellow) 0px, var(--yellow) 4px, rgba(244,215,88,0.35) 4px, rgba(244,215,88,0.35) 8px);
+  border-radius: 1px;
+  transform: rotate(2deg);
 }
 .win-sayhi .sayhi-heading {
   font-family: 'Caveat', cursive;
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--ink);
   line-height: 1.1;
 }
 .win-sayhi .sayhi-sub {
   font-family: 'Fira Code', monospace;
-  font-size: 12px;
+  font-size: 10px;
   color: var(--ink-faint);
-  margin: 6px 0 22px;
+  margin: 4px 0 22px;
+}
+.win-sayhi .services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.win-sayhi .service-card {
+  border: 1px dashed rgba(43,127,216,0.3);
+  padding: 16px 14px;
+  border-radius: 2px;
+  position: relative;
+}
+.win-sayhi .service-card:first-child { transform: rotate(-0.3deg); }
+.win-sayhi .service-card:last-child { transform: rotate(0.4deg); }
+.win-sayhi .service-icon { font-size: 22px; margin-bottom: 6px; }
+.win-sayhi .service-title {
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  color: var(--blue-deep);
+  margin-bottom: 4px;
+}
+.win-sayhi .service-desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.6;
 }
 .win-sayhi .sayhi-links {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 14px;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--ink-faint);
 }
 .win-sayhi .sayhi-links a { color: var(--blue); text-decoration: none; }
 .win-sayhi .sayhi-links a:hover { text-decoration: underline; }
@@ -1489,7 +1524,7 @@ body {
         </div>
         <div class="dicon" data-win="win-sayhi" style="top:24px;right:114px;">
           <div class="dicon-art folder"></div>
-          <div class="dicon-label">say-hi/</div>
+          <div class="dicon-label">Work With Me</div>
         </div>
         <div class="dicon" data-win="win-cola" style="top:114px;right:114px;">
           <div class="dicon-art app-cola"><img src="cola-avatar.png" alt="Cola"></div>
@@ -1499,15 +1534,26 @@ body {
 
       <!-- Window templates (hidden until opened) -->
       <template id="win-sayhi">
-        <div class="os-window" data-title="say-hi" data-url="mailto:esther.sjw@gmail.com">
+        <div class="os-window" data-title="Work With Me" data-url="esther.sjw@gmail.com">
           <div class="os-body win-sayhi">
-            <div class="sayhi-heading">Say Hi</div>
-            <div class="sayhi-sub">I don't bite - my AI might though.</div>
+            <div class="sayhi-heading">Work With Me ✨</div>
+            <div class="sayhi-sub">1 person + AI = 1 team</div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-icon">📱</div>
+                <div class="service-title">AI 自媒体</div>
+                <div class="service-desc">带货 / 商单推广 / 品牌共创<br>小红书 @ESTHER不二</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon">🏫</div>
+                <div class="service-title">AI 企业培训</div>
+                <div class="service-desc">AI 工具落地 / Agent 工作流<br>带团队从 0 用起来</div>
+              </div>
+            </div>
             <div class="sayhi-links">
               <span>📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></span>
-              <span>📕 <a href="https://www.xiaohongshu.com/user/profile/55c6c7695894460904f87b47" target="_blank">小红书 @ESTHER不二</a></span>
+              <span>📕 <a href="https://www.xiaohongshu.com/user/profile/55c6c7695894460904f87b47" target="_blank">小红书</a></span>
             </div>
-            <div class="sayhi-quote">"找到你喜欢的事,然后让它杀死你。"<br>- Charles Bukowski</div>
           </div>
         </div>
       </template>
