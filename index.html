@@ -346,6 +346,21 @@ body {
   75% { transform: var(--push) rotate(-10deg) translateX(-2px); }
 }
 
+/* click-generated star */
+.click-star {
+  position: fixed;
+  pointer-events: none;
+  color: #F4D758;
+  z-index: 9999;
+  animation: starPop 0.7s ease-out forwards;
+}
+@keyframes starPop {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  30% { transform: scale(1.4) rotate(15deg); opacity: 1; }
+  60% { transform: scale(1) rotate(-5deg); opacity: 0.8; }
+  100% { transform: scale(0.6) rotate(0deg); opacity: 0; }
+}
+
 /* desktop icons */
 .desktop-icons {
   position: absolute;
@@ -2430,6 +2445,21 @@ body {
       requestAnimationFrame(updateStars);
     }
     requestAnimationFrame(updateStars);
+
+    // Click to spawn a star
+    surface.addEventListener('click', function(e) {
+      // Don't spawn on icon/window interactions
+      if (e.target.closest('.dicon, .os-window, .desktop-sticker')) return;
+      var star = document.createElement('span');
+      star.className = 'click-star';
+      star.textContent = '\u2726';
+      var size = 12 + Math.random() * 14;
+      star.style.fontSize = size + 'px';
+      star.style.left = (e.clientX - size / 2) + 'px';
+      star.style.top = (e.clientY - size / 2) + 'px';
+      document.body.appendChild(star);
+      setTimeout(function() { star.remove(); }, 750);
+    });
   })();
 
   /* ============================================
