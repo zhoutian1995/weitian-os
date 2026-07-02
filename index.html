@@ -1919,7 +1919,7 @@ body {
       <div class="work-dim">
         <div class="dim-num">dim_01</div>
         <h3>内容创作</h3>
-        <div class="dim-empty">待放入 2-3 个代表作</div>
+        <div class="dim-empty">更多作品整理中 →</div>
       </div>
       <div class="work-dim">
         <div class="dim-num">dim_02</div>
@@ -1939,12 +1939,12 @@ body {
       <div class="work-dim">
         <div class="dim-num">dim_03</div>
         <h3>AI 实践</h3>
-        <div class="dim-empty">待放入 2-3 个代表作</div>
+        <div class="dim-empty">更多作品整理中 →</div>
       </div>
       <div class="work-dim">
         <div class="dim-num">dim_04</div>
         <h3>品牌运营</h3>
-        <div class="dim-empty">待放入 2-3 个代表作</div>
+        <div class="dim-empty">更多作品整理中 →</div>
       </div>
     </div>
   </div>
@@ -2078,42 +2078,16 @@ body {
     try { localStorage.setItem(VISITED_KEY, '1'); } catch (e) {}
   }
 
+  // No line-by-line typing: render all terminal lines immediately
+  terminalData.forEach(function(item) { renderLine(item).classList.add('visible'); });
+  finishIntro();
+
   if (isReturnVisitor) {
     // Return visitor: skip hero entirely, land on the desktop
-    terminalData.forEach(function(item) { renderLine(item).classList.add('visible'); });
-    finishIntro();
     launched = true;
     document.getElementById('heroSection').style.display = 'none';
     applyScrollLock();
     window.scrollTo(0, 0);
-  } else {
-    var divs = [];
-    var lineDelay = 0;
-    terminalData.forEach(function(item) {
-      var div = renderLine(item);
-      if (item.type === 'blank') { lineDelay += 200; }
-      else if (item.type === 'cmd') { lineDelay += 400; div.style.animationDelay = lineDelay + 'ms'; lineDelay += 600; }
-      else if (item.type === 'output') { lineDelay += 150; div.style.animationDelay = lineDelay + 'ms'; lineDelay += 300; }
-      else if (item.type === 'gold') { lineDelay += 150; div.style.animationDelay = lineDelay + 'ms'; lineDelay += 400; }
-      divs.push(div);
-      setTimeout(function() { div.classList.add('visible'); }, 50);
-    });
-
-    var typingTimeout = setTimeout(finishIntro, lineDelay + 600);
-
-    var skipTyping = function() {
-      if (typingDone) return;
-      clearTimeout(typingTimeout);
-      divs.forEach(function(d) { d.style.animationDelay = '0ms'; d.classList.add('visible'); });
-      finishIntro();
-    };
-
-    document.getElementById('heroSection').addEventListener('click', function() {
-      if (!typingDone) skipTyping();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (!typingDone && e.key !== 'Enter') skipTyping();
-    });
   }
 
   /* ============================================
