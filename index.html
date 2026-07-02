@@ -308,6 +308,7 @@ body {
   transition: filter 0.2s;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: none;
 }
 .desktop-sticker:active { cursor: grabbing; }
 .desktop-sticker:hover { filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
@@ -539,6 +540,7 @@ body {
   width: 16px; height: 16px;
   cursor: nwse-resize;
   z-index: 10;
+  touch-action: none;
 }
 .os-resize::after {
   content: '';
@@ -1437,6 +1439,20 @@ body {
   .workflow-headline { font-size: 36px; }
   .workflow-subtitle { font-size: 11px; margin-bottom: 36px; }
   .workflow-columns { grid-template-columns: 1fr; gap: 32px; }
+
+  /* Desktop metaphor on small screens */
+  .desktop-sticker { width: 150px; left: 12px; right: auto; bottom: 16px; }
+  .dicon { width: 68px; }
+  .dicon-art { width: 42px; height: 42px; }
+  .dicon-label { font-size: 10px; }
+  .win-sayhi .services-grid { grid-template-columns: 1fr; }
+  .os-body.win-sayhi { padding: 28px 20px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .wp-star, .click-star { animation: none; }
+  .os-window { animation: none; }
 }
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
@@ -1938,7 +1954,7 @@ body {
 <main class="tab-page" id="page-system">
   <div class="canvas-page">
     <iframe data-src="A-infinite-canvas-v2.html" id="canvasFrame" title="ESTHER's OS Canvas"></iframe>
-    <div class="canvas-hint">Scroll 缩放 · Drag 移动画布(后续替换为六场景只读版)</div>
+    <div class="canvas-hint">Scroll 缩放 · Drag 移动画布</div>
   </div>
 </main>
 
@@ -2063,8 +2079,13 @@ body {
   }
 
   if (isReturnVisitor) {
+    // Return visitor: skip hero entirely, land on the desktop
     terminalData.forEach(function(item) { renderLine(item).classList.add('visible'); });
     finishIntro();
+    launched = true;
+    document.getElementById('heroSection').style.display = 'none';
+    applyScrollLock();
+    window.scrollTo(0, 0);
   } else {
     var divs = [];
     var lineDelay = 0;
