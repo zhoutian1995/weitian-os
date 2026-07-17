@@ -3,30 +3,16 @@
 
   const tabs = ["home", "workflow", "system"];
   const pillNav = document.querySelector("#pillNav");
-  const terminalLines = document.querySelector("#terminalLines");
-  const launchButton = document.querySelector("#launchButton");
   const desktop = document.querySelector("#desktop");
-  const mobileHome = document.querySelector(".mobile-home");
+  const heroJourney = document.querySelector("#heroJourney");
+  const heroCopy = document.querySelector("#heroCopy");
+  const portalScene = document.querySelector("#portalScene");
+  const heroZoom = document.querySelector("#heroZoom");
   const windowLayer = document.querySelector("#windowLayer");
   const systemFrame = document.querySelector("#systemFrame");
   const clock = document.querySelector("#clock");
   let systemLoaded = false;
   let zIndex = 20;
-
-  const terminalData = [
-    ["cmd", "$ ", "whoami"],
-    ["output", "> ", "维天说"],
-    ["blank", "", ""],
-    ["cmd", "$ ", "cat about.md"],
-    ["gold", "> ", "用 AI 学习、实践、输出"],
-    ["output", "> ", "记录自己升级操作系统的过程"],
-    ["blank", "", ""],
-    ["cmd", "$ ", "cat profile.md"],
-    ["output", "> ", "INFP / 三只猫的铲屎官"],
-    ["output", "> ", "软硬件都玩 / 和 Agent 一起工作"],
-    ["blank", "", ""],
-    ["cmd", "$ ", "open weitian-os.app"]
-  ];
 
   const windows = {
     start: {
@@ -148,38 +134,31 @@
     }
   };
 
-  function renderTerminalLine([type, prefix, text]) {
-    const line = document.createElement("div");
-    line.className = `term-line ${type === "gold" ? "gold" : ""}`;
-    if (type === "blank") line.innerHTML = "&nbsp;";
-    else if (type === "cmd") line.innerHTML = `<span class="prompt">${prefix}</span><span class="cmd">${text}</span>`;
-    else line.innerHTML = `<span class="${type === "gold" ? "" : "output"}">${prefix}${text}</span>`;
-    terminalLines.append(line);
-    return line;
-  }
-
-  function typeTerminal() {
-    terminalData.forEach((item, index) => {
-      const line = renderTerminalLine(item);
-      setTimeout(() => line.classList.add("visible"), index * 210);
-    });
-    setTimeout(() => {
-      const cursor = document.createElement("span");
-      cursor.className = "cursor";
-      terminalLines.lastElementChild?.append(cursor);
-      launchButton.classList.add("ready");
-      pillNav.classList.remove("is-hidden");
-    }, terminalData.length * 210 + 180);
-  }
-
   function launch() {
-    document.querySelector("#hero").hidden = true;
-    if (window.matchMedia("(max-width: 900px)").matches) mobileHome.classList.add("launched");
-    else desktop.classList.add("launched");
-    pillNav.classList.remove("is-hidden");
-    sessionStorage.setItem("weitian-launched", "1");
-    window.scrollTo({ top: 0, behavior: "instant" });
+    desktop?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
+
+  function updateHeroProgress() {
+    if (!heroJourney || !portalScene || window.matchMedia("(max-width: 900px)").matches) return;
+    const rect = heroJourney.getBoundingClientRect();
+    const distance = Math.max(1, heroJourney.offsetHeight - innerHeight);
+    const progress = Math.min(1, Math.max(0, -rect.top / distance));
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const scale = 1 + eased * 2.15;
+    portalScene.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    portalScene.style.filter = `saturate(${1 - progress * .12})`;
+    heroCopy.style.opacity = String(Math.max(0, 1 - progress * 1.75));
+    heroCopy.style.transform = `translateY(calc(-53% - ${progress * 35}px))`;
+    heroZoom.textContent = `${Math.round(scale * 100)}%`;
+  }
+
+  let heroTicking = false;
+  addEventListener("scroll", () => {
+    if (heroTicking) return;
+    heroTicking = true;
+    requestAnimationFrame(() => { updateHeroProgress(); heroTicking = false; });
+  }, { passive: true });
+  addEventListener("resize", updateHeroProgress);
 
   function switchTab(tab) {
     if (!tabs.includes(tab)) tab = "home";
@@ -254,10 +233,23 @@
     const homeOpener = event.target.closest("[data-open-home]");
     if (homeOpener) { switchTab("home"); launch(); setTimeout(() => openWindow(homeOpener.dataset.openHome), 50); }
   });
-  launchButton.addEventListener("click", launch);
   document.addEventListener("keydown", event => {
-    if (event.key === "Enter" && !document.querySelector("#hero").hidden) launch();
     if (event.key === "Escape") document.querySelector(".os-window:last-child")?.remove();
+  });
+
+  document.querySelectorAll(".workflow-card").forEach(card => {
+    card.addEventListener("pointermove", event => {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateY = ((x / rect.width) - .5) * 3.2;
+      const rotateX = ((y / rect.height) - .5) * -3.2;
+      card.style.setProperty("--mx", `${x}px`);
+      card.style.setProperty("--my", `${y}px`);
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
   });
 
   function updateClock() {
@@ -265,8 +257,7 @@
   }
   updateClock(); setInterval(updateClock, 30000);
 
-  typeTerminal();
+  updateHeroProgress();
   const initialTab = location.hash.slice(1);
   if (tabs.includes(initialTab)) switchTab(initialTab);
-  if (sessionStorage.getItem("weitian-launched") === "1" && (!initialTab || initialTab === "home")) launch();
 })();

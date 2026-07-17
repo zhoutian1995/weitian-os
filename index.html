@@ -4,50 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>维天 OS — 用 AI 学习、实践、输出</title>
-  <meta name="description" content="维天说：用 AI 学习、实践、输出，记录自己升级操作系统的过程。">
+  <meta name="description" content="维天说：一个人，也能搭起自己的 AI 内容工作流。">
   <meta property="og:title" content="维天 OS">
   <meta property="og:description" content="用 AI 学习、实践、输出，记录自己升级操作系统的过程。">
   <meta property="og:image" content="wille-portrait.jpg">
-  <meta name="theme-color" content="#08090B">
+  <meta name="theme-color" content="#fbf6e9">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@600;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Ma+Shan+Zheng&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@600;700;900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到主要内容</a>
 
-  <nav class="pill-nav is-hidden" id="pillNav" aria-label="主导航">
+  <nav class="pill-nav" id="pillNav" aria-label="主导航">
     <button type="button" data-tab="home" class="active"><span>01</span>主页</button>
     <button type="button" data-tab="workflow"><span>02</span>工作流</button>
     <button type="button" data-tab="system"><span>03</span>我的 OS</button>
   </nav>
 
   <main id="main-content">
-    <section class="tab-page active" id="page-home" data-page="home">
-      <section class="hero" id="hero">
-        <div class="macbook" aria-label="维天 OS 启动终端">
-          <div class="macbook-screen-shell">
-            <div class="macbook-notch"></div>
-            <div class="macbook-screen">
-              <div class="terminal">
-                <div class="terminal-bar">
-                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                  <span class="terminal-name">weitian@universe ~ zsh</span>
-                </div>
-                <div id="terminalLines" aria-live="polite"></div>
-              </div>
-            </div>
+    <section class="tab-page active" data-page="home">
+      <section class="hero-journey" id="heroJourney" aria-label="进入维天 OS">
+        <div class="hero-stage">
+          <div class="paper-noise" aria-hidden="true"></div>
+          <header class="top-mark"><strong>维天 OS</strong><span>WILLE · 2026</span></header>
+
+          <div class="hero-copy" id="heroCopy">
+            <span class="eyebrow">WEITIAN OS · PERSONAL SYSTEM</span>
+            <h1>用 AI 学习、<br>实践、输出。</h1>
+            <p>一个人，也能搭起自己的 AI 内容工作流。</p>
+            <div class="identity-line"><span>INFP</span><span>三只猫的铲屎官</span><span>软硬件都玩</span></div>
           </div>
-          <div class="macbook-hinge"></div>
-          <div class="macbook-base"></div>
-          <div class="macbook-shadow"></div>
+
+          <div class="portal-scene" id="portalScene" aria-hidden="true">
+            <div class="tape">持续升级中</div>
+            <div class="portal-photo"><img src="wille-portrait.jpg" alt=""></div>
+            <article class="float-card card-skill"><small>SKILL_01</small><b>选题与口播</b><span>把想法变成内容</span></article>
+            <article class="float-card card-flow"><small>FLOW_02</small><b>AI 内容工作流</b><span>领取 · 使用 · 产出</span></article>
+            <article class="float-card card-kb"><small>KB_03</small><b>个人知识库</b><span>让内容成为资产</span></article>
+            <div class="cat-note">三位系统管理员<br><b>🐈 🐈 🐈</b></div>
+          </div>
+
+          <div class="scroll-hint"><i></i><span>滚轮进入维天 OS</span></div>
+          <div class="zoom-readout" id="heroZoom">100%</div>
         </div>
-        <button class="launch-button" id="launchButton" type="button">
-          <span>系统准备就绪，按 Enter 启动</span>
-          <b>↓</b>
-        </button>
       </section>
 
       <section class="desktop" id="desktop" aria-label="维天 OS 桌面">
@@ -60,35 +62,35 @@
         </header>
 
         <div class="desktop-surface">
-          <div class="grid-glow" aria-hidden="true"></div>
-          <div class="signal signal-a" aria-hidden="true">+</div>
-          <div class="signal signal-b" aria-hidden="true">+</div>
-          <div class="signal signal-c" aria-hidden="true">+</div>
-
-          <div class="portrait-card" aria-label="漫画版维天占位，等待新素材">
+          <div class="stars" aria-hidden="true"></div>
+          <div class="desktop-intro">
+            <span>WELCOME TO</span>
+            <h2>维天 OS</h2>
+            <p>打开一个文件，看看我最近在研究什么。</p>
+          </div>
+          <div class="portrait-sticker">
             <img src="wille-portrait.jpg" alt="维天说">
-            <span>COMIC AVATAR · PENDING</span>
+            <span>真人版已上线<br>漫画版稍后补丁</span>
           </div>
 
           <div class="desktop-icons" aria-label="系统文件">
-            <button class="desktop-icon" type="button" data-window="start"><i>MD</i><span>START-HERE</span></button>
-            <button class="desktop-icon" type="button" data-window="about"><i>MD</i><span>关于维天</span></button>
-            <button class="desktop-icon" type="button" data-window="workflow"><i>RUN</i><span>AI内容工作流</span></button>
-            <button class="desktop-icon folder" type="button" data-window="skills"><i>DIR</i><span>Skill工具箱</span></button>
-            <button class="desktop-icon" type="button" data-window="knowledge"><i>KB</i><span>知识库</span></button>
-            <button class="desktop-icon folder" type="button" data-window="lab"><i>LAB</i><span>软硬件实验室</span></button>
-            <button class="desktop-icon folder" type="button" data-window="cats"><i>CAT</i><span>三只猫</span></button>
-            <button class="desktop-icon" type="button" data-window="log"><i>LOG</i><span>升级日志</span></button>
+            <button class="desktop-icon document" type="button" data-window="start"><i>MD</i><span>START-HERE</span></button>
+            <button class="desktop-icon document" type="button" data-window="about"><i>ME</i><span>关于维天</span></button>
+            <button class="desktop-icon app" type="button" data-window="workflow"><i>▶</i><span>AI内容工作流</span></button>
+            <button class="desktop-icon folder" type="button" data-window="skills"><i></i><span>Skill工具箱</span></button>
+            <button class="desktop-icon library" type="button" data-window="knowledge"><i>KB</i><span>知识库</span></button>
+            <button class="desktop-icon toolbox" type="button" data-window="lab"><i>＋</i><span>软硬件实验室</span></button>
+            <button class="desktop-icon album" type="button" data-window="cats"><i>🐈</i><span>三只猫</span></button>
+            <button class="desktop-icon notebook" type="button" data-window="log"><i>LOG</i><span>升级日志</span></button>
           </div>
-
           <div class="window-layer" id="windowLayer" aria-live="polite"></div>
         </div>
       </section>
 
       <section class="mobile-home" aria-label="维天 OS 移动端主页">
         <div class="mobile-identity">
-          <span class="eyebrow">WEITIAN OS · RUNNING</span>
           <img src="wille-portrait.jpg" alt="维天说">
+          <span class="eyebrow">WEITIAN OS · RUNNING</span>
           <h1>维天说</h1>
           <p>用 AI 学习、实践、输出<br>记录自己升级操作系统的过程</p>
           <small>INFP · 三只猫的铲屎官 · 和 Agent 一起工作</small>
@@ -96,56 +98,37 @@
         <div class="mobile-modules" id="mobileModules"></div>
       </section>
 
-      <footer class="exit-terminal">
-        <div class="exit-inner">
-          <span class="eyebrow">FOLLOW.LOG</span>
-          <h2>在各个平台找到「维天说」</h2>
-          <div class="social-list">
-            <span>公众号</span><span>抖音</span><span>B站</span><span>小红书</span><span>视频号</span>
-          </div>
-          <pre><span>$ fortune</span>
-&gt; 人生没有最终版本，只有持续更新。
-
-<span>$ exit</span>
-&gt; [Process completed]</pre>
-          <p>© 2026 维天说 · 维天 OS，持续更新中</p>
-          <p class="attribution">Based on hiesther.me by ESTHER不二 · CC BY-NC 4.0 · Modified by Wille</p>
+      <footer class="follow-card">
+        <div>
+          <span class="eyebrow">KEEP IN TOUCH</span>
+          <h2>继续找到「维天说」</h2>
+          <p>在公众号、抖音、B站、小红书、视频号搜索同名账号。</p>
+          <div class="social-list"><span>公众号</span><span>抖音</span><span>B站</span><span>小红书</span><span>视频号</span></div>
         </div>
+        <blockquote>“人生没有最终版本，<br>只有持续更新。”</blockquote>
+        <small>© 2026 维天说 · Based on hiesther.me by ESTHER不二 · CC BY-NC 4.0 · Modified by Wille</small>
       </footer>
     </section>
 
-    <section class="tab-page" id="page-workflow" data-page="workflow">
+    <section class="tab-page" data-page="workflow">
       <div class="workflow-page">
-        <span class="eyebrow">CONTENT WORKFLOW · 01 → 03</span>
-        <h1>一个想法，走到一份可以发布的内容。</h1>
-        <p class="workflow-lead">不是收藏更多工具，而是留下一条能反复运行的工作流。</p>
-
-        <div class="workflow-steps">
-          <article>
-            <span>01</span>
-            <h2>找到要讲什么</h2>
-            <p>从你的经历、问题和观点里找到选题。</p>
-            <button type="button" data-open-home="skills">打开选题 Skill →</button>
-          </article>
-          <article>
-            <span>02</span>
-            <h2>写成可以发布的内容</h2>
-            <p>把真实想法整理成口播、图文或长文。</p>
-            <button type="button" data-open-home="skills">打开内容 Skill →</button>
-          </article>
-          <article>
-            <span>03</span>
-            <h2>沉淀成自己的资产</h2>
-            <p>把内容、反馈和方法放回知识库。</p>
-            <button type="button" data-open-home="knowledge">查看知识库方法 →</button>
-          </article>
+        <header class="workflow-header">
+          <span class="eyebrow">CHOOSE BY YOUR PROBLEM</span>
+          <h1>你卡在哪一步？</h1>
+          <p>不用先研究工具。找到问题，直接拿走能帮你继续往前走的 Skill 和方法。</p>
+        </header>
+        <div class="workflow-grid" id="workflowGrid">
+          <article class="workflow-card yellow" data-open-home="skills"><small>FLOW_01</small><h2>不知道讲什么</h2><p>从经历、问题和观点里找到能持续表达的选题。</p><ul><li>选题 Skill</li><li>观点提炼</li><li>内容方向判断</li></ul><button type="button">去找选题 →</button></article>
+          <article class="workflow-card blue" data-open-home="skills"><small>FLOW_02</small><h2>想法写不成口播</h2><p>把脑子里的东西整理成能说出口、能发布的稿子。</p><ul><li>口播稿 Skill</li><li>标题与开头</li><li>表达结构</li></ul><button type="button">开始写口播 →</button></article>
+          <article class="workflow-card coral" data-open-home="workflow"><small>FLOW_03</small><h2>内容做不稳定</h2><p>把零散操作连接成一条可以重复运行的内容工作流。</p><ul><li>AI 内容工作流</li><li>发布检查</li><li>复盘与迭代</li></ul><button type="button">查看完整流程 →</button></article>
+          <article class="workflow-card green" data-open-home="knowledge"><small>FLOW_04</small><h2>做完没有沉淀</h2><p>把文章、反馈和方法放回自己的知识库，继续复用。</p><ul><li>知识库结构</li><li>内容归档</li><li>长期知识资产</li></ul><button type="button">搭自己的知识库 →</button></article>
+          <article class="workflow-card wide" data-open-home="skills"><small>SKILL DIRECTORY</small><h2>我只想知道：现在该用哪个 Skill？</h2><p>按任务分类查看 Skill，不用在工具收藏夹里继续迷路。</p><button type="button">打开 Skill 工具箱 →</button></article>
         </div>
       </div>
     </section>
 
-    <section class="tab-page system-page" id="page-system" data-page="system">
-      <iframe data-src="infinite-canvas.html" id="systemFrame" title="维天 OS 人生升级循环"></iframe>
-      <div class="canvas-tip">Scroll 缩放 · Drag 移动画布</div>
+    <section class="tab-page system-page" data-page="system">
+      <iframe data-src="infinite-canvas.html" id="systemFrame" title="维天 OS 人生升级地图"></iframe>
     </section>
   </main>
 
@@ -155,7 +138,6 @@
       <div class="window-content"></div>
     </section>
   </template>
-
   <script src="app.js"></script>
 </body>
 </html>
