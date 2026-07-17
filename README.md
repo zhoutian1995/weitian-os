@@ -1,33 +1,19 @@
-# hiesther.me ✦
+# 维天 OS · Visual Prototype
 
-不二的个人网站 — 一个非技术背景设计师用 AI 搓出来的互联网小家。
+维天说个人网站的非商业视觉原型。
 
-🔗 **Live**: [hiesther.me](https://hiesther.me)
+- 纯前端：HTML + CSS + Vanilla JavaScript
+- 预览：<https://zhoutian1995.github.io/esther-website-1/>
+- 当前阶段：文案与视觉原型，文章链接、漫画角色和三只猫档案待补充
 
-## 关于
+## 页面
 
-这是我的第三版个人网页，一个 IP 驱动的桌面风格网站。
+- `01 主页`：终端启动、系统桌面与内容入口
+- `02 工作流`：找到选题、生成内容、沉淀资产
+- `03 我的 OS`：学习、实践、输出、复盘、升级
 
-- **主页** — 教程、分享、HTML 展示页的入口
-- **作品集** — 产品设计作品与项目经历
-- **无限白板** — 自由探索的 Moodboard
+## Attribution
 
-## 技术栈
+Based on [hiesther.me](https://hiesther.me/) by [ESTHER不二](https://github.com/esthersjw/esther-website-1).
 
-纯前端，零框架。HTML + CSS + Vanilla JS，部署在 GitHub Pages。
-
-## 版本进化
-
-| 版本 | 特点 | 文件 |
-|------|------|------|
-| Ver 1 | 简单自我介绍 | `website-ver1.html` |
-| Ver 2 | 终端穿越 + 无限白板 | `website-ver2.html` |
-| Ver 3 | 桌面 OS 风格，IP 载体 | `index.html` |
-
-## 制作工具
-
-这个网站 100% 由我和 [Cola](https://cola.app) 协作完成——我负责定调和审美决策，Cola 负责执行和发散。
-
-## License
-
-[CC BY-NC 4.0](./LICENSE.md) — 可以看、学习、参考，但请注明出处，不可商用。
+Original work licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Modified by Wille for non-commercial use.

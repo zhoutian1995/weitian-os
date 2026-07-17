@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hiesther.me/sitemap.xml
+Sitemap: https://zhoutian1995.github.io/esther-website-1/sitemap.xml
