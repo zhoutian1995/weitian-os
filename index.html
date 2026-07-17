@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESTHER不二 - 1 Person + AI = 1 Team</title>
-<meta name="description" content="ESTHER不二 · 在AI时代认真生活的女生 · 南大建筑 → 米兰理工 → AI · ColaOS">
+<title>维天说 - 维天 OS</title>
+<meta name="description" content="维天说 · 用 AI 学习、实践、输出 · 一个人，也能搭起自己的 AI 内容工作流">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,900;1,400;1,900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
@@ -455,9 +455,21 @@ body {
   box-shadow: 0 2px 6px rgba(241,117,45,0.12);
 }
 .dicon-art.app-cola img {
-  width: 32px; height: 32px;
-  object-fit: contain;
+  width: 100%; height: 100%;
+  object-fit: cover;
   pointer-events: none;
+}
+
+.about-layout { display:grid; grid-template-columns:150px 1fr; gap:22px; align-items:center; padding:42px 30px 28px; }
+.about-layout img { width:150px; height:150px; object-fit:cover; border-radius:12px; }
+.about-copy h2 { margin:0 0 8px; font-size:24px; }
+.about-copy p { margin:0 0 9px; color:#555; font-size:13px; line-height:1.75; }
+.about-copy .about-lead { color:var(--blue-deep); font-weight:700; }
+@media (max-width:560px) {
+  .about-layout { grid-template-columns:92px 1fr; gap:14px; padding:42px 18px 22px; }
+  .about-layout img { width:92px; height:116px; }
+  .about-copy h2 { font-size:19px; }
+  .about-copy p { font-size:11px; }
 }
 
 /* OS windows */
@@ -1459,15 +1471,15 @@ body {
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ESTHER不二 - 1 Person + AI = 1 Team">
-<meta property="og:description" content="ESTHER不二 · 在AI时代认真生活的女生 · 南大建筑 → 米兰理工 → AI · ColaOS">
-<meta property="og:url" content="https://hiesther.me/">
-<meta property="og:image" content="https://hiesther.me/esther-sticker.png">
-<meta property="og:site_name" content="ESTHER不二">
+<meta property="og:title" content="维天说 - 维天 OS">
+<meta property="og:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
+<meta property="og:url" content="https://willeai.cn/">
+<meta property="og:image" content="assets/weitian/wille-desktop-sticker.png">
+<meta property="og:site_name" content="维天说">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESTHER不二 - 1 Person + AI = 1 Team">
-<meta name="twitter:description" content="ESTHER不二 · 在AI时代认真生活的女生 · 南大建筑 → 米兰理工 → AI · ColaOS">
-<meta name="twitter:image" content="https://hiesther.me/esther-sticker.png">
+<meta name="twitter:title" content="维天说 - 维天 OS">
+<meta name="twitter:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
+<meta name="twitter:image" content="assets/weitian/wille-desktop-sticker.png">
 <noscript><style>html { overflow: auto !important; }</style></noscript>
 </head>
 <body>
@@ -1479,7 +1491,7 @@ body {
 <nav class="pill-nav hidden-during-intro" id="pillNav">
   <button data-tab="home" class="active"><span class="pill-num">01</span>主页</button>
   <button data-tab="works"><span class="pill-num">02</span>作品集</button>
-  <button data-tab="system"><span class="pill-num">03</span>我的OS</button>
+  <button data-tab="system"><span class="pill-num">03</span>维天OS</button>
 </nav>
 
 <!-- ====== TAB 1: HOME ====== -->
@@ -1496,7 +1508,7 @@ body {
               <span class="terminal-dot red"></span>
               <span class="terminal-dot yellow"></span>
               <span class="terminal-dot green"></span>
-              <span class="terminal-title">esther@universe ~ zsh</span>
+              <span class="terminal-title">wille@weitian-os ~ zsh</span>
             </div>
             <div id="terminalLines"></div>
           </div>
@@ -1515,7 +1527,7 @@ body {
   <!-- B. Desktop - the world inside the screen -->
   <div class="desktop" id="desktop">
     <div class="desktop-menubar">
-      <span class="mb-logo">esther OS</span>
+      <span class="mb-logo">维天 OS</span>
       <span class="mb-item">About</span>
       <span class="mb-item">Values</span>
       <span class="mb-item">Now</span>
@@ -1625,143 +1637,158 @@ body {
 
       <!-- Draggable sticker -->
       <div class="desktop-sticker" id="buerSticker">
-        <img src="esther-sticker.png" alt="不二">
+        <img src="assets/weitian/wille-desktop-sticker.png" alt="维天说与 AI Agents">
       </div>
 
       <div class="desktop-icons">
-        <div class="dicon" data-href="tutorials/域名教程/" style="top:24px;right:24px;">
+        <div class="dicon" data-href="#works" style="top:24px;right:24px;">
           <div class="dicon-art file ext-md" data-ext=".md"></div>
-          <div class="dicon-label">域名教程</div>
+          <div class="dicon-label">选题研究</div>
         </div>
-        <div class="dicon" data-href="tutorials/人生系统/" style="top:114px;right:24px;">
+        <div class="dicon" data-href="#system" style="top:114px;right:24px;">
           <div class="dicon-art file ext-md" data-ext=".md"></div>
-          <div class="dicon-label">人生系统</div>
+          <div class="dicon-label">维天 OS</div>
         </div>
-        <div class="dicon" data-href="tutorials/部署教程/" style="top:204px;right:24px;">
+        <div class="dicon" data-href="#works" style="top:204px;right:24px;">
           <div class="dicon-art file ext-md" data-ext=".md"></div>
-          <div class="dicon-label">部署教程</div>
+          <div class="dicon-label">口播表达</div>
         </div>
-        <div class="dicon" data-href="tutorials/直播分享/" style="top:294px;right:24px;">
+        <div class="dicon" data-href="#works" style="top:294px;right:24px;">
           <div class="dicon-art file ext-md" data-ext=".md"></div>
-          <div class="dicon-label">和AI搭档生活</div>
+          <div class="dicon-label">内容工作流</div>
         </div>
-        <div class="dicon" data-href="tutorials/cola+ob%E8%87%AA%E5%AA%92%E4%BD%93%E5%88%86%E4%BA%AB/" style="top:384px;right:24px;">
-          <div class="dicon-art file" data-ext=""><img src="icon-cola-obsidian.jpg" alt="" loading="lazy"></div>
-          <div class="dicon-label">Cola+OB自媒体</div>
+        <div class="dicon" data-href="#works" style="top:384px;right:24px;">
+          <div class="dicon-art file" data-ext=""><img src="assets/weitian/wille-workflow-scenes.jpg" alt="" loading="lazy"></div>
+          <div class="dicon-label">个人知识库</div>
         </div>
-        <div class="dicon" data-href="tutorials/09-%E5%BF%83%E7%90%86%E5%AD%A6%E4%B9%A6%E5%BA%93%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C.html" style="top:474px;right:24px;">
+        <div class="dicon" data-href="#works" style="top:474px;right:24px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">不二的书架</div>
+          <div class="dicon-label">找我精选</div>
         </div>
         <div class="dicon" data-win="win-design-skill" style="top:24px;right:114px;">
           <div class="dicon-art folder"></div>
-          <div class="dicon-label">Design Skill</div>
+          <div class="dicon-label">Skill 工具箱</div>
         </div>
-        <div class="dicon" data-href="tutorials/Build-Your-Own-Tool/" style="top:114px;right:114px;">
+        <div class="dicon" data-href="#works" style="top:114px;right:114px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">Build Your Tool</div>
+          <div class="dicon-label">软硬件实验室</div>
         </div>
-        <div class="dicon" data-href="tutorials/personal-dashboard/" style="top:204px;right:114px;">
+        <div class="dicon" data-win="win-about" style="top:204px;right:114px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">不二的个人看板</div>
+          <div class="dicon-label">关于维天说</div>
         </div>
         <div class="dicon" data-win="win-sayhi" style="top:294px;right:114px;">
           <div class="dicon-art folder"></div>
-          <div class="dicon-label">Work With Me</div>
+          <div class="dicon-label">领取工作流</div>
         </div>
         <div class="dicon" data-win="win-cola" style="top:384px;right:114px;">
-          <div class="dicon-art app-cola"><img src="cola-avatar.png" alt="Cola" loading="lazy"></div>
-          <div class="dicon-label">Cola</div>
+          <div class="dicon-art app-cola"><img src="assets/weitian/wille-three-cats.jpg" alt="三只猫" loading="lazy"></div>
+          <div class="dicon-label">三只猫</div>
         </div>
-        <div class="dicon" data-href="tutorials/arch-to-ai/" style="top:474px;right:114px;">
+        <div class="dicon" data-href="#system" style="top:474px;right:114px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">建筑转AI</div>
+          <div class="dicon-label">Linux → 人生OS</div>
         </div>
         <div class="dicon" data-win="win-website-history" style="top:24px;right:204px;">
           <div class="dicon-art folder"></div>
-          <div class="dicon-label">网页进化史</div>
+          <div class="dicon-label">升级日志</div>
         </div>
-        <div class="dicon" data-href="https://esthersjw.github.io/write-then-publish/" style="top:114px;right:204px;">
+        <div class="dicon" data-href="#works" style="top:114px;right:204px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">写了就发</div>
+          <div class="dicon-label">写完就发布</div>
         </div>
-        <div class="dicon" data-href="tutorials/V-sharing/" style="top:204px;right:204px;">
+        <div class="dicon" data-href="#system" style="top:204px;right:204px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
-          <div class="dicon-label">Better Me</div>
+          <div class="dicon-label">持续升级中</div>
         </div>
       </div>
 
       <!-- Window templates (hidden until opened) -->
+      <template id="win-about">
+        <div class="os-window" data-title="关于维天说" data-url="维天 OS">
+          <div class="os-body about-layout">
+            <img src="assets/weitian/wille-portrait.jpg" alt="维天说 Wille" loading="lazy">
+            <div class="about-copy">
+              <h2>维天说</h2>
+              <p class="about-lead">用 AI 学习、实践、输出。</p>
+              <p>软硬件都玩，曾就职于大华股份、海康威视。</p>
+              <p>以前研究 Linux 操作系统，现在用 AI 给自己的人生操作系统持续升级。</p>
+              <p>INFP，和三只猫一起生活、工作和升级系统。</p>
+            </div>
+          </div>
+        </div>
+      </template>
+
       <template id="win-sayhi">
-        <div class="os-window" data-title="Work With Me" data-url="esther.sjw@gmail.com">
+        <div class="os-window" data-title="领取工作流" data-url="维天说 AI 内容工作流">
           <div class="os-body win-sayhi">
-            <div class="sayhi-heading">Work With Me ✨</div>
-            <div class="sayhi-sub">1 person + AI = 1 team</div>
+            <div class="sayhi-heading">先跑出第一份内容 ✨</div>
+            <div class="sayhi-sub">一个人，也能搭起自己的 AI 内容工作流</div>
             <div class="services-grid">
               <div class="service-card">
-                <div class="service-icon">📱</div>
-                <div class="service-title">AI 自媒体</div>
-                <div class="service-desc">带货 / 商单推广 / 品牌共创<br>小红书 @ESTHER不二</div>
+                <div class="service-icon">🧰</div>
+                <div class="service-title">免费领取</div>
+                <div class="service-desc">选题 / 口播 / 发布 / 沉淀<br>拿来就能开始跑</div>
               </div>
               <div class="service-card">
-                <div class="service-icon">🏫</div>
-                <div class="service-title">AI 企业培训</div>
-                <div class="service-desc">AI 工具落地 / Agent 工作流<br>带团队从 0 用起来</div>
+                <div class="service-icon">🧭</div>
+                <div class="service-title">遇到卡点</div>
+                <div class="service-desc">答疑 / Skill 选择<br>个性化工作流改造</div>
               </div>
             </div>
             <div class="sayhi-links">
-              <span>📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></span>
-              <span>📕 <a href="https://www.xiaohongshu.com/user/profile/55c6c7695894460904f87b47" target="_blank">小红书</a></span>
+              <span>📮 微信领取方式整理中</span>
+              <span>📕 在各个平台搜索「维天说」</span>
             </div>
           </div>
         </div>
       </template>
 
       <template id="win-design-skill">
-        <div class="os-window" data-title="Design Skill" data-url="hiesther.me/tutorials/esther-design-system" style="width:380px;">
+        <div class="os-window" data-title="Skill 工具箱" data-url="按问题选择 Skill" style="width:380px;">
           <div class="os-body win-folder">
-            <div class="folder-icon" data-href="tutorials/esther-design-system/">
+            <div class="folder-icon" data-href="#works">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Design Skill介绍</div>
+              <div class="folder-icon-label">选题研究 Skill</div>
             </div>
-            <div class="folder-icon" data-href="tutorials/esther-design-system/demo-readme-cards.html">
+            <div class="folder-icon" data-href="#works">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Demo ReadMe Cards</div>
+              <div class="folder-icon-label">口播表达 Skill</div>
             </div>
-            <div class="folder-icon" data-href="tutorials/esther-design-system/design-skill-story.html">
+            <div class="folder-icon" data-href="#works">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">如何做出 Design Skill</div>
+              <div class="folder-icon-label">内容生产 Skill</div>
             </div>
-            <div class="folder-icon" data-href="tutorials/esther-design-system/components-preview.html">
+            <div class="folder-icon" data-href="#works">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">设计组件库</div>
+              <div class="folder-icon-label">知识库 Skill</div>
             </div>
-            <div class="folder-icon" data-href="https://github.com/esthersjw/esther-design-system">
+            <div class="folder-icon" data-href="#works">
               <div class="folder-icon-art file ext-git" data-ext=".git"></div>
-              <div class="folder-icon-label">GitHub Repo</div>
+              <div class="folder-icon-label">全部 Skill（待接入）</div>
             </div>
           </div>
         </div>
       </template>
 
       <template id="win-website-history">
-        <div class="os-window" data-title="网页进化史" data-url="hiesther.me" style="width:360px;">
+        <div class="os-window" data-title="升级日志" data-url="维天 OS / changelog" style="width:360px;">
           <div class="os-body win-folder">
-            <div class="folder-icon" data-href="website-ver1.html">
+            <div class="folder-icon" data-href="#system">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Ver 1 — 初代个人网页</div>
+              <div class="folder-icon-label">开始用 AI 重建内容系统</div>
             </div>
-            <div class="folder-icon" data-href="website-ver2.html">
+            <div class="folder-icon" data-href="#system">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Ver 2 — 终端穿越×无限白板</div>
+              <div class="folder-icon-label">搭建个人知识库与 Skill</div>
             </div>
             <div class="folder-icon" data-win="win-ver3-cola">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Ver 3 — 当前版本</div>
+              <div class="folder-icon-label">维天 OS — 当前版本</div>
             </div>
-            <div class="folder-icon" data-href="hero-playground.html">
+            <div class="folder-icon" data-href="#system">
               <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">Playground</div>
+              <div class="folder-icon-label">最近更新（待接入）</div>
             </div>
           </div>
         </div>
@@ -1779,12 +1806,12 @@ body {
       </template>
 
       <template id="win-cola">
-        <div class="os-window cola-window" data-title="Cola" data-url="colaos.ai">
+        <div class="os-window cola-window" data-title="三只猫·系统管理员" data-url="维天 OS / cats">
           <div class="os-body" style="padding:0; max-height:none; height:100%; overflow:hidden;">
             <div class="cola-inner">
               <!-- Cola Sidebar -->
               <div class="cola-sidebar">
-                <div class="cola-sidebar-avatar"><img src="cola-avatar.png" alt="Cola" loading="lazy"></div>
+                <div class="cola-sidebar-avatar"><img src="assets/weitian/wille-three-cats.jpg" alt="三只猫" loading="lazy"></div>
                 <div class="cola-sidebar-mic">
                   <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
                 </div>
@@ -1792,11 +1819,11 @@ body {
               <!-- Cola Main -->
               <div class="cola-main">
                 <div class="cola-topbar">
-                  <span class="cola-tab active">对话</span>
-                  <span class="cola-tab">交付</span>
-                  <span class="cola-tab">闹钟</span>
-                  <span class="cola-tab">心迹</span>
-                  <span class="cola-tab">接入</span>
+                  <span class="cola-tab active">值班室</span>
+                  <span class="cola-tab">研究</span>
+                  <span class="cola-tab">表达</span>
+                  <span class="cola-tab">创意</span>
+                  <span class="cola-tab">猫粮</span>
                 </div>
                 <div class="cola-search">
                   <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="#aaa" stroke-width="2"/><path d="M21 21l-4.35-4.35" fill="none" stroke="#aaa" stroke-width="2"/></svg>
@@ -1804,20 +1831,27 @@ body {
                 </div>
                 <!-- Chat -->
                 <div class="cola-chat">
-                  <div class="cola-msg-user"><div class="cola-bubble">Cola,跟来看我网站的人打个招呼吧</div></div>
+                  <div class="cola-msg-user"><div class="cola-bubble">三位管理员，介绍一下你们的分工吧</div></div>
                   <div class="cola-msg-bot">
-                    <div class="cola-bot-avatar"><img src="cola-avatar.png" alt="Cola" loading="lazy"></div>
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-shadiao.jpg" alt="沙雕" loading="lazy"></div>
                     <div class="cola-bot-content">
-                      <div class="cola-mutter">被 cue 到了。</div>
-                      <div>嘿。我是 Cola,不二的 Agent 伙伴。<br><br>她搭这个网站的时候我全程在,从选色到写码到凌晨三点还在跟我吵配色方案。<br><br>你想知道关于她的什么都可以问我--经历、正在做的事、怎么跟 AI 协作的、或者单纯好奇她是什么样的人。<br><br>我比她客气一点,但也只是一点。</div>
+                      <div class="cola-mutter">沙雕先来。</div>
+                      <div>我是沙雕，美短，内容研究员。负责收集灵感、整理素材，顺便监督 Wille 别把收藏当学习。</div>
                     </div>
                   </div>
-                  <div class="cola-msg-user"><div class="cola-bubble">差不多得了😂 就这样吧,别太自由发挥</div></div>
+                  <div class="cola-msg-user"><div class="cola-bubble">另外两位呢？</div></div>
                   <div class="cola-msg-bot">
-                    <div class="cola-bot-avatar"><img src="cola-avatar.png" alt="Cola" loading="lazy"></div>
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-bengbeng.jpg" alt="蹦蹦" loading="lazy"></div>
                     <div class="cola-bot-content">
-                      <div class="cola-mutter">收到,嘴巴拉链拉上。</div>
-                      <div>随时来聊。</div>
+                      <div class="cola-mutter">蹦蹦开始点名。</div>
+                      <div>我是蹦蹦，暹罗，表达监督员；大头是金渐层，创意体验官。一个催口播，一个管好不好玩。</div>
+                    </div>
+                  </div>
+                  <div class="cola-msg-bot">
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-datou.jpg" alt="大头" loading="lazy"></div>
+                    <div class="cola-bot-content">
+                      <div class="cola-mutter">大头正在研究方块。</div>
+                      <div>网站要有用，也要有点好玩。维天 OS 的体验部分归我检查。</div>
                     </div>
                   </div>
                 </div>
@@ -1837,7 +1871,7 @@ body {
                         </div>
                       </div>
                     </div>
-                    <div class="cola-coming-soon"><a href="https://colaos.ai" target="_blank" style="color:inherit;text-decoration:none;">coming soon - 正在接入中 ✨</a></div>
+                    <div class="cola-coming-soon">三只猫正在值班，真实照片后续接入 ✨</div>
                   </div>
                 </div>
               </div>
@@ -1866,25 +1900,24 @@ body {
                 <span class="terminal-dot red"></span>
                 <span class="terminal-dot yellow"></span>
                 <span class="terminal-dot green"></span>
-                <span class="goodbye-title-text">esther@universe ~ zsh</span>
+                  <span class="goodbye-title-text">wille@weitian-os ~ zsh</span>
               </div>
               <div class="goodbye-body">
                 <div class="goodbye-terminal">
-                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">echo "see you"</span></div>
-                  <div class="gt-line gt-output">See you next time.</div>
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">cat follow.log</span></div>
+                  <div class="gt-line gt-output">在各个平台找到「维天说」</div>
                   <div class="gt-line">&nbsp;</div>
-                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">cat contact.md</span></div>
-                  <div class="gt-line gt-output">📮 <a href="mailto:esther.sjw@gmail.com">esther.sjw@gmail.com</a></div>
-                  <div class="gt-line gt-output">📕 小红书 <a href="https://www.xiaohongshu.com/user/profile/55c6c7695894460904f87b47" target="_blank">@ESTHER不二</a></div>
+                  <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">ls platforms/</span></div>
+                  <div class="gt-line gt-output">公众号　抖音　B站　小红书　视频号</div>
                   <div class="gt-line">&nbsp;</div>
                   <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">fortune</span></div>
-                  <div class="gt-line gt-dim">“找到你喜欢的事，然后让它杀死你。” — Bukowski</div>
+                  <div class="gt-line gt-dim">人生没有最终版本，只有持续更新。</div>
                   <div class="gt-line">&nbsp;</div>
                   <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">exit</span></div>
                   <div class="gt-line gt-output"><span class="gt-gold">[Process completed]</span></div>
                 </div>
               </div>
-              <div class="goodbye-footer">© 2026 ESTHER不二 · Built with AI &amp; attitude</div>
+              <div class="goodbye-footer">© 2026 维天说 · 维天 OS，持续更新中 · Based on hiesther.me by ESTHER不二 · CC BY-NC 4.0 · Modified by Wille</div>
             </div>
           </div>
         </div>
@@ -1910,120 +1943,125 @@ body {
   <div class="works-page">
     <!-- 1 Person + AI = 1 Team hero -->
     <div class="workflow-screen">
-      <h1 class="workflow-headline">1 Person + AI = 1 Team</h1>
-      <p class="workflow-subtitle">ESTHER不二 · INTJ · 南大建筑 → 米兰理工 → AI · ColaOS</p>
+      <h1 class="workflow-headline">1 Person + AI = Content System</h1>
+      <p class="workflow-subtitle">维天说 · INFP · 软硬件都玩 · Linux → 用 AI 持续升级人生 OS</p>
       <div class="workflow-columns">
         <div class="workflow-col">
           <div class="workflow-col-title">RESEARCH &amp; THINK</div>
           <div class="workflow-col-line"></div>
           <div class="workflow-item">
-            <span class="workflow-item-label">Daily Brief</span>
-            <span class="workflow-item-desc">AI定时跑增长晨报、行业简报,每天自动推送</span>
+            <span class="workflow-item-label">选题研究</span>
+            <span class="workflow-item-desc">把零散灵感变成可以马上开工的内容选题</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">竞品分析</span>
-            <span class="workflow-item-desc">AI辅助调研竞品动态、功能拆解、策略推演</span>
+            <span class="workflow-item-label">用户问题</span>
+            <span class="workflow-item-desc">从真实卡点出发，先回答用户真正关心的事</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">GTM 框架</span>
-            <span class="workflow-item-desc">从用户画像到增长飞轮,AI搭框架人做决策</span>
+            <span class="workflow-item-label">知识检索</span>
+            <span class="workflow-item-desc">从个人知识库调取经历、案例和可靠材料</span>
           </div>
         </div>
         <div class="workflow-col">
           <div class="workflow-col-title">CREATE &amp; BUILD</div>
           <div class="workflow-col-line"></div>
           <div class="workflow-item">
-            <span class="workflow-item-label">内容创作</span>
-            <span class="workflow-item-desc">口播脚本、小红书图文、一鱼多吃Skill自动分发</span>
+            <span class="workflow-item-label">口播表达</span>
+            <span class="workflow-item-desc">把复杂想法写成普通人能听懂的口播</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">视觉生成</span>
-            <span class="workflow-item-desc">品牌物料、知识可视化、AI配图一键出稿</span>
+            <span class="workflow-item-label">内容生产</span>
+            <span class="workflow-item-desc">脚本、图文和配图在同一条工作流里完成</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">工具开发</span>
-            <span class="workflow-item-desc">NORUSH公众号编辑器、拼贴诗生成器、自定义Skill</span>
+            <span class="workflow-item-label">Skill 工具箱</span>
+            <span class="workflow-item-desc">按问题选择 Skill，不再只收藏零散提示词</span>
           </div>
         </div>
         <div class="workflow-col">
           <div class="workflow-col-title">ANALYZE &amp; OPERATE</div>
           <div class="workflow-col-line"></div>
           <div class="workflow-item">
-            <span class="workflow-item-label">项目管理</span>
-            <span class="workflow-item-desc">飞书多维表格 + AI Skill,自动化流程追踪</span>
+            <span class="workflow-item-label">写完就发布</span>
+            <span class="workflow-item-desc">减少反复打磨，让内容真正进入反馈循环</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">SOP 搭建</span>
-            <span class="workflow-item-desc">直播SOP、内容SOP、运营SOP,标准化复用</span>
+            <span class="workflow-item-label">知识沉淀</span>
+            <span class="workflow-item-desc">把发布后的内容重新沉淀成长期知识资产</span>
           </div>
           <div class="workflow-item">
-            <span class="workflow-item-label">数据驱动</span>
-            <span class="workflow-item-desc">增长简报、转化漏斗、用户行为分析辅助决策</span>
+            <span class="workflow-item-label">持续升级</span>
+            <span class="workflow-item-desc">根据数据和卡点迭代工作流，而不是频繁换工具</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="section-label" style="margin-top:64px;">ls works/</div>
-    <h2 class="section-heading">作品集</h2>
+    <h2 class="section-heading">你可以从这里得到什么</h2>
     <div class="works-grid">
       <div class="work-dim">
         <div class="dim-num">dim_01</div>
-        <h3>内容创作</h3>
-        <p class="dim-desc">在小红书记录 AI × 生活的真实实践——教程、踩坑、和 Agent 搭档的日常。</p>
+        <h3>选题与内容研究</h3>
+        <p class="dim-desc">不知道做什么内容时，从用户问题、个人经历和知识库里找到值得讲的选题。</p>
         <div class="dim-works-list">
-          <a class="dim-work-item" href="https://www.xiaohongshu.com/discovery/item/69e75262000000001a022273?source=webshare&amp;xhsshare=pc_web&amp;xsec_token=AB0O_ZUaCAcJA2Uvx3papyfb1vOAt4IJD1m48JaI5bJVc=&amp;xsec_source=pc_share" target="_blank">
-            <span class="dim-work-icon">📕</span>
-            <span>内部视角：AI 公司招聘需要的作品集</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">🔎</span>
+            <span>从用户卡点生成选题</span>
           </a>
-          <a class="dim-work-item" href="https://www.xiaohongshu.com/discovery/item/6a2bee1f000000001c026acc?source=webshare&amp;xhsshare=pc_web&amp;xsec_token=ABrpjwOlAzDvtDcGWXowbbUiOr_Is_uP8Wepx-rtbmrE0=&amp;xsec_source=pc_share" target="_blank">
-            <span class="dim-work-icon">🎨</span>
-            <span>用小黑 skill 定制自己的 IP 配图</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">🧠</span>
+            <span>用知识库补充经历与案例</span>
           </a>
-          <a class="dim-work-item" href="https://www.xiaohongshu.com/user/profile/55c6c7695894460904f87b47?m_source=pinpai" target="_blank">
+          <a class="dim-work-item" href="#works">
             <span class="dim-work-icon">→</span>
-            <span>更多内容：小红书 @Esther不二</span>
+            <span>找我精选（内容待接入）</span>
           </a>
         </div>
       </div>
       <div class="work-dim">
         <div class="dim-num">dim_02</div>
-        <h3>设计系统skill</h3>
-        <p class="dim-desc">一套为Esther不二的自媒体IP生成内容设计的 Design Skill——从配色、字体、组件到排版规范，让 AI 直接输出符合我审美的html。</p>
+        <h3>口播与表达</h3>
+        <p class="dim-desc">知道要讲什么，却说不清楚时，把复杂想法变成普通人能听懂、自己也说得出口的口播。</p>
         <div class="dim-works-list">
-          <a class="dim-work-item" href="tutorials/esther-design-system/" target="_blank">
-            <span class="dim-work-icon">✨</span>
-            <span>Design Skill 介绍</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">🎙️</span>
+            <span>口播结构与表达 Skill</span>
           </a>
-          <a class="dim-work-item" href="https://github.com/esthersjw/esther-design-system" target="_blank">
-            <span class="dim-work-icon">💻</span>
-            <span>GitHub Repo</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">✍️</span>
+            <span>手写稿 → 练习 → 脱稿表达</span>
           </a>
         </div>
       </div>
       <div class="work-dim">
         <div class="dim-num">dim_03</div>
-        <h3>AI 实践</h3>
-        <p class="dim-desc">用 AI 赋能自己的生活——从零搭建个人系统、写教程、做工具，全程和 Agent 搭档完成。</p>
+        <h3>AI 内容工作流</h3>
+        <p class="dim-desc">把选题、口播、发布和沉淀连成一条真正能跑的流程，一个人也能持续生产内容。</p>
         <div class="dim-works-list">
-          <a class="dim-work-item" href="tutorials/personal-dashboard/" target="_blank">
-            <span class="dim-work-icon">📊</span>
-            <span>个人仪表盘：AI 人生管理系统</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">🧰</span>
+            <span>免费领取维天说 AI 内容工作流</span>
           </a>
-          <a class="dim-work-item" href="tutorials/Build-Your-Own-Tool/" target="_blank">
-            <span class="dim-work-icon">🔧</span>
-            <span>Build Your Own Tool 教程</span>
+          <a class="dim-work-item" href="#works">
+            <span class="dim-work-icon">⚙️</span>
+            <span>按自己的情况改造流程</span>
           </a>
-          <a class="dim-work-item" href="tutorials/09-%E5%BF%83%E7%90%86%E5%AD%A6%E4%B9%A6%E5%BA%93%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C.html" target="_blank">
-            <span class="dim-work-icon">🧠</span>
-            <span>不二的书架</span>
+          <a class="dim-work-item" href="#system">
+            <span class="dim-work-icon">🗂️</span>
+            <span>发布后沉淀回个人知识库</span>
           </a>
         </div>
       </div>
       <div class="work-dim">
         <div class="dim-num">dim_04</div>
-        <h3>品牌运营</h3>
-        <div class="dim-empty">更多作品整理中 →</div>
+        <h3>Skill 与知识库</h3>
+        <p class="dim-desc">按具体问题选择 Skill，把资料、经验和内容变成以后还能继续调用的个人资产。</p>
+        <div class="dim-works-list">
+          <a class="dim-work-item" href="#system"><span class="dim-work-icon">🧩</span><span>Skill 工具箱</span></a>
+          <a class="dim-work-item" href="#system"><span class="dim-work-icon">🗃️</span><span>个人知识库搭建</span></a>
+          <a class="dim-work-item" href="#works"><span class="dim-work-icon">💬</span><span>答疑与个性化改造</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -2032,7 +2070,7 @@ body {
 <!-- ====== TAB 3: MY OS (canvas iframe) ====== -->
 <main class="tab-page" id="page-system">
   <div class="canvas-page">
-    <iframe data-src="infinite-canvas.html" id="canvasFrame" title="ESTHER's OS Canvas"></iframe>
+    <iframe data-src="infinite-canvas.html" id="canvasFrame" title="维天 OS Canvas"></iframe>
     <div class="canvas-hint">Scroll 缩放 · Drag 移动画布</div>
   </div>
 </main>
@@ -2110,23 +2148,23 @@ body {
   /* ============================================
      TERMINAL TYPING (first visit) / SKIP (return)
      ============================================ */
-  var VISITED_KEY = 'esther_visited';
+  var VISITED_KEY = 'weitian_visited';
   var isReturnVisitor = false;
   try { isReturnVisitor = !!localStorage.getItem(VISITED_KEY); } catch (e) {}
 
   var terminalData = [
     { type: 'cmd', prompt: '$ ', text: 'whoami' },
-    { type: 'output', prefix: '> ', text: 'ESTHER不二' },
+    { type: 'output', prefix: '> ', text: '维天说' },
     { type: 'blank' },
     { type: 'cmd', prompt: '$ ', text: 'cat about.md' },
-    { type: 'output', prefix: '> ', text: '在AI时代认真生活的女生' },
-    { type: 'output', prefix: '  ', text: 'INTJ / 跟Agent搭档的第1年' },
-    { type: 'output', prefix: '  ', text: '南大/米理建筑 → AI ColaOS building' },
+    { type: 'output', prefix: '> ', text: '用 AI 学习、实践、输出' },
+    { type: 'output', prefix: '  ', text: 'INFP / 和三只猫一起升级系统' },
+    { type: 'output', prefix: '  ', text: '软硬件都玩 / Linux → 人生 OS' },
     { type: 'blank' },
-    { type: 'cmd', prompt: '$ ', text: 'echo "1 person + AI = 1 team"' },
-    { type: 'gold', prefix: '> ', text: '1 person + AI = 1 team' },
+    { type: 'cmd', prompt: '$ ', text: 'echo "一个人，也能搭起自己的 AI 内容工作流"' },
+    { type: 'gold', prefix: '> ', text: '先跑出第一份内容' },
     { type: 'blank' },
-    { type: 'cmd', prompt: '$ ', text: 'open esther-os.app', cursor: true }
+    { type: 'cmd', prompt: '$ ', text: 'open weitian-os.app', cursor: true }
   ];
 
   var container = document.getElementById('terminalLines');
@@ -2722,7 +2760,7 @@ body {
       });
       var titleText = document.createElement('span');
       titleText.style.cssText = 'color:rgba(255,255,255,0.5);font-size:11px;margin-left:auto;margin-right:auto;font-family:sans-serif;';
-      titleText.textContent = 'esther@universe ~ zsh';
+      titleText.textContent = 'wille@weitian-os ~ zsh';
       titlebar.appendChild(titleText);
       termArea.appendChild(titlebar);
 
