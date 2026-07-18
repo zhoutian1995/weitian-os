@@ -1,33 +1,25 @@
-# hiesther.me ✦
+# 维天 OS ✦
 
-不二的个人网站 — 一个非技术背景设计师用 AI 搓出来的互联网小家。
+「维天说」的个人桌面网站，用来展示 AI 内容工作流、Skill 工具、知识库和持续升级中的人生 OS。
 
-🔗 **Live**: [hiesther.me](https://hiesther.me)
+🔗 **Live**: [willeai.cn](https://willeai.cn)
 
 ## 关于
 
-这是我的第三版个人网页，一个 IP 驱动的桌面风格网站。
+这是维天说的桌面风格个人网站。
 
-- **主页** — 教程、分享、HTML 展示页的入口
-- **作品集** — 产品设计作品与项目经历
-- **无限白板** — 自由探索的 Moodboard
+- **主页** — 电脑桌面、工作流领取、Skill 工具箱和个人介绍
+- **作品集** — 选题、口播、内容生产与知识沉淀入口
+- **维天 OS** — 可缩放、拖拽的个人系统无限画布
 
 ## 技术栈
 
 纯前端，零框架。HTML + CSS + Vanilla JS，部署在 GitHub Pages。
 
-## 版本进化
+## 来源
 
-| 版本 | 特点 | 文件 |
-|------|------|------|
-| Ver 1 | 简单自我介绍 | `website-ver1.html` |
-| Ver 2 | 终端穿越 + 无限白板 | `website-ver2.html` |
-| Ver 3 | 桌面 OS 风格，IP 载体 | `index.html` |
-
-## 制作工具
-
-这个网站 100% 由我和 [Cola](https://cola.app) 协作完成——我负责定调和审美决策，Cola 负责执行和发散。
+基于 [hiesther.me](https://hiesther.me/) by ESTHER不二进行非商业修改，保留原作者署名和许可信息。
 
 ## License
 
-[CC BY-NC 4.0](./LICENSE.md) — 可以看、学习、参考，但请注明出处，不可商用。
+[CC BY-NC 4.0](./LICENSE.md) — 可以学习与参考，请注明出处，不可商用。

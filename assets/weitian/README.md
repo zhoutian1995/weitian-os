@@ -1,6 +1,10 @@
 # 维天 OS 网站素材
 
-当前页面只使用维天说 IP v2 插画、三只猫插画和 Wille 真人照片。
+当前页面只使用维天说 IP v2 的 Wille 与三只猫主锚图、三只猫真实照片和 Wille 真人照片。
+
+微信领取二维码使用已授权并人工扫码验证的公开副本 `wechat-workflow-claim-ad445c44c425.png`。网站副本必须保持 SHA-256：`ad445c44c425f942c1f23036a5d729cf03d2761ab0ba72da620a602769b0b3af`，不得重新压缩或改写。
+
+桌面主贴纸必须使用 `wille-three-cats-desktop-sticker.png`，其中角色固定为 Wille、沙雕、蹦蹦和大头；不得使用通用 Agent 小人替代三只猫。
 
 以下两张 IP v1 旧版素材已明确停用，仅保留在 NAS 知识库中，不得复制或引用到网站：
 

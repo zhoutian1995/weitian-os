@@ -12,16 +12,18 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --cream: #fefcf6;
-  --cream-dark: #faf6eb;
-  --ink: #1A1A2E;
-  --ink-light: #4A4A5A;
-  --ink-faint: #8A8A9A;
-  --blue: #2B7FD8;
-  --yellow: #F4D758;
+  --cream: #F6F2E8;
+  --cream-dark: #ECE7DB;
+  --ink: #252A27;
+  --ink-light: #4E5953;
+  --ink-faint: #7D8781;
+  --blue: #6C8EAD;
+  --yellow: #F2D35C;
   --red: #E84A5F;
   --term-bg: #151821;
-  --blue-deep: #1E5BA8;
+  --blue-deep: #36574C;
+  --studio-green: #60756A;
+  --studio-green-deep: #263A33;
   --term-green: #4ade80;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -83,7 +85,7 @@ body {
 }
 .pill-nav button:hover { color: var(--ink); }
 .pill-nav button.active {
-  background: var(--blue);
+  background: var(--studio-green-deep);
   color: #fff;
 }
 .pill-nav .pill-num {
@@ -124,7 +126,7 @@ body {
 }
 .macbook-screen {
   width: 680px; height: 440px;
-  background: var(--blue);
+  background: var(--studio-green);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -275,7 +277,7 @@ body {
 .transition-overlay {
   position: fixed;
   inset: 0;
-  background: var(--blue);
+  background: var(--studio-green);
   z-index: 2000;
   opacity: 0;
   pointer-events: none;
@@ -288,14 +290,17 @@ body {
    ============================================ */
 .desktop {
   position: relative;
-  background: #2B7FD8;
+  background: var(--studio-green);
 }
 
 .desktop-surface {
   position: relative;
   height: calc(100vh - 30px);
   overflow: hidden;
-  background: #2B7FD8;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255,255,255,0.06), transparent 28%),
+    radial-gradient(circle at 78% 72%, rgba(38,58,51,0.16), transparent 34%),
+    var(--studio-green);
 }
 /* Draggable sticker */
 .desktop-sticker {
@@ -382,13 +387,13 @@ body {
   -webkit-user-select: none;
   transition: background 0.15s;
 }
-.dicon:hover { background: rgba(255,255,255,0.1); }
-.dicon:active { background: rgba(255,255,255,0.15); }
+.dicon:hover { background: rgba(246,242,232,0.13); }
+.dicon:active { background: rgba(246,242,232,0.2); }
 .dicon img { pointer-events: none; }
 .dicon-label {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.94);
   text-align: center;
   line-height: 1.3;
   word-break: break-all;
@@ -416,8 +421,8 @@ body {
 /* file */
 .dicon-art.file {
   background: #fff;
-  border: 1.5px solid rgba(43,127,216,0.3);
-  box-shadow: 0 2px 5px rgba(30,91,168,0.15);
+  border: 1.5px solid rgba(38,58,51,0.24);
+  box-shadow: 0 2px 5px rgba(38,58,51,0.18);
 }
 .dicon-art.file img {
   position: absolute;
@@ -681,7 +686,7 @@ body {
   width: 20px; height: 20px;
   flex-shrink: 0;
 }
-.cola-msg-bot .cola-bot-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.cola-msg-bot .cola-bot-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .cola-msg-bot .cola-bot-content {
   font-size: 13px;
   line-height: 1.7;
@@ -764,6 +769,7 @@ body {
   letter-spacing: 1px;
 }
 @media (max-width: 768px) {
+  .os-window { max-width: calc(100vw - 24px); }
   .os-window.cola-window { width: 96vw; height: 72vh; }
   .cola-sidebar { width: 44px; }
   .cola-sidebar-avatar { width: 28px; height: 28px; }
@@ -805,7 +811,7 @@ body {
   margin-bottom: 22px;
 }
 .win-sayhi .service-card {
-  border: 1px dashed rgba(43,127,216,0.3);
+  border: 1px dashed rgba(54,87,76,0.3);
   padding: 16px 14px;
   border-radius: 2px;
   position: relative;
@@ -832,6 +838,71 @@ body {
 }
 .win-sayhi .sayhi-links a { color: var(--blue); text-decoration: none; }
 .win-sayhi .sayhi-links a:hover { text-decoration: underline; }
+.win-sayhi .claim-layout {
+  display: grid;
+  grid-template-columns: 156px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+.win-sayhi .claim-qr {
+  width: 156px;
+  aspect-ratio: 1;
+  display: block;
+  border: 8px solid #fff;
+  box-shadow: 0 5px 18px rgba(35, 53, 73, 0.12);
+}
+.win-sayhi .claim-list {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.75;
+}
+.win-sayhi .claim-note {
+  font-size: 11px;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.win-sayhi .claim-save {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--blue-deep);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.workflow-directory {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  counter-reset: workflow-step;
+}
+.workflow-directory li {
+  counter-increment: workflow-step;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(54,87,76,0.22);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.workflow-directory li:last-child { border-bottom: 0; }
+.workflow-directory li::before {
+  content: counter(workflow-step, decimal-leading-zero);
+  font-family: 'Fira Code', monospace;
+  color: var(--blue);
+  font-weight: 700;
+}
+.workflow-directory strong { display: block; color: var(--ink); }
+.workflow-directory span { color: var(--ink-faint); }
+.toolbox-intro {
+  grid-column: 1 / -1;
+  margin: 0 0 2px;
+  font-size: 11px;
+  color: var(--ink-faint);
+  line-height: 1.55;
+}
 .win-sayhi .sayhi-quote {
   margin-top: 24px;
   font-size: 11px;
@@ -858,7 +929,7 @@ body {
   border-radius: 6px;
   transition: background 0.15s;
 }
-.folder-icon:hover { background: rgba(43,127,216,0.08); }
+.folder-icon:hover { background: rgba(54,87,76,0.08); }
 .folder-icon-art {
   width: 40px; height: 40px;
   border-radius: 8px;
@@ -955,7 +1026,7 @@ body {
   gap: 18px;
   height: 30px;
   padding: 0 16px;
-  background: rgba(43, 127, 216, 0.96);
+  background: rgba(38, 58, 51, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   font-family: 'Noto Sans SC', sans-serif;
@@ -1035,7 +1106,7 @@ body {
 .tp-item {
   position: relative;
   padding: 0 0 36px 32px;
-  border-left: 2px solid rgba(43,127,216,0.25);
+  border-left: 2px solid rgba(54,87,76,0.25);
 }
 .tp-item:last-child { border-left-color: transparent; padding-bottom: 0; }
 .tp-item::before {
@@ -1069,7 +1140,7 @@ body {
   line-height: 1;
   pointer-events: none;
 }
-.now-item:nth-child(1) .now-num { color: rgba(43,127,216,0.08); }
+.now-item:nth-child(1) .now-num { color: rgba(54,87,76,0.08); }
 .now-item:nth-child(2) .now-num { color: rgba(244,215,88,0.15); }
 .now-item:nth-child(3) .now-num { color: rgba(232,74,95,0.08); }
 .now-item .now-text {
@@ -1392,7 +1463,7 @@ body {
   font-size: 13px;
   transition: background 0.15s;
 }
-.dim-work-item:hover { background: rgba(43,127,216,0.08); }
+.dim-work-item:hover { background: rgba(54,87,76,0.08); }
 .dim-work-icon { font-size: 16px; }
 
 /* ============================================
@@ -1460,6 +1531,8 @@ body {
   .dicon-label { font-size: 10px; }
   .win-sayhi .services-grid { grid-template-columns: 1fr; }
   .os-body.win-sayhi { padding: 28px 20px; }
+  .win-sayhi .claim-layout { grid-template-columns: 116px 1fr; gap: 12px; }
+  .win-sayhi .claim-qr { width: 116px; border-width: 6px; }
 }
 
 /* Reduced motion */
@@ -1474,12 +1547,12 @@ body {
 <meta property="og:title" content="维天说 - 维天 OS">
 <meta property="og:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
 <meta property="og:url" content="https://willeai.cn/">
-<meta property="og:image" content="assets/weitian/wille-desktop-sticker.png">
+<meta property="og:image" content="assets/weitian/wille-three-cats-desktop-sticker.png">
 <meta property="og:site_name" content="维天说">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="维天说 - 维天 OS">
 <meta name="twitter:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
-<meta name="twitter:image" content="assets/weitian/wille-desktop-sticker.png">
+<meta name="twitter:image" content="assets/weitian/wille-three-cats-desktop-sticker.png">
 <noscript><style>html { overflow: auto !important; }</style></noscript>
 </head>
 <body>
@@ -1637,7 +1710,7 @@ body {
 
       <!-- Draggable sticker -->
       <div class="desktop-sticker" id="buerSticker">
-        <img src="assets/weitian/wille-desktop-sticker.png" alt="维天说与 AI Agents">
+        <img src="assets/weitian/wille-three-cats-desktop-sticker.png" alt="维天说与沙雕、蹦蹦、大头">
       </div>
 
       <div class="desktop-icons">
@@ -1653,7 +1726,7 @@ body {
           <div class="dicon-art file ext-md" data-ext=".md"></div>
           <div class="dicon-label">口播表达</div>
         </div>
-        <div class="dicon" data-href="#works" style="top:294px;right:24px;">
+        <div class="dicon" data-win="win-workflow-directory" style="top:294px;right:24px;">
           <div class="dicon-art file ext-md" data-ext=".md"></div>
           <div class="dicon-label">内容工作流</div>
         </div>
@@ -1720,52 +1793,83 @@ body {
       </template>
 
       <template id="win-sayhi">
-        <div class="os-window" data-title="领取工作流" data-url="维天说 AI 内容工作流">
+        <div class="os-window" data-title="领取工作流" data-url="维天说 AI 内容工作流" style="width:500px;">
           <div class="os-body win-sayhi">
-            <div class="sayhi-heading">先跑出第一份内容 ✨</div>
+            <div class="sayhi-heading">免费领取 AI 内容工作流</div>
             <div class="sayhi-sub">一个人，也能搭起自己的 AI 内容工作流</div>
-            <div class="services-grid">
-              <div class="service-card">
-                <div class="service-icon">🧰</div>
-                <div class="service-title">免费领取</div>
-                <div class="service-desc">选题 / 口播 / 发布 / 沉淀<br>拿来就能开始跑</div>
+            <div class="claim-layout">
+              <div>
+                <img class="claim-qr" src="assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="添加维天说领取 AI 内容工作流的微信二维码" loading="lazy">
+                <a class="claim-save" href="assets/weitian/wechat-workflow-claim-ad445c44c425.png" download="wechat-workflow-claim-ad445c44c425.png">保存二维码图片</a>
               </div>
-              <div class="service-card">
-                <div class="service-icon">🧭</div>
-                <div class="service-title">遇到卡点</div>
-                <div class="service-desc">答疑 / Skill 选择<br>个性化工作流改造</div>
+              <div>
+                <ul class="claim-list">
+                  <li>AI 内容工作流 Skill</li>
+                  <li>初始化脚本与目录模板</li>
+                  <li>从真实素材跑出第一份内容的说明</li>
+                </ul>
+                <div class="claim-note">扫码添加后备注「工作流」。手机用户可长按或保存二维码，再用微信识别。</div>
               </div>
             </div>
             <div class="sayhi-links">
-              <span>📮 微信领取方式整理中</span>
-              <span>📕 在各个平台搜索「维天说」</span>
+              <span>先领取 → 跑一遍 → 遇到卡点再来问</span>
             </div>
           </div>
         </div>
       </template>
 
+      <template id="win-workflow-directory">
+        <div class="os-window" data-title="内容工作流" data-url="真实素材 → 内容资产" style="width:410px;">
+          <div class="os-body win-md">
+            <h1>维天说 AI 内容工作流</h1>
+            <ol class="workflow-directory">
+              <li><div><strong>找到真实素材</strong><span>从经历、项目、笔记和真实卡点开始。</span></div></li>
+              <li><div><strong>AI 反向访谈</strong><span>让 AI 先追问事实、冲突和真正的问题。</span></div></li>
+              <li><div><strong>生成内容问题卡</strong><span>锁定受众、问题、承诺与不能承诺的边界。</span></div></li>
+              <li><div><strong>写出可修改草稿</strong><span>形成口播、图文或文章的第一版。</span></div></li>
+              <li><div><strong>确认事实与边界</strong><span>区分已确认事实、待确认项和 AI 推断。</span></div></li>
+              <li><div><strong>发布、复盘、写回</strong><span>根据真实反馈更新知识库、模板与 Skill。</span></div></li>
+            </ol>
+            <button class="portfolio-btn" type="button" data-open-win="win-sayhi">免费领取工作流</button>
+          </div>
+        </div>
+      </template>
+
       <template id="win-design-skill">
-        <div class="os-window" data-title="Skill 工具箱" data-url="按问题选择 Skill" style="width:380px;">
+        <div class="os-window" data-title="Skill 工具箱" data-url="精选 GitHub 项目" style="width:520px;">
           <div class="os-body win-folder">
-            <div class="folder-icon" data-href="#works">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">选题研究 Skill</div>
-            </div>
-            <div class="folder-icon" data-href="#works">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">口播表达 Skill</div>
-            </div>
-            <div class="folder-icon" data-href="#works">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">内容生产 Skill</div>
-            </div>
-            <div class="folder-icon" data-href="#works">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">知识库 Skill</div>
-            </div>
-            <div class="folder-icon" data-href="#works">
+            <p class="toolbox-intro">按你要解决的问题选择。双击卡片，直接打开对应 GitHub 仓库。</p>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/jianghushuo-skill">
               <div class="folder-icon-art file ext-git" data-ext=".git"></div>
-              <div class="folder-icon-label">全部 Skill（待接入）</div>
+              <div class="folder-icon-label">定位·选题·复盘</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/founder-interview-planner">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">访谈策划</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/cross-platform-article-publisher">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">跨平台文章发布</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/geekjourneyx/md2wechat-skill">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">公众号排版</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/cli-switch">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">AI CLI 切换</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/agentflow">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">多 Agent 编排</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/douyin-hot-agent-demo">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">抖音热点选题</div>
+            </div>
+            <div class="folder-icon" data-external="https://github.com/zhoutian1995/xiaohongshu">
+              <div class="folder-icon-art file ext-git" data-ext=".git"></div>
+              <div class="folder-icon-label">小红书内容工具</div>
             </div>
           </div>
         </div>
@@ -1800,7 +1904,7 @@ body {
             <div style="font-size:52px;margin-bottom:20px;">⚠️</div>
             <div style="font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">无法打开 "Ver 3"</div>
             <div style="font-size:14px;color:#666;line-height:1.7;margin-bottom:24px;">因为你已经在 Ver 3 里面了。<br>请勿套娃🙅</div>
-            <div style="display:inline-block;background:#2B7FD8;color:#fff;padding:8px 28px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;" onclick="this.closest('.os-window').remove()">好吧，我知道了</div>
+            <div style="display:inline-block;background:#36574C;color:#fff;padding:8px 28px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;" onclick="this.closest('.os-window').remove()">好吧，我知道了</div>
           </div>
         </div>
       </template>
@@ -1833,7 +1937,7 @@ body {
                 <div class="cola-chat">
                   <div class="cola-msg-user"><div class="cola-bubble">三位管理员，介绍一下你们的分工吧</div></div>
                   <div class="cola-msg-bot">
-                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-shadiao.jpg" alt="沙雕" loading="lazy"></div>
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-shadiao-real.jpg" alt="沙雕真实照片" loading="lazy"></div>
                     <div class="cola-bot-content">
                       <div class="cola-mutter">沙雕先来。</div>
                       <div>我是沙雕，美短，内容研究员。负责收集灵感、整理素材，顺便监督 Wille 别把收藏当学习。</div>
@@ -1841,14 +1945,14 @@ body {
                   </div>
                   <div class="cola-msg-user"><div class="cola-bubble">另外两位呢？</div></div>
                   <div class="cola-msg-bot">
-                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-bengbeng.jpg" alt="蹦蹦" loading="lazy"></div>
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-bengbeng-real.jpg" alt="蹦蹦真实照片" loading="lazy"></div>
                     <div class="cola-bot-content">
                       <div class="cola-mutter">蹦蹦开始点名。</div>
                       <div>我是蹦蹦，暹罗，表达监督员；大头是金渐层，创意体验官。一个催口播，一个管好不好玩。</div>
                     </div>
                   </div>
                   <div class="cola-msg-bot">
-                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-datou.jpg" alt="大头" loading="lazy"></div>
+                    <div class="cola-bot-avatar"><img src="assets/weitian/cat-datou-real.jpg" alt="大头真实照片" loading="lazy"></div>
                     <div class="cola-bot-content">
                       <div class="cola-mutter">大头正在研究方块。</div>
                       <div>网站要有用，也要有点好玩。维天 OS 的体验部分归我检查。</div>
@@ -2395,7 +2499,7 @@ body {
       var baseX = isSmall ? 12 : 150;
       var baseY = isSmall ? 60 : 60;
       var offset = (openCount % 5) * (isSmall ? 16 : 36);
-      win.style.left = (baseX + offset) + 'px';
+      win.style.left = (baseX + (isSmall ? 0 : offset)) + 'px';
       win.style.top = (baseY + offset) + 'px';
     }
     win.style.zIndex = ++winZ;
@@ -2430,6 +2534,9 @@ body {
     // "open works" style jump buttons
     win.querySelectorAll('[data-goto]').forEach(function(btn) {
       btn.addEventListener('click', function() { location.hash = btn.dataset.goto; });
+    });
+    win.querySelectorAll('[data-open-win]').forEach(function(btn) {
+      btn.addEventListener('click', function() { openWindow(btn.dataset.openWin); });
     });
 
     addResize(win);
@@ -2553,6 +2660,11 @@ body {
 
   // Folder icon dblclick → open iframe window on desktop
   surface.addEventListener('dblclick', function(e) {
+    var external = e.target.closest('.folder-icon[data-external]');
+    if (external) {
+      window.open(external.dataset.external, '_blank', 'noopener,noreferrer');
+      return;
+    }
     // Handle data-win (open template window)
     var fiWin = e.target.closest('.folder-icon[data-win]');
     if (fiWin) {
@@ -2744,12 +2856,12 @@ body {
     goodbyeScreen.style.transition = 'opacity 0.6s ease';
     goodbyeScreen.style.opacity = '0';
     exitScreenEl.style.transition = 'background 0.6s ease';
-    exitScreenEl.style.background = '#2B7FD8';
+    exitScreenEl.style.background = '#60756A';
 
     setTimeout(function() {
       var termArea = document.createElement('div');
       termArea.id = 'loopTerminal';
-      termArea.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;background:#2B7FD8;padding:16px 20px;font-family:"Fira Code",monospace;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.9);overflow:hidden;z-index:10;';
+      termArea.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;background:#60756A;padding:16px 20px;font-family:"Fira Code",monospace;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.9);overflow:hidden;z-index:10;';
 
       var titlebar = document.createElement('div');
       titlebar.style.cssText = 'display:flex;align-items:center;gap:7px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:14px;';
@@ -2785,7 +2897,7 @@ body {
           div.innerHTML = '<span style="color:rgba(255,255,255,0.85)">' + item.prefix + item.text + '</span>';
           lineDelay += 150;
         } else if (item.type === 'gold') {
-          div.innerHTML = '<span style="background:#F4D758;color:#1E5BA8;font-weight:700;font-size:13px;padding:1px 6px;border-radius:3px">' + item.prefix + item.text + '</span>';
+          div.innerHTML = '<span style="background:#F2D35C;color:#36574C;font-weight:700;font-size:13px;padding:1px 6px;border-radius:3px">' + item.prefix + item.text + '</span>';
           lineDelay += 150;
         }
         termLines.appendChild(div);
@@ -2800,7 +2912,7 @@ body {
       setTimeout(function() {
         loopTypingDone = true;
         var hint = document.createElement('div');
-        hint.style.cssText = 'text-align:center;margin-top:16px;font-size:11px;color:rgba(30,91,168,0.5);opacity:0;transition:opacity 0.5s ease;';
+        hint.style.cssText = 'text-align:center;margin-top:16px;font-size:11px;color:rgba(54,87,76,0.55);opacity:0;transition:opacity 0.5s ease;';
         hint.textContent = 'press enter to launch ↵';
         termLines.appendChild(hint);
         setTimeout(function() { hint.style.opacity = '1'; }, 100);
@@ -2824,7 +2936,7 @@ body {
 
         var launchLine = document.createElement('div');
         launchLine.style.cssText = 'white-space:pre-wrap;opacity:0;transition:opacity 0.3s ease;';
-        launchLine.innerHTML = '<span style="color:#2B7FD8">> launching...</span>';
+        launchLine.innerHTML = '<span style="color:#36574C">> launching...</span>';
         termLines.appendChild(launchLine);
         setTimeout(function() { launchLine.style.opacity = '1'; }, 50);
 
