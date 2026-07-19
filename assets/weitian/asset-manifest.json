@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-07-19",
+  "canonical_root": "/Volumes/1TB-SSD/WilleSpace-Work/KnowledgeBase/70-media/content/维天说/2026/weitian-ip-v2",
+  "privacy_rule": "Private reference photos remain in the KnowledgeBase; the website contains selected runtime derivatives only.",
+  "assets": [
+    {"runtime":"wille-portrait.jpg","sha256":"4f731a499241871fe3950603b5d0ab7dde20c4bf20e72f63f5bfa06fa0648732","source":"assets/images/references/wille/wille-01-warm-couch-full.jpg","source_sha256":"40ae37a4776edbe3daa064ec7d227318e6c7ae10790e8470a6cae850db488d42","transform":"selected crop and resize"},
+    {"runtime":"wille-bw-portrait.jpg","sha256":"35c034144d5c6d672d7be5e761320e5f192a3e26a90d5171796870e3a686114c","source":"assets/images/references/wille/wille-03-bw-seated-white-sleeveless.jpg","source_sha256":"a68d4708ae2829bd1b797accdd0505467241360a4166af7810f34ec30f464c5d","transform":"resize"},
+    {"runtime":"cat-shadiao-real.jpg","sha256":"cf86dc8a3bdc691bb178d5d61905028b6d97cf03b1f626a6feb26aea6d3620ca","source":"assets/images/references/cats/american-shorthair-02.jpg","source_sha256":"6eae1d2f69be1139bdc90c2d954698b5a27824bc0dc1f1d15359b2cb702ffaaf","transform":"resize"},
+    {"runtime":"cat-bengbeng-real.jpg","sha256":"87d34cf7fae32e0997f1181726fbab384792d23a7237e2b38691465557c6d155","source":"assets/images/references/cats/siamese-01.jpg","source_sha256":"f73edb4d2f04f7689dd6af6eb33dd154d086b5e02e330f6f5d670e44b2b73b49","transform":"resize"},
+    {"runtime":"cat-datou-real.jpg","sha256":"3fa8a4f3d5f2c8319e39743cecb339beeabd762ad57ea70a7d74eb8ade49e97e","source":"assets/images/references/cats/golden-shaded-01.jpg","source_sha256":"8cc823d43dfa6637f6919a7654bbfac8dd690f8a7dae2c7fda226d568dd4f0a2","transform":"resize"},
+    {"runtime":"wille-three-cats.jpg","sha256":"35c1cfd3618fba85e200eca375d392465f4be9978a3821cfd6cb71914dca4030","source":"assets/images/02-wille-three-cats-group-v1-1024.jpg","source_sha256":"35c1cfd3618fba85e200eca375d392465f4be9978a3821cfd6cb71914dca4030","transform":"none"},
+    {"runtime":"wille-three-cats-desktop-sticker.png","sha256":"a3894e9c77f2a6872d5ece03de2e2d26f2eafb2bd658d8854f21607f211412e1","source":"assets/images/wille-three-cats-desktop-sticker-v1.png","source_sha256":"a3894e9c77f2a6872d5ece03de2e2d26f2eafb2bd658d8854f21607f211412e1","transform":"none"},
+    {"runtime":"wechat-workflow-claim-ad445c44c425.png","sha256":"ad445c44c425f942c1f23036a5d729cf03d2761ab0ba72da620a602769b0b3af","source":"authorized workflow claim QR","source_sha256":"ad445c44c425f942c1f23036a5d729cf03d2761ab0ba72da620a602769b0b3af","transform":"none"}
+  ]
+}

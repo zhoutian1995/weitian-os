@@ -1006,6 +1006,49 @@ body {
   transition: opacity 0.2s;
 }
 .win-link:hover { opacity: 0.85; }
+.selected-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.selected-item {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 11px 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid rgba(54,87,76,0.12);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+.selected-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(54,87,76,0.34);
+  background: #fffdf7;
+}
+.selected-item:active { transform: scale(0.99); }
+.selected-type {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.selected-title { font-size: 12px; line-height: 1.45; font-weight: 600; }
+.selected-arrow { color: var(--blue); font-size: 14px; }
+.selected-note {
+  margin: 0 0 12px;
+  color: var(--ink-faint);
+  font-size: 11px;
+  line-height: 1.65;
+}
+@media (max-width: 520px) {
+  .selected-item { grid-template-columns: 1fr auto; }
+  .selected-type { grid-column: 1 / -1; }
+}
 
 .desktop-surface .scroll-on-hint {
   position: absolute;
@@ -1734,7 +1777,7 @@ body {
           <div class="dicon-art file" data-ext=""><img src="assets/weitian/wille-workflow-scenes.jpg" alt="" loading="lazy"></div>
           <div class="dicon-label">个人知识库</div>
         </div>
-        <div class="dicon" data-href="#works" style="top:474px;right:24px;">
+        <div class="dicon" data-win="win-selected" style="top:474px;right:24px;">
           <div class="dicon-art file ext-html" data-ext=".html"></div>
           <div class="dicon-label">找我精选</div>
         </div>
@@ -1808,11 +1851,28 @@ body {
                   <li>初始化脚本与目录模板</li>
                   <li>从真实素材跑出第一份内容的说明</li>
                 </ul>
+                <div class="claim-note">领取后，从一段真实经历开始，跟着流程跑出第一条选题和口播稿。</div>
                 <div class="claim-note">扫码添加后备注「工作流」。手机用户可长按或保存二维码，再用微信识别。</div>
               </div>
             </div>
             <div class="sayhi-links">
               <span>先领取 → 跑一遍 → 遇到卡点再来问</span>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <template id="win-selected">
+        <div class="os-window" data-title="找我精选" data-url="维天说 / selected" style="width:520px;">
+          <div class="os-body win-md">
+            <h1>找我精选</h1>
+            <p class="selected-note">先看这五个真实案例：个人网站、知识库、Skill、AI 记忆和三只猫。</p>
+            <div class="selected-list">
+              <a class="selected-item" href="https://www.bilibili.com/video/BV1vPKM6PES9/" target="_blank" rel="noopener noreferrer"><span class="selected-type">video</span><span class="selected-title">个人主页就像 QQ 空间：我为什么要做维天 OS</span><span class="selected-arrow">↗</span></a>
+              <a class="selected-item" href="https://mp.weixin.qq.com/s/HwLKBjXbZFuxc7Jvcr7Huw" target="_blank" rel="noopener noreferrer"><span class="selected-type">knowledge</span><span class="selected-title">把笔记丢给 AI，编译成自己的 Wiki</span><span class="selected-arrow">↗</span></a>
+              <a class="selected-item" href="https://mp.weixin.qq.com/s/uohuWOv9MWGqc9jmyjkmYw" target="_blank" rel="noopener noreferrer"><span class="selected-type">skill</span><span class="selected-title">大模型只是大脑，Skill 才是工具箱</span><span class="selected-arrow">↗</span></a>
+              <a class="selected-item" href="https://mp.weixin.qq.com/s/8T86cVL1RWllnFIpj5kGfw" target="_blank" rel="noopener noreferrer"><span class="selected-type">memory</span><span class="selected-title">AI 不是记性差，是根本没记忆</span><span class="selected-arrow">↗</span></a>
+              <a class="selected-item" href="https://mp.weixin.qq.com/s/IyfjwBbNquLJB7UF2R4CVg" target="_blank" rel="noopener noreferrer"><span class="selected-type">cats</span><span class="selected-title">我给三只猫做了 MBTI</span><span class="selected-arrow">↗</span></a>
             </div>
           </div>
         </div>
@@ -1876,23 +1936,14 @@ body {
       </template>
 
       <template id="win-website-history">
-        <div class="os-window" data-title="升级日志" data-url="维天 OS / changelog" style="width:360px;">
-          <div class="os-body win-folder">
-            <div class="folder-icon" data-href="#system">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">开始用 AI 重建内容系统</div>
-            </div>
-            <div class="folder-icon" data-href="#system">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">搭建个人知识库与 Skill</div>
-            </div>
-            <div class="folder-icon" data-win="win-ver3-cola">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">维天 OS — 当前版本</div>
-            </div>
-            <div class="folder-icon" data-href="#system">
-              <div class="folder-icon-art file ext-html" data-ext=".html"></div>
-              <div class="folder-icon-label">最近更新（待接入）</div>
+        <div class="os-window" data-title="升级日志" data-url="维天 OS / changelog" style="width:500px;">
+          <div class="os-body win-md">
+            <h1>最近升级</h1>
+            <div class="selected-list">
+              <a class="selected-item" href="#system"><span class="selected-type">07.19</span><span class="selected-title">知识库迁移到 SSD canonical storage</span><span class="selected-arrow">→</span></a>
+              <a class="selected-item" href="https://www.bilibili.com/video/BV1vPKM6PES9/" target="_blank" rel="noopener noreferrer"><span class="selected-type">07.18</span><span class="selected-title">发布「个人主页就像 QQ 空间」视频</span><span class="selected-arrow">↗</span></a>
+              <a class="selected-item" href="#system"><span class="selected-type">07.17</span><span class="selected-title">维天 OS 桌面版正式上线</span><span class="selected-arrow">→</span></a>
+              <a class="selected-item" href="#system"><span class="selected-type">07.17</span><span class="selected-title">真人照片与三只猫素材归档到 IP v2</span><span class="selected-arrow">→</span></a>
             </div>
           </div>
         </div>
@@ -1975,7 +2026,7 @@ body {
                         </div>
                       </div>
                     </div>
-                    <div class="cola-coming-soon">三只猫正在值班，真实照片后续接入 ✨</div>
+                    <div class="cola-coming-soon">真实照片已接入：沙雕、蹦蹦和大头正在值班。</div>
                   </div>
                 </div>
               </div>
@@ -2033,7 +2084,7 @@ body {
 
     <!-- Loop trigger -->
     <div class="back-to-top">
-      <a href="#" id="backToTopLink">
+      <a href="#home" id="backToTopLink">
         <span class="back-arrow">↑</span>
         回到开始 · Back to Start
       </a>
@@ -2117,9 +2168,9 @@ body {
             <span class="dim-work-icon">🧠</span>
             <span>用知识库补充经历与案例</span>
           </a>
-          <a class="dim-work-item" href="#works">
+          <a class="dim-work-item" href="https://www.bilibili.com/video/BV1vPKM6PES9/" target="_blank" rel="noopener noreferrer">
             <span class="dim-work-icon">→</span>
-            <span>找我精选（内容待接入）</span>
+            <span>看精选：个人主页就像 QQ 空间</span>
           </a>
         </div>
       </div>
@@ -2143,7 +2194,7 @@ body {
         <h3>AI 内容工作流</h3>
         <p class="dim-desc">把选题、口播、发布和沉淀连成一条真正能跑的流程，一个人也能持续生产内容。</p>
         <div class="dim-works-list">
-          <a class="dim-work-item" href="#works">
+          <a class="dim-work-item" href="#home" data-global-open-win="win-sayhi">
             <span class="dim-work-icon">🧰</span>
             <span>免费领取维天说 AI 内容工作流</span>
           </a>
@@ -2542,6 +2593,16 @@ body {
     addResize(win);
     surface.appendChild(win);
   }
+
+  document.addEventListener('click', function(e) {
+    var trigger = e.target.closest('[data-global-open-win]');
+    if (!trigger) return;
+    e.preventDefault();
+    var wasLaunched = launched;
+    location.hash = 'home';
+    if (!launched) launch();
+    setTimeout(function() { openWindow(trigger.dataset.globalOpenWin); }, wasLaunched ? 80 : 700);
+  });
 
   function openIframeWindow(url, title) {
     // If already open, bring to front
