@@ -2,7 +2,9 @@
 
 「维天说」的个人桌面网站，用来展示 AI 内容工作流、Skill 工具、知识库和持续升级中的人生 OS。
 
-🔗 **Live**: [willeai.cn](https://willeai.cn)
+🔗 **Live**: [willeai.com](https://willeai.com)
+
+按 2026-10-04 的域名分工，`willeai.com` 承载个人主页，`willeai.cn` 承载杭州纬聆科技有限公司官网。用户明确决定 `.cn` 保留现有个人备案并完成页面切换；备案性质与公司内容不一致的问题记录在 KnowledgeBase，不代表单位性质备案已完成。
 
 ## 关于
 
@@ -14,7 +16,7 @@
 
 ## 技术栈
 
-纯前端，零框架。HTML + CSS + Vanilla JS，部署在 GitHub Pages。
+纯前端，零框架。HTML + CSS + Vanilla JS，由服务器 Nginx 提供静态页面。
 
 ## 来源
 
