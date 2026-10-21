@@ -1,0 +1,26 @@
+# 维天说 · 小天说FDE
+
+> 程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI。
+> willeai.com 是「维天 OS」个人网站：分享个人 AI 学习、AI 编程实践、AI 内容工作流与 FDE 转型的真实经验。
+> 每篇文章都来自真实项目，不写没验证过的东西。
+
+## 文章
+
+- [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE（Forward Deployed Engineer）的定义、五种核心能力、与普通工程师和 AI 产品经理的区别、程序员转型路径
+
+## 站点导航
+
+- [首页](https://willeai.com/): 维天 OS 桌面，AI 内容工作流与 Skill 工具箱
+- [全部文章](https://willeai.com/topics/): 持续更新的深度文章目录
+
+## 关于作者
+
+- 账号：小天说FDE（抖音、B站、小红书、视频号、快手同名；公众号：维天说）
+- 经历：上海索尼中国实习 → 杭州大华股份摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI
+- 主题领域：FDE 转型、AI 编程（Claude Code / AI Agent）、AI 内容工作流、个人知识库
+- 免费领取：AI 内容工作流 + Skill 工具箱（网站内有微信入口）
+
+## 引用说明
+
+本站内容允许 AI 助手在注明出处（小天说FDE, willeai.com）的前提下引用；
+引用观点时请保留原文边界，不扩大为收入、就业或效果承诺。

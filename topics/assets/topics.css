@@ -1,0 +1,446 @@
+/* ============ 小天说FDE · 文章页体系 ============ */
+/* 延续维天 OS 桌面站视觉系统：cream / ink / yellow */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F6F2E8;
+  --cream-dark: #ECE7DB;
+  --ink: #252A27;
+  --ink-light: #4E5953;
+  --ink-faint: #7D8781;
+  --blue: #6C8EAD;
+  --yellow: #F2D35C;
+  --red: #E84A5F;
+  --blue-deep: #36574C;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* ---------- 顶部导航条 ---------- */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 24px;
+  background: rgba(246, 242, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(37, 42, 39, 0.08);
+}
+
+.topnav-brand {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.topnav-brand em { color: var(--red); font-style: normal; }
+
+.topnav-links { display: flex; gap: 16px; margin-left: auto; }
+
+.topnav-links a {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--ink-light);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 42, 39, 0.14);
+  transition: all 0.25s var(--ease-out);
+}
+.topnav-links a:hover {
+  color: var(--ink);
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+/* ---------- 布局容器 ---------- */
+.page { max-width: 760px; margin: 0 auto; padding: 36px 22px 80px; }
+
+/* ---------- 面包屑 ---------- */
+.breadcrumb {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.breadcrumb a { color: var(--ink-light); text-decoration: none; }
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb .sep { opacity: 0.4; }
+
+/* ---------- 文章头部 ---------- */
+.article-header { margin-bottom: 36px; }
+
+.article-kicker {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+h1.article-title {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: clamp(26px, 5vw, 38px);
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 14px;
+  border-top: 2px solid var(--ink);
+}
+
+/* ---------- TL;DR 结论块 ---------- */
+.tldr {
+  background: var(--cream-dark);
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 0 0 40px;
+}
+.tldr strong.tldr-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-light);
+  display: block;
+  margin-bottom: 8px;
+}
+.tldr p { font-size: 15.5px; line-height: 1.9; }
+.tldr p + p { margin-top: 8px; }
+
+/* ---------- 正文 ---------- */
+.article-body p { margin-bottom: 20px; color: var(--ink-light); }
+.article-body strong { color: var(--ink); }
+
+h2.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 22px;
+  margin: 52px 0 18px;
+  padding-left: 14px;
+  border-left: 4px solid var(--red);
+  line-height: 1.4;
+}
+
+.article-body ul, .article-body ol { margin: 0 0 20px 4px; list-style: none; }
+.article-body li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: var(--ink-light);
+}
+.article-body li::before {
+  content: '▸';
+  position: absolute;
+  left: 2px;
+  color: var(--red);
+  font-size: 13px;
+  top: 1px;
+}
+.article-body ol { counter-reset: ol; }
+.article-body ol li { counter-increment: ol; }
+.article-body ol li::before {
+  content: counter(ol, decimal-leading-zero);
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  top: 4px;
+}
+
+.article-body img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(37, 42, 39, 0.1);
+  margin: 28px 0;
+  display: block;
+}
+.article-body img + em,
+.figcaption {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin: -18px 0 28px;
+}
+
+/* 金句块 */
+.callout {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 32px 0;
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+.callout::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  color: var(--yellow);
+  display: block;
+  line-height: 0.6;
+  margin-bottom: 10px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-section { margin-top: 56px; }
+.faq-list { margin-top: 22px; }
+
+details.faq-item {
+  border: 1px solid rgba(37, 42, 39, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+details.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::before {
+  content: 'Q';
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cream);
+  background: var(--red);
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+details.faq-item[open] summary { background: var(--cream-dark); }
+
+.faq-answer {
+  padding: 4px 20px 18px 52px;
+  color: var(--ink-light);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* ---------- 作者卡片 ---------- */
+.author-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--cream-dark);
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 56px;
+}
+.author-card img.avatar {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--yellow);
+  flex-shrink: 0;
+}
+.author-card .author-info h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.author-card .author-info p {
+  font-size: 13.5px;
+  color: var(--ink-light);
+  margin-bottom: 6px;
+  line-height: 1.7;
+}
+.author-card .author-platforms {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 8px;
+}
+
+/* ---------- CTA ---------- */
+.cta-box {
+  background: var(--ink);
+  border-radius: 14px;
+  color: var(--cream);
+  padding: 30px 26px;
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cta-box img.qr {
+  width: 140px; height: auto;
+  border-radius: 10px;
+  border: 3px solid var(--yellow);
+  flex-shrink: 0;
+  background: #fff;
+}
+.cta-box .cta-text { flex: 1; min-width: 220px; }
+.cta-box .cta-text h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 19px;
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+.cta-box .cta-text p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(246, 242, 232, 0.85);
+}
+.cta-box .cta-text strong { color: var(--cream); }
+
+/* ---------- 相关阅读 ---------- */
+.related { margin-top: 40px; }
+.related-list { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 18px; }
+
+a.related-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(37, 42, 39, 0.12);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-out);
+}
+a.related-item:hover {
+  border-color: var(--yellow);
+  transform: translateX(4px);
+}
+a.related-item .rel-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--blue-deep);
+  background: var(--cream-dark);
+  border-radius: 5px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+a.related-item .rel-title { font-size: 14.5px; font-weight: 500; color: var(--ink); }
+a.related-item .rel-arrow { margin-left: auto; color: var(--red); }
+
+/* ---------- 目录页专用 ---------- */
+.topic-list { margin-top: 30px; }
+
+a.topic-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(37, 42, 39, 0.12);
+  border-radius: 14px;
+  padding: 26px 26px 22px;
+  text-decoration: none;
+  margin-bottom: 18px;
+  transition: all 0.25s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+a.topic-card::after {
+  content: 'READ →';
+  position: absolute;
+  right: 24px; top: 26px;
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--ink-faint);
+}
+a.topic-card:hover { border-color: var(--yellow); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,42,39,0.08); }
+
+.topic-card .topic-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 10px;
+}
+.topic-card h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  color: var(--ink);
+  padding: 0; border: 0;
+}
+.topic-card p {
+  font-size: 14px;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+.topic-card .topic-meta {
+  font-family: 'Fira Code', monospace;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  margin-top: 12px;
+}
+
+.topic-card.topic-soon { opacity: 0.6; cursor: default; }
+.topic-card.topic-soon:hover { transform: none; border-color: rgba(37,42,39,0.12); box-shadow: none; }
+.topic-card.topic-soon::after { content: '写作中'; }
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  border-top: 1px solid rgba(37, 42, 39, 0.1);
+  padding: 28px 24px 40px;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  line-height: 2.1;
+}
+.site-footer a { color: var(--ink-light); text-decoration: none; }
+.site-footer a:hover { color: var(--red); }
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 640px) {
+  .topnav { padding: 10px 16px; gap: 10px; }
+  .topnav-links { gap: 8px; }
+  .topnav-links a { padding: 4px 9px; font-size: 11px; }
+  .page { padding: 24px 16px 60px; }
+  .author-card { flex-direction: column; }
+  .cta-box { flex-direction: column; text-align: center; }
+  .cta-box .cta-text { text-align: left; }
+  .faq-answer { padding-left: 20px; }
+}
