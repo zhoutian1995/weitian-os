@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>还在把 Codex 当百度用？你浪费了一个 Agent — 小天说FDE</title>
+<meta name="description" content="打开终端问一个问题就关掉，这叫把 Codex 当百度。它能读文件、改代码、跑测试、查结果——像买了车天天推着走。">
+<link rel="canonical" href="https://willeai.com/topics/codex-not-baidu.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="还在把 Codex 当百度用？你浪费了一个 Agent — 小天说FDE">
+<meta property="og:description" content="打开终端问一个问题就关掉，这叫把 Codex 当百度。它能读文件、改代码、跑测试、查结果——像买了车天天推着走。">
+<meta property="og:url" content="https://willeai.com/topics/codex-not-baidu.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "还在把 Codex 当百度用？你浪费了一个 Agent",
+      "description": "打开终端问一个问题就关掉，这叫把 Codex 当百度。它能读文件、改代码、跑测试、查结果——像买了车天天推着走。",
+      "datePublished": "2026-07-19",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/codex-not-baidu.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Codex 的正确用法是什么？", "acceptedAnswer": {"@type": "Answer", "text": "把它当员工而不是搜索框：给它一个完整任务和上下文，让它读文件、改代码、跑测试、自查结果，你负责验收和决策，而不是一问一答。"}},
+        {"@type": "Question", "name": "为什么不能当搜索引擎用？", "acceptedAnswer": {"@type": "Answer", "text": "问答模式丢掉了 Agent 的全部杠杆：上下文积累、工具调用、连续执行。单问单答每次从零开始，浪费的是复利。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>还在把 Codex 当百</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI 编程 · 方法</p>
+      <h1 class="article-title">还在把 Codex 当百度用？你浪费了一个 Agent</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-07-19 发布</span>
+        <span>约 7 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>打开终端，输入一个问题，等它回答，看完关掉——<strong>这不叫用 Agent，这叫把 Codex 当百度。</strong>你手里有一个能读文件、改代码、调用工具、运行命令、执行测试、检查结果的 Agent，最后却把它用成了更贵的搜索框。就像买了一辆车，天天推着走。</p>
+    </section>
+    <div class="article-body">
+      <p>我现在看很多人用 Codex，真的很心疼。</p>
+      <p>打开终端，输入一个问题，等它回答。看完答案，关掉。过一会儿再打开，继续问：“下一步呢？”“这段代码是什么意思？”“你再帮我改一下。”</p>
+      <p>这不叫用 Agent。这叫把 Codex 当百度。</p>
+      <p>你手里明明有一个可以读文件、改代码、调用工具、运行命令、执行测试、检查结果的 Agent，最后却把它用成了一个更贵的搜索框。</p>
+      <p>就像买了一辆车，天天推着走。</p>
+      <h2 class="section-title">很多人用 Agent，走向了两个极端</h2>
+      <p>第一种人，把 Agent 当百度。</p>
+      <p>他一直在问，却始终不肯把任务交出去。Agent 回答一句，他复制一句；Agent 给出代码，他再手动找到文件粘贴进去；出了问题，再把报错复制回来继续问。</p>
+      <p>整条工作流仍然压在自己身上。Agent 只是负责说，自己负责找文件、改内容、运行、排错和收尾。</p>
+      <p>这种人的问题是：<strong>只向 Agent 要答案，不让 Agent 进入真实环境做事。</strong></p>
+      <p>还有一种人正好相反。他不把 Agent 当百度了，开始把它当阿拉丁神灯。</p>
+      <p>“帮我做一个小红书。”</p>
+      <p>“帮我做一个在线教育平台。”</p>
+      <p>“帮我做一个能赚钱的产品。”</p>
+      <p>一句话说完，就等着 Agent 把愿望变成现实。</p>
+      <p>Agent 很快生成了几个页面，按钮能点，动画也挺漂亮。打开浏览器一看，他觉得产品已经完成了。</p>
+      <p>其实，那只是一个 Web Demo。</p>
+      <h2 class="section-title">写出几个页面，不等于做出了产品</h2>
+      <p>一个 Web Demo 能证明界面可以展示，最多再证明几个交互可以运行。</p>
+      <p>但一个真正能用的产品，后面还有很多真实问题：用户怎么注册和登录，数据存在哪里，服务器部署在哪，域名怎么解析，HTTPS 怎么配置，数据库出错怎么恢复，服务挂了怎么发现，用户文件怎么保存，密钥怎么保护，调用模型产生的费用谁来承担，产品更新后旧数据还能不能使用。</p>
+      <p>再往后，还有支付、退款、隐私、监控、备份、安全和持续维护。</p>
+      <p>这些东西不会因为页面生成得快，就自动消失。</p>
+      <p><strong>Agent 降低了做产品的门槛，但没有取消做产品的基本常识。</strong></p>
+      <p>现在最危险的不是不会写代码，而是一个人写出了自己根本无法判断的代码，又把一个能打开的网页误认为一个可以长期运行的产品。</p>
+      <p>你不了解服务器，可以让 Agent 解释、选择和配置。你不了解域名，可以让 Agent 检查 DNS、生成配置并验证解析。你不熟悉部署，可以让 Agent 写部署文件、执行命令、查看日志和排查错误。</p>
+      <p>这正是 Agent 的价值。你不需要先成为每个领域的专家，才能开始做产品。</p>
+      <p>但你不能因为 Agent 会做，就假装这些环节不存在。</p>
+      <p><strong>以前做不出产品，是因为不会写；现在做不出产品，很可能是因为不知道自己还有什么不知道。</strong></p>
+      <h2 class="section-title">Agent 不是百度，也不是神灯</h2>
+      <p>把 Agent 当百度，是不敢把事情交给它。</p>
+      <p>把 Agent 当神灯，是以为只要说出愿望，现实世界的条件就会自动补齐。</p>
+      <p>这两种用法看起来完全相反，底层的问题却一样：都没有理解什么叫任务委派。</p>
+      <p>真正的委派不是不停追问，也不是扔下一句愿望。</p>
+      <p>你要告诉 Agent：要解决什么问题，现有项目和材料在哪里，它可以使用哪些工具和权限，哪些事情不能动，需要做到什么程度，怎么检查才算完成。</p>
+      <p>不要只说：</p>
+      <p><strong>帮我做一个网站。</strong></p>
+      <p>而应该把任务交代成：</p>
+      <p><strong>基于当前项目完成一个可部署的网站。先检查现有代码和环境，列出缺失条件；完成页面、数据存储和基础错误处理；运行测试和构建；如果缺少域名、服务器账号或其他外部权限，明确告诉我需要提供什么。不要只生成 Demo，要给出可验证的运行结果。</strong></p>
+      <p>这里的重点不是这段 Prompt 写得多专业。</p>
+      <p>重点是你的脑子里有没有“完成”的概念。</p>
+      <h2 class="section-title">会提问，不等于会用 Agent</h2>
+      <p>搜索引擎只需要你说清楚“我要找什么”。聊天 AI 可以帮你整理和解释答案。</p>
+      <p>Agent 不一样。Agent 的价值在于进入你的工作环境，读取上下文，使用真实工具，修改真实文件，运行真实命令，最后交付一份可以检查的结果。</p>
+      <p>所以，使用 Agent 至少要有几个环节：</p>
+      <p><strong>先给目标。</strong> 到底要解决什么问题，不要让 Agent 自己猜方向。</p>
+      <p><strong>再给上下文。</strong> 项目在哪里，资料在哪里，现在做到哪一步，已有规则是什么。</p>
+      <p><strong>给权限，也给边界。</strong> 哪些文件可以改，哪些服务可以调用，哪些内容不能碰，遇到外部账号和敏感操作要停下来确认。</p>
+      <p><strong>让它执行。</strong> 不要只让它输出一段建议，而是让它读取、修改、运行和排查。</p>
+      <p><strong>最后验收。</strong> 看真实 diff，跑真实测试，检查真实页面和日志。Agent 说“完成了”，不是验收；你有证据确认完成了，才叫验收。</p>
+      <p>如果这次纠正出来的规则以后还会用，就把它沉淀进项目说明、知识库或者 Skill。这样下一次不必再从头教一遍。</p>
+      <p>这才是完整的 Agent 工作闭环。</p>
+      <h2 class="section-title">人的价值没有消失</h2>
+      <p>Agent 可以补足能力，但不能替你承担所有判断。</p>
+      <p>代码生产越来越便宜以后，真正贵的反而是判断：该做什么，什么才算完成，哪里可能有风险，结果到底能不能用，什么时候应该停下来。</p>
+      <p>如果一个人连产品需要服务器、域名、数据库和安全都不知道，他当然可以让 Agent 帮忙。但他首先要知道这些问题应该被提出，也要有能力检查 Agent 有没有把它们真正解决。</p>
+      <p>所以我一直觉得，很多人现在缺的不是 Prompt 技巧。</p>
+      <p>他们缺的是任务意识、工程常识和验收能力。</p>
+      <p><strong>很多人不是不会写 Prompt，而是根本不知道怎么把工作交给 Agent。</strong></p>
+      <p>他们要么把 Agent 当百度，只问不让它做；要么把 Agent 当神灯，只许愿却不提供现实条件。</p>
+      <p>一个浪费了 Agent 的行动能力。</p>
+      <p>一个高估了 Agent 替自己兜底的能力。</p>
+      <p>你问 Agent 一百个问题，不如把一件事完整交给它做一次。</p>
+      <p>做完以后，检查结果，修正规则，再把经验留下来。下一次再遇到类似任务，Agent 才不是从零开始。</p>
+      <p>这才是用 Agent 和用百度真正的区别。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>Codex 的正确用法是什么？</summary><div class="faq-answer">把它当员工而不是搜索框：给它一个完整任务和上下文，让它读文件、改代码、跑测试、自查结果，你负责验收和决策，而不是一问一答。</div></details>
+<details class="faq-item"><summary>为什么不能当搜索引擎用？</summary><div class="faq-answer">问答模式丢掉了 Agent 的全部杠杆：上下文积累、工具调用、连续执行。单问单答每次从零开始，浪费的是复利。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

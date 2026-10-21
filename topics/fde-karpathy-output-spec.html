@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE 实测：用 Karpathy 方法规范 AI 输出 — 小天说FDE</title>
+<meta name="description" content="AI 味最烦的不是说错，而是没说什么却像说了很多。用航空维修手册的规则改稿，连最舍不得删的金句都被砍了。">
+<link rel="canonical" href="https://willeai.com/topics/fde-karpathy-output-spec.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FDE 实测：用 Karpathy 方法规范 AI 输出 — 小天说FDE">
+<meta property="og:description" content="AI 味最烦的不是说错，而是没说什么却像说了很多。用航空维修手册的规则改稿，连最舍不得删的金句都被砍了。">
+<meta property="og:url" content="https://willeai.com/topics/fde-karpathy-output-spec.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "FDE 实测：用 Karpathy 方法规范 AI 输出",
+      "description": "AI 味最烦的不是说错，而是没说什么却像说了很多。用航空维修手册的规则改稿，连最舍不得删的金句都被砍了。",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-karpathy-output-spec.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "什么是 Karpathy 方法？", "acceptedAnswer": {"@type": "Answer", "text": "来自 Karpathy 的写作主张：像航空维修手册一样写——每个词都要有功能，删掉所有不承载信息的句子。用在规范 AI 输出上非常有效。"}},
+        {"@type": "Question", "name": "AI 味怎么去？", "acceptedAnswer": {"@type": "Answer", "text": "用规则约束而不是靠感觉：短句、结论前置、砍修饰、每个断言都要有支撑。让 AI 按手册风格改写，金句装饰也会被砍掉——这正是目的。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>FDE 实测：用 Kar</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI 写作 · 方法</p>
+      <h1 class="article-title">FDE 实测：用 Karpathy 方法规范 AI 输出</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-10-05 发布</span>
+        <span>约 7 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p><strong>AI 把稿子写得太顺了，我反而不想读。</strong>AI 味最烦的地方不是说错，而是没说什么，却像说了很多。我用航空维修手册式的规则改了一篇中文旧稿——结果连我最舍不得删的金句都被砍了。起因是 Karpathy 的一条帖子：写作要像维修手册一样，每句话都承载信息。</p>
+    </section>
+    <div class="article-body">
+      <p>AI把稿子写得太顺了，我反而不想读。</p>
+      <p>AI味最烦的地方，不是说错，而是没说什么，却像说了很多。**</p>
+      <p>我拿航空维修手册的规则改了一篇中文旧稿。结果，连我最舍不得删的金句都被砍了。</p>
+      <p>起因是Karpathy的一条帖子。</p>
+      <p>他提到，用ASD-STE100这类受控语言规范约束LLM输出。航空维修手册的写法，拿来管AI？我想试试：英文能管住，中文行不行？</p>
+      <p>我没照搬整套标准。我挑出几条限制，改成中文规则，贴给模型。</p>
+      <p>这次实测给我的判断很直接：<strong>去AI味，得管句子结构。</strong>只说“自然一点”，它真能把废话改得更自然。</p>
+      <p>很多人一眼认出AI稿，却说不清哪里不对。</p>
+      <p>我的感觉是：它太忙了。忙着开场，忙着承接，忙着照顾所有立场。等这些动作做完，正事还没说。</p>
+      <p>我把病灶拆成四个。</p>
+      <p>第一个，<strong>链式过渡词</strong>。</p>
+      <p>“首先”开头，“其次”接住，最后再来一句收束。三步流程齐了，文章就像会议纪要。问题不在这些词不能用，而是每段都得搭台子。</p>
+      <p>真人会直接说：“这稿不行，问题在第二段。”不用先宣布自己准备讲几个问题。</p>
+      <p>第二个，空洞总结句。</p>
+      <p>刚讲完一件事，又提醒你注意；明明没有新信息，还要替你总结。把这些句子删掉，前后照样接得上。那它存在的意义是什么？替段落凑个体面的尾巴。</p>
+      <p>第三个，<strong>对冲式免责</strong>。</p>
+      <p>“在一定程度上”“可能或多或少”，句子一层层往回缩。读完你都不知道，作者到底认不认这个判断。</p>
+      <p>不确定的事实该保留边界。但事实已经摆在那里，还往判断外面套棉花，就是躲。真人会说：“这个改法没用。”不会说它或多或少存在某种改善空间。</p>
+      <p>第四个，排比堆砌。</p>
+      <p>三个起势句式连着来，下一段继续三个。每段都自我对仗，读着像一直在谢幕。排比偶尔能把情绪推上去，每段都推，情绪就成了背景噪声。</p>
+      <p>这四个动作有个共同点：它们都在替内容撑场面。</p>
+      <p>换几个词治不了。<strong>结构不动，废话就会换件衣服回来。</strong></p>
+      <p>ASD-STE100是航空维修手册使用的受控英语规范。</p>
+      <p>它约束词汇，也约束写法。通用允许词汇约900个，一个词限定一个意思。写不出来，就换句子结构、拆句，不靠找近义词来绕过限制。</p>
+      <p>操作指令的句子压到20个英文词以内。一句只说一件事。动作、对象、条件，不能被一堆修饰裹住。</p>
+      <p>它追求的不是优美。全球的非母语维修人员，要读一遍就懂。目标是零歧义，不是让人夸作者文笔好。</p>
+      <p>这件事戳中了我。</p>
+      <p>中文稿里，我们太容易把“写得丰富”和“说得清楚”混为一谈。词更多，句子更长，看起来就更像正式文章。可读者不负责欣赏你用了多少词。他要知道你在说什么。</p>
+      <p>受控语言不是教模型多会写，是限制它有多少地方可以绕。**</p>
+      <p>我借的是这个思路，不是把公众号写成维修手册。中文规则也不是ASD-STE100官方标准，是我的实操版。</p>
+      <p>我给模型的第一条：<strong>一句只说一件事，超过25个汉字就拆。</strong></p>
+      <p>这个数字对我来说是个报警线。句子过长，就回头看：是不是既讲了动作，又补了原因，还顺手塞进一个结论？</p>
+      <p>拆句也不是见逗号就换成句号。要把事情拆开。谁做什么，先说完。为什么做，下一句说。结果是什么，再往下接。</p>
+      <p>第二条：删掉所有“进行”“做出”“方面”“层面”。</p>
+      <p>这是我这次改稿下的硬限制。“进行梳理”留下“梳理”，“做出判断”留下“判断”。“在数据管理层面”这种外壳剥掉，再看里面有没有具体动作。</p>
+      <p>删完读不通，就重写，不要再补一个同样空的名词。</p>
+      <p>狠一点才看得见问题。有些句子不是缺少漂亮词，而是拆开以后，里面压根没有动作。</p>
+      <p>第三条：判断直接说，删掉“可能”“在一定程度上”。</p>
+      <p>这条最容易被误用。<strong>删免责词，不等于把猜测写成事实。</strong></p>
+      <p>有证据的判断，直接说。没证据的判断，删掉，或者写清缺哪项信息。不能把“数据缺了哪一列”藏在“存在一定不足”里面。</p>
+      <p>第四条：连接词砍半，逻辑靠句子顺序硬顶。</p>
+      <p>前一句交代问题，后一句交代后果。能顺着读，就别再塞一个“因此”。如果删了连接词就看不懂，要查的是两句话之间到底有没有关系。</p>
+      <p>连接词能把句子接起来，不能替你把逻辑补出来。**</p>
+      <p>我最喜欢这条。它逼我检查的不只是AI的措辞，还有我自己的脑子。</p>
+      <p>旧稿里有一组对比。</p>
+      <p>改前：</p>
+      <p><strong>在进行 AI 项目的落地过程中，企业往往需要对现有的数据资产进行全面的梳理与盘点，从而为后续的智能化转型奠定坚实的基础。</strong></p>
+      <p>改后：</p>
+      <p><strong>上 AI 项目，先盘数据。家底不清，后面全是空中楼阁。</strong></p>
+      <p>旧稿把它写成“54字缩到19字”。这次重数，只算汉字，原句实际是53字，改后是19字。旧稿多算了一个字，改短这件事没变。</p>
+      <p>真正该看的，不是少了多少字。</p>
+      <p>原句绕了一大圈，只交代两件事：上AI之前要盘数据；不盘清楚，后面的事做不实。改后把这两件事摆到了眼前。</p>
+      <p>“落地过程中”是背景外壳。“现有的数据资产”在这里就是数据。“全面”“坚实”看着有分量，却没告诉读者盘哪些数据、盘到什么标准。</p>
+      <p>删掉它们，核心意思还在。</p>
+      <p>但我也得说清：19字没有凭空变出实施方案。具体项目里，数据在哪、谁能用、缺哪些字段，该补还得补。</p>
+      <p><strong>压缩的是空壳，不是事实。</strong>只剩一句漂亮短话，却把条件和动作删没了，那是另一种写废。</p>
+      <p>我翻过两次车。这段改稿过程里，最典型的坑就是“改口语点”。</p>
+      <p>第一遍，我只给了这句话。</p>
+      <p>它把那句提醒读者注意的套话，换成了“需要指出的是”。意思没变，结构没变，只是换了一张脸。</p>
+      <p>我看完就烦：我让你改稿，你在给废话找同义词。</p>
+      <p>现在回头看，要求确实太虚。“口语点”没有告诉它哪句该删，哪个动作多余。模型交回来一份更像口语的稿子，也算完成了字面任务。</p>
+      <p>第二遍，我把四条规则贴过去，它才真动刀。</p>
+      <p>长句拆了，空壳删了，原来被藏住的判断露出来了。我能逐句检查，不用再凭感觉说“还是差一点”。</p>
+      <p>“像人话”是目标，能执行的限制才是改稿工具。**</p>
+      <p>这也解释了为什么只禁几个高频词不够。模型能换词。你得让那种没有信息的句子，连换词以后也过不了关。</p>
+      <p>意外收获出现在第三稿。</p>
+      <p>模型主动砍掉了我觉得写得最得意的那个金句。</p>
+      <p>前两遍，我盯着它的废话。第三遍，它碰到了我的心头好。一下就不爽了：这句我明明觉得很有劲，怎么也删？</p>
+      <p>可按规则看，我不能因为它是我写的，就给它开后门。</p>
+      <p>一句话漂亮，不代表它承担了新的信息。脱离上下文很响亮，放回文章里却重复前文，它就是该删。</p>
+      <p>这次我才真正接受：<strong>规则比语气词有用。</strong>它不只管AI，也管作者的自恋。</p>
+      <p>我并不想把每篇文章都改成一样的短句。情绪、节奏、个人习惯，该留就留。但它们得贴着事情长，不能拿来遮住事情。</p>
+      <p>中文的AI味，不是多加几个“啊”“吧”就没了。没有判断的段落，换成聊天口吻，还是没有判断。</p>
+      <p>写公众号，这叫改稿。交付AI系统，这叫验收。</p>
+      <p>系统接上了，模型能回答了，不代表用户就能用。输出一大段正确废话，用户还要自己找结论、猜动作，那只是把整理工作又推回给了人。</p>
+      <p>所以，<strong>模型输出的可读性是可验收指标，不是文风偏好。</strong></p>
+      <p>我认为FDE交付AI系统时，就该把“输出像人话”写进验收标准。但不能只写这五个字，得往下拆。</p>
+      <p>一份结果报告，结论有没有直接给？理由能不能对应到数据？下一步有没有动作和对象？删掉开场和总结，剩下的内容还能不能支撑用户做决定？</p>
+      <p>这些问题能查，能指出哪里没过，也能退回去重写。</p>
+      <p>句长、空词、连接词数量，可以先查一轮。事实有没有被改，条件有没有丢，还得对照输入。通过字数限制，不等于内容合格。</p>
+      <p>这也是我这次实测最想带回FDE工作的东西：别只交付一套会说话的系统，还要定义什么话算说清楚。</p>
+      <p>模型能写很多。用户没有义务读很多。把话说明白，本身就是稀缺能力。</p>
+      <p>把下面这段贴给AI，后面接上你的原稿：</p>
+      <ul>
+      <li><strong>1.</strong> 一句只说一件事。超过25个汉字就拆句，不把条件和事实拆丢。</li>
+      <li><strong>2.</strong> 删掉所有“进行”“做出”“方面”“层面”。删后不通就重写，留下具体动作。</li>
+      <li><strong>3.</strong> 判断直接说，删掉“可能”“在一定程度上”。事实不确定就写明缺什么证据，不把猜测改成断言。</li>
+      <li><strong>4.</strong> 连接词砍半，逻辑靠句子顺序硬顶。删后接不上，就重排句子，不用套话补缝。</li>
+      </ul>
+      <p>改完，专门看一眼你最舍不得删的那句。它是在告诉读者一件事，还是只在告诉读者你很会写？</p>
+      <p>关注“小天说FDE”，评论区贴一句你最想砍掉的AI废话。</p>
+      <p>觉得这套规则有用，后台私信“FDE”，免费领一份《FDE入门指南》。我程序员转岗FDE踩过的坑、交付AI系统要盯的验收清单，都在里面。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>什么是 Karpathy 方法？</summary><div class="faq-answer">来自 Karpathy 的写作主张：像航空维修手册一样写——每个词都要有功能，删掉所有不承载信息的句子。用在规范 AI 输出上非常有效。</div></details>
+<details class="faq-item"><summary>AI 味怎么去？</summary><div class="faq-answer">用规则约束而不是靠感觉：短句、结论前置、砍修饰、每个断言都要有支撑。让 AI 按手册风格改写，金句装饰也会被砍掉——这正是目的。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

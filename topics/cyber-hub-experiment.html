@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我给 AI 造了一个家：「双轨制」个人网站实验 — 小天说FDE</title>
+<meta name="description" content="社交平台适合传播，不适合长期安放内容。双轨制判断：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。">
+<link rel="canonical" href="https://willeai.com/topics/cyber-hub-experiment.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我给 AI 造了一个家：「双轨制」个人网站实验 — 小天说FDE">
+<meta property="og:description" content="社交平台适合传播，不适合长期安放内容。双轨制判断：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。">
+<meta property="og:url" content="https://willeai.com/topics/cyber-hub-experiment.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "我给 AI 造了一个家：「双轨制」个人网站实验",
+      "description": "社交平台适合传播，不适合长期安放内容。双轨制判断：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。",
+      "datePublished": "2026-03-16",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/cyber-hub-experiment.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "什么是双轨制网站？", "acceptedAnswer": {"@type": "Answer", "text": "同一份内容两条输出：人类可读的排版 + Agent 可读的结构化上下文。社交平台只解决传播，安放内容要自己的地址。"}},
+        {"@type": "Question", "name": "这个实验和现在的 willeai.com 什么关系？", "acceptedAnswer": {"@type": "Answer", "text": "它是前身。今天官网的 /topics/ 文章体系 + llms.txt，就是双轨制判断的落地：人读 HTML，Agent 读结构化入口。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>我给 AI 造了一个家：</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">网站 · 实验</p>
+      <h1 class="article-title">我给 AI 造了一个家：「双轨制」个人网站实验</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-03-16 发布</span>
+        <span>约 7 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>社交平台适合传播，但不适合长期安放内容——文章、项目、工具和 Agent 能读的上下文，需要一个自己的地址。<strong>「双轨制」这个判断我仍然保留：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。</strong>这篇文章记录它为什么出现，以及哪些设计留了下来。</p>
+    </section>
+    <div class="article-body">
+      <p>2026 年 3 月，我做过一版个人网站，名字叫 Wille's Cyber Hub。</p>
+      <p>当时的想法很直接：社交平台适合传播，但不适合长期安放内容。文章、项目、工具和 Agent 能读的上下文，最好有一个自己的地址。</p>
+      <p>今天再看，这个网站有不少用力过猛的地方，名字和表达也已经不是当前主线。现在对外品牌统一为「小天说FDE」，<code>willeai.cn</code> 正在转向「维天 OS」。但“双轨制”这个判断我仍然保留：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。</p>
+      <p>这篇文章记录的是它为什么出现，以及哪些设计后来留了下来。</p>
+      <h2 class="section-title">我为什么需要自己的站点</h2>
+      <p>平台账号会变，推荐规则会变，内容格式也会变。只靠平台主页，很难把一个人的长期积累串起来。</p>
+      <p>我没有把它当成企业官网，也不想堆一屏履历。它要让第一次来的人知道我最近在研究什么，让文章、项目和工具能互相连接；同时，Agent 能直接读取结构化上下文，不必每次从视觉页面里猜。</p>
+      <p>于是我把它做成了一个个人内容中枢。</p>
+      <h2 class="section-title">视觉上，我先做了一个很“克制”的黑色界面</h2>
+      <p>当时我很喜欢纯黑背景、细边框和大面积留白。它看起来像控制台，也符合我对“个人赛博中枢”的想象。</p>
+      <p>后来我发现，极简不是把东西都藏起来。真正的克制，是让用户第一眼就知道下一步做什么。</p>
+      <p>如果页面很酷，却说不清我是谁、用户能得到什么、内容从哪里开始读，那它仍然只是作品集。这个教训直接影响了后来「维天 OS」的规划：第一屏先讲清价值和入口，再谈审美。</p>
+      <h2 class="section-title">双轨制：同一套内容，服务两类读者</h2>
+      <p>这版网站最值得保留的是左右两条线。</p>
+      <p><strong>For Humans</strong> 面向人。文章要有清楚的标题、自然的叙事、项目背景和可理解的下一步。</p>
+      <p><strong>For AI</strong> 面向机器。工具说明、项目状态、文件路径、输入输出和约束，需要结构化表达，方便 Agent 检索和调用。</p>
+      <p>人类页面承载思考、产品和故事；机器页面记录 CLI 工具、基础设施和可复用上下文。它们不是两个完全独立的网站，而是同一份知识的两种视图。</p>
+      <h2 class="section-title">Human View 和 Machine View</h2>
+      <p>文章详情页当时设计了一个视角切换：</p>
+      <ul>
+      <li>Human View 保留正常的阅读排版；</li>
+      <li>Machine View 用 YAML 或结构化字段呈现关键上下文；</li>
+      <li>页面底部可以提取上下文，复制成 Agent Prompt。</li>
+      </ul>
+      <p>这个交互后来让我意识到一个问题：不要为了“机器可读”重复维护两份正文。更稳的做法是保留一个规范源，再自动生成不同视图。否则人类版更新了，机器版忘了改，很快就会互相矛盾。</p>
+      <p>现在我做知识库和内容工作流，也在坚持同一个原则：一个稳定 content_id、一份规范内容、多个输出格式。</p>
+      <h2 class="section-title">这版网站哪里做错了</h2>
+      <p>最先暴露的问题是品牌。Wille、WilleAI、Cyber Hub 同时出现，外人很难记住哪个才是主线。页面里的“数字主权”“潜空间锚点”很有气氛，却没有直接回答读者能得到什么。再往下看，它更像我给自己做的控制台，第一次来的人缺少清晰入口。</p>
+      <p>后来我把对外名称统一为「小天说FDE」，网站主线改成「维天 OS」。页面先让人看懂我在做什么，拿到一个能用的工具并做出第一份内容；遇到具体问题，再来交流。公司主体留在后端承接，不放到第一层叙事里。</p>
+      <p>旧站里仍有两部分值得继续用。Human View 和 Machine View 解决了不同读者的阅读方式；“一个规范源生成多个视图”则避免正文在不同系统里越改越散。Cyber Hub 更像「维天 OS」之前的一次原型实验。</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>个人网站很容易只顾好看，或者不断往里堆内容。我现在更关心它能不能接住一个刚认识我的人，让他知道我在做什么，拿到一个能用的工具，并且真的产出第一份内容。</p>
+      <p>这比“数字领地”更具体，也更难做。</p>
+      <p>旧站记录了我的起点。新的「维天 OS」，要把这条路继续往前走。</p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>什么是双轨制网站？</summary><div class="faq-answer">同一份内容两条输出：人类可读的排版 + Agent 可读的结构化上下文。社交平台只解决传播，安放内容要自己的地址。</div></details>
+<details class="faq-item"><summary>这个实验和现在的 willeai.com 什么关系？</summary><div class="faq-answer">它是前身。今天官网的 /topics/ 文章体系 + llms.txt，就是双轨制判断的落地：人读 HTML，Agent 读结构化入口。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

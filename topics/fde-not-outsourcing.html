@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你以为在做 FDE，其实是外包 — 小天说FDE</title>
+<meta name="description" content="把工程师派到客户现场、岗位改名 FDE，不改变生意性质。判断标准只有一个：下一次交付有没有变得更容易？">
+<link rel="canonical" href="https://willeai.com/topics/fde-not-outsourcing.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你以为在做 FDE，其实是外包 — 小天说FDE">
+<meta property="og:description" content="把工程师派到客户现场、岗位改名 FDE，不改变生意性质。判断标准只有一个：下一次交付有没有变得更容易？">
+<meta property="og:url" content="https://willeai.com/topics/fde-not-outsourcing.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "你以为在做 FDE，其实是外包",
+      "description": "把工程师派到客户现场、岗位改名 FDE，不改变生意性质。判断标准只有一个：下一次交付有没有变得更容易？",
+      "datePublished": "2026-09-16",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-not-outsourcing.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "FDE 和外包的区别是什么？", "acceptedAnswer": {"@type": "Answer", "text": "不在是否驻场写代码，而在有没有沉淀：FDE 每个项目都留下可复用的资产，下一次交付更快；外包每个项目从零开始，人被项目数量锁死。"}},
+        {"@type": "Question", "name": "怎么判断自己是在做 FDE 还是外包？", "acceptedAnswer": {"@type": "Answer", "text": "问一个问题：客户越做越多，下一次交付有没有变得更容易？如果是，你在积累资产；如果每个项目都从零开始，你在做外包。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>你以为在做 FDE，其实</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">FDE · 认知</p>
+      <h1 class="article-title">你以为在做 FDE，其实是外包</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-09-16 发布</span>
+        <span>约 7 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>把工程师派到客户现场，用 AI 快速做出一套系统，再把岗位名称改成 FDE，<strong>并不会自动改变生意的性质。</strong>如果每接一个客户还是从零开发、单独维护、项目之间没有共同积累，做的依然是定制开发。判断标准只有一个：<strong>客户越做越多，下一次交付有没有变得更容易？</strong></p>
+    </section>
+    <div class="article-body">
+      <p>把工程师派到客户现场，用 AI 快速做出一套系统，再把岗位名称改成 FDE，并不会自动改变生意的性质。如果每接一个客户，还是从零开发、单独维护，项目之间没有共同积累，那做的依然是定制开发。</p>
+      <p>外包没有什么丢人的。解决问题、赚到钱，本身就有价值。但如果想学 FDE，就不能只学工程师驻场，还得看他们背后有什么。</p>
+      <p>我更关心的是：客户越做越多，下一次交付有没有变得更容易？**</p>
+      <h2 class="section-title">客户多了，人却更难抽身</h2>
+      <p>一套系统验收了，不等于它以后不需要人管。客户的流程会变，接口会升级，负责这套系统的人也可能离开。接新项目的时候，旧项目照样会找回来。</p>
+      <p>如果每个客户都有一套独立实现，数据接入和权限管理都要重新做，日志排查也得重做，那么新增一份收入，也往往意味着新增一份维护责任。</p>
+      <p>AI 把写代码变快了，但没有自动取消这些责任。原型很快能跑起来，容易让人觉得下一个项目也能接。等系统多了，才发现每一套都得有人记住它为什么这么写、改动会影响哪里。</p>
+      <p>这时，团队需要把重复问题统一解决，未必需要更强的模型。</p>
+      <p>比如，不同客户的审批规则可以不一样，但不一定每次都要重写一套权限系统。业务数据不同，也不意味着每次都要重新做日志、任务调度和运行监控。客户真正特殊的地方需要定制，相同的部分没必要反复交学费。</p>
+      <p>不过，把上一个项目复制一份，并不等于有了共享产品。公共问题修好以后，其他项目能不能一起受益，还是每份代码都得再改一遍？**</p>
+      <p>如果仍然各改各的，只是把从零开发，换成了从复制开始开发。短期省了事，长期的维护负担还在。</p>
+      <h2 class="section-title">走到客户面前，只完成了一半</h2>
+      <p>FDE，前线部署工程师，要解决的是技术和业务之间的距离。</p>
+      <p>客户买了一套功能很强的平台，不代表他有能力把它变成真正能用的系统。业务负责人关心订单能不能按时交付、异常能不能及时发现，对数据模型怎么设计、接口怎么接并不关心。</p>
+      <p>如果卖完软件就结束，产品的价值能否兑现，就被交给了客户的实施能力。FDE 直接接触业务，弄清楚问题，再用工程手段把方案做出来。</p>
+      <p>但如果身后没有可以反复使用的产品能力，每位工程师都只能在现场重新造一套。人是走到客户面前了，交付方式却未必改变。</p>
+      <p>可持续的做法，是让前线负责理解差异、解决具体问题，由产品负责承接共性。交付时发现反复出现的需求，提炼后做回产品；产品更新以后，后续项目不必再解决同一个问题。</p>
+      <p>这里说的产品，不一定是一开始就很庞大的平台。一组稳定组件、一套明确接口，也可以是起点。这些组件和接口需要能被实际调用，支持测试和更新，不能只写在“后续产品化”的计划里。</p>
+      <p>外包也能积累产品，FDE 也少不了定制。这里讨论的是交付之后，能不能留下下一次用得上的东西，不给岗位划等级。</p>
+      <h2 class="section-title">可以从定制起步，别把起点当终点</h2>
+      <p>放到国内 To B 的语境里，这条路并不新鲜。在大数据和企业软件交付中，就有“带着底层产品进场，前期做重交付，再把重复需求做回产品”的路径。</p>
+      <p>前面的项目可能很重，很多东西需要现场补。随着共用模块逐渐完善，后面的同类客户就不必把底层再造一遍：带着标准能力进场，应用层保留必要定制。</p>
+      <p>对刚起步的 AI 小团队来说，先接项目获得收入，在真实业务中积累行业判断，是可以理解的选择。不能因为前几单做得像外包，就否定这条路。没有摸清需求，先憋一个覆盖所有场景的大平台，也未必更高明。</p>
+      <p>真正需要警惕的是，接单只看眼前能不能做、能不能赚钱。这次换一个行业，下次换一套业务，团队一直在重新学习、重新开发。项目做了不少，下一单却还是没多少现成的东西能用。</p>
+      <p>跨行业不等于一定没有复用，但“以后总能沉淀”不能只是一句安慰。两个客户都说要知识库，不代表数据和权限相同，也不代表使用流程与验收要求相同。需求名字相似，不等于实现可以共用。</p>
+      <p>所以，小团队可以在交付中逐渐收窄场景，这比急着把自己包装成平台公司更实际。找到反复出现的问题，把其中确实值得统一解决的部分抽出来；客户独有的规则留在应用层，不要全塞进底层。</p>
+      <p>这种投入会占用当前项目的时间，也需要有人长期维护。要是每次赶交付，都把公共能力往后推，产品化就很容易一直停在“下一单再说”。</p>
+      <p>项目结束后，可以具体检查三件事：哪些东西下一次能直接用，不用复制后再改？新遇到的问题有没有改善已有模块？后续客户还需要重做哪些部分，为什么？</p>
+      <p>这些问题比“我们沉淀了多少代码”更有用。代码越写越多，不一定代表能力越来越强；有时只是需要负责的系统越来越多。</p>
+      <p>可以从定制起步，但每次交付，都应该争取让同类需求少从头做一遍。**</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>决定采用 FDE 模式之前，先问两个问题：客户是不是需要复杂技术，却缺少相应的实施能力？自己有没有共享产品，或者愿不愿意持续投入，把交付中的共同能力做出来？</p>
+      <p>前一个问题，解释为什么需要工程师走到客户身边。服务过这些客户以后手里能留下什么，则取决于后一个问题。</p>
+      <p>这也不意味着每一单都必须比上一单轻。新行业、新问题，本来就可能需要重新投入。该看的，是已经解决过的同类问题，能不能不再从头解决。</p>
+      <p>如果只想把定制项目做好、把维护成本算清楚，也是一门正经生意，不必硬叫 FDE。但如果想做的是一种可以持续积累的交付模式，就别只看这一单做了多少功能。</p>
+      <p>做完这一单，下一位客户能少做什么？**</p>
+      <p>这个问题，比岗位叫什么更重要。</p>
+      <p>如果你也在学习 AI，或者正在尝试把 AI 用到工作里，欢迎在评论区交流。</p>
+      <p>想一起学习、交流实践，欢迎通过公众号后台私信我**。可以直接告诉我你正在做什么、遇到了什么问题，或者想讨论哪个方向。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>FDE 和外包的区别是什么？</summary><div class="faq-answer">不在是否驻场写代码，而在有没有沉淀：FDE 每个项目都留下可复用的资产，下一次交付更快；外包每个项目从零开始，人被项目数量锁死。</div></details>
+<details class="faq-item"><summary>怎么判断自己是在做 FDE 还是外包？</summary><div class="faq-answer">问一个问题：客户越做越多，下一次交付有没有变得更容易？如果是，你在积累资产；如果每个项目都从零开始，你在做外包。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>朋友来做客，车停哪？我用 AI 做了个借车位工具 — 小天说FDE</title>
+<meta name="description" content="不是没有车位，是没有工具把车位用起来。AI 做的小区借车位工具，解决外来车辆报备的真实痛点。">
+<link rel="canonical" href="https://willeai.com/topics/parkinghub-tool.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="朋友来做客，车停哪？我用 AI 做了个借车位工具 — 小天说FDE">
+<meta property="og:description" content="不是没有车位，是没有工具把车位用起来。AI 做的小区借车位工具，解决外来车辆报备的真实痛点。">
+<meta property="og:url" content="https://willeai.com/topics/parkinghub-tool.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "朋友来做客，车停哪？我用 AI 做了个借车位工具",
+      "description": "不是没有车位，是没有工具把车位用起来。AI 做的小区借车位工具，解决外来车辆报备的真实痛点。",
+      "datePublished": "2026-04-25",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/parkinghub-tool.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "这个工具解决什么问题？", "acceptedAnswer": {"@type": "Answer", "text": "外来车辆进小区必须提前报备、找不到当晚可借车位的问题。把闲置车位信息集中起来，让借车位从群里碰运气变成确定的事。"}},
+        {"@type": "Question", "name": "为什么想到做这个？", "acceptedAnswer": {"@type": "Answer", "text": "真实痛点：朋友来做客停车难，业主群问车位全靠运气。用 AI 快速做小工具解决自己身边的具体问题，也是最好的练手。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>朋友来做客，车停哪？我用</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">工具 · 实战</p>
+      <h1 class="article-title">朋友来做客，车停哪？我用 AI 做了个借车位工具</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-04-25 发布</span>
+        <span>约 6 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>小区规定外来车辆必须提前报备，每次都在业主群里问「今晚有车位吗」，运气不好消息刷过去就没了。后来我想明白：<strong>不是没有车位，是没有工具把这些车位用起来。</strong>于是用 AI 做了个借车位工具。</p>
+    </section>
+    <div class="article-body">
+      <p>每次有朋友来我家做客，我最头疼的不是吃什么，而是——</p>
+      <p>车停哪。</p>
+      <p>小区规定外来车辆必须提前报备，不然进不来。每次都要在业主群里问一句："今晚有车位吗？"</p>
+      <p>运气好，有人回。运气不好，消息刷过去就没了。</p>
+      <p>借不到车位，朋友就只能停在小区外面，走进来差不多十分钟。有时候还拎着东西，一路走进来挺尴尬的。</p>
+      <p>后来我想明白一件事：<strong>不是没有车位，是没有一个工具把这些车位用起来。</strong></p>
+      <p>所以我用 AI，做了一个东西。</p>
+      <p>它叫 ParkingHub，一个专门解决"邻居之间互相借车位"的网页工具。</p>
+      <p>说白了就一件事：<strong>把你晚上空着的车位，借给需要的人。</strong></p>
+      <p>实际用起来很简单。</p>
+      <p>打开首页，哪些车位是空的、免费的，一目了然。点进去，填上车牌号，提交申请。车主确认后，朋友直接开进小区就行。</p>
+      <p>连物业报备的文案，系统都帮你写好了，复制发一下就完事。</p>
+      <p>不用在群里刷消息，不用碰运气，更不用走到小区门口才发现进不来。</p>
+      <p>但这个工具最有意思的地方，不是给人用的。</p>
+      <p><strong>是给 AI 用的。</strong></p>
+      <p>接口开放之后，你直接跟 AI 说一句话就行。比如：</p>
+      <p>"帮我看看今晚有没有空车位，离 3 号楼近一点的。"</p>
+      <p>AI 帮你查、帮你借、帮你生成报备文案，全程不用打开网页。</p>
+      <p>甚至你家车位今晚空着，跟 AI 说一声"帮我发布一下"，它就帮你挂出去了。</p>
+      <p><strong>用嘴操作一个工具，这感觉挺魔幻的。</strong></p>
+      <p>如果你的小区也有外来车报备的烦恼，可以试试看。</p>
+      <p>我做了一张带二维码的海报，发到群里，邻居扫码就能用。</p>
+      <p>有朋友来做客的时候，不用再为停车发愁了。</p>
+      <p><strong>毕竟，车位闲着也是闲着，不如让它帮个忙。</strong></p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>这个工具解决什么问题？</summary><div class="faq-answer">外来车辆进小区必须提前报备、找不到当晚可借车位的问题。把闲置车位信息集中起来，让借车位从群里碰运气变成确定的事。</div></details>
+<details class="faq-item"><summary>为什么想到做这个？</summary><div class="faq-answer">真实痛点：朋友来做客停车难，业主群问车位全靠运气。用 AI 快速做小工具解决自己身边的具体问题，也是最好的练手。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

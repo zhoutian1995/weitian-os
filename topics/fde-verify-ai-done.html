@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 说做完了，FDE 为什么还要自己看一遍 — 小天说FDE</title>
+<meta name="description" content="电商自动上下架工具的验收实录：页面有按钮、后台有日志，但最关键的是商品状态到底改对没有。">
+<link rel="canonical" href="https://willeai.com/topics/fde-verify-ai-done.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 说做完了，FDE 为什么还要自己看一遍 — 小天说FDE">
+<meta property="og:description" content="电商自动上下架工具的验收实录：页面有按钮、后台有日志，但最关键的是商品状态到底改对没有。">
+<meta property="og:url" content="https://willeai.com/topics/fde-verify-ai-done.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "AI 说做完了，FDE 为什么还要自己看一遍",
+      "description": "电商自动上下架工具的验收实录：页面有按钮、后台有日志，但最关键的是商品状态到底改对没有。",
+      "datePublished": "2026-10-10",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-verify-ai-done.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "为什么 AI 说做完了不能全信？", "acceptedAnswer": {"@type": "Answer", "text": "模型的完成说明很完整：改了哪些文件、跑没跑测试。但测试检查的可能只是「请求有没有发出去」，回答不了「业务结果对不对」。完成说明不等于业务验收。"}},
+        {"@type": "Question", "name": "怎么验收 AI 的产出？", "acceptedAnswer": {"@type": "Answer", "text": "绕过实现细节直接验业务结果：商品状态改对没有、公开页面显示正常没有、数据落库没有。用业务结果验收，不用过程说明验收。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>AI 说做完了，FDE </span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI 编程 · 验收</p>
+      <h1 class="article-title">AI 说做完了，FDE 为什么还要自己看一遍</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-10-10 发布</span>
+        <span>约 7 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>做电商自动上下架工具：页面上有按钮，点下去不报错，后台也有日志。<strong>但我最关心的还是商品本身：选中的那件商品，到底有没有按要求上架或下架？</strong>用 AI 开发，这一步尤其不能省——AI 的完成说明写得很完整，可测试检查了什么，得看测试本身。</p>
+    </section>
+    <div class="article-body">
+      <p>我最近在做一个电商工具，目前只做自动上下架。</p>
+      <p>上一篇讲了为什么先不加那么多功能。这次想聊一个更具体的问题：上下架做出来以后，怎么知道它真的能用？</p>
+      <p>页面上有按钮，点下去不报错，后台也有日志。这些都得检查。但我最关心的还是商品本身：选中的那件商品，到底有没有按要求上架或者下架？</p>
+      <p>用AI开发，这一步尤其不能省。</p>
+      <p>模型写完代码，经常会附上一份很完整的说明：改了哪些文件，补了哪些检查，测试跑没跑。看完很容易觉得，这个需求已经结束了。</p>
+      <p>可测试检查了什么，得看测试本身。它要是只检查“请求有没有发出去”，就回答不了“商品状态有没有改对”。</p>
+      <h2 class="section-title">点了上架，商品就上架了吗？</h2>
+      <p>拿我正在做的工具来说，我希望用户操作完以后，能知道哪些商品成功了，哪些没成功。没成功的，也得知道接下来怎么办。</p>
+      <p>假设选了一个商品，点击上架，系统向平台发出请求。</p>
+      <p>请求发出去，平台接受了，最后商品显示为上架，这几个步骤未必同时完成。具体要看平台怎么处理，开发时得查清楚。</p>
+      <p>如果还没拿到最终结果，界面就弹出“上架成功”，用户会怎么理解？</p>
+      <p>他大概率会认为这件事已经办完了，然后去做别的。等后面发现商品并没有上架，还得回来查刚才发生了什么。</p>
+      <p>所以，这里不能含糊。只确认请求提交了，就写“已提交”；确认商品状态改了，再告诉用户完成了。如果结果还不确定，也应该显示出来。</p>
+      <p>还有操作对象的问题。</p>
+      <p>同一款商品可能有不同规格，店里也可能有相似的商品。代码执行得没有问题，不代表它操作的一定是用户选中的那一个。检查时必须拿商品信息对一下，不能只看页面上的绿色提示。</p>
+      <p>这些都是围绕上下架本身要做的事，不需要先扩展出一套复杂的电商系统。</p>
+      <h2 class="section-title">我不想让用户再猜一次</h2>
+      <p>很多软件出问题，麻烦就在于它没有把事情说清楚。</p>
+      <p>比如批量操作了十个商品，页面只写“操作完成”。这句话是什么意思？十个都成功了，还是任务执行结束了，其中有几个失败？</p>
+      <p>再比如，网络中断了，系统没收到结果。这个时候显示“失败”，用户可能重新操作；显示“成功”，他又可能直接离开。</p>
+      <p>遇到这种情况，得先确认原来的操作结果，不能随便挑一个状态展示。</p>
+      <p>这些是假设的检查场景，并不是说我的项目已经发生过这些故障。之所以提前考虑，是因为用户真碰到了，会影响他怎么处理后面的工作。</p>
+      <p>我想做的自动上下架工具，应该少让用户猜。具体到每件商品，能确认就告诉他确认的结果，不能确认就说明还没确认。</p>
+      <p>程序里当然可以记录很多技术信息，但用户不应该靠读日志，才能知道自己的商品现在是什么状态。</p>
+      <h2 class="section-title">测试全过了，我还是要看它测了什么</h2>
+      <p>我不觉得人工检查一定比自动测试好。</p>
+      <p>重复的检查当然应该交给程序做。每改一次代码，都靠自己把所有页面点一遍，也不现实。</p>
+      <p>问题是，测试通过以后，我们容易把“这几个测试没发现问题”，理解成“这个功能没有问题”。</p>
+      <p>差别很大。</p>
+      <p>如果测试用的是模拟返回值，它可以帮我检查成功和失败时程序怎么处理，但不能说明真实平台也会按这个方式返回。</p>
+      <p>如果测试只覆盖单个商品，就还得考虑批量操作中有部分失败时怎么办。</p>
+      <p>如果只检查接口返回，没有检查页面显示，用户仍然可能看到一个错误的提示。</p>
+      <p>我更愿意把这些检查分别看。测过的地方，有对应的结果；还没测的地方，就不要顺手写进“全部通过”里面。</p>
+      <p>让AI帮忙测试时，也可以直接问它：你用了什么数据？连接的是真实平台还是模拟接口？你检查了商品最终状态，还是只检查请求？</p>
+      <p>回答清楚以后，才知道下一步该查哪里。</p>
+      <h2 class="section-title">开发之前，先写一句“怎样算完成”</h2>
+      <p>以前我们谈需求，很容易先谈页面上要放什么、点按钮以后调用哪个接口。</p>
+      <p>这些需要讨论，但我现在想先把结束条件写清楚。</p>
+      <p>对自动上下架来说，可以先这样描述：用户选择商品并执行操作以后，平台上的商品状态符合要求，工具里显示的结果也和平台一致。</p>
+      <p>有了这句话，检查就有了具体对象。我要看平台上的商品，也要看工具里显示的结果。</p>
+      <p>如果只是说“做一个自动上下架功能”，不同的人可能有不同理解。有人觉得接通接口就算做完，有人觉得页面能操作就行，用户却可能以为连操作失败后的处理也包含在里面。</p>
+      <p>先把这些说清楚，比开发完再争论省事。</p>
+      <p>这一点也是我觉得程序员转FDE需要补的能力。除了知道功能怎么实现，还得能和使用的人讨论：你准备怎么用它，做到哪一步你会认为这件事结束了？</p>
+      <p>不一定要写很厚的文档。把对象、操作和结果说准确，就已经能减少不少误会。</p>
+      <h2 class="section-title">最后还得回到用户怎么用</h2>
+      <p>我做的这个工具现在只有自动上下架。功能不多，反而更应该把操作结果检查仔细。</p>
+      <p>对用户来说，上架商品就是上架商品。他不会因为我们接了很多工具、用了很强的模型，就降低对结果的要求。</p>
+      <p>AI可以帮忙写代码，也可以帮忙做检查。我自己要做的是看这些检查有没有回答实际的问题。缺了哪一步，就补哪一步。</p>
+      <p>这也不意味着每次都得自己登录平台手动查。能通过接口可靠确认的，就用接口确认；需要看实际页面的，就打开页面看。方法可以选，结果不能靠猜。</p>
+      <p>所以我会先把“完成”两个字放得谨慎一点。</p>
+      <p>如果商品状态还没确认，那就还没确认。等这件事查清楚，再继续做下一件。</p>
+      <p>如果你也在用AI做项目，想从“能写出来”走到“真正解决问题”，欢迎关注我的公众号「维天说」。我会继续分享自己的开发实践，以及从程序员走向FDE时，怎样判断需求、检查结果、把东西交付给真实用户。</p>
+      <p>想拿自己的项目练一次，可以在公众号对话框发送【资料】**，免费领取《AI-FDE入门实践册》，里面有任务卡、验收记录和交接模板。先把“要解决什么、做到什么才算完成”写清楚，再开始加功能。</p>
+      <p>如果你正在做AI项目，或考虑转型FDE，也欢迎带着具体问题来交流。发送【微信】获取联系方式，或直接添加：weitian_shuo**。添加时备注“公众号＋你的行业或岗位＋最想解决的一个问题”。</p>
+      <p>往期推荐：</p>
+      <p>AI越会写代码，FDE越要做减法</p>
+      <p>FDE凭什么贵：卖的不是代码，是责任边界</p>
+      <p>FDE实测：用Karpathy方法规范AI输出</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>为什么 AI 说做完了不能全信？</summary><div class="faq-answer">模型的完成说明很完整：改了哪些文件、跑没跑测试。但测试检查的可能只是「请求有没有发出去」，回答不了「业务结果对不对」。完成说明不等于业务验收。</div></details>
+<details class="faq-item"><summary>怎么验收 AI 的产出？</summary><div class="faq-answer">绕过实现细节直接验业务结果：商品状态改对没有、公开页面显示正常没有、数据落库没有。用业务结果验收，不用过程说明验收。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>
