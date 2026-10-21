@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>为什么你的 AI Agent 越跑越笨？一篇论文说清了 — 小天说FDE</title>
+<meta name="description" content="哈工大论文证明：Agent 性能不取决于花了多少 token，而取决于这些 token 产生了多少「有效反馈」。">
+<link rel="canonical" href="https://willeai.com/topics/agent-running-dumber.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么你的 AI Agent 越跑越笨？一篇论文说清了 — 小天说FDE">
+<meta property="og:description" content="哈工大论文证明：Agent 性能不取决于花了多少 token，而取决于这些 token 产生了多少「有效反馈」。">
+<meta property="og:url" content="https://willeai.com/topics/agent-running-dumber.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Article", "headline": "为什么你的 AI Agent 越跑越笨？一篇论文说清了", "description": "哈工大论文证明：Agent 性能不取决于花了多少 token，而取决于这些 token 产生了多少「有效反馈」。", "datePublished": "2026-06-02", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/agent-running-dumber.html" },
+    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "为什么 Agent 越跑越笨？", "acceptedAnswer": {"@type": "Answer", "text": "无效反馈在多轮执行中不断累积：错误的中间结果被后续步骤放大，token 花得越多，噪声越大。性能瓶颈在反馈质量，不在资源投入。"}},
+        {"@type": "Question", "name": "什么是有效反馈？", "acceptedAnswer": {"@type": "Answer", "text": "能修正下一步决策的信号：明确的成功/失败判定、可验证的中间结果。没有验收机制的轮次越多，Agent 偏得越远。"}} ] }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>为什么你的 AI Age</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI AGENT · 论文</p>
+      <h1 class="article-title">为什么你的 AI Agent 越跑越笨？一篇论文说清了</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-06-02 发布</span>
+        <span>约 8 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>给 Agent 加更多工具、跑更多轮、给更多 token，结果反而不如直接问一次？<strong>哈工大的一篇论文用严谨实验证明了这件事</strong>，并给出反直觉结论：Agent 的性能不取决于你花了多少 token，而取决于这些 token 产生了多少「有效反馈」。</p>
+    </section>
+    <div class="article-body">
+      <p>> 原稿恢复（2026-10-07）：以下是本地Git c92596e94588 的历史内容，原路径为 <code>20-context/content/items/2026-06-02-为什么你的AI-Agent越跑越笨/article.md</code>。完整原字节见[Git原件](/Volumes/1TB-SSD/WilleSpace-Work/KnowledgeBase/10-raw/git-history-recovery-20261007/原件-19f88e01b8c327ed7284155c808b9b93bdac4134.md)；原稿SHA为 <code>33ff2c4cdcc173e480a6ca93a510406ff383b35e63c64fa7ebf02b539f76eb02</code>。本页只补回来源和阅读入口，不改变当前人设、模型配置、业务主体或权限，也不启动旧任务。</p>
+      <p>你有没有这种感觉——给 AI Agent 加了更多工具、让它多跑几轮、给了更多 token，结果反而不如直接问一次？</p>
+      <p>我最近读了一篇哈工大的最新论文，它用严谨的实验证明了这件事，而且给出了一个很反直觉的结论：</p>
+      <p>Agent 的性能，不取决于你花了多少 token，而取决于这些 token 产生了多少「有效反馈」。</p>
+      <p>01 先说结论</p>
+      <p>这篇论文提出了一个叫 EFC（Effective Feedback Compute，有效反馈计算量） 的概念。</p>
+      <p>简单说就是：不是所有 Agent 跟环境交互产生的反馈都有用。一个反馈只有在同时满足四个条件时才算「有效」：</p>
+      <p>◆ 信息量大（不是废话）</p>
+      <p>◆ 来源可靠（不是瞎编的）</p>
+      <p>◆ 不重复（之前没听过）</p>
+      <p>◆ 能影响后续决策（Agent 真的用上了）</p>
+      <p>四个条件是乘法关系——任何一个维度挂零，这条反馈就等于白给。</p>
+      <p>打个比方：开会的时候，一个人说了十分钟，但说的全是已经知道的信息（不重复性=0），那这十分钟就是浪费。另一个人只说了一句关键信息，而且大家听进去了、改变了方案——这才是有效反馈。</p>
+      <p>Agent 也一样。</p>
+      <p>02 最狠的实验：同花 1000 token，成功率差 3 倍</p>
+      <p>论文里有一个实验特别精彩。</p>
+      <p>研究者控制了完全相同的 token 预算、相同的工具调用次数、相同的耗时，唯一不同的就是反馈的质量。</p>
+      <p>结果：</p>
+      <p>低质量反馈组：成功率 27%</p>
+      <p>高质量反馈组：成功率 90%</p>
+      <p>同样的计算量，差距超过 3 倍。</p>
+      <p>这说明什么？ Agent 不笨，是反馈喂错了。</p>
+      <p>就像给一个人看 100 条垃圾信息和给一个人看 10 条精准信息，后者效率远高于前者。</p>
+      <p>03 传统指标为什么不行？</p>
+      <p>我们平时评估 Agent 效率，习惯看这些：</p>
+      <p>• 用了多少 token</p>
+      <p>• 调了多少次工具</p>
+      <p>• 跑了多长时间</p>
+      <p>• 花了多少钱</p>
+      <p>论文测了所有这些指标，用 R² 来衡量它们预测 Agent 成功率的能力（越接近 1 越准）：</p>
+      <p>Token 数 → 0.33</p>
+      <p>工具调用次数 → 0.42</p>
+      <p>耗时 → 0.37</p>
+      <p>总成本 → 0.38</p>
+      <p>EFC → 0.94</p>
+      <p>EFC / 任务难度 → 0.99</p>
+      <p>Token 数只能解释 33% 的性能变化，而 EFC 能解释 94%——如果再考虑任务本身的难度，可以到 99%。</p>
+      <p>更夸张的是在真实场景（混合了代码、终端、Bug 修复任务）里，传统指标全部负分——比瞎猜还差。EFC 依然稳在 0.92。</p>
+      <p>04 七种 Agent，谁是赢家？</p>
+      <p>论文设计了 7 种不同的 Agent 框架，从简单到复杂：</p>
+      <p>H0：直接回答，不调工具</p>
+      <p>H1：加了检查清单</p>
+      <p>H2：能选择性地调用工具</p>
+      <p>H3：有记忆，不重复犯错</p>
+      <p>H4：预算拉满，但路由差、验证弱、记忆烂</p>
+      <p>H5：完整闭环：路由 + 验证 + 记忆</p>
+      <p>H6：深度闭环，更强的反馈机制</p>
+      <p>H4 是最关键的对照。</p>
+      <p>如果性能由计算量决定，H4 预算最高，应该最强。但实际上 H4 表现很差——因为它虽然花了很多 token，但产生的反馈质量低、重复多、没被记住。</p>
+      <p>砸钱不能解决所有问题，这句话在 Agent 时代依然成立。</p>
+      <p>05 三个实操启示</p>
+      <p>读完这篇论文，我觉得对做 Agent 的人有三条直接可用的建议：</p>
+      <ul>
+      <li><strong>1.</strong> 优化路由比堆预算重要</li>
+      </ul>
+      <p>路由质量对效率的提升最大（+0.28）。Agent 能不能选对工具、问对问题，比多调几次工具重要得多。</p>
+      <ul>
+      <li><strong>2.</strong> 加强验证，少走弯路</li>
+      </ul>
+      <p>验证强度排第二（+0.22）。Agent 每做一步，如果能有可靠的方式验证对不对，就能避免把错误往下传。</p>
+      <ul>
+      <li><strong>3.</strong> 管好记忆，别重复犯错</li>
+      </ul>
+      <p>记忆保真排第三（+0.20）。Agent 能不能记住之前试过什么、哪里失败了，直接影响后续决策的效率。</p>
+      <p>还有一个容易被忽略的发现：没有万能最优的 Agent 框架。论文发现在代码任务上 H5/H6 最强，但在 Bug 修复任务上反而简单的 H0/H3 更好。不同任务需要不同的设计。</p>
+      <p>06 写在最后</p>
+      <p>这篇论文的标题叫「Scaling Laws for Agent Harnesses via Effective Feedback Compute」，来自哈尔滨工业大学，2026 年 5 月发布。</p>
+      <p>它改变了我对 Agent 优化的认知：不是花更多计算，而是让每一份计算都变成有用的反馈。</p>
+      <p>就像高效的团队不是因为加班多，而是因为每次沟通都在推进事情。</p>
+      <p>Agent 也一样——让它说的每一句话都有信息量、有依据、不重复、且能指导下一步行动。</p>
+      <p>这才是 Agent 真正的 scaling law。</p>
+      <p>论文链接：https://arxiv.org/abs/2605.29682</p>
+      <p>往期推荐：</p>
+      <p>CLI-Switch：Agent 调用 Claude Code / Codex 的正确姿势</p>
+      <p>用了两个 AI Agent 一周，我决定两个都留着</p>
+      <p>当技术不值钱了，我们靠什么活着？</p>
+      <p>看到这里了，如果觉得不错：</p>
+      <p>点个「赞」，让我知道你在看</p>
+      <p>点个「在看」，分享给更多朋友</p>
+      <p>点个「转发」，帮助更多人</p>
+      <p>加个「星标⭐」，第一时间收到推送</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>为什么 Agent 越跑越笨？</summary><div class="faq-answer">无效反馈在多轮执行中不断累积：错误的中间结果被后续步骤放大，token 花得越多，噪声越大。性能瓶颈在反馈质量，不在资源投入。</div></details>
+<details class="faq-item"><summary>什么是有效反馈？</summary><div class="faq-answer">能修正下一步决策的信号：明确的成功/失败判定、可验证的中间结果。没有验收机制的轮次越多，Agent 偏得越远。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

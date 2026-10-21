@@ -4,7 +4,11 @@
 > willeai.com 是「维天 OS」个人网站：分享个人 AI 学习、AI 编程实践、AI 内容工作流与 FDE 转型的真实经验。
 > 每篇文章都来自真实项目，不写没验证过的东西。
 
-## 文章（31 篇）
+## 文章（32 篇）
+
+- [我让 AI 读完了 Claude Code 的 51 万行源码](https://willeai.com/topics/claude-code-source-notes.html): 59.8MB、1900 文件、51 万行代码的完整拆解，22 章四万字笔记
+- [我开始把 AI 当成员工用了](https://willeai.com/topics/ai-as-employee.html): 从工具到员工——给岗位、职责边界和考核，维天 OS 的起点
+- [为什么你的 AI Agent 越跑越笨？](https://willeai.com/topics/agent-running-dumber.html): 哈工大论文证明 Agent 性能取决于有效反馈而非 token 投入
 
 - [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE 难的不是写代码，而是把 Demo 变成别人真敢用、愿意用、还能持续改进的系统。定义、五种核心能力、与普通工程师和 AI 产品经理的区别。
 - [FDE 的七种能力：先过一把手认知这道门](https://willeai.com/topics/fde-seven-capabilities.html): 价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。
@@ -32,9 +36,7 @@
 - [不是 Demo，是真实上线：我用 AI 手搓了「成长指南针」](https://willeai.com/topics/growth-compass-launch.html): 接入真实用户、数据、支付和积分规则的完整落地。
 - [朋友来做客，车停哪？我用 AI 做了个借车位工具](https://willeai.com/topics/parkinghub-tool.html): 不是没有车位，是没有工具把车位用起来。
 - [我给 AI 造了一个家：「双轨制」网站实验](https://willeai.com/topics/cyber-hub-experiment.html): 同一份内容，既要让人读得舒服，也要让 Agent 读得明白。
-- [AI Agent 总在重复踩坑，EvoMap 想借生物学解决](https://willeai.com/topics/agent-evolution-lessons.html): 在消灭人的重复劳动之后，减少 AI 自己的重复劳动。
 - [别急着和 GPT-Live 尬聊：先测水平再练场景](https://willeai.com/topics/gpt-live-english-method.html): 先短测试定位水平，再练具体场景，每次只改三处。
-- [我给三只猫做了 MBTI：结果比我想象得更像它们](https://willeai.com/topics/three-cats-mbti.html): 粘人的美短、话痨的暹罗。测评是由头，观察是真。
 - [制造业 FDE，先把成本算清](https://willeai.com/topics/manufacturing-fde-cost.html): 不先造财务大脑，先把一条产品线的成本算清，把一次异常追到底。
 
 ## 站点导航

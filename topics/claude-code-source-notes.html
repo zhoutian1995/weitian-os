@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记 — 小天说FDE</title>
+<meta name="description" content="Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。">
+<link rel="canonical" href="https://willeai.com/topics/claude-code-source-notes.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记 — 小天说FDE">
+<meta property="og:description" content="Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。">
+<meta property="og:url" content="https://willeai.com/topics/claude-code-source-notes.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Article", "headline": "我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记", "description": "Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。", "datePublished": "2026-04-02", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/claude-code-source-notes.html" },
+    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "这份源码笔记讲什么？", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code 的内部实现拆解：22 章覆盖架构、工具调用、上下文管理等核心模块，四万字笔记从 51 万行源码里提炼，告诉你一个工业级 Agent 是怎么写出来的。"}},
+        {"@type": "Question", "name": "为什么值得读 Claude Code 源码？", "acceptedAnswer": {"@type": "Answer", "text": "它是目前最成熟的 Agent 工程实现之一。读它等于看一遍顶级团队的工程答卷——对想做 AI 编程、Agent 开发或 FDE 的人，这是最快的内功修炼路径。"}} ] }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>我让 AI 读完了 Cl</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">程序员 · 硬核</p>
+      <h1 class="article-title">我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-04-02 发布</span>
+        <span>约 15 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>Claude Code v2.1.88 的 npm 包意外带上了完整 source map：<strong>59.8MB、1900 个文件、51 万行代码</strong>，一天之内 GitHub 8 万 Star。我让 AI 把它读完了，产出 <strong>22 章、四万字的源码笔记</strong>——理解 Agent 内部实现的第一手材料，也是「程序员用 AI 做深研」的完整示范。</p>
+    </section>
+    <div class="article-body">
+      <p>> 原稿恢复（2026-10-07）：以下是本地Git c92596e94588 的历史内容，原路径为 <code>20-context/content/items/2026-04-02-Claude-Code源码笔记/article.md</code>。完整原字节见[Git原件](/Volumes/1TB-SSD/WilleSpace-Work/KnowledgeBase/10-raw/git-history-recovery-20261007/原件-a8de08b4de2d674cc7288612693b39302a6560ea.md)；原稿SHA为 <code>0eaaa28774d954281e896cb0d5b0721c91c1f223f68004d15ffac61ecf4d3839</code>。本页只补回来源和阅读入口，不改变当前人设、模型配置、业务主体或权限，也不启动旧任务。</p>
+      <p>3月31日，Claude Code v2.1.88的npm包里，意外带上了完整的source map。</p>
+      <p>59.8 MB。1900个文件。51万行代码。</p>
+      <p>一天之内，GitHub 8万Star。</p>
+      <p>全网都在看热闹——我让AI一行一行读完了全部源码，有实操，有验证。</p>
+      <p>两天时间，22章完整拆解。因为字数太多，无法一次写完发公众号，无偿分享给大家。欢迎文末自取。</p>
+      <p>有什么看点？</p>
+      <p>不是技术博客。是工程笔记。每章都有源码位置、代码片段、数据表格。</p>
+      <p>23道安全关卡，防一个rm -rf</p>
+      <p>BashTool串联了23项验证。空引号绕过、ANSI-C引号、注释引号错位、花括号扩展、Unicode空格分词差异……每一项攻击都配了bash示例和防御代码。</p>
+      <p>5层上下文压缩，让AI不会忘记之前干了什么</p>
+      <p>工具结果截断→去重→剪切→文件投影→LLM总结。压缩后还有恢复机制，模型知道"我刚才在改那个文件的第42行"。</p>
+      <p>300行prompt编排多Agent</p>
+      <p>没有状态机。没有DAG。没有workflow engine。300行system prompt搞定一切。</p>
+      <p>Fork模式：5个Agent并行，成本接近1个</p>
+      <p>字节级相同的API请求前缀命中prompt cache。5个并行工作的token成本，接近1个顺序工作。</p>
+      <p>怎么获取？</p>
+      <p>公众号留言回复「cc」获取完整22章飞书文档。</p>
+      <p>飞书云文档格式。可以直接复制链接给到自己的AI Agent里研究。也可以丢给自己的龙虾读，让它帮你总结最有价值的设计。</p>
+      <p>往期推荐</p>
+      <p>多 Agent 架构——一个人的团队怎么建</p>
+      <p>养一只属于自己的龙虾：从选虾塘到建虾场</p>
+      <p>你以为 AI 的壁垒是模型，其实你一直在为 Harness 买单</p>
+      <p>看到这里了，如果觉得不错：</p>
+      <p>点个「赞」，让我知道你在看</p>
+      <p>点个「在看」，分享给更多朋友</p>
+      <p>点个「转发」，帮助更多人</p>
+      <p>加个「星标⭐」，第一时间收到推送</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>这份源码笔记讲什么？</summary><div class="faq-answer">Claude Code 的内部实现拆解：22 章覆盖架构、工具调用、上下文管理等核心模块，四万字笔记从 51 万行源码里提炼，告诉你一个工业级 Agent 是怎么写出来的。</div></details>
+<details class="faq-item"><summary>为什么值得读 Claude Code 源码？</summary><div class="faq-answer">它是目前最成熟的 Agent 工程实现之一。读它等于看一遍顶级团队的工程答卷——对想做 AI 编程、Agent 开发或 FDE 的人，这是最快的内功修炼路径。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>
