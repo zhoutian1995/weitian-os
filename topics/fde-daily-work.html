@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE 到底每天在忙什么？一个工作日的完整拆解 — 小天说FDE</title>
+<meta name="description" content="用一家电商公司的一天串起 FDE 的真实工作：自动对账的演示能跑，真文件进去问题全来。FDE 的相当一部分时间在确认口径，剩下的才轮到代码。">
+<link rel="canonical" href="https://willeai.com/topics/fde-daily-work.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FDE 到底每天在忙什么？— 小天说FDE">
+<meta property="og:description" content="用一家电商公司的一天，把 FDE 到底在忙什么讲透。">
+<meta property="og:url" content="https://willeai.com/topics/fde-daily-work.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Article", "headline": "FDE 到底每天在忙什么？一个工作日的完整拆解", "description": "用一家电商公司的一天串起 FDE 的真实工作：确认口径、做系统、跟着使用迭代。", "datePublished": "2026-10-04", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/fde-daily-work.html" },
+    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "FDE 每天在忙什么？", "acceptedAnswer": {"@type": "Answer", "text": "确认口径、做能用的系统、跟着实际使用改。相当一部分时间花在把'月底对账太费劲'这类含糊需求问清楚：对哪几本账、差异怎么找、退款按什么日期归属、谁签字确认——这些争论直接决定程序的规则。"}},
+        {"@type": "Question", "name": "FDE 是什么岗位？", "acceptedAnswer": {"@type": "Answer", "text": "Forward Deployed Engineer，前线部署工程师，因 Palantir 的实践被更多人认识。'前线'指客户业务现场：由技术公司派到客户侧，弄清业务运转、亲自做出能用的系统、跟着使用情况迭代。需要写代码，更需要听懂含糊的需求。"}} ] }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>FDE 每天在忙什么</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">FDE · 场景 · 长文</p>
+      <h1 class="article-title">FDE 到底每天在忙什么？一个工作日的完整拆解</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-10-04 发布</span>
+        <span>约 12 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>上午九点，老板问：「AI 能不能把这些账自动对上？」演示的时候好像能，真把文件放进去问题全来了——拆单、跨月退款、名称对不上、PDF 识别多一个零。<strong>FDE 的工作日里有相当一部分时间用来确认口径，剩下的时间才轮到接口、代码和模型。</strong>用一家电商公司的一天，把 FDE 到底在忙什么讲透。</p>
+    </section>
+    <div class="article-body">
+      <p>上午九点，杭州一家电商公司的办公室。财务打开昨天的微信支付对账单，运营导出淘宝天猫订单，采购在供应商微信群里翻送货记录。老板问了一句：“AI能不能把这些账自动对上？”</p>
+      <p>演示的时候，好像能。真把文件放进去，问题就来了**：同一笔订单拆了两次发货，退款跨月到账，供应商简称和金蝶里的名称对不上。还有一张传真扫描的PDF，金额旁边盖着章，识别结果多了一个零。</p>
+      <p>我用这家公司串一下FDE的工作日。下面是按国内业务流程整理的场景推演，不对应某个已经交付的客户项目。这样讲，比围着岗位英文解释半天容易懂。</p>
+      <h2 class="section-title">一、FDE到底是什么岗位</h2>
+      <p><strong>FDE全称是Forward Deployed Engineer</strong>，常见中文叫“前线部署工程师”。这个岗位因Palantir的实践而被更多人认识，后来逐渐出现在AI公司的招聘里。</p>
+      <p>“前线”指客户业务现场。可能是客户办公室，也可能是企业微信群，天天追着你问进度的财务负责人就在里面。</p>
+      <p>FDE通常由技术公司派到客户侧，弄清楚业务怎么运转，亲自做出能用的系统，再跟着实际使用情况改。需要写代码，也需要听懂一句很含糊的需求：</p>
+      <p>“我们月底对账太费劲了，你看看能不能弄一下。”</p>
+      <p>这句话离开发任务还远得很。**</p>
+      <p>我得继续问：对哪几本账？差异现在怎么找？退款按什么日期归属？最后谁签字确认？有时候问到第三个问题，财务和运营就开始争论。</p>
+      <p>这些争论会直接影响程序的规则。</p>
+      <p>所以FDE的工作里，有相当一部分时间<strong>用来确认口径</strong>。剩下的时间才轮到接口、代码和模型。各家公司分工不同，有些FDE偏原型开发，有些要承担完整交付，不能看见这个头衔就认定职责都一样。</p>
+      <h2 class="section-title">二、和销售、咨询、软件工程师差在哪</h2>
+      <p>这些岗位经常一起见客户，边界也会重叠。我更习惯看他们分别对什么结果负责。</p>
+      <p>岗位</p>
+      <p>主要工作</p>
+      <p>常见交付</p>
+      <p>重点关注</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>销售</p>
+      <p>找客户、谈需求和商务条件</p>
+      <p>合同与商务方案</p>
+      <p>客户是否购买</p>
+      <p>咨询顾问</p>
+      <p>梳理流程、分析问题、提出改进建议</p>
+      <p>分析报告与实施方案</p>
+      <p>建议能否成立、执行</p>
+      <p>软件工程师</p>
+      <p>按产品和技术要求开发维护系统</p>
+      <p>功能、代码与服务</p>
+      <p>系统正确性和稳定性</p>
+      <p>FDE</p>
+      <p>在客户现场确认问题，开发并推进使用</p>
+      <p>接入业务流程的可运行方案</p>
+      <p>用户能否用它完成工作</p>
+      <p>表格只能帮助理解，现实里没这么整齐。咨询团队也可能负责实施，软件工程师也会直接接触业务。</p>
+      <p>区别在于，FDE经常要自己把模糊需求往前推进。**</p>
+      <p>比如财务说“帮我自动对账”，他可能先检查金蝶能导出哪些字段，再拿几十笔订单做测试。发现退款记录缺交易单号，就找运营确认原始数据从哪里拿。</p>
+      <p>如果拿不到，还得缩小第一版范围。</p>
+      <p>我觉得这个岗位最容易被误解的地方，是大家以为他主要负责做一个漂亮演示。**演示只是其中一个环节。客户第二天照常上班，系统还得接着处理新数据。</p>
+      <h2 class="section-title">三、为什么AI公司现在要招这种人</h2>
+      <p>模型的能力越来越容易试出来。</p>
+      <p>上传一张增值税发票，识别票面字段；放进一份采购合同，提取付款条件。这类演示现在做起来很快。</p>
+      <p>但国内企业的资料分散得厉害。合同在OA里，补充约定留在钉钉聊天记录里。ERP里的供应商名称是全称，业务人员的Excel里只写了两个字。</p>
+      <p>让模型读懂一张纸，和让财务放心采用结果，中间还有不少工作。**</p>
+      <p>比如增值税发票OCR提取出了金额，接下来要判断有没有重复提交、是否对应采购单。票据真实性核验还需要合规的查验渠道，OCR结果只能算识别结果。</p>
+      <p>碰到涉税口径，我会让财务查电子税务局的最新说明，必要时咨询12366。申报仍然需要有权限的人确认操作，不能让模型猜一个答案就往下走。</p>
+      <p>AI公司需要有人处理这些具体问题，客户才可能从试用走到持续使用。FDE因此受到关注。</p>
+      <p>国内的岗位名称还不统一。有的叫AI交付工程师，有的叫解决方案工程师。看招聘时，我会直接找职责里有没有客户现场开发、业务集成和上线后的持续迭代。这比头衔更有参考价值。</p>
+      <h2 class="section-title">四、一天的工作，拆开看</h2>
+      <p>继续看前面那家电商公司。如果我接手它的对账流程，一天大概会这样展开。</p>
+      <h2 class="section-title" style="font-size:19px;">9:00，先看昨天哪里出错</h2>
+      <p>企业微信群里已经有消息：“昨天那笔退款怎么还挂在待核对里？”</p>
+      <p>我打开处理日志，找到原始订单和支付流水。退款发起在昨天，实际到账在今天，系统按支付日期筛选时把它漏了。</p>
+      <p>先确认原因，再决定怎么改。这个问题暂时不需要调整模型。</p>
+      <p>有些时候，半小时查下来，最后只改了一条日期规则。</p>
+      <h2 class="section-title" style="font-size:19px;">9:40，坐到财务旁边看她操作</h2>
+      <p>我请财务拿一笔差异单，照平时的方式处理。</p>
+      <p>她打开Excel，筛出订单号，去天猫后台查售后，再翻微信支付账单。遇到供应商结算，还要在微信群里找送货单照片。</p>
+      <p>这一段很重要。口头描述的流程往往很简洁，实际操作里会冒出几个隐藏步骤。</p>
+      <p>比如有一列“备注”，需求文档里没提。财务告诉我，老板确认过的特殊扣款都记在这里，不能丢。</p>
+      <p>我就得把它留下，并弄清楚哪些备注影响金额。</p>
+      <h2 class="section-title" style="font-size:19px;">10:30，找信息部门确认数据怎么拿</h2>
+      <p>客户说“我们用的是用友”，还不够。</p>
+      <p>具体产品和版本是什么？接口有没有开通？我能拿到只读账号吗？导出的订单号是否完整？</p>
+      <p>如果第一版只能用人工导出的Excel，那就先接Excel。约定好导出范围和字段，比等一个暂时拿不到的接口更有用。</p>
+      <p><strong>客户数据进入什么环境、哪些人能访问，也要提前确认。</strong>付款信息不能随手发到外部工具里测试。</p>
+      <h2 class="section-title" style="font-size:19px;">11:30，处理那些看起来很小的数据问题</h2>
+      <p>订单号被Excel转成科学计数法，前面的零没了。供应商名称后面多了空格，同一家单位因此出现两条记录。</p>
+      <p>这些事儿挺常见。</p>
+      <p>我会保留原始文件，另外生成清洗后的数据，并记录每一步处理。名称映射需要业务人员确认，不能看到两个简称相似就直接合并。</p>
+      <p><strong>金额也不能靠大模型口算。</strong>正常对账交给明确的计算规则，模型可以辅助提取备注，或者解释某类差异。</p>
+      <h2 class="section-title" style="font-size:19px;">13:30，做出一个能试的版本</h2>
+      <p>下午先做一个很窄的流程：上传订单文件和支付账单，生成差异清单。</p>
+      <p>正常匹配的记录自动归类，退款跨期和缺少单号的记录单独列出来。财务点开一条差异，能看到对应的原始行。</p>
+      <p>供应商发来的PDF先做OCR，金额识别不确定的地方留给人工复核。</p>
+      <p><strong>我不会在这一步开放ERP写入。</strong>先让客户看清结果，确认处理口径，再考虑后面的回写。</p>
+      <h2 class="section-title" style="font-size:19px;">15:00，让财务自己试</h2>
+      <p>我坐在旁边，看她用新系统处理一批旧账。</p>
+      <p>她点开差异清单，看了一会儿，说：“你这个顺序不好找，我平时按店铺看。”</p>
+      <p>于是筛选条件要改。</p>
+      <p>又试了几笔，她发现有一笔运费险赔付被归到了销售收入。金额虽然对上了，分类有问题。这种错误在演示里很容易漏掉，因为因为<strong>演示数据通常太干净</strong>。</p>
+      <p>旧账有已经确认的处理结果，适合拿来做验收样本。跨月退款、部分退款这些麻烦情况，要专门留下来测试。</p>
+      <h2 class="section-title" style="font-size:19px;">16:30，处理权限和审批</h2>
+      <p>系统试得差不多，新的问题来了：运营需要看订单状态，但不应该看到供应商结算价。</p>
+      <p>权限得按角色划分。</p>
+      <p>如果核对结果要进入OA审批流，还要明确谁能提交，审批驳回后怎么处理。进入ERP的最终数据，应该是哪一个确认版本。</p>
+      <p>涉及付款或重要记录修改，<strong>人工审批得留着。</strong>日志里也要能查到谁改过什么。</p>
+      <p>这些活看起来琐碎，上线以后却天天会遇到。</p>
+      <h2 class="section-title" style="font-size:19px;">18:00，把今天的结果交代清楚</h2>
+      <p>收工前，我会在项目群里写清楚已修复的问题和仍然存在的限制。</p>
+      <p>比如退款跨期已经修复，但供应商名称还有几条映射需要采购确认。明天测试继续用哪一批数据，也要说清楚。</p>
+      <p>有些客户问题会反馈给公司的产品团队。如果多个客户都需要同样的账单导入能力，就值得考虑做成标准功能。</p>
+      <p>当天未必有一个完整的新版本。有时候主要成果就是确认了规则，下一步终于能继续做。</p>
+      <h2 class="section-title">五、这个岗位难在哪里</h2>
+      <p>我觉得最难的是，<strong>在信息不完整的时候判断先做什么</strong>。</p>
+      <p>老板想看到效果，财务担心账出错。FDE需要把第一版范围定得足够具体，让大家知道这次能解决哪一段流程。</p>
+      <p>这要求他有工程能力，也愿意理解业务细节。</p>
+      <p>文件导入失败，要能排查。遇到陌生的财税口径，要知道找谁确认。客户提出一个新要求，还得判断它会不会影响已经跑通的部分。</p>
+      <p>验收标准同样得落到实际操作上。</p>
+      <p>对账项目可以看人工需要处理多少条差异，每条差异能否追溯到原始数据。发票项目可以检查字段准确率，并确认低置信度结果有没有进入复核。</p>
+      <p><strong>只看“演示成功”，后面很容易扯皮。</strong></p>
+      <p><strong>FDE也需要交接。</strong>规则都留在他脑子里，出了问题只能等他回复，这套系统就很难长期用下去。操作说明和异常处理办法，最终得让客户接得住。</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>把这一天拆开，我对FDE的理解就具体了很多。</p>
+      <p>他可能一下午都在查退款为什么少了一笔，顺手改掉两处财务用着别扭的操作。</p>
+      <p>第二天财务还愿意打开它，这事儿才算有点谱。**</p>
+      <p>如果你也在学习 AI，或者正在尝试把 AI 用到工作里，欢迎在评论区交流。</p>
+      <p>想一起学习、交流实践，欢迎通过公众号后台私信我。可以直接告诉我你正在做什么、遇到了什么问题，或者想讨论哪个方向。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>FDE 每天在忙什么？</summary><div class="faq-answer">确认口径、做能用的系统、跟着实际使用改。相当一部分时间花在把'月底对账太费劲'这类含糊需求问清楚：对哪几本账、差异怎么找、退款按什么日期归属、谁签字确认——这些争论直接决定程序的规则。</div></details>
+<details class="faq-item"><summary>FDE 是什么岗位？</summary><div class="faq-answer">Forward Deployed Engineer，前线部署工程师，因 Palantir 的实践被更多人认识。'前线'指客户业务现场：由技术公司派到客户侧，弄清业务运转、亲自做出能用的系统、跟着使用情况迭代。需要写代码，更需要听懂含糊的需求。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

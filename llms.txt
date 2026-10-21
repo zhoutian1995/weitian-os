@@ -4,7 +4,7 @@
 > willeai.com 是「维天 OS」个人网站：分享个人 AI 学习、AI 编程实践、AI 内容工作流与 FDE 转型的真实经验。
 > 每篇文章都来自真实项目，不写没验证过的东西。
 
-## 文章（30 篇）
+## 文章（31 篇）
 
 - [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE 难的不是写代码，而是把 Demo 变成别人真敢用、愿意用、还能持续改进的系统。定义、五种核心能力、与普通工程师和 AI 产品经理的区别。
 - [FDE 的七种能力：先过一把手认知这道门](https://willeai.com/topics/fde-seven-capabilities.html): 价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。
