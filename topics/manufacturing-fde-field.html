@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>真实 FDE 拆解：AI 主战场在工厂 — 小天说FDE</title>
+<meta name="description" content="跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。">
+<link rel="canonical" href="https://willeai.com/topics/manufacturing-fde-field.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="真实 FDE 拆解：AI 主战场在工厂 — 小天说FDE">
+<meta property="og:description" content="跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。">
+<meta property="og:url" content="https://willeai.com/topics/manufacturing-fde-field.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Article", "headline": "真实 FDE 拆解：AI 主战场在工厂", "description": "跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。", "datePublished": "2026-08-25", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/manufacturing-fde-field.html" },
+    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "为什么说 AI 主战场在制造业？", "acceptedAnswer": {"@type": "Answer", "text": "互联网业务本来就在软件里发生，AI 接入是在已有系统上提速优化；制造业的信息起点是微信群、手写订单图片和人脑里的判断，数字化缺口巨大，AI 能创造的价值增量也最大。"}},
+        {"@type": "Question", "name": "工厂 AI 落地最难的是什么？", "acceptedAnswer": {"@type": "Answer", "text": "不是买更大的系统补齐字段。很多信息一开始就是手写的、图片里的、群聊里的，很多判断在人脑里；接单员要在客户、销售、设计、外协、排产、仓库、生产、财务等角色间来回确认——难在人、设备和现场之间。"}} ] }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>真实 FDE 拆解：AI</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">FDE · 制造业</p>
+      <h1 class="article-title">真实 FDE 拆解：AI 主战场在工厂</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-08-25 发布</span>
+        <span>约 10 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>跟着一家纸箱厂把接单和排产流程完整拆了一遍，最明确的判断：<strong>AI 真正的主战场，大概率不在互联网，而在制造业。</strong>互联网业务本来就在软件里发生，AI 接进去是提速；制造业是另一套逻辑——订单在微信群里、信息是手写图片、判断在人脑里。<strong>系统里有记录，但现场要处理的，常常是记录还没形成之前的那段信息。</strong></p>
+    </section>
+    <div class="article-body">
+      <p>很多人觉得，AI 下一轮大战依旧会发生在互联网赛道。</p>
+      <p>但我最近跑市场，跟着一家纸箱厂把接单和排产流程完整拆了一遍。这次真实的 FDE 现场结束后，我最明确的判断是：<strong>AI 真正的主战场，大概率不在互联网，而在制造业。</strong></p>
+      <p>这不是说互联网不需要 AI。只是互联网很多业务本来就在软件里发生，用户动作、交易数据和流程入口，早就被数字化记录下来了。AI 接进去以后，更多是在已有系统上提速、优化和重新组合。</p>
+      <p>制造业完全是另一套逻辑。</p>
+      <p>*纸板仓储现场。制造业面对的首先是具体的物料、规格和状态。本文现场照片均已做公开发布检查。*</p>
+      <h2 class="section-title">工厂最麻烦的地方，往往不在系统里</h2>
+      <p>我这几天接触到的纸板业务，客户大多还是在微信群里下单。有些发 Excel，但更多是手写订单图片。接单员要从图片里读出材质、尺寸、数量、压线等信息，再一项一项录进 ERP。</p>
+      <p>客户里还有不少年龄偏大的使用者，不能简单要求所有人改用小程序、标准表格或者一套新系统。客户怎么下单，是企业长期形成的习惯，接单岗位只能先接住，再想办法减少后面的重复劳动。</p>
+      <p>这家工厂不是没有 ERP。ERP 负责建档、下单和部分排单，但真实工作并不会因此变成一条干净的系统流程。订单从微信群进来，价格和优惠要再确认，排产要继续沟通，生产和发货还会不断产生新的信息。</p>
+      <p>纸箱业务更明显。接单员不是一个单纯的录单岗位，他要在客户、销售、设计、外协、ERP、排产、采购、仓库、生产、发货和财务之间来回确认。下生产单之前，还要确认纸板、印版、刀模、特殊油墨是不是已经到位。</p>
+      <p>现实是，实物到货以后，消息可能先发在微信群里，ERP 入库还要晚一点。于是接单员要翻群、找照片、对订单号和编号。生产人员也会反过来问印版号、刀模号和生产单之间怎么对应。</p>
+      <p><strong>系统里有记录，但现场要处理的，常常是记录还没有形成之前的那段信息。</strong></p>
+      <p>这就是制造业难的地方。它不是买一个更大的系统，把所有字段补齐，就能自动解决。很多信息一开始就是手写的、图片里的、群聊里的，很多判断一开始就在人脑里。</p>
+      <h2 class="section-title">制造业最值钱的东西，恰恰最难写进系统</h2>
+      <p>纸箱接单员为什么和客户的对应关系比较固定？不是因为岗位不能轮换，而是老员工脑子里装着很多系统没有完整记录的东西。</p>
+      <p>这个客户的验收尺度是什么，哪种印刷错误可以接受，图纸改过几次，客户的物料号怎么变化，送货时要注意什么，出现潮湿、质量争议或者临时调整时应该先找谁——这些经验决定了订单能不能顺利往下走。</p>
+      <p>新人主要靠老员工口头带。企业当然可以写制度、做培训，但真正影响现场判断的细节，往往没有被完整写进任何一份文件里。</p>
+      <p>*同样是瓦楞纸板，现场质量往往体现在这些细小差异里。*</p>
+      <p>排产也是一样。</p>
+      <p>排产员面对的不是简单的订单排序，而是要按照材质、瓦楞类型、门幅和数量，把订单组合到不同的生产线上。大订单相对容易安排，小订单则要人工挑选多个订单，尽量凑出合适的门幅和生产数量。</p>
+      <p>现场排产人员说，很多时间就花在这里。订单还会不断进入，前一天排好的计划，第二天可能因为新订单、紧急订单和插单继续调整。最后的方案，仍然必须由人审核。</p>
+      <p>这次现场拆解，我没有拿未经验证的节省比例当成果。真正完成的是另一件更重要的事：把“小订单凑门幅”从一句经验判断，拆成了清楚的角色、场景、输入、输出和人工边界。</p>
+      <p>到这里，这次 FDE 现场诊断已经完成：现场人员确认了问题，输入和输出被拆了出来，首个原型切口也确定了。</p>
+      <h2 class="section-title">AI 的机会，正好出现在这条缝里</h2>
+      <p>传统软件擅长处理已经被规定好的流程。字段是什么，按钮怎么点，条件满足以后执行哪条规则，都可以提前写死。</p>
+      <p>但工厂每天面对的，偏偏是没有完全写好的情况：一张被涂改过的手写订单，一条还没有同步进 ERP 的到货消息，一批临时插入的小订单，一台设备当前到底能不能接这个规格，或者一个老客户多年来形成的特殊要求。</p>
+      <p>AI 的变化，不只是回答问题更像人，而是软件第一次有了一点处理不完整信息的柔性。它可以先读懂文字、图片和群聊，把里面的订单字段、物料状态和待确认事项整理出来；也可以在已有规则和历史资料的基础上，给出几个候选方案，再把不确定的地方标出来。</p>
+      <p>比如纸板小订单的凑门幅问题，我们最后把它收敛成了第一版原型方案：拿一周左右的历史待排订单、人工最后采用的排产结果和实际损耗记录，在 ERP 外面生成组合建议。排产员可以比较、调整或者直接否决，方案不自动写回 ERP，也不自动承诺客户交期。</p>
+      <p>这个问题的底层甚至未必是一个纯粹的大模型问题。订单组合、生产线能力、门幅、损耗和交期，本身可能需要约束计算或优化算法；大模型更适合做输入理解、结果解释和人与工具之间的交互。</p>
+      <p><strong>AI 不一定替人做最后决定，但可以先把人每天反复比较的东西整理出来。</strong></p>
+      <p>*订单最终要落到具体设备、工序和物料上，不能停留在聊天窗口里。设备标识已脱敏。*</p>
+      <p>这和在网页里放一个聊天框，是两回事。</p>
+      <h2 class="section-title">AI 让很多“小需求”第一次值得做</h2>
+      <p>过去，为两个排产员做一个只服务于某个岗位、某条产线的小工具，往往很难单独排进开发计划。需求不够大，用户不够多，系统又有自己的历史限制，专门开发的成本很难和收益匹配。</p>
+      <p>现在，AI 编程工具把做第一版原型的成本压低了。一个真正懂业务的人，借助 AI，有机会很快把过去需要小团队才能完成的部分工作先做出来。</p>
+      <p>但这里也最容易产生误解：<strong>便宜的是做出第一版，不是把东西交付完。</strong></p>
+      <p>这次现场工作，我没有一上来就谈全系统打通，也没有先画一张把 ERP、MES、仓库、设备和财务全部连起来的大图。实际完成的路径，是先选定一个角色、一个节点、一个输入和一个输出。</p>
+      <p>纸板排产员要解决的不是“让工厂全面智能化”，而是“面对一批待排小订单时，能不能少花一点时间比较组合”。如果这个小问题都没有真实数据、业务负责人和人工复核，直接做大平台，只是在把未知藏到更大的项目里。</p>
+      <p><strong>Demo 不等于交付。</strong></p>
+      <p>一个页面能打开，只说明技术动作完成了。FDE 的交付，是把现场问题拆清楚：谁在用，输入从哪里来，输出给谁，哪里必须由人决定。这次纸箱厂现场，我已经把这几件事做完，并把“小订单凑门幅”定为第一个切口。</p>
+      <h2 class="section-title">制造业需要的，不只是会调模型的人</h2>
+      <p>所以我越来越觉得，制造业真正需要的 AI 人才，不只是会调模型、接 API 或者搭 Agent 的工程师。</p>
+      <p>他要能进入现场，看懂一张手写订单为什么会出现在微信群里；知道 ERP 哪些门禁不能为了省事直接绕开；能分辨纸箱接单和纸板接单不是同一条流程；也要知道排产员说“凑门幅很费时间”以后，还缺哪些数据才能验证这个判断。</p>
+      <p>他既要能把问题拆小，做出原型，也要能接受现场人员的否决。该用大模型的地方用大模型，该用规则、脚本或者优化算法的地方，不要为了显得先进硬套 Agent。</p>
+      <p>这也是我理解的 AI FDE：不是把需求文档接过来完成，而是跟着业务流程走一遍，把模糊的愿望退回到具体事实，再把一个小解法放回现场验证。</p>
+      <p>制造业的 AI，不应该只是一个聊天入口。它应该逐步进入接单、排产、物料确认、质量判断和经营分析这些原来高度依赖人工经验的地方，同时保留清楚的人工边界。</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>互联网当然还会继续发生 AI 竞争。只是那里的数字化基础已经比较完整，AI 很多时候是在已有软件上继续优化。</p>
+      <p>制造业不一样。工厂、设备、物料、人员和订单彼此牵连，老系统、微信群、表格、手写图片和老师傅经验同时存在。这里有大量每天发生、却一直没有被很好数字化的工作。</p>
+      <p>这次纸箱厂 FDE 已经完成：接单、排产和物料交接被重新串了一遍；系统记录与微信群、手写订单、人工经验之间的断点被找了出来；“小订单凑门幅”被确定为第一个切口，输入、输出和人工复核边界也都明确了。</p>
+      <p>这也是我做完这次真实 FDE 拆解后留下的结论：<strong>制造业不是因为落后，才更需要 AI。恰恰是因为那里还有大量过去的软件处理不了、但每天都在发生的真实问题，AI 才第一次有机会真正进去。</strong></p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>如果你也在学习 AI，或者正在尝试把 AI 用到工作里，欢迎在评论区交流。想一起学习、交流实践，欢迎通过公众号后台私信我。可以直接告诉我你正在做什么、遇到了什么问题，或者想讨论哪个方向。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>为什么说 AI 主战场在制造业？</summary><div class="faq-answer">互联网业务本来就在软件里发生，AI 接入是在已有系统上提速优化；制造业的信息起点是微信群、手写订单图片和人脑里的判断，数字化缺口巨大，AI 能创造的价值增量也最大。</div></details>
+<details class="faq-item"><summary>工厂 AI 落地最难的是什么？</summary><div class="faq-answer">不是买更大的系统补齐字段。很多信息一开始就是手写的、图片里的、群聊里的，很多判断在人脑里；接单员要在客户、销售、设计、外协、排产、仓库、生产、财务等角色间来回确认——难在人、设备和现场之间。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./manufacturing-fde-cost.html"><span class="rel-tag">企业</span><span class="rel-title">制造业 FDE，先把成本算清</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

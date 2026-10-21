@@ -4,7 +4,10 @@
 > willeai.com 是「维天 OS」个人网站：分享个人 AI 学习、AI 编程实践、AI 内容工作流与 FDE 转型的真实经验。
 > 每篇文章都来自真实项目，不写没验证过的东西。
 
-## 文章（32 篇）
+## 文章（34 篇）
+
+- [真实 FDE 拆解：AI 主战场在工厂](https://willeai.com/topics/manufacturing-fde-field.html): 纸箱厂现场拆解——订单在微信群、信息是手写图片，AI 真正的主战场在制造业
+- [一人 FDE，是个伪命题](https://willeai.com/topics/one-person-fde-myth.html): AI 放大个人生产能力但没有消灭企业组织复杂度
 
 - [我让 AI 读完了 Claude Code 的 51 万行源码](https://willeai.com/topics/claude-code-source-notes.html): 59.8MB、1900 文件、51 万行代码的完整拆解，22 章四万字笔记
 - [我开始把 AI 当成员工用了](https://willeai.com/topics/ai-as-employee.html): 从工具到员工——给岗位、职责边界和考核，维天 OS 的起点
