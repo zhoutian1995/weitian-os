@@ -1,5 +1,6 @@
 """Check the published static site without third-party dependencies."""
 
+import hashlib
 import json
 from html.parser import HTMLParser
 from pathlib import Path
@@ -143,6 +144,17 @@ class SiteTests(unittest.TestCase):
                         continue
                     with self.subTest(page=url, target=target, tag=tag):
                         self.assertTrue(local_path(target).is_file())
+
+    def test_stylesheet_cache_version(self):
+        expected = hashlib.sha256((ROOT / "topics/assets/topics.css").read_bytes()).hexdigest()[:12]
+        for url, page in self.pages.items():
+            if url == ORIGIN:
+                continue
+            links = [attrs["href"] for tag, attrs in page.head_elements
+                     if tag == "link" and urlsplit(attrs.get("href", "")).path == "assets/topics.css"]
+            with self.subTest(url=url):
+                self.assertEqual(len(links), 1)
+                self.assertEqual(urlsplit(links[0]).query, "v=" + expected)
 
     def test_current_coding_case(self):
         text = (ROOT / "topics/ai-coding-subtraction.html").read_text(encoding="utf-8")
