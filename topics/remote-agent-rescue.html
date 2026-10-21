@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="小天说FDE · 维天OS">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="assets/topics.css">
 <script type="application/ld+json">
 {
@@ -83,13 +83,18 @@ Tailscale 加密网络
 tmux 持久会话
         ↓
 Claude Code / 日志 / 重启命令</code></pre>
-      <p>Tailscale 会尽量建立设备间的直接连接；网络条件不允许时，也可能通过 DERP 中继。更准确的说法是“优先点对点、全程端到端加密”，不是绝对不经过任何中继。连接类型可以参考 [Tailscale 官方说明](https://tailscale.com/docs/reference/connection-types)。</p>
+      <p>Tailscale 会尽量建立设备间的直接连接；网络条件不允许时，也可能通过 DERP 中继。更准确的说法是“优先点对点、全程端到端加密”，不是绝对不经过任何中继。连接类型可以参考 <a href="https://tailscale.com/docs/reference/connection-types">Tailscale 官方说明</a>。</p>
       <h2 class="section-title">三个工具分别解决什么</h2>
-      <p>| 工具 | 作用 |</p>
-      <p>|---|---|</p>
-      <p>| Tailscale | 让手机和 Mac 像在同一个私有网络里，不暴露公网 SSH 端口 |</p>
-      <p>| SSH | 从手机进入 Mac 的终端 |</p>
-      <p>| tmux | 让任务和会话留在 Mac 上，手机断线后仍继续运行 |</p>
+      <div class="table-scroll" role="region" aria-label="远程连接工具分工" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">工具</th><th scope="col">作用</th></tr></thead>
+          <tbody>
+            <tr><td>Tailscale</td><td>让手机和 Mac 像在同一个私有网络里，不暴露公网 SSH 端口</td></tr>
+            <tr><td>SSH</td><td>从手机进入 Mac 的终端</td></tr>
+            <tr><td>tmux</td><td>让任务和会话留在 Mac 上，手机断线后仍继续运行</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>tmux 是这套方案的关键。手机只是窗口，真正的会话一直在 Mac 上。切换 Wi-Fi、关闭 App，甚至短时断网，都不会让排查任务跟着消失。</p>
       <h2 class="section-title">配置前先把安全边界说清楚</h2>
       <p>远程 SSH 很方便，也意味着手机一旦丢失，风险会变大。</p>
@@ -118,12 +123,17 @@ Claude Code / 日志 / 重启命令</code></pre>
       <h2 class="section-title">第二步：手机端准备</h2>
       <p>手机安装 Tailscale 和一个 SSH 客户端。原文使用的是 Termius，其他支持密钥和主机校验的客户端也可以。</p>
       <p>连接信息大致如下：</p>
-      <p>| 字段 | 内容 |</p>
-      <p>|---|---|</p>
-      <p>| Address | Mac 的 Tailscale IP 或 MagicDNS 名称 |</p>
-      <p>| Port | 22 |</p>
-      <p>| Username | 允许远程登录的 Mac 用户名 |</p>
-      <p>| Authentication | SSH 私钥，优先于密码 |</p>
+      <div class="table-scroll" role="region" aria-label="SSH 连接信息" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">字段</th><th scope="col">内容</th></tr></thead>
+          <tbody>
+            <tr><td>Address</td><td>Mac 的 Tailscale IP 或 MagicDNS 名称</td></tr>
+            <tr><td>Port</td><td>22</td></tr>
+            <tr><td>Username</td><td>允许远程登录的 Mac 用户名</td></tr>
+            <tr><td>Authentication</td><td>SSH 私钥，优先于密码</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>第一次连接时认真核对主机指纹，不要看到提示就直接点接受。</p>
       <h2 class="section-title">第三步：把任务放进 tmux</h2>
       <p>首次创建会话：</p>
@@ -152,7 +162,7 @@ Claude Code / 日志 / 重启命令</code></pre>
       <p>我喜欢这套组合，不是因为它多高级，而是因为每个工具只做一件事：Tailscale 负责连接，SSH 负责进入，tmux 负责保留现场。</p>
       <p>技术真正好用的时候，应该让人少赶一次路，少丢一次排错现场。</p>
       <p>人在外面，手机能安全地回到家里的终端，这就够了。</p>
-      <p>---</p>
+      <hr>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
     </div>

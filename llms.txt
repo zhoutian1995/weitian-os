@@ -1,8 +1,8 @@
-# 维天说 · 小天说FDE
+# 小天说FDE · 维天 OS
 
 > 程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI。
 > willeai.com 是「维天 OS」个人网站：分享个人 AI 学习、AI 编程实践、AI 内容工作流与 FDE 转型的真实经验。
-> 每篇文章都来自真实项目，不写没验证过的东西。
+> 内容包括个人实践、论文解读与教学场景；教学推演不作为已交付客户案例。
 
 ## 文章（34 篇）
 
@@ -11,7 +11,7 @@
 
 - [我让 AI 读完了 Claude Code 的 51 万行源码](https://willeai.com/topics/claude-code-source-notes.html): 59.8MB、1900 文件、51 万行代码的完整拆解，22 章四万字笔记
 - [我开始把 AI 当成员工用了](https://willeai.com/topics/ai-as-employee.html): 从工具到员工——给岗位、职责边界和考核，维天 OS 的起点
-- [为什么你的 AI Agent 越跑越笨？](https://willeai.com/topics/agent-running-dumber.html): 哈工大论文证明 Agent 性能取决于有效反馈而非 token 投入
+- [为什么你的 AI Agent 越跑越笨？](https://willeai.com/topics/agent-running-dumber.html): 结合论文讨论 Agent 有效反馈与 token 投入的关系
 
 - [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE 难的不是写代码，而是把 Demo 变成别人真敢用、愿意用、还能持续改进的系统。定义、五种核心能力、与普通工程师和 AI 产品经理的区别。
 - [FDE 的七种能力：先过一把手认知这道门](https://willeai.com/topics/fde-seven-capabilities.html): 价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。
@@ -20,6 +20,7 @@
 - [AI FDE 和传统顾问，是两种完全不同的职业](https://willeai.com/topics/fde-vs-consultant.html): 传统顾问做确定性的事，AI FDE 做不确定性的事——工作方式的本质差异。
 - [FDE 脱离真实反馈的 4 种退化](https://willeai.com/topics/fde-frontline-degradation.html): 接口返回成功、Demo 跑通、汇报好看，都不能代替真实使用。
 - [FDE 实测：用 Karpathy 方法规范 AI 输出](https://willeai.com/topics/fde-karpathy-output-spec.html): AI 味最烦的不是说错，而是没说什么却像说了很多。用维修手册规则改稿。
+- [FDE 到底每天在忙什么？一个工作日的完整拆解](https://willeai.com/topics/fde-daily-work.html): 用电商对账教学场景推演 FDE 的工作日，不对应已交付客户案例。
 - [FDE 凭什么贵：卖的不是代码，是责任边界](https://willeai.com/topics/fde-price-boundary.html): 客户买的不是技术履历，是不正常时刻谁接电话、谁兜底。
 - [AI 说做完了，FDE 为什么还要自己看一遍](https://willeai.com/topics/fde-verify-ai-done.html): 用业务结果验收，不用过程说明验收。商品状态到底改对没有。
 - [你以为在做 FDE，其实是外包](https://willeai.com/topics/fde-not-outsourcing.html): 判断标准只有一个：客户越做越多，下一次交付有没有变得更容易？
@@ -45,7 +46,7 @@
 ## 站点导航
 
 - [首页](https://willeai.com/): 维天 OS 桌面，AI 内容工作流与 Skill 工具箱
-- [全部文章](https://willeai.com/topics/): 30 篇深度文章目录
+- [全部文章](https://willeai.com/topics/): 34 篇深度文章目录
 
 ## 关于作者
 

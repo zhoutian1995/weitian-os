@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="小天说FDE · 维天OS">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="assets/topics.css">
 <script type="application/ld+json">
 {
@@ -73,7 +73,7 @@
       <p>这不是一篇“复制命令就能成功”的教程。不同芯片、SDK 和分区方案差异很大。我更想记录几个真正决定成败的工程判断：怎么裁系统、怎么重新分配 Flash、怎么处理 32 位兼容，以及为什么 AI 能加速移植，却替代不了板级验证。</p>
       <h2 class="section-title">一、先看硬件约束</h2>
       <p>这块开发板使用 32 位 ARM Cortex-A7，64MB DDR2 和 16MB NOR Flash。它原本服务于 IPC 网络摄像机，资源预算已经被内核、根文件系统、厂商服务和业务程序分走。</p>
-      <p>网络上，开发板通过局域网代理访问模型 API 和 Telegram。文章不保留真实代理地址，部署时应使用自己的 <code><PROXY_HOST>:<PORT></code>，并限制来源设备。</p>
+      <p>网络上，开发板通过局域网代理访问模型 API 和 Telegram。文章不保留真实代理地址，部署时应使用自己的 <code>&lt;PROXY_HOST&gt;:&lt;PORT&gt;</code>，并限制来源设备。</p>
       <p>我的目标很明确：不增加硬件，尽量不动 Bootloader，只在现有 16MB Flash 里挤出 PicoClaw、配置和证书的位置。</p>
       <h2 class="section-title">二、整体架构和分区思路</h2>
       <p>PicoClaw 不在本地运行大模型。设备端负责接收消息、调用远端模型、执行受控工具，再把结果返回。这样能把模型计算留在云端，把 Agent 入口放到资源受限的设备上。</p>
@@ -141,7 +141,7 @@ upx --best -o picoclaw-arm-upx picoclaw-arm</code></pre>
       <p>AI 编程在这次实验里确实帮了很大忙。交叉编译参数、Makefile、32 位溢出和启动脚本，都能更快得到候选方案。但最后判断分区能不能动、板子会不会起不来、串口日志意味着什么，仍然依赖嵌入式和 Linux 经验。</p>
       <p>我不是把工程交给了 AI。我是多了一个能快速查资料、写候选补丁、陪我排错的搭档。</p>
       <p>这就已经很有用了。</p>
-      <p>---</p>
+      <hr>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
     </div>

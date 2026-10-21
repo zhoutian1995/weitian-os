@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,900;1,400;1,900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,900;1,400;1,900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -39,7 +39,7 @@ html { overflow: hidden; }
 html.scroll-unlocked { overflow: auto; overflow-x: hidden; }
 
 body {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   -webkit-font-smoothing: antialiased;
   background: var(--cream);
   color: var(--ink);
@@ -63,6 +63,8 @@ body {
   z-index: 1000;
   display: flex;
   gap: 4px;
+  width: max-content;
+  max-width: calc(100vw - 24px);
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -90,6 +92,7 @@ body {
   transition: all 0.25s ease;
   white-space: nowrap;
 }
+.pill-nav a { white-space: nowrap; flex-shrink: 0; }
 .pill-nav button:hover { color: var(--ink); }
 .pill-nav button.active {
   background: var(--studio-green-deep);
@@ -1559,7 +1562,7 @@ body {
 }
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 20px;
   margin-top: 36px;
 }
@@ -1682,6 +1685,7 @@ body {
   .dicon-label { font-size: 10px; }
   .win-sayhi .services-grid { grid-template-columns: 1fr; }
   .os-body.win-sayhi { padding: 28px 20px; }
+  .win-sayhi .sayhi-heading { font-size: 22px; }
   .win-sayhi .claim-layout { grid-template-columns: 116px 1fr; gap: 12px; }
   .win-sayhi .claim-qr { width: 116px; border-width: 6px; }
 }
@@ -1751,17 +1755,10 @@ body {
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="维天说 - 维天 OS">
-<meta property="og:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
-<meta property="og:url" content="https://willeai.com/">
-<link rel="canonical" href="https://willeai.com/">
-<meta property="og:image" content="assets/weitian/wille-three-cats-desktop-sticker.png">
-<meta property="og:site_name" content="维天说">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="维天说 - 维天 OS">
-<meta name="twitter:description" content="用 AI 学习、实践、输出。一个人，也能搭起自己的 AI 内容工作流。">
-<meta name="twitter:image" content="assets/weitian/wille-three-cats-desktop-sticker.png">
+<meta name="twitter:title" content="小天说FDE · 维天OS — 程序员 all in AI 的内容工作流与升级记录">
+<meta name="twitter:description" content="AI 学习、AI 编程、FDE 转型的真实实践，免费领取 AI 内容工作流与 Skill 工具箱。">
+<meta name="twitter:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
 <noscript><style>html { overflow: auto !important; }</style></noscript>
 <script type="application/ld+json">
 {
@@ -1990,7 +1987,7 @@ body {
         <div class="os-window" data-title="找我精选" data-url="维天说 / selected" style="width:520px;">
           <div class="os-body win-md">
             <h1>找我精选</h1>
-            <p class="selected-note">先看这五个真实案例：个人网站、知识库、Skill、AI 记忆和三只猫。</p>
+            <p class="selected-note">从 FDE 入门、AI 编程和真实实践开始，再看工作流、知识库与 Skill。</p>
             <div class="selected-list">
               <a class="selected-item" href="topics/fde-what-is.html"><span class="selected-type">fde</span><span class="selected-title">FDE 是什么？把 AI 放进真实流程的前线部署工程师</span><span class="selected-arrow">→</span></a>
               <a class="selected-item" href="topics/ai-coding-subtraction.html"><span class="selected-type">ai</span><span class="selected-title">AI 越会写代码，FDE 越要做减法</span><span class="selected-arrow">→</span></a>
@@ -2214,10 +2211,10 @@ body {
               <div class="goodbye-body">
                 <div class="goodbye-terminal">
                   <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">cat follow.log</span></div>
-                  <div class="gt-line gt-output">在各个平台找到「维天说」</div>
+                  <div class="gt-line gt-output">在各个平台找到「小天说FDE」</div>
                   <div class="gt-line">&nbsp;</div>
                   <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">ls platforms/</span></div>
-                  <div class="gt-line gt-output">公众号　抖音　B站　小红书　视频号</div>
+                  <div class="gt-line gt-output">公众号：维天说　抖音 / B站 / 小红书 / 视频号：小天说FDE</div>
                   <div class="gt-line">&nbsp;</div>
                   <div class="gt-line"><span class="gt-prompt">$ </span><span class="gt-cmd">fortune</span></div>
                   <div class="gt-line gt-dim">人生没有最终版本，只有持续更新。</div>
@@ -2253,7 +2250,7 @@ body {
     <!-- 1 Person + AI = 1 Team hero -->
     <div class="workflow-screen">
       <h1 class="workflow-headline">1 Person + AI = Content System</h1>
-      <p class="workflow-subtitle">维天说 · INFP · 软硬件都玩 · Linux → 用 AI 持续升级人生 OS</p>
+      <p class="workflow-subtitle">小天说FDE · 程序员 · 嵌入式 / Linux · AI 学习与 FDE 转型实践</p>
       <div class="workflow-columns">
         <div class="workflow-col">
           <div class="workflow-col-title">RESEARCH &amp; THINK</div>
@@ -2307,8 +2304,8 @@ body {
     </div>
 
     <div class="section-label" style="margin-top:64px;">ls works/</div>
-    <h2 class="section-heading">全部文章 <a href="/topics/" style="font-size:13px;font-weight:400;color:var(--ink-faint);font-family:'Fira Code',monospace;text-decoration:none;">30 篇 · 查看全部 →</a></h2>
-        <div class="selected-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px;margin:18px 0 44px;">
+    <h2 class="section-heading">全部文章 <a href="/topics/" style="font-size:13px;font-weight:400;color:var(--ink-faint);font-family:'Fira Code',monospace;text-decoration:none;">34 篇 · 查看全部 →</a></h2>
+        <div class="selected-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:8px;margin:18px 0 44px;">
           <a class="selected-item" href="/topics/fde-what-is.html"><span class="selected-type">fde</span><span class="selected-title">FDE 是什么？前线部署工程师完全解读</span><span class="selected-arrow">→</span></a>
           <a class="selected-item" href="/topics/fde-seven-capabilities.html"><span class="selected-type">fde</span><span class="selected-title">FDE 的七种能力：先过一把手认知这道门</span><span class="selected-arrow">→</span></a>
           <a class="selected-item" href="/topics/fde-price-boundary.html"><span class="selected-type">fde</span><span class="selected-title">FDE 凭什么贵：卖的不是代码，是责任边界</span><span class="selected-arrow">→</span></a>
@@ -2688,6 +2685,10 @@ body {
   var surface = document.getElementById('desktopSurface');
   var winZ = 100;
   var openCount = 0;
+  var welcomeButton = surface.querySelector('.hero-note-btn');
+  welcomeButton.addEventListener('click', function() {
+    openWindow(welcomeButton.dataset.win);
+  });
 
   function addResize(win) {
     var handle = document.createElement('div');

@@ -19,7 +19,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   -webkit-font-smoothing: antialiased;
   background: var(--cream);
   color: var(--ink);
@@ -103,7 +103,7 @@ body {
 h1.article-title {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
-  font-size: clamp(26px, 5vw, 38px);
+  font-size: 38px;
   line-height: 1.35;
   margin-bottom: 16px;
 }
@@ -141,6 +141,13 @@ h1.article-title {
 /* ---------- 正文 ---------- */
 .article-body p { margin-bottom: 20px; color: var(--ink-light); }
 .article-body strong { color: var(--ink); }
+.article-body hr { border: 0; border-top: 1px solid rgba(37, 42, 39, 0.16); margin: 28px 0; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 24px 0; }
+.table-scroll:focus-visible { outline: 2px solid var(--blue-deep); outline-offset: 4px; }
+.article-body table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px; line-height: 1.75; }
+.article-body th, .article-body td { padding: 12px; text-align: left; vertical-align: top; border: 1px solid rgba(37, 42, 39, 0.16); overflow-wrap: anywhere; }
+.article-body th { background: var(--cream-dark); color: var(--ink); font-weight: 700; }
+.article-body td { color: var(--ink-light); }
 
 h2.section-title {
   font-family: 'Noto Serif SC', serif;
@@ -439,6 +446,9 @@ a.topic-card:hover { border-color: var(--yellow); transform: translateY(-2px); b
   .topnav-links { gap: 8px; }
   .topnav-links a { padding: 4px 9px; font-size: 11px; }
   .page { padding: 24px 16px 60px; }
+  h1.article-title { font-size: 26px; }
+  .article-body pre { overflow-x: auto; max-width: 100%; }
+  .article-body code { overflow-wrap: anywhere; }
   .author-card { flex-direction: column; }
   .cta-box { flex-direction: column; text-align: center; }
   .cta-box .cta-text { text-align: left; }
