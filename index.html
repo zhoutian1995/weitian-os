@@ -1691,6 +1691,63 @@ body {
   .wp-star, .click-star { animation: none; }
   .os-window { animation: none; }
 }
+/* Welcome note on desktop */
+.hero-note {
+  position: absolute;
+  left: 6%; top: 16%;
+  max-width: 340px;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 26px 24px 22px;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28);
+  z-index: 30;
+  animation: noteFloat 5s ease-in-out infinite;
+}
+@keyframes noteFloat { 0%,100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(-1.6deg) translateY(-7px); } }
+.hero-note::before {
+  content: '';
+  position: absolute;
+  top: -4px; right: 26px;
+  width: 46px; height: 13px;
+  background: repeating-linear-gradient(90deg, var(--cream) 0px, var(--cream) 4px, rgba(246,242,232,0.4) 4px, rgba(246,242,232,0.4) 8px);
+  transform: rotate(2deg);
+}
+.hero-note-kicker {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(37,42,39,0.62);
+  margin-bottom: 8px;
+}
+.hero-note-title {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: 27px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.hero-note-sub {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(37,42,39,0.85);
+  margin-bottom: 16px;
+}
+.hero-note-btn {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  transition: all .25s var(--ease-out);
+}
+.hero-note-btn:hover { background: var(--red); }
+@media (max-width: 900px) { .hero-note { display: none; } }
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -1766,13 +1823,19 @@ body {
   <div class="desktop" id="desktop">
     <div class="desktop-menubar">
       <span class="mb-logo">维天 OS</span>
-      <span class="mb-item">About</span>
-      <span class="mb-item">Values</span>
-      <span class="mb-item">Now</span>
+      <span class="mb-item">关于</span>
+      <span class="mb-item">理念</span>
+      <span class="mb-item">近况</span>
       <span class="mb-clock" id="mbClock">--:--</span>
     </div>
 
     <div class="desktop-surface" id="desktopSurface">
+      <div class="hero-note">
+        <div class="hero-note-kicker">WELCOME TO 维天OS</div>
+        <div class="hero-note-title">程序员 all in AI</div>
+        <div class="hero-note-sub">帮你用 AI 重装工作方式：AI 学习 · AI 编程 · FDE 转型。一个人 + AI，跑通完整内容系统。</div>
+        <button class="hero-note-btn" type="button" data-win="win-sayhi">免费领取 AI 内容工作流</button>
+      </div>
 
       <!-- Animated star wallpaper -->
       <span class="wp-star" style="top:3%;left:5%;--size:12px;--op:0.75;--dur:2.4s;--wdur:3.2s;--delay:0s;">✦</span>
@@ -1805,73 +1868,6 @@ body {
       <span class="wp-star" style="top:20%;left:82%;--size:10px;--op:0.55;--dur:3.1s;--wdur:4.1s;--delay:0.5s;">✦</span>
       <span class="wp-star" style="top:22%;left:92%;--size:15px;--op:0.75;--dur:2.6s;--wdur:3.4s;--delay:1.7s;">✦</span>
       <span class="wp-star" style="top:28%;left:4%;--size:8px;--op:0.45;--dur:3.4s;--wdur:4.4s;--delay:1s;">✦</span>
-      <span class="wp-star" style="top:30%;left:14%;--size:13px;--op:0.7;--dur:2.6s;--wdur:3.4s;--delay:0.2s;">✦</span>
-      <span class="wp-star" style="top:27%;left:24%;--size:6px;--op:0.35;--dur:3.9s;--wdur:5s;--delay:2.4s;">✦</span>
-      <span class="wp-star" style="top:32%;left:36%;--size:15px;--op:0.75;--dur:2.4s;--wdur:3.2s;--delay:0.7s;">✦</span>
-      <span class="wp-star" style="top:29%;left:48%;--size:9px;--op:0.5;--dur:3.2s;--wdur:4.3s;--delay:1.6s;">✦</span>
-      <span class="wp-star" style="top:33%;left:60%;--size:11px;--op:0.6;--dur:2.8s;--wdur:3.8s;--delay:0.4s;">✦</span>
-      <span class="wp-star" style="top:28%;left:70%;--size:17px;--op:0.8;--dur:2.3s;--wdur:3.1s;--delay:1.2s;">✦</span>
-      <span class="wp-star" style="top:31%;left:80%;--size:7px;--op:0.4;--dur:3.7s;--wdur:4.7s;--delay:2.5s;">✦</span>
-      <span class="wp-star" style="top:30%;left:90%;--size:12px;--op:0.65;--dur:2.9s;--wdur:3.9s;--delay:0.9s;">✦</span>
-      <span class="wp-star" style="top:38%;left:7%;--size:16px;--op:0.8;--dur:2.5s;--wdur:3.3s;--delay:0.5s;">✦</span>
-      <span class="wp-star" style="top:36%;left:20%;--size:8px;--op:0.45;--dur:3.5s;--wdur:4.5s;--delay:1.8s;">✦</span>
-      <span class="wp-star" style="top:40%;left:30%;--size:10px;--op:0.55;--dur:3s;--wdur:4s;--delay:0.3s;">✦</span>
-      <span class="wp-star" style="top:37%;left:44%;--size:14px;--op:0.7;--dur:2.6s;--wdur:3.5s;--delay:1.4s;">✦</span>
-      <span class="wp-star" style="top:42%;left:55%;--size:6px;--op:0.35;--dur:4s;--wdur:5.2s;--delay:2.7s;">✦</span>
-      <span class="wp-star" style="top:39%;left:66%;--size:12px;--op:0.65;--dur:2.8s;--wdur:3.7s;--delay:0.6s;">✦</span>
-      <span class="wp-star" style="top:41%;left:76%;--size:9px;--op:0.5;--dur:3.3s;--wdur:4.3s;--delay:1.9s;">✦</span>
-      <span class="wp-star" style="top:38%;left:86%;--size:15px;--op:0.75;--dur:2.4s;--wdur:3.2s;--delay:0.8s;">✦</span>
-      <span class="wp-star" style="top:40%;left:95%;--size:7px;--op:0.4;--dur:3.8s;--wdur:5s;--delay:2.2s;">✦</span>
-      <span class="wp-star" style="top:47%;left:3%;--size:11px;--op:0.6;--dur:2.9s;--wdur:3.9s;--delay:1.1s;">✦</span>
-      <span class="wp-star" style="top:48%;left:16%;--size:14px;--op:0.7;--dur:2.5s;--wdur:3.3s;--delay:0.4s;">✦</span>
-      <span class="wp-star" style="top:50%;left:27%;--size:7px;--op:0.4;--dur:3.6s;--wdur:4.6s;--delay:2s;">✦</span>
-      <span class="wp-star" style="top:46%;left:38%;--size:10px;--op:0.55;--dur:3.1s;--wdur:4.1s;--delay:0.7s;">✦</span>
-      <span class="wp-star" style="top:52%;left:50%;--size:16px;--op:0.8;--dur:2.3s;--wdur:3s;--delay:1.5s;">✦</span>
-      <span class="wp-star" style="top:48%;left:62%;--size:8px;--op:0.45;--dur:3.4s;--wdur:4.4s;--delay:2.3s;">✦</span>
-      <span class="wp-star" style="top:50%;left:73%;--size:13px;--op:0.7;--dur:2.7s;--wdur:3.6s;--delay:0.2s;">✦</span>
-      <span class="wp-star" style="top:47%;left:84%;--size:6px;--op:0.35;--dur:4.1s;--wdur:5.3s;--delay:2.9s;">✦</span>
-      <span class="wp-star" style="top:51%;left:93%;--size:11px;--op:0.6;--dur:2.9s;--wdur:3.8s;--delay:1.3s;">✦</span>
-      <span class="wp-star" style="top:56%;left:8%;--size:9px;--op:0.5;--dur:3.2s;--wdur:4.2s;--delay:0.6s;">✦</span>
-      <span class="wp-star" style="top:58%;left:20%;--size:15px;--op:0.75;--dur:2.4s;--wdur:3.2s;--delay:1.7s;">✦</span>
-      <span class="wp-star" style="top:55%;left:33%;--size:12px;--op:0.65;--dur:2.8s;--wdur:3.7s;--delay:0.3s;">✦</span>
-      <span class="wp-star" style="top:60%;left:45%;--size:7px;--op:0.4;--dur:3.7s;--wdur:4.8s;--delay:2.1s;">✦</span>
-      <span class="wp-star" style="top:57%;left:57%;--size:14px;--op:0.7;--dur:2.6s;--wdur:3.5s;--delay:0.9s;">✦</span>
-      <span class="wp-star" style="top:62%;left:68%;--size:10px;--op:0.55;--dur:3s;--wdur:4s;--delay:1.4s;">✦</span>
-      <span class="wp-star" style="top:58%;left:78%;--size:17px;--op:0.85;--dur:2.2s;--wdur:3s;--delay:0.5s;">✦</span>
-      <span class="wp-star" style="top:56%;left:88%;--size:8px;--op:0.45;--dur:3.5s;--wdur:4.5s;--delay:2.4s;">✦</span>
-      <span class="wp-star" style="top:65%;left:5%;--size:13px;--op:0.7;--dur:2.7s;--wdur:3.6s;--delay:0.8s;">✦</span>
-      <span class="wp-star" style="top:67%;left:15%;--size:7px;--op:0.4;--dur:3.8s;--wdur:5s;--delay:2.6s;">✦</span>
-      <span class="wp-star" style="top:64%;left:28%;--size:16px;--op:0.8;--dur:2.4s;--wdur:3.2s;--delay:0.1s;">✦</span>
-      <span class="wp-star" style="top:68%;left:40%;--size:9px;--op:0.5;--dur:3.2s;--wdur:4.2s;--delay:1.6s;">✦</span>
-      <span class="wp-star" style="top:66%;left:52%;--size:11px;--op:0.6;--dur:2.9s;--wdur:3.9s;--delay:0.4s;">✦</span>
-      <span class="wp-star" style="top:70%;left:64%;--size:14px;--op:0.7;--dur:2.5s;--wdur:3.3s;--delay:1.9s;">✦</span>
-      <span class="wp-star" style="top:65%;left:75%;--size:6px;--op:0.35;--dur:4s;--wdur:5.2s;--delay:2.8s;">✦</span>
-      <span class="wp-star" style="top:68%;left:85%;--size:12px;--op:0.65;--dur:2.8s;--wdur:3.7s;--delay:0.7s;">✦</span>
-      <span class="wp-star" style="top:66%;left:94%;--size:10px;--op:0.55;--dur:3.1s;--wdur:4.1s;--delay:1.2s;">✦</span>
-      <span class="wp-star" style="top:74%;left:4%;--size:10px;--op:0.55;--dur:3s;--wdur:4s;--delay:1s;">✦</span>
-      <span class="wp-star" style="top:76%;left:18%;--size:15px;--op:0.75;--dur:2.5s;--wdur:3.4s;--delay:0.3s;">✦</span>
-      <span class="wp-star" style="top:73%;left:30%;--size:8px;--op:0.45;--dur:3.4s;--wdur:4.5s;--delay:2.2s;">✦</span>
-      <span class="wp-star" style="top:78%;left:42%;--size:13px;--op:0.7;--dur:2.6s;--wdur:3.5s;--delay:0.6s;">✦</span>
-      <span class="wp-star" style="top:75%;left:55%;--size:6px;--op:0.35;--dur:3.9s;--wdur:5.1s;--delay:2.5s;">✦</span>
-      <span class="wp-star" style="top:77%;left:67%;--size:11px;--op:0.6;--dur:2.8s;--wdur:3.7s;--delay:1.3s;">✦</span>
-      <span class="wp-star" style="top:74%;left:78%;--size:16px;--op:0.8;--dur:2.3s;--wdur:3.1s;--delay:0.5s;">✦</span>
-      <span class="wp-star" style="top:76%;left:90%;--size:9px;--op:0.5;--dur:3.3s;--wdur:4.3s;--delay:1.8s;">✦</span>
-      <span class="wp-star" style="top:83%;left:8%;--size:14px;--op:0.7;--dur:2.6s;--wdur:3.4s;--delay:0.4s;">✦</span>
-      <span class="wp-star" style="top:85%;left:22%;--size:7px;--op:0.4;--dur:3.7s;--wdur:4.8s;--delay:2.3s;">✦</span>
-      <span class="wp-star" style="top:82%;left:35%;--size:11px;--op:0.6;--dur:2.9s;--wdur:3.9s;--delay:0.9s;">✦</span>
-      <span class="wp-star" style="top:86%;left:48%;--size:15px;--op:0.75;--dur:2.4s;--wdur:3.2s;--delay:1.5s;">✦</span>
-      <span class="wp-star" style="top:84%;left:60%;--size:8px;--op:0.45;--dur:3.5s;--wdur:4.6s;--delay:2.7s;">✦</span>
-      <span class="wp-star" style="top:87%;left:72%;--size:12px;--op:0.65;--dur:2.7s;--wdur:3.6s;--delay:0.2s;">✦</span>
-      <span class="wp-star" style="top:83%;left:83%;--size:17px;--op:0.85;--dur:2.2s;--wdur:3s;--delay:1.1s;">✦</span>
-      <span class="wp-star" style="top:85%;left:93%;--size:6px;--op:0.35;--dur:4.1s;--wdur:5.3s;--delay:2.9s;">✦</span>
-      <span class="wp-star" style="top:91%;left:5%;--size:9px;--op:0.5;--dur:3.2s;--wdur:4.2s;--delay:1.7s;">✦</span>
-      <span class="wp-star" style="top:93%;left:18%;--size:13px;--op:0.7;--dur:2.6s;--wdur:3.5s;--delay:0.6s;">✦</span>
-      <span class="wp-star" style="top:90%;left:32%;--size:10px;--op:0.55;--dur:3s;--wdur:4s;--delay:2s;">✦</span>
-      <span class="wp-star" style="top:94%;left:45%;--size:16px;--op:0.8;--dur:2.4s;--wdur:3.2s;--delay:0.8s;">✦</span>
-      <span class="wp-star" style="top:92%;left:58%;--size:7px;--op:0.4;--dur:3.8s;--wdur:5s;--delay:2.4s;">✦</span>
-      <span class="wp-star" style="top:95%;left:70%;--size:14px;--op:0.7;--dur:2.5s;--wdur:3.3s;--delay:1.2s;">✦</span>
-      <span class="wp-star" style="top:91%;left:82%;--size:11px;--op:0.6;--dur:2.9s;--wdur:3.8s;--delay:0.3s;">✦</span>
-      <span class="wp-star" style="top:93%;left:92%;--size:8px;--op:0.45;--dur:3.4s;--wdur:4.4s;--delay:1.9s;">✦</span>
 
       <!-- Draggable sticker -->
       <div class="desktop-sticker" id="buerSticker">
@@ -1927,6 +1923,10 @@ body {
           <div class="dicon-art file ext-html" data-ext=".html"></div>
           <div class="dicon-label">Linux → 人生OS</div>
         </div>
+        <div class="dicon" data-win="win-corp" style="top:294px;right:204px;">
+          <div class="dicon-art file ext-html" data-ext=".html"></div>
+          <div class="dicon-label">企业服务</div>
+        </div>
         <div class="dicon" data-win="win-website-history" style="top:24px;right:204px;">
           <div class="dicon-art folder"></div>
           <div class="dicon-label">升级日志</div>
@@ -1953,6 +1953,7 @@ body {
               <p>做过嵌入式软件、Linux 和制造业安防系统，现在用 AI 重装自己的全部工作方式：AI 编程、多 Agent 编排、内容工作流、个人知识库——一个人跑通从选题到发布的完整系统。</p>
               <p>FDE 系列全网将近十万阅读。这里是我的升级记录，也是你的捷径。</p>
               <p>和三只猫一起生活、工作、升级系统。</p>
+              <p style="font-size:12px;color:var(--ink-faint);margin-top:8px;">经营主体：杭州纬聆科技有限公司 · 企业服务：<a href="https://willeai.cn" target="_blank" rel="noopener noreferrer" style="color:var(--blue-deep);">willeai.cn</a></p>
             </div>
           </div>
         </div>
@@ -2055,6 +2056,23 @@ body {
               <div class="folder-icon-art file ext-git" data-ext=".git"></div>
               <div class="folder-icon-label">小红书内容工具</div>
             </div>
+          </div>
+        </div>
+      </template>
+
+      <template id="win-corp">
+        <div class="os-window" data-title="企业服务" data-url="weitian-os / enterprise" style="width:460px;">
+          <div class="os-body win-md">
+            <h1>企业服务</h1>
+            <p style="font-size:13px;color:var(--ink-light);margin-bottom:14px;">ToC 内容之外，企业客户按场景承接诊断、培训与落地。</p>
+            <div style="font-size:13.5px;line-height:2;">
+              <p><strong>经营主体</strong>：杭州纬聆科技有限公司</p>
+              <p><strong>AI 落地</strong>：企业 AI 诊断 · 场景选择 · 系统集成 · 数据处理</p>
+              <p><strong>培训</strong>：AI 工具与 AI 编程内训 · 业务团队实操陪跑</p>
+              <p><strong>内容</strong>：数字内容制作 · 视频制作 · 广告与营销策划</p>
+            </div>
+            <p style="font-size:12.5px;color:var(--ink-faint);margin:14px 0 10px;">服务介绍与联系方式见公司官网：</p>
+            <a href="https://willeai.cn" target="_blank" rel="noopener noreferrer" style="font-family:'Fira Code',monospace;font-size:13px;color:var(--blue-deep);">willeai.cn ↗</a>
           </div>
         </div>
       </template>
@@ -2444,12 +2462,12 @@ body {
 
   var terminalData = [
     { type: 'cmd', prompt: '$ ', text: 'whoami' },
-    { type: 'output', prefix: '> ', text: '维天说' },
+    { type: 'output', prefix: '> ', text: '小天说FDE · 维天说' },
     { type: 'blank' },
     { type: 'cmd', prompt: '$ ', text: 'cat about.md' },
-    { type: 'output', prefix: '> ', text: '用 AI 学习、实践、输出' },
-    { type: 'output', prefix: '  ', text: 'INFP / 和三只猫一起升级系统' },
-    { type: 'output', prefix: '  ', text: '软硬件都玩 / Linux → 人生 OS' },
+    { type: 'output', prefix: '> ', text: '程序员：嵌入式 / Linux / 安防制造 → 裸辞 all in AI' },
+    { type: 'output', prefix: '> ', text: '帮你用 AI 重装工作方式：学习 / 编程 / FDE 转型' },
+    { type: 'output', prefix: '  ', text: 'FDE 系列全网将近十万阅读 / 和三只猫一起升级系统' },
     { type: 'blank' },
     { type: 'cmd', prompt: '$ ', text: 'echo "一个人，也能搭起自己的 AI 内容工作流"' },
     { type: 'gold', prefix: '> ', text: '先跑出第一份内容' },

@@ -7,6 +7,8 @@
 ## 文章
 
 - [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE（Forward Deployed Engineer）的定义、五种核心能力、与普通工程师和 AI 产品经理的区别、程序员转型路径
+- [AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界](https://willeai.com/topics/agent-gets-own-computer.html): Manus 2.0、OpenAI Dots、Grok Bot 给 AI 配云电脑、身份和钱包；权限、审批与 FDE 的新位置
+- [制造业 FDE，先把成本算清](https://willeai.com/topics/manufacturing-fde-cost.html): 制造业财务 AI 落地路径——为什么成本核算是第一个场景、AI 如何追查成本异常、窄场景打法
 
 ## 站点导航
 

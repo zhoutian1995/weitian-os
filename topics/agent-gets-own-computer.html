@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界 — 小天说FDE</title>
+<meta name="description" content="Manus 2.0、OpenAI Dots、Meta Muse、xAI Grok Bot 都在做同一件事：给 AI 发一台专属云电脑、身份和钱包。本文拆解 Agent 从聊天框到工位的转变、权限与审批的安全边界，以及 FDE 为什么被推到更上游的位置。">
+<link rel="canonical" href="https://willeai.com/topics/agent-gets-own-computer.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界 — 小天说FDE">
+<meta property="og:description" content="AI 的工作方式从"你问它答"变成"它领一台电脑去上班"。边界谁来定？这是 FDE 的新位置。">
+<meta property="og:url" content="https://willeai.com/topics/agent-gets-own-computer.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界",
+      "description": "Manus、OpenAI Dots、Grok Bot 给 AI 配云电脑、身份和钱包；FDE 的新位置是设计边界与验收。",
+      "datePublished": "2026-09-29",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/agent-gets-own-computer.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AI Agent 的云电脑是什么意思？",
+          "acceptedAnswer": { "@type": "Answer", "text": "指厂商给每个 AI Agent 分配一台常驻的云端电脑：有自己的浏览器、文件系统和终端，可以登录工具和网站、持续运行任务，用户合上笔记本它还在干活。代表产品有 Manus 2.0 的 Cloud Computer、OpenAI 的 Dots、xAI 的 Grok Bot 和 Meta 的 Muse。" }
+        },
+        {
+          "@type": "Question",
+          "name": "开源世界有类似的东西吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "有。OpenClaw 是完全开源的个人 Agent，不跑在厂商云上，而是跑在你自己的电脑里，通过 WhatsApp、Telegram 等聊天软件使唤。它曾在 100 天内成为 GitHub 历史 Star 最多的软件项目之一。商业公司给 AI 发云电脑，开源社区把电脑搬回你家，是同一个方向的两条路线。" }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 有电脑有钱包之后，安全怎么保障？",
+          "acceptedAnswer": { "@type": "Answer", "text": "各家都把权限和审批放在最显眼的位置：Dots 默认只读，发消息、改文件、改密码一律先找用户批准；Grok Bot 企业版配访问控制、网络控制和审计日志；OpenAI 曾因 GPT-6.1 Astra 未通过内部安全测试而推迟发布。核心思路是：AI 能动我的东西，必须有明确的边界、审批点和对账机制。" }
+        },
+        {
+          "@type": "Question",
+          "name": "Agent 时代 FDE 的价值是什么？",
+          "acceptedAnswer": { "@type": "Answer", "text": "AI 配的权限越大，需要写的规则就越细。FDE 的新交付物不再只是代码和文档，而是一台被框好的 Agent：目标是什么、哪些事可以自己干、哪些必须回来问人、干到什么程度算验收通过。AI 越强，边界设计越值钱。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links">
+    <a href="./index.html">全部文章</a>
+    <a href="./fde-what-is.html">FDE 是什么</a>
+  </div>
+</nav>
+
+<main class="page">
+
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>AI 领电脑上岗</span>
+  </nav>
+
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI AGENT · 趋势 · 长文</p>
+      <h1 class="article-title">AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-09-29 发布</span>
+        <span>约 9 分钟读完</span>
+      </div>
+    </header>
+
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p><strong>2026 年 9 月，Manus 2.0、OpenAI Dots、Meta Muse、xAI Grok Bot 在两周内做了同一件事：给 AI 发一台专属云电脑、身份和钱包。</strong>AI 的工作方式从"你问它答"变成"它领一台电脑去上班"。</p>
+      <p>AI 配的权限越大，需要写的规则就越细。FDE 的价值被推到更上游：从"把活干完"变成"设计一个能把活干完的系统，并守住它的边界"。</p>
+    </section>
+
+    <div class="article-body">
+      <p>这个九月，AI 圈发生了一件比任何单个模型发布都重要的事：AI 开始有自己的电脑了。</p>
+      <p>Manus 发了 2.0，给每个任务配一台常驻云端电脑，你合上笔记本，它继续干活。OpenAI 在 DevDay 上发 Dots，每个 Dot 一台专属云电脑，连 4000 多个应用，24 小时朝着你定的目标跑。Meta 的 Muse 直接登顶 App Store，同样是一人一台云电脑。xAI 的 Grok Bot 更直接，产品名字就叫"AI 队友"——有自己的虚拟机，能像你一样登录各种工具和网站，干完活再回来找你审批。</p>
+      <p>这不是巧合，是同一个方向。<strong>AI 的工作方式，从"你问它答"，变成了"它领一台电脑去上班"。</strong></p>
+      <p>开源世界同样值得注意：OpenClaw 是完全开源的个人 Agent，不跑在厂商的云上，跑在你自己的电脑里。商业公司给 AI 发云电脑，开源社区直接把电脑搬回了你家——两条路线，同一个判断：<strong>AI 不该住在一个聊天框里。</strong></p>
+
+      <h2 class="section-title">从聊天框到工位</h2>
+      <p>过去两年我们用 AI，本质上是去一个聊天框排队。你把问题写清楚，它给你答案，关掉窗口，一切归零。它很聪明，但没有工位——没有自己的电脑，没有文件柜，没有下班后还在跑的任务。</p>
+      <p>九月这一波发布，把这三样东西全配齐了。更关键的是触发方式变了：以前 Agent 是定时任务，到点跑一次；现在改成了事件触发——来了一封邮件、Slack 收到一条消息、Notion 更新了一条记录，Agent 自己醒过来干活。</p>
+      <div class="callout">这不是工具升级，这是雇佣关系的雏形——有事做，没事待命。</div>
+
+      <h2 class="section-title">AI 开始有身份，也开始有钱包</h2>
+      <p>比电脑更进一步的是身份。Manus 的新 App Cue 里，每个 Agent 有自己的邮箱、手机号、钱包，可以在你设定的预算内付款。Grok Bot 那边的玩法是"一人一个团队"：一个总管 Bot 底下挂几个专员，它们互相发消息对齐进度，只在需要人拍板的时候来找你。</p>
+      <p>你会发现，我们讨论 AI 的单位词已经变了。年初我们说"模型"，年中我们说"工具"，现在我们说的是"队友""专员""总管"。</p>
+
+      <h2 class="section-title">硬币的另一面：权限、审批和安全</h2>
+      <p>AI 领了电脑、拿了钱包之后，一个问题立刻变得具体：它凭什么可以动我的东西？</p>
+      <p>九月的所有发布里，安全边界都被放在了最显眼的位置：Dots 默认只读，发消息、改文件、装软件、改密码，一律先找你批准；Grok Bot 的企业版直接配了访问控制、网络控制和审计日志；OpenAI 更狠——下一代模型 GPT-6.1 Astra 因为没通过内部安全测试，直接推迟发布。</p>
+      <p>DevDay 上还有个耐人寻味的现场：OpenAI 产品负责人当众让她的 Dot 准备一个演示，结果 Dot 卡死了，全场等着。这个翻车恰好说明一件事——<strong>AI 领了工位，不代表它已经是个靠谱员工。管理成本、审批成本、出错成本，都还在人的身上。</strong></p>
+
+      <h2 class="section-title">那 FDE 呢</h2>
+      <p>这是我最想聊的部分。Agent 变成"有电脑的数字员工"之后，FDE 这类角色不是被替代了，而是被推到了更上游的位置。</p>
+      <p>以前的交付，交付的是代码和文档。现在的交付，是一台被框好的 Agent：它的目标是什么，哪些事可以自己干，哪些必须回来问人，干到什么程度算验收通过。一句话，从"我把活干完"，变成了"我设计一个能把活干完的系统，并守住它的边界"。</p>
+      <div class="callout">不是 AI 越强我们越省事，而是 AI 越强，边界设计越值钱。</div>
+      <p>这也是我自己在实践里最真实的感受：我给 AI 配的权限越大，我需要写的规则就越细。以前考验的是你能不能把活干好，现在考验的是你能不能把"干活的 AI"设置好。</p>
+
+      <h2 class="section-title">写在最后</h2>
+      <p>回看九月：四家公司在两周内做了同一个动作——给 AI 发电脑、发身份、发钱包，然后用权限和审批把缰绳握在自己手里。</p>
+      <p>AI 的工作方式变了。下一个问题是我们自己的工作方式什么时候变：你还在排队等聊天框回答，还是已经开始给你的第一个 Agent 划出它的第一块责任田？</p>
+    </div>
+
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>AI Agent 的云电脑是什么意思？</summary>
+          <div class="faq-answer">指厂商给每个 AI Agent 分配一台常驻的云端电脑：有自己的浏览器、文件系统和终端，可以登录工具和网站、持续运行任务，用户合上笔记本它还在干活。代表产品有 Manus 2.0 的 Cloud Computer、OpenAI 的 Dots、xAI 的 Grok Bot 和 Meta 的 Muse。</div>
+        </details>
+        <details class="faq-item">
+          <summary>开源世界有类似的东西吗？</summary>
+          <div class="faq-answer">有。OpenClaw 是完全开源的个人 Agent，不跑在厂商云上，而是跑在你自己的电脑里，通过 WhatsApp、Telegram 等聊天软件使唤。商业公司给 AI 发云电脑，开源社区把电脑搬回你家，是同一个方向的两条路线。</div>
+        </details>
+        <details class="faq-item">
+          <summary>AI 有电脑有钱包之后，安全怎么保障？</summary>
+          <div class="faq-answer">各家都把权限和审批放在最显眼的位置：Dots 默认只读，敏感操作一律先找用户批准；Grok Bot 企业版配访问控制、网络控制和审计日志。核心思路是：AI 能动我的东西，必须有明确的边界、审批点和对账机制。</div>
+        </details>
+        <details class="faq-item">
+          <summary>Agent 时代 FDE 的价值是什么？</summary>
+          <div class="faq-answer">AI 配的权限越大，需要写的规则就越细。FDE 的新交付物是一台被框好的 Agent：目标、权限、审批点、验收标准。AI 越强，边界设计越值钱。</div>
+        </details>
+      </div>
+    </section>
+
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./fde-what-is.html">
+          <span class="rel-tag">FDE</span>
+          <span class="rel-title">FDE 是什么？前线部署工程师完全解读</span>
+          <span class="rel-arrow">→</span>
+        </a>
+        <a class="related-item" href="./manufacturing-fde-cost.html">
+          <span class="rel-tag">企业</span>
+          <span class="rel-title">制造业 FDE，先把成本算清</span>
+          <span class="rel-arrow">→</span>
+        </a>
+        <a class="related-item" href="./index.html">
+          <span class="rel-tag">目录</span>
+          <span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span>
+          <span class="rel-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+
+</body>
+</html>
