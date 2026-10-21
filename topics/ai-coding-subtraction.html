@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "AI 越会写代码，FDE 越要做减法",
       "description": "AI coding 让加功能变得无比便宜，开发能力过剩，AI 从不拒绝你。瓶颈从能不能做换到该不该做——YAGNI 与奥卡姆剃刀的回归。",
       "datePublished": "2026-10-08",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/ai-coding-subtraction.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/ai-coding-subtraction.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI 越会写代码，FDE 越要做减法",
+          "item": "https://willeai.com/topics/ai-coding-subtraction.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "为什么 AI 越会写代码，越要做减法？", "acceptedAnswer": {"@type": "Answer", "text": "因为代码生成速度提高了，但功能仍会增加状态、测试、异常处理、维护和用户理解成本。先明确用户目标，再判断新功能是否改善当前任务。"}},
-        {"@type": "Question", "name": "YAGNI 在 AI 时代怎么用？", "acceptedAnswer": {"@type": "Answer", "text": "不要为尚未出现的需求提前建设功能。当前任务必需的正确性、权限和失败处理要完整保留；决定要做之后，再用简约原则选择容易理解和维护的实现。"}}
+        {
+          "@type": "Question",
+          "name": "为什么 AI 越会写代码，越要做减法？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "因为代码生成速度提高了，但功能仍会增加状态、测试、异常处理、维护和用户理解成本。先明确用户目标，再判断新功能是否改善当前任务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "YAGNI 在 AI 时代怎么用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不要为尚未出现的需求提前建设功能。当前任务必需的正确性、权限和失败处理要完整保留；决定要做之后，再用简约原则选择容易理解和维护的实现。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 越会写代码，FDE 越要做减法 — 小天说FDE">
+<meta name="twitter:description" content="AI coding 让加功能变得无比便宜，开发能力过剩，AI 从不拒绝你。瓶颈从能不能做换到该不该做——YAGNI 与奥卡姆剃刀的回归。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>AI 越会写代码，FDE</span>
+    <span>AI 编程做减法</span>
   </nav>
   <article>
     <header class="article-header">
@@ -140,6 +204,13 @@
 <p>对我现在这个电商项目来说，目标就是自动上下架。先让这件事可靠地完成，再看真实使用中有没有新的需要。</p>
 <p>后面该加的功能，我会加。只是它们得带着真实问题来，而不是仅仅带着一句“我们也能做”。</p>
 <p><strong>AI让创造越来越容易。FDE的判断，要让创造始终有方向。</strong></p>
+      <section class="article-references" aria-label="原则出处">
+        <h2 class="section-title">原则出处</h2>
+        <ul>
+          <li><a href="https://martinfowler.com/bliki/Yagni.html" target="_blank" rel="noopener noreferrer">Martin Fowler：YAGNI，不为尚未出现的需求提前建设</a></li>
+          <li><a href="https://martinfowler.com/bliki/DesignStaminaHypothesis.html" target="_blank" rel="noopener noreferrer">Martin Fowler：Design Stamina Hypothesis，设计质量与长期开发速度</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -166,6 +237,9 @@
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
+        <a class="related-item" href="https://willeai.com/topics/fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/model-brain-skill-toolbox.html"><span class="rel-tag">Skill</span><span class="rel-title">大模型只是大脑，Skill 才是工具箱</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/fde-verify-ai-done.html"><span class="rel-tag">验收</span><span class="rel-title">AI 说做完了，FDE 为什么还要自己看一遍</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
       </div>

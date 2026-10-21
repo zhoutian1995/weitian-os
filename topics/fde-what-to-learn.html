@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "AI 更新追不完，程序员转 FDE 该学什么？",
       "description": "先问自己学 AI 准备做什么。程序员转 FDE 的路线很明确：从企业要解决的问题，倒推自己该学的能力。",
       "datePublished": "2026-10-11",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-what-to-learn.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-what-to-learn.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI 更新追不完，程序员转 FDE 该学什么？",
+          "item": "https://willeai.com/topics/fde-what-to-learn.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "程序员转 FDE 该学什么？", "acceptedAnswer": {"@type": "Answer", "text": "不从工具清单出发，从企业问题倒推：哪些业务问题值得用 AI、怎么快速做可验证的方案、怎么验收和守住边界。工具是手段，判断力是目的。"}},
-        {"@type": "Question", "name": "怎么面对 AI 信息过载？", "acceptedAnswer": {"@type": "Answer", "text": "定目标再筛信息：目标不同路线完全不同。做应用的，追新不如深挖一个真实场景跑通闭环。"}}
+        {
+          "@type": "Question",
+          "name": "程序员转 FDE 该学什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不从工具清单出发，从企业问题倒推：哪些业务问题值得用 AI、怎么快速做可验证的方案、怎么验收和守住边界。工具是手段，判断力是目的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么面对 AI 信息过载？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "定目标再筛信息：目标不同路线完全不同。做应用的，追新不如深挖一个真实场景跑通闭环。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 更新追不完，程序员转 FDE 该学什么？ — 小天说FDE">
+<meta name="twitter:description" content="先问自己学 AI 准备做什么。程序员转 FDE 的路线很明确：从企业要解决的问题，倒推自己该学的能力。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>AI 更新追不完，程序员</span>
+    <span>程序员转 FDE 学什么</span>
   </nav>
   <article>
     <header class="article-header">

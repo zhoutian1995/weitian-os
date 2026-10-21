@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "FDE 凭什么贵：卖的不是代码，是责任边界",
       "description": "都是一个人写代码，你凭什么比外包贵？客户买的不是技术履历，是不正常时刻谁接电话、谁兜底。",
       "datePublished": "2026-10-07",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-price-boundary.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-price-boundary.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FDE 凭什么贵：卖的不是代码，是责任边界",
+          "item": "https://willeai.com/topics/fde-price-boundary.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "FDE 凭什么比外包贵？", "acceptedAnswer": {"@type": "Answer", "text": "价差在责任边界：报价里包含的是提前排掉的故障、关键取舍，以及系统出问题后谁接电话、谁兜底。只看写代码这件事，确实看不出差别。"}},
-        {"@type": "Question", "name": "责任边界怎么理解？", "acceptedAnswer": {"@type": "Answer", "text": "正常时刻的工作人人看得见；不正常时刻——故障、事故、损失——哪些事落到谁头上，这才是定价的真正依据。"}}
+        {
+          "@type": "Question",
+          "name": "FDE 凭什么比外包贵？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "价差在责任边界：报价里包含的是提前排掉的故障、关键取舍，以及系统出问题后谁接电话、谁兜底。只看写代码这件事，确实看不出差别。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "责任边界怎么理解？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "正常时刻的工作人人看得见；不正常时刻——故障、事故、损失——哪些事落到谁头上，这才是定价的真正依据。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FDE 凭什么贵：卖的不是代码，是责任边界 — 小天说FDE">
+<meta name="twitter:description" content="都是一个人写代码，你凭什么比外包贵？客户买的不是技术履历，是不正常时刻谁接电话、谁兜底。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>FDE 凭什么贵：卖的不</span>
+    <span>FDE 凭什么贵</span>
   </nav>
   <article>
     <header class="article-header">

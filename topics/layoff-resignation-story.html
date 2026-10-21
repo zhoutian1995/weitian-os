@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "被裁了三次，最后一次是我自己裸辞",
       "description": "毕业十年，六家公司，被裁三次：公司被卖、部门被端、被逼走人。最后一次自己裸辞 all in AI。",
       "datePublished": "2026-10-12",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/layoff-resignation-story.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/layoff-resignation-story.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "被裁了三次，最后一次是我自己裸辞",
+          "item": "https://willeai.com/topics/layoff-resignation-story.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "为什么最后选择裸辞？", "acceptedAnswer": {"@type": "Answer", "text": "被裁三次之后想明白：把安全感寄托在一家公司上，等于把命运交给别人。裸辞 all in AI 是把职业的底座换成自己的能力。"}},
-        {"@type": "Question", "name": "被裁教会了你什么？", "acceptedAnswer": {"@type": "Answer", "text": "公司、部门、领导都可能变，唯一带得走的是持续升级的能力。这也是后来做「维天 OS」、把自己当系统升级的起点。"}}
+        {
+          "@type": "Question",
+          "name": "为什么最后选择裸辞？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "被裁三次之后想明白：把安全感寄托在一家公司上，等于把命运交给别人。裸辞 all in AI 是把职业的底座换成自己的能力。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "被裁教会了你什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "公司、部门、领导都可能变，唯一带得走的是持续升级的能力。这也是后来做「维天 OS」、把自己当系统升级的起点。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="被裁了三次，最后一次是我自己裸辞 — 小天说FDE">
+<meta name="twitter:description" content="毕业十年，六家公司，被裁三次：公司被卖、部门被端、被逼走人。最后一次自己裸辞 all in AI。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>被裁了三次，最后一次是我</span>
+    <span>被裁三次裸辞</span>
   </nav>
   <article>
     <header class="article-header">

@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场",
       "description": "手机收到监控报警，人却在饭店。Tailscale+SSH+tmux：不要公网 IP、不买 VPS，保住终端现场，远程救活 Agent。",
       "datePublished": "2026-03-13",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/remote-agent-rescue.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/remote-agent-rescue.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场",
+          "item": "https://willeai.com/topics/remote-agent-rescue.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "怎么远程救活家里的 Agent？", "acceptedAnswer": {"@type": "Answer", "text": "手机装 SSH 客户端，通过 Tailscale 组成的加密网络连回家里 Mac，attach 到 tmux 会话查看 Claude Code 的输出并继续操作。全程不需要公网 IP，也不用买 VPS。"}},
-        {"@type": "Question", "name": "为什么要用 tmux？", "acceptedAnswer": {"@type": "Answer", "text": "tmux 让终端会话在断线后依然存活。救急时最怕连接到一半断掉——会话在 tmux 里，重连 attach 就能回到现场，排错上下文不丢。"}}
+        {
+          "@type": "Question",
+          "name": "怎么远程救活家里的 Agent？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "手机装 SSH 客户端，通过 Tailscale 组成的加密网络连回家里 Mac，attach 到 tmux 会话查看 Claude Code 的输出并继续操作。全程不需要公网 IP，也不用买 VPS。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么要用 tmux？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "tmux 让终端会话在断线后依然存活。救急时最怕连接到一半断掉——会话在 tmux 里，重连 attach 就能回到现场，排错上下文不丢。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场 — 小天说FDE">
+<meta name="twitter:description" content="手机收到监控报警，人却在饭店。Tailscale+SSH+tmux：不要公网 IP、不买 VPS，保住终端现场，远程救活 Agent。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>人在外面，家里 Agen</span>
+    <span>远程救场 Agent</span>
   </nav>
   <article>
     <header class="article-header">
@@ -165,6 +229,13 @@ Claude Code / 日志 / 重启命令</code></pre>
       <hr>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+      <section class="article-references" aria-label="官方资料">
+        <h2 class="section-title">官方资料</h2>
+        <ul>
+          <li><a href="https://tailscale.com/docs/reference/connection-types" target="_blank" rel="noopener noreferrer">Tailscale：连接类型、直连与 DERP 中继</a></li>
+          <li><a href="https://github.com/tmux/tmux/wiki" target="_blank" rel="noopener noreferrer">tmux：官方 Wiki 与会话使用说明</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -191,6 +262,9 @@ Claude Code / 日志 / 重启命令</code></pre>
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
+        <a class="related-item" href="https://willeai.com/topics/claude-code-source-notes.html"><span class="rel-tag">实战</span><span class="rel-title">我让 AI 读完了 Claude Code 的 51 万行源码</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/picoclaw-arm-port.html"><span class="rel-tag">嵌入式</span><span class="rel-title">把 AI 助手塞进 16MB Flash：PicoClaw ARM 移植实战</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/fde-verify-ai-done.html"><span class="rel-tag">验收</span><span class="rel-title">AI 说做完了，FDE 为什么还要自己看一遍</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
       </div>

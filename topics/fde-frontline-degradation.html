@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "FDE 一旦脱离真实反馈，就容易变形：我最警惕的 4 种退化",
       "description": "接口返回成功、Demo 跑通、汇报好看，都不能代替真实使用。检查团队是否离开真实反馈的个人框架。",
       "datePublished": "2026-07-05",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-frontline-degradation.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-frontline-degradation.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FDE 一旦脱离真实反馈，就容易变形：我最警惕的 4 种退化",
+          "item": "https://willeai.com/topics/fde-frontline-degradation.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "FDE 的四种退化是什么？", "acceptedAnswer": {"@type": "Answer", "text": "脱离真实反馈后容易出现的四类变形——用接口返回代替公开页复核、用 Demo 代替真实使用、用汇报材料代替业务结果等，核心都是离开了真实反馈回路。"}},
-        {"@type": "Question", "name": "为什么真实反馈这么重要？", "acceptedAnswer": {"@type": "Answer", "text": "它是 FDE 的价值来源：只有待在真实业务前线，才能发现系统真正的問題、验证方案真的被用起来。离开前线，FDE 就退化成了普通交付。"}}
+        {
+          "@type": "Question",
+          "name": "FDE 的四种退化是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "脱离真实反馈后容易出现的四类变形——用接口返回代替公开页复核、用 Demo 代替真实使用、用汇报材料代替业务结果等，核心都是离开了真实反馈回路。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么真实反馈这么重要？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它是 FDE 的价值来源：只有待在真实业务前线，才能发现系统真正的問題、验证方案真的被用起来。离开前线，FDE 就退化成了普通交付。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FDE 一旦脱离真实反馈，就容易变形：我最警惕的 4 种退化 — 小天说FDE">
+<meta name="twitter:description" content="接口返回成功、Demo 跑通、汇报好看，都不能代替真实使用。检查团队是否离开真实反馈的个人框架。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>FDE 一旦脱离真实反馈</span>
+    <span>FDE 的四种退化</span>
   </nav>
   <article>
     <header class="article-header">

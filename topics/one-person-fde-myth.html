@@ -19,12 +19,91 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "headline": "一人 FDE，是个伪命题", "description": "AI 放大了一个人的生产能力，但没有消灭企业的组织复杂度。一人 FDE 不是独立英雄，更像被 AI 加速的高级外包。", "datePublished": "2026-08-12", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/one-person-fde-myth.html" },
-    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "为什么一人 FDE 是伪命题？", "acceptedAnswer": {"@type": "Answer", "text": "企业 AI 落地需要获客、诊断、开发、组织推动、培训、售后、资产沉淀一整条链，一个人无法长期同时做好全部；全由一人完成时，交付质量和可持续性都无法保障。"}},
-        {"@type": "Question", "name": "AI 没有让一个人等于一个团队吗？", "acceptedAnswer": {"@type": "Answer", "text": "只说对了一半。AI 放大了生产能力——写代码、做系统确实一个人能干；但企业的组织复杂度（跨部门对齐、责任划分、持续运营）没有被消灭，只是换了形式存在。"}} ] }
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "Article",
+      "headline": "一人 FDE，是个伪命题",
+      "description": "AI 放大了一个人的生产能力，但没有消灭企业的组织复杂度。一人 FDE 不是独立英雄，更像被 AI 加速的高级外包。",
+      "datePublished": "2026-08-12",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/one-person-fde-myth.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "一人 FDE，是个伪命题",
+          "item": "https://willeai.com/topics/one-person-fde-myth.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么一人 FDE 是伪命题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "企业 AI 落地需要获客、诊断、开发、组织推动、培训、售后、资产沉淀一整条链，一个人无法长期同时做好全部；全由一人完成时，交付质量和可持续性都无法保障。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 没有让一个人等于一个团队吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只说对了一半。AI 放大了生产能力——写代码、做系统确实一个人能干；但企业的组织复杂度（跨部门对齐、责任划分、持续运营）没有被消灭，只是换了形式存在。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="一人 FDE，是个伪命题 — 小天说FDE">
+<meta name="twitter:description" content="AI 放大了一个人的生产能力，但没有消灭企业的组织复杂度。一人 FDE 不是独立英雄，更像被 AI 加速的高级外包。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -35,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>一人 FDE，是个伪命题</span>
+    <span>一人 FDE 伪命题</span>
   </nav>
   <article>
     <header class="article-header">

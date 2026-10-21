@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "朋友来做客，车停哪？我用 AI 做了个借车位工具",
       "description": "不是没有车位，是没有工具把车位用起来。AI 做的小区借车位工具，解决外来车辆报备的真实痛点。",
       "datePublished": "2026-04-25",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/parkinghub-tool.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/parkinghub-tool.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "朋友来做客，车停哪？我用 AI 做了个借车位工具",
+          "item": "https://willeai.com/topics/parkinghub-tool.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "这个工具解决什么问题？", "acceptedAnswer": {"@type": "Answer", "text": "外来车辆进小区必须提前报备、找不到当晚可借车位的问题。把闲置车位信息集中起来，让借车位从群里碰运气变成确定的事。"}},
-        {"@type": "Question", "name": "为什么想到做这个？", "acceptedAnswer": {"@type": "Answer", "text": "真实痛点：朋友来做客停车难，业主群问车位全靠运气。用 AI 快速做小工具解决自己身边的具体问题，也是最好的练手。"}}
+        {
+          "@type": "Question",
+          "name": "这个工具解决什么问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "外来车辆进小区必须提前报备、找不到当晚可借车位的问题。把闲置车位信息集中起来，让借车位从群里碰运气变成确定的事。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么想到做这个？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "真实痛点：朋友来做客停车难，业主群问车位全靠运气。用 AI 快速做小工具解决自己身边的具体问题，也是最好的练手。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="朋友来做客，车停哪？我用 AI 做了个借车位工具 — 小天说FDE">
+<meta name="twitter:description" content="不是没有车位，是没有工具把车位用起来。AI 做的小区借车位工具，解决外来车辆报备的真实痛点。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>朋友来做客，车停哪？我用</span>
+    <span>借车位小工具</span>
   </nav>
   <article>
     <header class="article-header">

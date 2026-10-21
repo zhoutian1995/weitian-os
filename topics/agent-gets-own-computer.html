@@ -20,15 +20,59 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界",
-      "description": "Manus、OpenAI Dots、Grok Bot 给 AI 配云电脑、身份和钱包；FDE 的新位置是设计边界与验收。",
+      "description": "Manus 2.0、OpenAI Dots、Meta Muse、xAI Grok Bot 都在做同一件事：给 AI 发一台专属云电脑、身份和钱包。本文拆解 Agent 从聊天框到工位的转变、权限与审批的安全边界，以及 FDE 为什么被推到更上游的位置。",
       "datePublished": "2026-09-29",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/agent-gets-own-computer.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/agent-gets-own-computer.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界",
+          "item": "https://willeai.com/topics/agent-gets-own-computer.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -36,28 +80,46 @@
         {
           "@type": "Question",
           "name": "AI Agent 的云电脑是什么意思？",
-          "acceptedAnswer": { "@type": "Answer", "text": "指厂商给每个 AI Agent 分配一台常驻的云端电脑：有自己的浏览器、文件系统和终端，可以登录工具和网站、持续运行任务，用户合上笔记本它还在干活。代表产品有 Manus 2.0 的 Cloud Computer、OpenAI 的 Dots、xAI 的 Grok Bot 和 Meta 的 Muse。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "指厂商给每个 AI Agent 分配一台常驻的云端电脑：有自己的浏览器、文件系统和终端，可以登录工具和网站、持续运行任务，用户合上笔记本它还在干活。代表产品有 Manus 2.0 的 Cloud Computer、OpenAI 的 Dots、xAI 的 Grok Bot 和 Meta 的 Muse。"
+          }
         },
         {
           "@type": "Question",
           "name": "开源世界有类似的东西吗？",
-          "acceptedAnswer": { "@type": "Answer", "text": "有。OpenClaw 是完全开源的个人 Agent，不跑在厂商云上，而是跑在你自己的电脑里，通过 WhatsApp、Telegram 等聊天软件使唤。它曾在 100 天内成为 GitHub 历史 Star 最多的软件项目之一。商业公司给 AI 发云电脑，开源社区把电脑搬回你家，是同一个方向的两条路线。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有。OpenClaw 是完全开源的个人 Agent，不跑在厂商云上，而是跑在你自己的电脑里，通过 WhatsApp、Telegram 等聊天软件使唤。它曾在 100 天内成为 GitHub 历史 Star 最多的软件项目之一。商业公司给 AI 发云电脑，开源社区把电脑搬回你家，是同一个方向的两条路线。"
+          }
         },
         {
           "@type": "Question",
           "name": "AI 有电脑有钱包之后，安全怎么保障？",
-          "acceptedAnswer": { "@type": "Answer", "text": "各家都把权限和审批放在最显眼的位置：Dots 默认只读，发消息、改文件、改密码一律先找用户批准；Grok Bot 企业版配访问控制、网络控制和审计日志；OpenAI 曾因 GPT-6.1 Astra 未通过内部安全测试而推迟发布。核心思路是：AI 能动我的东西，必须有明确的边界、审批点和对账机制。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "各家都把权限和审批放在最显眼的位置：Dots 默认只读，发消息、改文件、改密码一律先找用户批准；Grok Bot 企业版配访问控制、网络控制和审计日志；OpenAI 曾因 GPT-6.1 Astra 未通过内部安全测试而推迟发布。核心思路是：AI 能动我的东西，必须有明确的边界、审批点和对账机制。"
+          }
         },
         {
           "@type": "Question",
           "name": "Agent 时代 FDE 的价值是什么？",
-          "acceptedAnswer": { "@type": "Answer", "text": "AI 配的权限越大，需要写的规则就越细。FDE 的新交付物不再只是代码和文档，而是一台被框好的 Agent：目标是什么、哪些事可以自己干、哪些必须回来问人、干到什么程度算验收通过。AI 越强，边界设计越值钱。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI 配的权限越大，需要写的规则就越细。FDE 的新交付物不再只是代码和文档，而是一台被框好的 Agent：目标是什么、哪些事可以自己干、哪些必须回来问人、干到什么程度算验收通过。AI 越强，边界设计越值钱。"
+          }
         }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界 — 小天说FDE">
+<meta name="twitter:description" content="AI 的工作方式从「你问它答」变成「它领一台电脑去上班」。边界谁来定？这是 FDE 的新位置。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 

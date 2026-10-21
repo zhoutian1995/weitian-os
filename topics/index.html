@@ -17,14 +17,42 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "小天说FDE · 全部文章",
-  "description": "AI 学习、AI 编程与 FDE 转型的深度文章集合（34 篇）",
-  "url": "https://willeai.com/topics/",
-  "inLanguage": "zh-CN",
-  "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "小天说FDE · 全部文章",
+      "description": "AI 学习、AI 编程与 FDE 转型的深度文章集合（34 篇）",
+      "url": "https://willeai.com/topics/",
+      "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      }
+    }
+  ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="全部文章（34 篇）— 小天说FDE">
+<meta name="twitter:description" content="FDE、程序员转型 AI、AI 编程实战、Agent 与 Skill——用真实项目讲透。">
+<meta name="twitter:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 

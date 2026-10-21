@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "别急着做 Agent：企业先判断自己在哪一层",
       "description": "企业说我要用 AI 时，真正需要的可能只是内容生成、知识检索、自动化流程或多 Agent 协作。层级判断错了，工具越复杂返工越多。",
       "datePublished": "2026-06-04",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/agent-layer-model.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/agent-layer-model.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "别急着做 Agent：企业先判断自己在哪一层",
+          "item": "https://willeai.com/topics/agent-layer-model.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "企业 AI 的四层是什么？", "acceptedAnswer": {"@type": "Answer", "text": "从内容生成、知识检索、自动化流程到多 Agent 协作，需求复杂度逐层上升。它不是行业统一标准，是一张帮助业务和工程对齐的诊断地图。"}},
-        {"@type": "Question", "name": "为什么要先判断层级？", "acceptedAnswer": {"@type": "Answer", "text": "因为层级决定工具复杂度：在第一层的需求上引入多 Agent 系统，只会放大返工。判断对了层级，才选对工具。"}}
+        {
+          "@type": "Question",
+          "name": "企业 AI 的四层是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "从内容生成、知识检索、自动化流程到多 Agent 协作，需求复杂度逐层上升。它不是行业统一标准，是一张帮助业务和工程对齐的诊断地图。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么要先判断层级？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "因为层级决定工具复杂度：在第一层的需求上引入多 Agent 系统，只会放大返工。判断对了层级，才选对工具。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="别急着做 Agent：企业先判断自己在哪一层 — 小天说FDE">
+<meta name="twitter:description" content="企业说我要用 AI 时，真正需要的可能只是内容生成、知识检索、自动化流程或多 Agent 协作。层级判断错了，工具越复杂返工越多。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>别急着做 Agent：企</span>
+    <span>企业 Agent 分层</span>
   </nav>
   <article>
     <header class="article-header">

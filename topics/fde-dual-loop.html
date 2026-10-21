@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包",
       "description": "FDE 的交付有两条线：内循环解决眼前问题，外循环沉淀可复用资产。只顾交付沦为高级外包，只顾抽象做出前线不需要的东西。",
       "datePublished": "2026-07-02",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-dual-loop.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-dual-loop.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包",
+          "item": "https://willeai.com/topics/fde-dual-loop.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "FDE 的双循环是什么？", "acceptedAnswer": {"@type": "Answer", "text": "内循环看当前流程：能不能跑、业务方用不用、原动作有没有真的变化；外循环看下一次：共性经验能不能沉淀成模板、组件、工具或规则。两条线偏掉任何一边都会出问题。"}},
-        {"@type": "Question", "name": "为什么说没有沉淀就不是 FDE？", "acceptedAnswer": {"@type": "Answer", "text": "如果每次发现的模式、脚本和判断方法下一个项目都用不上，团队再忙也只是在重复交付：人积累了经验，组织没有接住。FDE 要处理的就是这段断层。"}}
+        {
+          "@type": "Question",
+          "name": "FDE 的双循环是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "内循环看当前流程：能不能跑、业务方用不用、原动作有没有真的变化；外循环看下一次：共性经验能不能沉淀成模板、组件、工具或规则。两条线偏掉任何一边都会出问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么说没有沉淀就不是 FDE？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果每次发现的模式、脚本和判断方法下一个项目都用不上，团队再忙也只是在重复交付：人积累了经验，组织没有接住。FDE 要处理的就是这段断层。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包 — 小天说FDE">
+<meta name="twitter:description" content="FDE 的交付有两条线：内循环解决眼前问题，外循环沉淀可复用资产。只顾交付沦为高级外包，只顾抽象做出前线不需要的东西。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>没有沉淀，就不是 FDE</span>
+    <span>FDE 双循环</span>
   </nav>
   <article>
     <header class="article-header">

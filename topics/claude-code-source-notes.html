@@ -19,12 +19,91 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "headline": "我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记", "description": "Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。", "datePublished": "2026-04-02", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/claude-code-source-notes.html" },
-    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "这份源码笔记讲什么？", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code 的内部实现拆解：22 章覆盖架构、工具调用、上下文管理等核心模块，四万字笔记从 51 万行源码里提炼，告诉你一个工业级 Agent 是怎么写出来的。"}},
-        {"@type": "Question", "name": "为什么值得读 Claude Code 源码？", "acceptedAnswer": {"@type": "Answer", "text": "它是目前最成熟的 Agent 工程实现之一。读它等于看一遍顶级团队的工程答卷——对想做 AI 编程、Agent 开发或 FDE 的人，这是最快的内功修炼路径。"}} ] }
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "Article",
+      "headline": "我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记",
+      "description": "Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。",
+      "datePublished": "2026-04-02",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/claude-code-source-notes.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记",
+          "item": "https://willeai.com/topics/claude-code-source-notes.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这份源码笔记讲什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Code 的内部实现拆解：22 章覆盖架构、工具调用、上下文管理等核心模块，四万字笔记从 51 万行源码里提炼，告诉你一个工业级 Agent 是怎么写出来的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么值得读 Claude Code 源码？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它是目前最成熟的 Agent 工程实现之一。读它等于看一遍顶级团队的工程答卷——对想做 AI 编程、Agent 开发或 FDE 的人，这是最快的内功修炼路径。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="我让 AI 读完了 Claude Code 的 51 万行源码，总结出 22 章四万字笔记 — 小天说FDE">
+<meta name="twitter:description" content="Claude Code v2.1.88 的 npm 包意外带上完整 source map：59.8MB、1900 个文件、51 万行代码。我让 AI 读完了它。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -35,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>我让 AI 读完了 Cl</span>
+    <span>读 Claude Code 源码</span>
   </nav>
   <article>
     <header class="article-header">
@@ -79,6 +158,13 @@
       <p>点个「在看」，分享给更多朋友</p>
       <p>点个「转发」，帮助更多人</p>
       <p>加个「星标⭐」，第一时间收到推送</p>
+      <section class="article-references" aria-label="产品与使用资料">
+        <h2 class="section-title">产品与使用资料</h2>
+        <ul>
+          <li><a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer">Anthropic：Claude Code 官方产品页</a></li>
+          <li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer">Anthropic：Claude Code 官方仓库与使用说明</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -105,7 +191,9 @@
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
-        <a class="related-item" href="./fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/agent-running-dumber.html"><span class="rel-tag">Agent</span><span class="rel-title">为什么你的 AI Agent 越跑越笨？</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/model-brain-skill-toolbox.html"><span class="rel-tag">Skill</span><span class="rel-title">大模型只是大脑，Skill 才是工具箱</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
       </div>
     </section>

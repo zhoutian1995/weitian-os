@@ -20,15 +20,59 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "制造业 FDE，先把成本算清",
-      "description": "制造业财务 AI 的稳实施顺序：先算清一条产品线的成本，把异常追到底，再扩展现金流与应收。",
+      "description": "制造业财务 AI 第一步不是选工具，而是找一个真正影响利润的经营问题。本文讲清：为什么成本核算适合做第一个场景、AI 如何从毛利下降追到业务原因、第一仗只算一条产品线的窄场景打法，以及成本跑通后如何扩展到现金流与应收。",
       "datePublished": "2026-08-28",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/manufacturing-fde-cost.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/manufacturing-fde-cost.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "制造业 FDE，先把成本算清",
+          "item": "https://willeai.com/topics/manufacturing-fde-cost.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -36,28 +80,46 @@
         {
           "@type": "Question",
           "name": "制造业财务 AI 第一步应该做什么？",
-          "acceptedAnswer": { "@type": "Answer", "text": "不是选工具，而是先找出一个真正影响利润、现金或回款的经营问题：毛利算不清就先查成本，现金紧就先查库存采购账期，回款慢就先做应收风险识别。把问题压缩到一个具体结果上，而不是带着固定功能菜单要求各部门填需求。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是选工具，而是先找出一个真正影响利润、现金或回款的经营问题：毛利算不清就先查成本，现金紧就先查库存采购账期，回款慢就先做应收风险识别。把问题压缩到一个具体结果上，而不是带着固定功能菜单要求各部门填需求。"
+          }
         },
         {
           "@type": "Question",
           "name": "为什么成本核算适合做财务 AI 的第一个场景？",
-          "acceptedAnswer": { "@type": "Answer", "text": "三个原因：成本离利润最近；数据链条可以拆解到采购、仓库、生产和质量等具体环节复核；分析结果可检查——成本有没有更快算清、异常有没有更早发现、原因能不能追到业务环节，不需要靠'AI 看起来很聪明'来证明。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三个原因：成本离利润最近；数据链条可以拆解到采购、仓库、生产和质量等具体环节复核；分析结果可检查——成本有没有更快算清、异常有没有更早发现、原因能不能追到业务环节，不需要靠'AI 看起来很聪明'来证明。"
+          }
         },
         {
           "@type": "Question",
           "name": "AI 能直接自动算成本吗？",
-          "acceptedAnswer": { "@type": "Answer", "text": "不能也不应该全部替代。该用规则计算的用规则，该做数据校验的先校验；大模型适合归纳、解释和交互。正式的核算口径、费用分摊、入账处理和经营动作，仍要由财务和业务负责人确认。AI 缩短查找分析时间，不能替企业承担专业责任。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能也不应该全部替代。该用规则计算的用规则，该做数据校验的先校验；大模型适合归纳、解释和交互。正式的核算口径、费用分摊、入账处理和经营动作，仍要由财务和业务负责人确认。AI 缩短查找分析时间，不能替企业承担专业责任。"
+          }
         },
         {
           "@type": "Question",
           "name": "成本跑通之后下一步做什么？",
-          "acceptedAnswer": { "@type": "Answer", "text": "沿同一条路径扩展：接入销售订单、采购计划、库存水平、应收应付账期做现金流预测；再把客户回款周期、订单频率、对账争议、逾期金额合并做应收风险识别；最后才是回答'收入增长利润为什么没增加'这类问题的经营分析。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "沿同一条路径扩展：接入销售订单、采购计划、库存水平、应收应付账期做现金流预测；再把客户回款周期、订单频率、对账争议、逾期金额合并做应收风险识别；最后才是回答'收入增长利润为什么没增加'这类问题的经营分析。"
+          }
         }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="制造业 FDE，先把成本算清 — 小天说FDE">
+<meta name="twitter:description" content="财务 AI 真正缺的不是更快的报表，而是从财务结果追到业务原因、再落到处理动作的路径。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 

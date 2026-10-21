@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战",
-      "description": "嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替",
+      "description": "嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替代不了板级验证。",
       "datePublished": "2026-03-08",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/picoclaw-arm-port.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/picoclaw-arm-port.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战",
+          "item": "https://willeai.com/topics/picoclaw-arm-port.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "PicoClaw 能跑在什么硬件上？", "acceptedAnswer": {"@type": "Answer", "text": "实测跑通 32 位 ARM Cortex-A7、64MB DDR2、16MB NOR Flash 的开发板：UPX 压缩后约 2.9MB，运行时 RSS 约 18.5MB，开机自启并可长期运行。不同芯片、SDK 和分区方案差异很大，需要按板子裁剪。"}},
-        {"@type": "Question", "name": "AI 在嵌入式移植里起什么作用？", "acceptedAnswer": {"@type": "Answer", "text": "AI（OpenCode/Claude）加速了交叉编译、32 位兼容和排错的大部分环节；但板级验证——启动、内存、稳定性——必须人在真板上确认，AI 替代不了。"}}
+        {
+          "@type": "Question",
+          "name": "PicoClaw 能跑在什么硬件上？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "实测跑通 32 位 ARM Cortex-A7、64MB DDR2、16MB NOR Flash 的开发板：UPX 压缩后约 2.9MB，运行时 RSS 约 18.5MB，开机自启并可长期运行。不同芯片、SDK 和分区方案差异很大，需要按板子裁剪。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 在嵌入式移植里起什么作用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI（OpenCode/Claude）加速了交叉编译、32 位兼容和排错的大部分环节；但板级验证——启动、内存、稳定性——必须人在真板上确认，AI 替代不了。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战 — 小天说FDE">
+<meta name="twitter:description" content="嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替代不了板级验证。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>把 AI 助手塞进 16</span>
+    <span>PicoClaw ARM 移植</span>
   </nav>
   <article>
     <header class="article-header">
@@ -144,6 +208,14 @@ upx --best -o picoclaw-arm-upx picoclaw-arm</code></pre>
       <hr>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+      <section class="article-references" aria-label="项目与工具原始资料">
+        <h2 class="section-title">项目与工具原始资料</h2>
+        <ul>
+          <li><a href="https://github.com/sipeed/picoclaw" target="_blank" rel="noopener noreferrer">Sipeed：PicoClaw 官方仓库</a></li>
+          <li><a href="https://go.dev/doc/install/source#environment" target="_blank" rel="noopener noreferrer">Go：目标系统与架构环境变量</a></li>
+          <li><a href="https://upx.github.io/" target="_blank" rel="noopener noreferrer">UPX：可执行文件压缩工具</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -170,6 +242,9 @@ upx --best -o picoclaw-arm-upx picoclaw-arm</code></pre>
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
+        <a class="related-item" href="https://willeai.com/topics/remote-agent-rescue.html"><span class="rel-tag">运维</span><span class="rel-title">人在外面，家里 Agent 挂了：远程救场</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/claude-code-source-notes.html"><span class="rel-tag">实战</span><span class="rel-title">我让 AI 读完了 Claude Code 的 51 万行源码</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
       </div>

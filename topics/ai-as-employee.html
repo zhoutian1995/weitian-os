@@ -19,12 +19,91 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "headline": "我开始把 AI 当成员工用了", "description": "从「问它一个问题」到「给它一个岗位」：AI 不是工具，是员工——有岗位、有职责、有考核。", "datePublished": "2026-04-09", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/ai-as-employee.html" },
-    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "怎么把 AI 当员工用？", "acceptedAnswer": {"@type": "Answer", "text": "给岗位而不是给任务：明确职责边界、输入输出和验收标准，让它进入重复发生的真实流程。工具用一次就放下，员工要持续在岗、持续产出、持续被考核。"}},
-        {"@type": "Question", "name": "AI 员工和 AI 工具的区别？", "acceptedAnswer": {"@type": "Answer", "text": "工具提升单次动作的效率，员工承担流程的一段结果。区别在于有没有岗位边界和验收——这正是 Skill、知识库和多 Agent 编排存在的意义。"}} ] }
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "Article",
+      "headline": "我开始把 AI 当成员工用了",
+      "description": "从「问它一个问题」到「给它一个岗位」：AI 不是工具，是员工——有岗位、有职责、有考核。",
+      "datePublished": "2026-04-09",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/ai-as-employee.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "我开始把 AI 当成员工用了",
+          "item": "https://willeai.com/topics/ai-as-employee.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "怎么把 AI 当员工用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "给岗位而不是给任务：明确职责边界、输入输出和验收标准，让它进入重复发生的真实流程。工具用一次就放下，员工要持续在岗、持续产出、持续被考核。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 员工和 AI 工具的区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "工具提升单次动作的效率，员工承担流程的一段结果。区别在于有没有岗位边界和验收——这正是 Skill、知识库和多 Agent 编排存在的意义。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="我开始把 AI 当成员工用了 — 小天说FDE">
+<meta name="twitter:description" content="从「问它一个问题」到「给它一个岗位」：AI 不是工具，是员工——有岗位、有职责、有考核。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -35,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>我开始把 AI 当成员工</span>
+    <span>把 AI 当成员工</span>
   </nav>
   <article>
     <header class="article-header">

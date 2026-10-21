@@ -19,12 +19,91 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "headline": "真实 FDE 拆解：AI 主战场在工厂", "description": "跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。", "datePublished": "2026-08-25", "dateModified": "2026-10-21", "inLanguage": "zh-CN", "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" }, "mainEntityOfPage": "https://willeai.com/topics/manufacturing-fde-field.html" },
-    { "@type": "FAQPage", "mainEntity": [ {"@type": "Question", "name": "为什么说 AI 主战场在制造业？", "acceptedAnswer": {"@type": "Answer", "text": "互联网业务本来就在软件里发生，AI 接入是在已有系统上提速优化；制造业的信息起点是微信群、手写订单图片和人脑里的判断，数字化缺口巨大，AI 能创造的价值增量也最大。"}},
-        {"@type": "Question", "name": "工厂 AI 落地最难的是什么？", "acceptedAnswer": {"@type": "Answer", "text": "不是买更大的系统补齐字段。很多信息一开始就是手写的、图片里的、群聊里的，很多判断在人脑里；接单员要在客户、销售、设计、外协、排产、仓库、生产、财务等角色间来回确认——难在人、设备和现场之间。"}} ] }
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "Article",
+      "headline": "真实 FDE 拆解：AI 主战场在工厂",
+      "description": "跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。",
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/manufacturing-fde-field.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "真实 FDE 拆解：AI 主战场在工厂",
+          "item": "https://willeai.com/topics/manufacturing-fde-field.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么说 AI 主战场在制造业？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "互联网业务本来就在软件里发生，AI 接入是在已有系统上提速优化；制造业的信息起点是微信群、手写订单图片和人脑里的判断，数字化缺口巨大，AI 能创造的价值增量也最大。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "工厂 AI 落地最难的是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是买更大的系统补齐字段。很多信息一开始就是手写的、图片里的、群聊里的，很多判断在人脑里；接单员要在客户、销售、设计、外协、排产、仓库、生产、财务等角色间来回确认——难在人、设备和现场之间。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="真实 FDE 拆解：AI 主战场在工厂 — 小天说FDE">
+<meta name="twitter:description" content="跟着一家纸箱厂完整拆解接单和排产流程：微信群手写订单、ERP 之外的现场信息、接单员在十一个角色间来回确认——AI 真正的主战场在制造业。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -35,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>真实 FDE 拆解：AI</span>
+    <span>FDE 主战场在工厂</span>
   </nav>
   <article>
     <header class="article-header">

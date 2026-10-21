@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "别急着和 GPT-Live 尬聊：先测水平，再练场景，每次只改 3 处",
       "description": "直接开语音就聊的问题是 GPT 不知道你的水平。正确顺序：先短测试定位水平，再练具体场景，每轮只改三处。",
       "datePublished": "2026-07-14",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/gpt-live-english-method.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/gpt-live-english-method.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "别急着和 GPT-Live 尬聊：先测水平，再练场景，每次只改 3 处",
+          "item": "https://willeai.com/topics/gpt-live-english-method.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "怎么用 GPT-Live 练口语？", "acceptedAnswer": {"@type": "Answer", "text": "三步：先做短测试让它定位你的真实水平；再选具体场景练；每次只改三处最需要改的。不要一上来就尬聊。"}},
-        {"@type": "Question", "name": "为什么每次只改 3 处？", "acceptedAnswer": {"@type": "Answer", "text": "改得太多记不住，下次照样犯。聚焦三处，一轮一轮迭代，进步可感知、可验证。"}}
+        {
+          "@type": "Question",
+          "name": "怎么用 GPT-Live 练口语？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三步：先做短测试让它定位你的真实水平；再选具体场景练；每次只改三处最需要改的。不要一上来就尬聊。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么每次只改 3 处？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "改得太多记不住，下次照样犯。聚焦三处，一轮一轮迭代，进步可感知、可验证。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="别急着和 GPT-Live 尬聊：先测水平，再练场景，每次只改 3 处 — 小天说FDE">
+<meta name="twitter:description" content="直接开语音就聊的问题是 GPT 不知道你的水平。正确顺序：先短测试定位水平，再练具体场景，每轮只改三处。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>别急着和 GPT-Liv</span>
+    <span>GPT-Live 练英语</span>
   </nav>
   <article>
     <header class="article-header">

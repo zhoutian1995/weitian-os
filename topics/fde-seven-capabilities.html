@@ -20,27 +20,98 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "FDE 的七种能力：从五项模型升级，先过一把手认知这道门",
       "description": "FDE 能力模型从五项升级到七项：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。七项之前还有一道门：一把手认知。",
       "datePublished": "2026-06-17",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-seven-capabilities.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-seven-capabilities.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FDE 的七种能力：从五项模型升级，先过一把手认知这道门",
+          "item": "https://willeai.com/topics/fde-seven-capabilities.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "FDE 的七种能力是什么？", "acceptedAnswer": {"@type": "Answer", "text": "在原五项（价值嗅觉、问题重构、快速构建、评测和护栏、组织推动）基础上补上两项：业务认知——搞懂客户的业务究竟怎么运转，很多项目卡在这里而不是技术；资产复利——每完成一次交付都沉淀可复用的东西，让交付从一次性定制逐步变成行业方案。"}},
-        {"@type": "Question", "name": "为什么一把手认知排在七种能力之前？", "acceptedAnswer": {"@type": "Answer", "text": "AI 项目能否推进，老板的认知往往是关键变量。技术方案不差、项目却卡在老板不理解、员工不配合的情况并不少见。这一层没对齐，后面七项能力很难发挥。"}},
-        {"@type": "Question", "name": "资产复利怎么理解？", "acceptedAnswer": {"@type": "Answer", "text": "真正持续提升交付效率的 FDE，不是做完项目就结束，而是每次交付都沉淀出可复用的模板、组件、工具或检查规则。项目做多了，交付的不再是一次性定制，而是逐步成形的行业方案。"}}
+        {
+          "@type": "Question",
+          "name": "FDE 的七种能力是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在原五项（价值嗅觉、问题重构、快速构建、评测和护栏、组织推动）基础上补上两项：业务认知——搞懂客户的业务究竟怎么运转，很多项目卡在这里而不是技术；资产复利——每完成一次交付都沉淀可复用的东西，让交付从一次性定制逐步变成行业方案。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么一把手认知排在七种能力之前？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI 项目能否推进，老板的认知往往是关键变量。技术方案不差、项目却卡在老板不理解、员工不配合的情况并不少见。这一层没对齐，后面七项能力很难发挥。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "资产复利怎么理解？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "真正持续提升交付效率的 FDE，不是做完项目就结束，而是每次交付都沉淀出可复用的模板、组件、工具或检查规则。项目做多了，交付的不再是一次性定制，而是逐步成形的行业方案。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FDE 的七种能力：从五项模型升级，先过一把手认知这道门 — 小天说FDE">
+<meta name="twitter:description" content="FDE 能力模型从五项升级到七项：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。七项之前还有一道门：一把手认知。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -51,7 +122,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>FDE 的七种能力：从五</span>
+    <span>FDE 的七种能力</span>
   </nav>
   <article>
     <header class="article-header">
@@ -199,6 +270,13 @@
       <hr>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+      <section class="article-references" aria-label="岗位与工程实践参考">
+        <h2 class="section-title">岗位与工程实践参考</h2>
+        <ul>
+          <li><a href="https://jobs.lever.co/palantir/1bb19522-3936-4adc-9ced-c3df8b5900b9" target="_blank" rel="noopener noreferrer">Palantir：Forward Deployed Software Engineer 职位说明</a></li>
+          <li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">Anthropic：Building effective agents</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -226,6 +304,9 @@
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
+        <a class="related-item" href="https://willeai.com/topics/fde-what-is.html"><span class="rel-tag">FDE</span><span class="rel-title">FDE 是什么？前线部署工程师完全解读</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/fde-daily-work.html"><span class="rel-tag">场景</span><span class="rel-title">FDE 到底每天在忙什么？一个工作日的完整拆解</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/manufacturing-fde-cost.html"><span class="rel-tag">企业</span><span class="rel-title">制造业 FDE，先把成本算清</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
       </div>

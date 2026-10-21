@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "企业做 AI，第一仗别打错：先跑通一个真实小流程",
       "description": "企业 AI 第一仗：选一个真实、高频、有反馈、有业务主人的小流程，让 AI 真正改变其中一个动作。闭环没跑通，范围越大返工越贵。",
       "datePublished": "2026-07-03",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-first-battle.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-first-battle.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "企业做 AI，第一仗别打错：先跑通一个真实小流程",
+          "item": "https://willeai.com/topics/fde-first-battle.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "企业 AI 第一个试点怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "选真实、高频、有反馈、有业务主人的小流程：它本来就在日常业务里每天发生，不是为展示临时拼出来的场景。一个动作被 AI 真正改变，比一个全员参与的大平台更有说服力。"}},
-        {"@type": "Question", "name": "为什么不建议第一步就做大项目？", "acceptedAnswer": {"@type": "Answer", "text": "大项目会同时放大几件麻烦：需求被汇报逻辑带着走，最痛的现场问题被包装掉；没人追问谁每天使用、哪个动作变快；每个人都参与却没人持续给反馈。Demo 能跑不等于方向对。"}}
+        {
+          "@type": "Question",
+          "name": "企业 AI 第一个试点怎么选？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "选真实、高频、有反馈、有业务主人的小流程：它本来就在日常业务里每天发生，不是为展示临时拼出来的场景。一个动作被 AI 真正改变，比一个全员参与的大平台更有说服力。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么不建议第一步就做大项目？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大项目会同时放大几件麻烦：需求被汇报逻辑带着走，最痛的现场问题被包装掉；没人追问谁每天使用、哪个动作变快；每个人都参与却没人持续给反馈。Demo 能跑不等于方向对。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="企业做 AI，第一仗别打错：先跑通一个真实小流程 — 小天说FDE">
+<meta name="twitter:description" content="企业 AI 第一仗：选一个真实、高频、有反馈、有业务主人的小流程，让 AI 真正改变其中一个动作。闭环没跑通，范围越大返工越贵。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>企业做 AI，第一仗别打</span>
+    <span>企业 AI 第一仗</span>
   </nav>
   <article>
     <header class="article-header">

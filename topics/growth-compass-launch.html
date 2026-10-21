@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "不是 Demo，是真实上线：我用 AI 手搓了一个「成长指南针」",
       "description": "第一个真正落地的 AI 产品：接入真实用户、数据、支付和积分规则，经历注册审核、接口调试、域名备案。给 8-14 岁孩子做成长报告。",
       "datePublished": "2026-02-08",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/growth-compass-launch.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/growth-compass-launch.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "不是 Demo，是真实上线：我用 AI 手搓了一个「成长指南针」",
+          "item": "https://willeai.com/topics/growth-compass-launch.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "成长指南针是什么？", "acceptedAnswer": {"@type": "Answer", "text": "一份给 8-14 岁孩子的成长报告产品：孩子容易看懂，给家长提供陪伴建议。它不是 Demo——接入了真实用户、数据、支付和积分规则。"}},
-        {"@type": "Question", "name": "AI 做产品，落地最难的环节是什么？", "acceptedAnswer": {"@type": "Answer", "text": "不是生成代码，是那些一点都不酷的环节：注册审核、接口调试、域名备案，以及真实的用户、支付和规则。"}}
+        {
+          "@type": "Question",
+          "name": "成长指南针是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "一份给 8-14 岁孩子的成长报告产品：孩子容易看懂，给家长提供陪伴建议。它不是 Demo——接入了真实用户、数据、支付和积分规则。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 做产品，落地最难的环节是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是生成代码，是那些一点都不酷的环节：注册审核、接口调试、域名备案，以及真实的用户、支付和规则。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="不是 Demo，是真实上线：我用 AI 手搓了一个「成长指南针」 — 小天说FDE">
+<meta name="twitter:description" content="第一个真正落地的 AI 产品：接入真实用户、数据、支付和积分规则，经历注册审核、接口调试、域名备案。给 8-14 岁孩子做成长报告。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>不是 Demo，是真实上</span>
+    <span>成长指南针上线</span>
   </nav>
   <article>
     <header class="article-header">

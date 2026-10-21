@@ -1078,14 +1078,14 @@ body {
   max-width: 72px;
 }
 /* markdown-ish window content */
-.win-md h1 {
+.win-md h2 {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: 1.25rem;
   margin-bottom: 18px;
   color: var(--blue-deep);
 }
-.win-md h1::before {
+.win-md h2::before {
   content: '# ';
   font-family: 'Fira Code', monospace;
   font-weight: 400;
@@ -1755,7 +1755,7 @@ body {
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="小天说FDE · 维天OS — 程序员 all in AI 的内容工作流与升级记录">
 <meta name="twitter:description" content="AI 学习、AI 编程、FDE 转型的真实实践，免费领取 AI 内容工作流与 Skill 工具箱。">
 <meta name="twitter:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
@@ -1763,12 +1763,34 @@ body {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "小天说FDE",
-  "alternateName": "维天说",
-  "url": "https://willeai.com/",
-  "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
-  "knowsAbout": ["FDE", "AI编程", "Claude Code", "AI Agent", "AI 内容工作流", "知识库"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://willeai.com/#website",
+      "name": "小天说FDE · 维天OS",
+      "url": "https://willeai.com/",
+      "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -1986,7 +2008,7 @@ body {
       <template id="win-selected">
         <div class="os-window" data-title="找我精选" data-url="维天说 / selected" style="width:520px;">
           <div class="os-body win-md">
-            <h1>找我精选</h1>
+            <h2>找我精选</h2>
             <p class="selected-note">从 FDE 入门、AI 编程和真实实践开始，再看工作流、知识库与 Skill。</p>
             <div class="selected-list">
               <a class="selected-item" href="topics/fde-what-is.html"><span class="selected-type">fde</span><span class="selected-title">FDE 是什么？把 AI 放进真实流程的前线部署工程师</span><span class="selected-arrow">→</span></a>
@@ -2004,7 +2026,7 @@ body {
       <template id="win-workflow-directory">
         <div class="os-window" data-title="内容工作流" data-url="真实素材 → 内容资产" style="width:410px;">
           <div class="os-body win-md">
-            <h1>维天说 AI 内容工作流</h1>
+            <h2>维天说 AI 内容工作流</h2>
             <ol class="workflow-directory">
               <li><div><strong>找到真实素材</strong><span>从经历、项目、笔记和真实卡点开始。</span></div></li>
               <li><div><strong>AI 反向访谈</strong><span>让 AI 先追问事实、冲突和真正的问题。</span></div></li>
@@ -2061,7 +2083,7 @@ body {
       <template id="win-corp">
         <div class="os-window" data-title="企业服务" data-url="weitian-os / enterprise" style="width:460px;">
           <div class="os-body win-md">
-            <h1>企业服务</h1>
+            <h2>企业服务</h2>
             <p style="font-size:13px;color:var(--ink-light);margin-bottom:14px;">ToC 内容之外，企业客户按场景承接诊断、培训与落地。</p>
             <div style="font-size:13.5px;line-height:2;">
               <p><strong>经营主体</strong>：杭州纬聆科技有限公司</p>
@@ -2078,7 +2100,7 @@ body {
       <template id="win-website-history">
         <div class="os-window" data-title="升级日志" data-url="维天 OS / changelog" style="width:500px;">
           <div class="os-body win-md">
-            <h1>最近升级</h1>
+            <h2>最近升级</h2>
             <div class="selected-list">
               <a class="selected-item" href="/topics/"><span class="selected-type">10.21</span><span class="selected-title">官网「全部文章」内容体系上线，GEO/SEO 启动</span><span class="selected-arrow">→</span></a>
               <a class="selected-item" href="#works"><span class="selected-type">10.12</span><span class="selected-title">公众号发布《被裁了三次，最后一次是我自己裸辞》</span><span class="selected-arrow">→</span></a>

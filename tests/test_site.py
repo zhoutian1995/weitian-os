@@ -5,6 +5,8 @@ import json
 from html.parser import HTMLParser
 from pathlib import Path
 import re
+import subprocess
+import sys
 import unittest
 from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
@@ -23,6 +25,12 @@ class Page(HTMLParser):
         self.groups = []
         self.articles = []
         self.json_ld = []
+        self.body_links = []
+        self.related_links = []
+        self.body_depth = 0
+        self.in_breadcrumb = False
+        self.in_breadcrumb_label = False
+        self.breadcrumb_label = ""
         self.in_head = False
         self.capture = None
         self.buffer = []
@@ -36,6 +44,16 @@ class Page(HTMLParser):
         if self.in_head:
             self.head_elements.append((tag, attrs))
         classes = attrs.get("class", "").split()
+        if tag == "nav" and "breadcrumb" in classes:
+            self.in_breadcrumb = True
+        if tag == "span" and self.in_breadcrumb and not classes:
+            self.in_breadcrumb_label = True
+        if tag == "div" and (self.body_depth or "article-body" in classes):
+            self.body_depth += 1
+        if tag == "a" and self.body_depth:
+            self.body_links.append(attrs.get("href", ""))
+        if tag == "a" and "related-item" in classes:
+            self.related_links.append(attrs.get("href", ""))
         if tag == "title" or (tag == "script" and attrs.get("type") == "application/ld+json"):
             self.capture = tag
             self.buffer = []
@@ -48,10 +66,18 @@ class Page(HTMLParser):
             self.groups[-1]["links"].append(attrs["href"])
 
     def handle_data(self, data):
+        if self.in_breadcrumb_label:
+            self.breadcrumb_label += data
         if self.capture:
             self.buffer.append(data)
 
     def handle_endtag(self, tag):
+        if tag == "span":
+            self.in_breadcrumb_label = False
+        if tag == "nav":
+            self.in_breadcrumb = False
+        if tag == "div" and self.body_depth:
+            self.body_depth -= 1
         if tag == "head":
             self.in_head = False
         if tag == self.capture:
@@ -131,6 +157,79 @@ class SiteTests(unittest.TestCase):
                         if "@id" in author:
                             author = people[author["@id"]]
                         self.assertEqual(author["name"], "小天说FDE")
+
+    def test_social_metadata(self):
+        for url, page in self.pages.items():
+            with self.subTest(url=url):
+                self.assertEqual(page.metadata("twitter:card"), ["summary_large_image"])
+                for key in ("og:image", "twitter:image", "twitter:title", "twitter:description"):
+                    self.assertEqual(len(page.metadata(key)), 1, key)
+                    self.assertTrue(page.metadata(key)[0].strip(), key)
+                self.assertEqual(page.metadata("twitter:image"), page.metadata("og:image"))
+                self.assertTrue(local_path(page.metadata("og:image")[0]).is_file())
+                self.assertEqual(sum(tag == "link" and attrs.get("rel") == "icon"
+                                     for tag, attrs in page.head_elements), 1)
+
+    def test_article_schema_consistency(self):
+        for url in self.article_urls:
+            with self.subTest(url=url):
+                page = self.pages[url]
+                nodes = [node for document in page.json_ld
+                         for node in document.get("@graph", [document])]
+                self.assertCountEqual([node["@type"] for node in nodes],
+                                      ["Person", "Article", "BreadcrumbList", "FAQPage"])
+                by_type = {node["@type"]: node for node in nodes}
+                person = by_type["Person"]
+                article = by_type["Article"]
+                self.assertEqual(person["@id"], ORIGIN + "#person")
+                self.assertEqual(article["author"], {"@id": person["@id"]})
+                self.assertEqual(article["publisher"], article["author"])
+                self.assertEqual(article["image"], page.metadata("og:image")[0])
+                self.assertEqual(article["description"], page.metadata("description")[0])
+                crumbs = by_type["BreadcrumbList"]["itemListElement"]
+                self.assertEqual([item["position"] for item in crumbs], [1, 2, 3])
+                self.assertEqual([item["item"] for item in crumbs], [ORIGIN, ORIGIN + "topics/", url])
+                self.assertEqual(crumbs[-1]["name"], article["headline"])
+
+    def test_personal_website_schema_and_headings(self):
+        home = self.pages[ORIGIN]
+        nodes = [node for document in home.json_ld for node in document.get("@graph", [document])]
+        self.assertCountEqual([node["@type"] for node in nodes], ["Person", "WebSite"])
+        website = next(node for node in nodes if node["@type"] == "WebSite")
+        self.assertEqual(website["url"], ORIGIN)
+        self.assertEqual(website["name"], home.metadata("og:site_name")[0])
+        self.assertEqual(website["inLanguage"], "zh-CN")
+        self.assertEqual(website["publisher"], {"@id": ORIGIN + "#person"})
+        self.assertEqual(sum(tag == "h1" for tag, _ in home.elements), 1)
+
+    def test_priority_article_citations_and_links(self):
+        stems = ("fde-what-is", "claude-code-source-notes", "agent-running-dumber",
+                 "fde-seven-capabilities", "ai-coding-subtraction", "model-brain-skill-toolbox",
+                 "remote-agent-rescue", "picoclaw-arm-port")
+        for stem in stems:
+            url = ORIGIN + "topics/" + stem + ".html"
+            page = self.pages[url]
+            with self.subTest(url=url):
+                sources = {href for href in page.body_links
+                           if urlsplit(href).scheme == "https"
+                           and urlsplit(href).netloc not in ("willeai.com", "willeai.cn")}
+                self.assertGreaterEqual(len(sources), 2)
+                related = {href for href in page.related_links if href in self.article_urls}
+                self.assertEqual(len(related), 3)
+                self.assertNotIn(url, related)
+
+    def test_generated_geo_metadata_is_current(self):
+        result = subprocess.run([sys.executable, "-B", str(ROOT / "scripts/refresh_geo.py"), "--check"],
+                                capture_output=True, text=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_breadcrumb_labels_are_short(self):
+        for url in self.article_urls:
+            with self.subTest(url=url):
+                label = self.pages[url].breadcrumb_label
+                self.assertTrue(label.strip())
+                self.assertLessEqual(len(label), 16)
+                self.assertNotIn("...", label)
 
     def test_internal_links_and_assets_exist(self):
         for url, page in self.pages.items():

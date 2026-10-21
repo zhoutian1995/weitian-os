@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "Agent 时代，企业信息化为什么要从底层重做",
       "description": "不只是给旧系统加聊天入口。任务会从人打开系统跨部门找数据，变成 Agent 理解目标调用能力。CRM/OA/ERP 要改造成 Agent 能安全调用的工具。",
       "datePublished": "2026-06-11",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/agent-era-enterprise-it.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/agent-era-enterprise-it.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agent 时代，企业信息化为什么要从底层重做",
+          "item": "https://willeai.com/topics/agent-era-enterprise-it.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Agent 时代企业 IT 怎么变？", "acceptedAnswer": {"@type": "Answer", "text": "任务执行方式从人驱动变成 Agent 驱动：Agent 理解目标、拆步骤、调用系统能力。企业信息化从「给人用的界面」转向「Agent 能安全调用的接口」。"}},
-        {"@type": "Question", "name": "旧系统怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "不用推倒重来，但要开始改造：把 CRM、OA、ERP 封装成 Agent 可安全调用的工具，配上权限和审计。"}}
+        {
+          "@type": "Question",
+          "name": "Agent 时代企业 IT 怎么变？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "任务执行方式从人驱动变成 Agent 驱动：Agent 理解目标、拆步骤、调用系统能力。企业信息化从「给人用的界面」转向「Agent 能安全调用的接口」。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "旧系统怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不用推倒重来，但要开始改造：把 CRM、OA、ERP 封装成 Agent 可安全调用的工具，配上权限和审计。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agent 时代，企业信息化为什么要从底层重做 — 小天说FDE">
+<meta name="twitter:description" content="不只是给旧系统加聊天入口。任务会从人打开系统跨部门找数据，变成 Agent 理解目标调用能力。CRM/OA/ERP 要改造成 Agent 能安全调用的工具。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>Agent 时代，企业信</span>
+    <span>Agent 时代的企业信息化</span>
   </nav>
   <article>
     <header class="article-header">

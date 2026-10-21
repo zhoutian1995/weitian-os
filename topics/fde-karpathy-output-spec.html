@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "FDE 实测：用 Karpathy 方法规范 AI 输出",
       "description": "AI 味最烦的不是说错，而是没说什么却像说了很多。用航空维修手册的规则改稿，连最舍不得删的金句都被砍了。",
       "datePublished": "2026-10-05",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/fde-karpathy-output-spec.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-karpathy-output-spec.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FDE 实测：用 Karpathy 方法规范 AI 输出",
+          "item": "https://willeai.com/topics/fde-karpathy-output-spec.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "什么是 Karpathy 方法？", "acceptedAnswer": {"@type": "Answer", "text": "来自 Karpathy 的写作主张：像航空维修手册一样写——每个词都要有功能，删掉所有不承载信息的句子。用在规范 AI 输出上非常有效。"}},
-        {"@type": "Question", "name": "AI 味怎么去？", "acceptedAnswer": {"@type": "Answer", "text": "用规则约束而不是靠感觉：短句、结论前置、砍修饰、每个断言都要有支撑。让 AI 按手册风格改写，金句装饰也会被砍掉——这正是目的。"}}
+        {
+          "@type": "Question",
+          "name": "什么是 Karpathy 方法？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "来自 Karpathy 的写作主张：像航空维修手册一样写——每个词都要有功能，删掉所有不承载信息的句子。用在规范 AI 输出上非常有效。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 味怎么去？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用规则约束而不是靠感觉：短句、结论前置、砍修饰、每个断言都要有支撑。让 AI 按手册风格改写，金句装饰也会被砍掉——这正是目的。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FDE 实测：用 Karpathy 方法规范 AI 输出 — 小天说FDE">
+<meta name="twitter:description" content="AI 味最烦的不是说错，而是没说什么却像说了很多。用航空维修手册的规则改稿，连最舍不得删的金句都被砍了。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>FDE 实测：用 Kar</span>
+    <span>Karpathy 输出规范</span>
   </nav>
   <article>
     <header class="article-header">

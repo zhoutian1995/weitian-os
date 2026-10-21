@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "大模型只是大脑，Skill 才是工具箱",
       "description": "模型聪明不等于会干活。刚到手的 Agent 像刚入职的新同事：能聊天能写方案，但不知道你的流程细节。靠的不是模型，是 Skill。",
       "datePublished": "2026-04-12",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/model-brain-skill-toolbox.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/model-brain-skill-toolbox.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "大模型只是大脑，Skill 才是工具箱",
+          "item": "https://willeai.com/topics/model-brain-skill-toolbox.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "为什么说大模型只是大脑？", "acceptedAnswer": {"@type": "Answer", "text": "模型可以写得很快、理解很多东西，但它不会天然知道你的文章要怎么拆、图片要怎么审、七个平台的排版差异在哪里，更不会自动记住「不要把 AI 生成声明写成作者身份」这种细节。执行这些靠的是 Skill。"}},
-        {"@type": "Question", "name": "Skill 到底是什么？", "acceptedAnswer": {"@type": "Answer", "text": "Skill 是 Agent 的工具箱和做事方法：把稳定重复的工作拆成可复用的流程、工具和规则。模型负责理解和生成，Skill 负责让它在你的真实场景里做对事。"}}
+        {
+          "@type": "Question",
+          "name": "为什么说大模型只是大脑？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "模型可以写得很快、理解很多东西，但它不会天然知道你的文章要怎么拆、图片要怎么审、七个平台的排版差异在哪里，更不会自动记住「不要把 AI 生成声明写成作者身份」这种细节。执行这些靠的是 Skill。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Skill 到底是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skill 是 Agent 的工具箱和做事方法：把稳定重复的工作拆成可复用的流程、工具和规则。模型负责理解和生成，Skill 负责让它在你的真实场景里做对事。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="大模型只是大脑，Skill 才是工具箱 — 小天说FDE">
+<meta name="twitter:description" content="模型聪明不等于会干活。刚到手的 Agent 像刚入职的新同事：能聊天能写方案，但不知道你的流程细节。靠的不是模型，是 Skill。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>大模型只是大脑，Skil</span>
+    <span>模型与工具箱</span>
   </nav>
   <article>
     <header class="article-header">
@@ -135,6 +199,14 @@
       <p>Skill，才是让它别乱来的工具箱。</p>
       <p>本文来自「小天说FDE」，全平台同名。</p>
       <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+      <section class="article-references" aria-label="官方资料">
+        <h2 class="section-title">官方资料</h2>
+        <ul>
+          <li><a href="https://claude.com/resources/articles/skills" target="_blank" rel="noopener noreferrer">Anthropic：Introducing Agent Skills</a></li>
+          <li><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">Anthropic：Agent Skills 官方仓库</a></li>
+          <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol：协议与文档</a></li>
+        </ul>
+      </section>
     </div>
     <section class="faq-section" aria-label="常见问题">
       <h2 class="section-title">常见问题</h2>
@@ -161,6 +233,9 @@
     <section class="related">
       <h2 class="section-title">继续读</h2>
       <div class="related-list">
+        <a class="related-item" href="https://willeai.com/topics/claude-code-source-notes.html"><span class="rel-tag">实战</span><span class="rel-title">我让 AI 读完了 Claude Code 的 51 万行源码</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/ai-coding-subtraction.html"><span class="rel-tag">编程</span><span class="rel-title">AI 越会写代码，FDE 越要做减法</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="https://willeai.com/topics/remote-agent-rescue.html"><span class="rel-tag">运维</span><span class="rel-title">人在外面，家里 Agent 挂了：远程救场</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
         <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
       </div>

@@ -20,26 +20,90 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "name": "小天说FDE",
+      "alternateName": "维天说",
+      "url": "https://willeai.com/",
+      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "knowsAbout": [
+        "FDE",
+        "AI编程",
+        "Claude Code",
+        "AI Agent",
+        "AI 内容工作流",
+        "知识库"
+      ],
+      "@id": "https://willeai.com/#person"
+    },
+    {
       "@type": "Article",
       "headline": "我给 AI 造了一个家：「双轨制」个人网站实验",
       "description": "社交平台适合传播，不适合长期安放内容。双轨制判断：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。",
       "datePublished": "2026-03-16",
       "dateModified": "2026-10-21",
       "inLanguage": "zh-CN",
-      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
-      "mainEntityOfPage": "https://willeai.com/topics/cyber-hub-experiment.html"
+      "author": {
+        "@id": "https://willeai.com/#person"
+      },
+      "publisher": {
+        "@id": "https://willeai.com/#person"
+      },
+      "mainEntityOfPage": "https://willeai.com/topics/cyber-hub-experiment.html",
+      "image": "https://willeai.com/topics/assets/images/fde-flow.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://willeai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://willeai.com/topics/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "我给 AI 造了一个家：「双轨制」个人网站实验",
+          "item": "https://willeai.com/topics/cyber-hub-experiment.html"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "什么是双轨制网站？", "acceptedAnswer": {"@type": "Answer", "text": "同一份内容两条输出：人类可读的排版 + Agent 可读的结构化上下文。社交平台只解决传播，安放内容要自己的地址。"}},
-        {"@type": "Question", "name": "这个实验和现在的 willeai.com 什么关系？", "acceptedAnswer": {"@type": "Answer", "text": "它是前身。今天官网的 /topics/ 文章体系 + llms.txt，就是双轨制判断的落地：人读 HTML，Agent 读结构化入口。"}}
+        {
+          "@type": "Question",
+          "name": "什么是双轨制网站？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "同一份内容两条输出：人类可读的排版 + Agent 可读的结构化上下文。社交平台只解决传播，安放内容要自己的地址。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这个实验和现在的 willeai.com 什么关系？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它是前身。今天官网的 /topics/ 文章体系 + llms.txt，就是双轨制判断的落地：人读 HTML，Agent 读结构化入口。"
+          }
+        }
       ]
     }
   ]
 }
 </script>
+<meta property="og:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="我给 AI 造了一个家：「双轨制」个人网站实验 — 小天说FDE">
+<meta name="twitter:description" content="社交平台适合传播，不适合长期安放内容。双轨制判断：同一份内容，既要让人读得舒服，也要让 Agent 读得明白。">
+<meta name="twitter:image" content="https://willeai.com/topics/assets/images/fde-flow.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 <nav class="topnav">
@@ -50,7 +114,7 @@
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="../index.html">首页</a><span class="sep">/</span>
     <a href="./index.html">全部文章</a><span class="sep">/</span>
-    <span>我给 AI 造了一个家：</span>
+    <span>双轨制网站实验</span>
   </nav>
   <article>
     <header class="article-header">
