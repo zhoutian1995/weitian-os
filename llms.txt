@@ -7,8 +7,16 @@
 ## 文章
 
 - [FDE 是什么？前线部署工程师完全解读](https://willeai.com/topics/fde-what-is.html): FDE（Forward Deployed Engineer）的定义、五种核心能力、与普通工程师和 AI 产品经理的区别、程序员转型路径
-- [AI 领电脑上岗：Agent 云电脑时代，FDE 负责划边界](https://willeai.com/topics/agent-gets-own-computer.html): Manus 2.0、OpenAI Dots、Grok Bot 给 AI 配云电脑、身份和钱包；权限、审批与 FDE 的新位置
-- [制造业 FDE，先把成本算清](https://willeai.com/topics/manufacturing-fde-cost.html): 制造业财务 AI 落地路径——为什么成本核算是第一个场景、AI 如何追查成本异常、窄场景打法
+- [FDE 的七种能力](https://willeai.com/topics/fde-seven-capabilities.html): 五项能力模型升级为七项：补上业务认知与资产复利，前置条件是一把手认知
+- [没有沉淀，就不是 FDE](https://willeai.com/topics/fde-dual-loop.html): FDE 交付的双循环——内循环解决眼前问题，外循环沉淀可复用资产
+- [企业做 AI，第一仗别打错](https://willeai.com/topics/fde-first-battle.html): 选真实、高频、有反馈、有业务主人的小流程先跑通，不做大平台
+- [AI 越会写代码，FDE 越要做减法](https://willeai.com/topics/ai-coding-subtraction.html): 开发能力过剩时代，YAGNI 与奥卡姆剃刀管住 AI 带来的功能蔓延
+- [AI 领电脑上岗，FDE 负责划边界](https://willeai.com/topics/agent-gets-own-computer.html): Manus/OpenAI Dots/Grok Bot 给 AI 配云电脑、身份和钱包；FDE 的新位置是设计边界与验收
+- [大模型只是大脑，Skill 才是工具箱](https://willeai.com/topics/model-brain-skill-toolbox.html): 模型聪明不等于会干活，Agent 需要稳定的做事方法、工具和规则
+- [PicoClaw 在 ARM 开发板上的移植实战](https://willeai.com/topics/picoclaw-arm-port.html): 把 Agent 框架塞进 16MB NOR Flash 的摄像机开发板，嵌入式工程师的硬核实验
+- [Tailscale + SSH + tmux 远程救场](https://willeai.com/topics/remote-agent-rescue.html): 人在外面远程救活家里挂掉的 Agent，保住终端现场
+- [技术越来越便宜，值钱的是业务理解和信任](https://willeai.com/topics/technology-value-shift.html): AI 时代程序员价值迁移与 FDE 路线的底层逻辑
+- [制造业 FDE，先把成本算清](https://willeai.com/topics/manufacturing-fde-cost.html): 制造业财务 AI 落地路径——成本核算作为第一个验证场景、异常追因、窄场景打法
 
 ## 站点导航
 
@@ -21,6 +29,7 @@
 - 经历：上海索尼中国实习 → 杭州大华股份摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI
 - 主题领域：FDE 转型、AI 编程（Claude Code / AI Agent）、AI 内容工作流、个人知识库
 - 免费领取：AI 内容工作流 + Skill 工具箱（网站内有微信入口）
+- 企业服务：杭州纬聆科技有限公司（willeai.cn）——AI 诊断、培训、落地与系统集成
 
 ## 引用说明
 

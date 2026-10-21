@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战 — 小天说FDE</title>
+<meta name="description" content="嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替代不了板级验证。">
+<link rel="canonical" href="https://willeai.com/topics/picoclaw-arm-port.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战 — 小天说FDE">
+<meta property="og:description" content="嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替代不了板级验证。">
+<meta property="og:url" content="https://willeai.com/topics/picoclaw-arm-port.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战",
+      "description": "嵌入式工程师的实验：把超轻量 Agent 框架 PicoClaw 塞进 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板。AI 加速移植，替",
+      "datePublished": "2026-03-08",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/picoclaw-arm-port.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "PicoClaw 能跑在什么硬件上？", "acceptedAnswer": {"@type": "Answer", "text": "实测跑通 32 位 ARM Cortex-A7、64MB DDR2、16MB NOR Flash 的开发板：UPX 压缩后约 2.9MB，运行时 RSS 约 18.5MB，开机自启并可长期运行。不同芯片、SDK 和分区方案差异很大，需要按板子裁剪。"}},
+        {"@type": "Question", "name": "AI 在嵌入式移植里起什么作用？", "acceptedAnswer": {"@type": "Answer", "text": "AI（OpenCode/Claude）加速了交叉编译、32 位兼容和排错的大部分环节；但板级验证——启动、内存、稳定性——必须人在真板上确认，AI 替代不了。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>把 AI 助手塞进 16</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">嵌入式 · 硬核实战</p>
+      <h1 class="article-title">把 AI 助手塞进 16MB Flash：PicoClaw 在 ARM 开发板上的硬核移植实战</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-03-08 发布</span>
+        <span>约 12 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>把超轻量 Agent 框架 PicoClaw 塞进一块<strong>只有 16MB NOR Flash、64MB 内存的 ARM 摄像机开发板</strong>：UPX 压缩后约 2.9MB，开机自启，通过 Telegram Bot 对话，运行时 RSS 约 18.5MB，全程约五小时。<strong>AI 能加速移植，替代不了板级验证。</strong>这不是复制命令就能成功的教程，记录的是真正决定成败的工程判断。</p>
+    </section>
+    <div class="article-body">
+      <p>我是做嵌入式开发的，平时最熟悉的不是“大模型参数”，而是内存、Flash 和启动时间。</p>
+      <p>所以当我看到 PicoClaw 这个超轻量级 Agent 框架时，第一反应不是把它装到服务器，而是：能不能塞进一块只有 16MB NOR Flash、64MB 内存的 ARM 开发板？</p>
+      <p>我用公司的一块网络摄像机开发板做了实验。最后跑通了：PicoClaw 经 UPX 压缩后约 2.9MB，能够开机自启，通过 Telegram Bot 对话，运行时 RSS 大约 18.5MB。整个移植和排错过程大约用了五个小时，主要借助 OpenCode 和 Claude 完成。</p>
+      <p>这不是一篇“复制命令就能成功”的教程。不同芯片、SDK 和分区方案差异很大。我更想记录几个真正决定成败的工程判断：怎么裁系统、怎么重新分配 Flash、怎么处理 32 位兼容，以及为什么 AI 能加速移植，却替代不了板级验证。</p>
+      <h2 class="section-title">一、先看硬件约束</h2>
+      <p>这块开发板使用 32 位 ARM Cortex-A7，64MB DDR2 和 16MB NOR Flash。它原本服务于 IPC 网络摄像机，资源预算已经被内核、根文件系统、厂商服务和业务程序分走。</p>
+      <p>网络上，开发板通过局域网代理访问模型 API 和 Telegram。文章不保留真实代理地址，部署时应使用自己的 <code><PROXY_HOST>:<PORT></code>，并限制来源设备。</p>
+      <p>我的目标很明确：不增加硬件，尽量不动 Bootloader，只在现有 16MB Flash 里挤出 PicoClaw、配置和证书的位置。</p>
+      <h2 class="section-title">二、整体架构和分区思路</h2>
+      <p>PicoClaw 不在本地运行大模型。设备端负责接收消息、调用远端模型、执行受控工具，再把结果返回。这样能把模型计算留在云端，把 Agent 入口放到资源受限的设备上。</p>
+      <p>16MB Flash 最难的不是“二进制能不能放下”，而是每个分区都有硬边界。原来的 customer 分区只有 1MB，PicoClaw 压缩后仍接近 3MB，必须重新分配。</p>
+      <p>最终调整有三点：</p>
+      <ul>
+      <li><strong>1.</strong> rootfs 从只读 squashfs 改为可写的 jffs2，方便配置 DNS 和运行时文件；</li>
+      <li><strong>2.</strong> customer 分区扩大到约 3.75MB，用来放 PicoClaw、配置和证书；</li>
+      <li><strong>3.</strong> sdk_libs 严格控制在 2MB 以内，只保留实际依赖的库。</li>
+      </ul>
+      <p>这三项是一个整体。只扩 customer、不裁 sdk_libs，镜像仍然过不了打包检查；只压二进制、不处理可写文件系统，程序启动后也会在 DNS 和日志环节卡住。</p>
+      <h2 class="section-title">三、先从内核和系统里拿回空间</h2>
+      <p>原始 SDK 为完整摄像机能力准备了不少资源：MMA、CMA、Wi-Fi、USB、传感器、调试信息和多个文件系统。这个实验不需要它们。</p>
+      <p>我在 <code>project/configs/current.configs</code> 里关闭不用的功能，把 MMA 从 16MB 降到 1MB，关闭 CMA、调试、Wi-Fi、USB、传感器以及不使用的文件系统。</p>
+      <p>核心不是照抄某个配置值，而是逐项回答两个问题：这个能力当前镜像会不会用？关掉后有没有启动或驱动依赖？</p>
+      <p>修改后重新应用配置并编译内核：</p>
+      <pre><code>cd /path/to/arm_sdk/project
+make defconfig
+make uimage -j16</code></pre>
+      <p>当时编译出的压缩内核约 2.04MiB，落在 3MB 的内核分区预算内。</p>
+      <h2 class="section-title">四、重新分配 Flash</h2>
+      <p>原 customer 分区只有 1MB，放不下 2.9MB 的 PicoClaw。我的做法是压缩其他区域、扩大 customer，同时保留升级和回滚需要的基本空间。</p>
+      <p>rootfs 改为 jffs2 的原因也很具体：程序需要可写的 <code>/etc/resolv.conf</code> 和临时日志目录。squashfs 只读，启动脚本再正确也写不进去。</p>
+      <p>这里有个代价：jffs2 的空间效率和启动表现与 squashfs 不同。生产环境不能只看“能写”，还要测试掉电、擦写寿命、升级流程和异常恢复。</p>
+      <h2 class="section-title">五、交叉编译 PicoClaw</h2>
+      <p>目标平台是 32 位 ARMv7，Go 侧采用静态编译并去掉调试符号：</p>
+      <pre><code>cd /path/to/picoclaw
+
+CGO_ENABLED=0 \
+GOOS=linux \
+GOARCH=arm \
+GOARM=7 \
+go build -tags embed -ldflags="-s -w" \
+  -o picoclaw-arm ./cmd/picoclaw
+
+upx --best -o picoclaw-arm-upx picoclaw-arm</code></pre>
+      <p>当时的大小变化大致是：原始二进制约 13MB，使用 <code>embed</code> 标签后约 8.7MB，再经 UPX 压缩到约 2.9MB。</p>
+      <p>UPX 不是免费午餐。它会增加启动时解压成本，也可能影响某些安全扫描和调试流程。这里选择它，是因为 Flash 空间比启动开销更紧张。</p>
+      <p>证书和配置文件也要一起打包，但不能把 API Key、Bot Token 或真实代理地址写进文章、仓库和通用镜像。它们应在设备侧注入，并限制文件权限。</p>
+      <h2 class="section-title">六、打包和烧录</h2>
+      <p>打包阶段遇到的主要问题，是 <code>sdk_libs.sqfs</code> 超过分区限制。SDK 默认复制了大量第三方库，其中很多与这个最小化实验无关。</p>
+      <p>我修改 <code>sdk_libs.mk</code>，跳过批量复制，只保留运行必须的库。库文件从 44 个、约 4.9MB，缩到 2 个、约 52KB，最终 <code>sdk_libs.sqfs</code> 约 500KB。</p>
+      <p>烧录仍沿用开发板原有流程：生成升级镜像，写入 FAT32 SD 卡，进入 U-Boot 执行升级，再通过串口检查启动日志。每块板子的命令和镜像格式不同，不能直接套用这套烧录步骤。</p>
+      <h2 class="section-title">七、四个最费时间的问题</h2>
+      <h2 class="section-title" style="font-size:19px;">1. 打包镜像超限</h2>
+      <p>症状是厂商服务镜像超过 2MB 阈值。根因不是 PicoClaw 本身，而是打包脚本把不需要的第三方库全复制进来了。</p>
+      <p>修复方式不是继续压缩所有文件，而是追踪打包依赖，只留下真正会加载的库。</p>
+      <h2 class="section-title" style="font-size:19px;">2. TLS 证书验证失败</h2>
+      <p>设备开机时间停在 1970 年，证书当然无法通过有效期校验。</p>
+      <p>我在启动流程里增加 NTP 同步，并在时间未校准时阻止需要 TLS 的服务启动。不要用长期写死的未来日期“骗过”证书检查，那只会把问题藏起来。</p>
+      <h2 class="section-title" style="font-size:19px;">3. DNS 解析失败</h2>
+      <p>原 rootfs 是只读 squashfs，无法更新 <code>/etc/resolv.conf</code>。改为 jffs2 后，再由启动脚本写入受控的 DNS 配置，问题才解决。</p>
+      <h2 class="section-title" style="font-size:19px;">4. 32 位 ARM 上的 <code>math.MaxInt64</code> 溢出</h2>
+      <p>某个可选 SDK 在 32 位平台上把 <code>math.MaxInt64</code> 放进了 <code>int</code>，编译时报溢出。使用 <code>-tags embed</code> 只编译 Telegram 所需通道，排除了不需要的平台依赖，也顺带缩小了二进制。</p>
+      <p>这个问题很典型：很多库默认开发者运行在 64 位服务器上，一到嵌入式平台，隐含假设就会暴露。</p>
+      <h2 class="section-title">八、最终资源占用</h2>
+      <p>当时 16MB Flash 的实际使用约 13.6MB。内核约 2.1MB，rootfs 约 5.8MB，customer 约 3.2MB，其他分区保留给 Boot、环境、杂项和厂商服务。</p>
+      <p>PicoClaw 进程的 RSS 约 18.5MB；空闲时大约 8—10MB，对话时常见 15—20MB。CPU 空闲约 1%—2%，处理消息时约 15%—25%。这些数字只代表这块板和当时的软件版本，不能当成所有 ARM 设备的承诺值。</p>
+      <h2 class="section-title">九、跑起来之后</h2>
+      <p>串口日志确认程序可以开机自启，Telegram Bot 能正常收发消息。原始启动日志含内网端口和 Telegram 标识，只保留在来源证据中，不进入跨平台正文。下面四张图是当时的实际对话记录。</p>
+      <h2 class="section-title">十、我真正得到的结论</h2>
+      <p>PicoClaw 跑在小设备上，不代表 16MB Flash 里塞进了一个本地大模型。它证明的是另一件事：资源受限设备也可以承载 Agent 入口、工具接口和本地控制逻辑，把推理交给远端模型。</p>
+      <p>这会改变嵌入式应用层的设计。过去常见链路是“App → 云端 → 设备”；未来一部分设备会变成“用户 → Agent → 工具接口和外设”。用户说自然语言，Agent 决定调用哪个受控能力，再由设备执行。</p>
+      <p>但真正落地时，权限、离线能力、错误恢复和安全边界，比“能不能聊天”重要得多。摄像头、门锁和工业设备不能因为模型误判就随意动作。</p>
+      <p>AI 编程在这次实验里确实帮了很大忙。交叉编译参数、Makefile、32 位溢出和启动脚本，都能更快得到候选方案。但最后判断分区能不能动、板子会不会起不来、串口日志意味着什么，仍然依赖嵌入式和 Linux 经验。</p>
+      <p>我不是把工程交给了 AI。我是多了一个能快速查资料、写候选补丁、陪我排错的搭档。</p>
+      <p>这就已经很有用了。</p>
+      <p>---</p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>PicoClaw 能跑在什么硬件上？</summary><div class="faq-answer">实测跑通 32 位 ARM Cortex-A7、64MB DDR2、16MB NOR Flash 的开发板：UPX 压缩后约 2.9MB，运行时 RSS 约 18.5MB，开机自启并可长期运行。不同芯片、SDK 和分区方案差异很大，需要按板子裁剪。</div></details>
+<details class="faq-item"><summary>AI 在嵌入式移植里起什么作用？</summary><div class="faq-answer">AI（OpenCode/Claude）加速了交叉编译、32 位兼容和排错的大部分环节；但板级验证——启动、内存、稳定性——必须人在真板上确认，AI 替代不了。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

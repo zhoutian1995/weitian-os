@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场 — 小天说FDE</title>
+<meta name="description" content="手机收到监控报警，人却在饭店。Tailscale+SSH+tmux：不要公网 IP、不买 VPS，保住终端现场，远程救活 Agent。">
+<link rel="canonical" href="https://willeai.com/topics/remote-agent-rescue.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场 — 小天说FDE">
+<meta property="og:description" content="手机收到监控报警，人却在饭店。Tailscale+SSH+tmux：不要公网 IP、不买 VPS，保住终端现场，远程救活 Agent。">
+<meta property="og:url" content="https://willeai.com/topics/remote-agent-rescue.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场",
+      "description": "手机收到监控报警，人却在饭店。Tailscale+SSH+tmux：不要公网 IP、不买 VPS，保住终端现场，远程救活 Agent。",
+      "datePublished": "2026-03-13",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/remote-agent-rescue.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "怎么远程救活家里的 Agent？", "acceptedAnswer": {"@type": "Answer", "text": "手机装 SSH 客户端，通过 Tailscale 组成的加密网络连回家里 Mac，attach 到 tmux 会话查看 Claude Code 的输出并继续操作。全程不需要公网 IP，也不用买 VPS。"}},
+        {"@type": "Question", "name": "为什么要用 tmux？", "acceptedAnswer": {"@type": "Answer", "text": "tmux 让终端会话在断线后依然存活。救急时最怕连接到一半断掉——会话在 tmux 里，重连 attach 就能回到现场，排错上下文不丢。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>人在外面，家里 Agen</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">运维 · 实战</p>
+      <h1 class="article-title">人在外面，家里 Agent 挂了：Tailscale + SSH + tmux 远程救场</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-03-13 发布</span>
+        <span>约 6 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>手机突然收到监控报警：家里的 Agent 挂了，人却在外面吃饭。<strong>Tailscale + SSH + tmux 的组合</strong>：不需要公网 IP，也不用单独买 VPS，手机连进 tailnet 打开 Mac 上的 tmux 会话，就能查看 Claude Code 输出、继续排查或重启任务。<strong>关键不是远程桌面，而是保住终端现场。</strong></p>
+    </section>
+    <div class="article-body">
+      <p>有次我在外面吃饭，手机突然收到监控报警：家里的“小龙虾”挂了。</p>
+      <p>人在外面，日志在 Mac 上。等赶回家再处理，最好的排错现场可能已经丢了。</p>
+      <p>我后来把 Tailscale、SSH 和 tmux 组合起来。手机连进自己的 tailnet，通过 SSH 打开 Mac 上的 tmux 会话，就能查看 Claude Code 的输出、继续排查或重启任务。</p>
+      <p>这套方案不需要公网 IP，也不用单独买 VPS。关键不是“远程桌面”，而是保住终端现场。</p>
+      <h2 class="section-title">为什么我没有只用 Claude Code 的远程功能</h2>
+      <p>当时我试过 Claude Code 的 <code>/rc</code>。它很方便，但在我所处的网络环境里，连接偶尔不稳定。救急时最怕的不是功能少，而是连接到一半断掉。</p>
+      <p>所以我准备了一条更通用的路径：</p>
+      <pre><code>手机上的 SSH 客户端
+        ↓
+Tailscale 加密网络
+        ↓
+家里的 Mac
+        ↓
+tmux 持久会话
+        ↓
+Claude Code / 日志 / 重启命令</code></pre>
+      <p>Tailscale 会尽量建立设备间的直接连接；网络条件不允许时，也可能通过 DERP 中继。更准确的说法是“优先点对点、全程端到端加密”，不是绝对不经过任何中继。连接类型可以参考 [Tailscale 官方说明](https://tailscale.com/docs/reference/connection-types)。</p>
+      <h2 class="section-title">三个工具分别解决什么</h2>
+      <p>| 工具 | 作用 |</p>
+      <p>|---|---|</p>
+      <p>| Tailscale | 让手机和 Mac 像在同一个私有网络里，不暴露公网 SSH 端口 |</p>
+      <p>| SSH | 从手机进入 Mac 的终端 |</p>
+      <p>| tmux | 让任务和会话留在 Mac 上，手机断线后仍继续运行 |</p>
+      <p>tmux 是这套方案的关键。手机只是窗口，真正的会话一直在 Mac 上。切换 Wi-Fi、关闭 App，甚至短时断网，都不会让排查任务跟着消失。</p>
+      <h2 class="section-title">配置前先把安全边界说清楚</h2>
+      <p>远程 SSH 很方便，也意味着手机一旦丢失，风险会变大。</p>
+      <p>我的建议是：</p>
+      <ul>
+      <li>优先使用 SSH 密钥，不把 Mac 登录密码写进提示词、脚本或聊天记录；</li>
+      <li>只允许自己的 Tailscale 设备访问，不要把 22 端口暴露到公网；</li>
+      <li>给手机设置系统锁和生物识别，SSH 私钥放在受保护的钥匙库；</li>
+      <li>限制可登录用户，确认密钥登录可用后再关闭密码认证；</li>
+      <li>对能操作生产环境的 Agent 再加一层确认，不让远程连接等于无限权限。</li>
+      </ul>
+      <p>原公众号文章里有一段“把用户名和密码交给 AI 配置”的提示词。这个做法现在不保留。密码应该由本人交互输入，或者改用密钥认证。</p>
+      <h2 class="section-title">第一步：Mac 端准备</h2>
+      <h2 class="section-title" style="font-size:19px;">开启远程登录</h2>
+      <p>在 macOS 中打开：</p>
+      <pre><code>系统设置 → 通用 → 共享 → 远程登录</code></pre>
+      <p>只允许需要的用户登录，不要默认开放给所有本机账户。</p>
+      <h2 class="section-title" style="font-size:19px;">安装 tmux</h2>
+      <pre><code>brew install tmux</code></pre>
+      <h2 class="section-title" style="font-size:19px;">安装并登录 Tailscale</h2>
+      <p>Mac 和手机加入同一个 tailnet。登录后记下 Mac 的 Tailscale 地址，通常是 <code>100.x.x.x</code>，也可以使用 MagicDNS 设备名。</p>
+      <h2 class="section-title" style="font-size:19px;">避免任务因休眠中断</h2>
+      <p>长期运行的 Mac mini 可以在系统设置里调整休眠策略。临时排查时也可以使用：</p>
+      <pre><code>caffeinate -i</code></pre>
+      <p>不要把 <code>caffeinate</code> 当成永久运维方案。真正长期运行的服务还需要开机自启、健康检查和故障恢复。</p>
+      <h2 class="section-title">第二步：手机端准备</h2>
+      <p>手机安装 Tailscale 和一个 SSH 客户端。原文使用的是 Termius，其他支持密钥和主机校验的客户端也可以。</p>
+      <p>连接信息大致如下：</p>
+      <p>| 字段 | 内容 |</p>
+      <p>|---|---|</p>
+      <p>| Address | Mac 的 Tailscale IP 或 MagicDNS 名称 |</p>
+      <p>| Port | 22 |</p>
+      <p>| Username | 允许远程登录的 Mac 用户名 |</p>
+      <p>| Authentication | SSH 私钥，优先于密码 |</p>
+      <p>第一次连接时认真核对主机指纹，不要看到提示就直接点接受。</p>
+      <h2 class="section-title">第三步：把任务放进 tmux</h2>
+      <p>首次创建会话：</p>
+      <pre><code>tmux new -s lobster</code></pre>
+      <p>进入会话后再启动 Claude Code 或你的 Agent：</p>
+      <pre><code>claude</code></pre>
+      <p>断开后重新连接：</p>
+      <pre><code>tmux attach -t lobster</code></pre>
+      <p>如果有多个会话，先查看列表：</p>
+      <pre><code>tmux ls</code></pre>
+      <h2 class="section-title">真出故障时怎么做</h2>
+      <p>我现在的处理顺序很简单：</p>
+      <ul>
+      <li><strong>1.</strong> 手机上打开 Tailscale，确认已连接；</li>
+      <li><strong>2.</strong> 用 SSH 客户端进入 Mac；</li>
+      <li><strong>3.</strong> <code>tmux attach -t lobster</code> 恢复现场；</li>
+      <li><strong>4.</strong> 先看日志和进程状态，不急着重启；</li>
+      <li><strong>5.</strong> 让 Claude Code 给出排查建议，人确认后再执行修改；</li>
+      <li><strong>6.</strong> 修复后验证服务、告警和关键任务是否恢复。</li>
+      </ul>
+      <p>这比远程桌面更适合终端型 Agent。屏幕小没关系，最重要的日志和命令都在会话里。</p>
+      <h2 class="section-title">这套方案解决不了什么</h2>
+      <p>如果 Mac 已经关机、系统卡死、路由器断网或 Tailscale 本身没有启动，手机 SSH 也救不了。要覆盖这些情况，还需要智能插座、带外管理、备用网络或自动拉起机制。</p>
+      <p>所以远程 SSH 是救场工具，不是完整的高可用方案。</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>我喜欢这套组合，不是因为它多高级，而是因为每个工具只做一件事：Tailscale 负责连接，SSH 负责进入，tmux 负责保留现场。</p>
+      <p>技术真正好用的时候，应该让人少赶一次路，少丢一次排错现场。</p>
+      <p>人在外面，手机能安全地回到家里的终端，这就够了。</p>
+      <p>---</p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>怎么远程救活家里的 Agent？</summary><div class="faq-answer">手机装 SSH 客户端，通过 Tailscale 组成的加密网络连回家里 Mac，attach 到 tmux 会话查看 Claude Code 的输出并继续操作。全程不需要公网 IP，也不用买 VPS。</div></details>
+<details class="faq-item"><summary>为什么要用 tmux？</summary><div class="faq-answer">tmux 让终端会话在断线后依然存活。救急时最怕连接到一半断掉——会话在 tmux 里，重连 attach 就能回到现场，排错上下文不丢。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

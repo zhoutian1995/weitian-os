@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE 的七种能力：从五项模型升级，先过一把手认知这道门 — 小天说FDE</title>
+<meta name="description" content="FDE 能力模型从五项升级到七项：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。七项之前还有一道门：一把手认知。">
+<link rel="canonical" href="https://willeai.com/topics/fde-seven-capabilities.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FDE 的七种能力：从五项模型升级，先过一把手认知这道门 — 小天说FDE">
+<meta property="og:description" content="FDE 能力模型从五项升级到七项：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。七项之前还有一道门：一把手认知。">
+<meta property="og:url" content="https://willeai.com/topics/fde-seven-capabilities.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "FDE 的七种能力：从五项模型升级，先过一把手认知这道门",
+      "description": "FDE 能力模型从五项升级到七项：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上业务认知与资产复利。七项之前还有一道门：一把手认知。",
+      "datePublished": "2026-06-17",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-seven-capabilities.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "FDE 的七种能力是什么？", "acceptedAnswer": {"@type": "Answer", "text": "在原五项（价值嗅觉、问题重构、快速构建、评测和护栏、组织推动）基础上补上两项：业务认知——搞懂客户的业务究竟怎么运转，很多项目卡在这里而不是技术；资产复利——每完成一次交付都沉淀可复用的东西，让交付从一次性定制逐步变成行业方案。"}},
+        {"@type": "Question", "name": "为什么一把手认知排在七种能力之前？", "acceptedAnswer": {"@type": "Answer", "text": "AI 项目能否推进，老板的认知往往是关键变量。技术方案不差、项目却卡在老板不理解、员工不配合的情况并不少见。这一层没对齐，后面七项能力很难发挥。"}},
+        {"@type": "Question", "name": "资产复利怎么理解？", "acceptedAnswer": {"@type": "Answer", "text": "真正持续提升交付效率的 FDE，不是做完项目就结束，而是每次交付都沉淀出可复用的模板、组件、工具或检查规则。项目做多了，交付的不再是一次性定制，而是逐步成形的行业方案。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>FDE 的七种能力：从五</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">FDE · 能力模型</p>
+      <h1 class="article-title">FDE 的七种能力：从五项模型升级，先过一把手认知这道门</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-06-17 发布</span>
+        <span>约 9 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p><strong>FDE 能力模型从五项升级到七项</strong>：在价值嗅觉、问题重构、快速构建、评测护栏、组织推动之上，补上被低估的两个维度——业务认知与资产复利。而在七项能力之前还有一道经常被忽略的前提：<strong>一把手认知</strong>。老板对 AI 的预期不合理，后面七项能力也很难发挥。</p>
+    </section>
+    <div class="article-body">
+      <p><strong>结论前置：</strong>之前我把 FDE 的能力拆成了五项。最近做了几个项目后，我发现还有两个维度一直没讲清楚，却会直接影响项目能否进入真实业务流程。今天把模型升级到七项，并补上一道经常被忽略的前提：一把手认知。</p>
+      <h2 class="section-title">为什么要升级</h2>
+      <p>之前拆的五项能力是：价值嗅觉、问题重构、快速构建、评测和护栏、组织推动。</p>
+      <p>这五项覆盖了 FDE 从发现需求到交付上线的主要链路。但做了几个项目之后我发现，有两个环节被我低估了：</p>
+      <p><strong>第一个，是“业务认知”。</strong>以前我把“业务理解”放在价值嗅觉和问题重构里一笔带过了。但实际上，它值得单独拿出来讲。因为不少项目推进受阻，不是因为技术不行，而是 FDE 没搞懂客户的业务究竟怎么运转。</p>
+      <p><strong>第二个，是“资产复利”。</strong>真正能持续提升交付效率的 FDE，不是做完一个项目就结束，而是每完成一次交付，都沉淀出可复用的东西。随着相似项目积累，你交付的不再只是一次性定制，而是逐步成形的行业方案与可复用资产。</p>
+      <p><strong>还有一个更重要的问题，我之前一直没单独拎出来讲——一把手认知。</strong>做了几个项目之后我发现，AI 项目能否持续推进，老板对 AI 的理解往往是关键变量之一。如果这一层没有对齐，后面七项能力也很难发挥。</p>
+      <p>所以今天我把能力模型从五项升到七项。不是为了凑数字，而是因为缺少这些维度，FDE 的交付路径很容易越走越窄。</p>
+      <h2 class="section-title">七项能力之前的第一道门：一把手认知</h2>
+      <p><strong>AI 项目能否推进，老板的认知往往是关键变量。</strong></p>
+      <p>这不是一句空话。在最近几个项目里，我见过技术方案并不差，项目却卡在了“老板不理解”和“员工不配合”上。</p>
+      <p>一把手认知包含两层。</p>
+      <h2 class="section-title" style="font-size:19px;">第一层：老板对 AI 的预期合不合理</h2>
+      <p>很多老板对 AI 的理解来自两样东西：短视频和销售 PPT。</p>
+      <p>短视频告诉他“AI 无所不能”，销售 PPT 告诉他“我们的产品能大幅减少人力投入”。于是老板拍桌子：“给我上 AI，尽快把人力降下来！”</p>
+      <p><strong>这种预期很容易落空。</strong></p>
+      <p>AI 不是银弹。它能在特定场景下明显提升效率，但不能替代所有人的所有工作。如果老板的预期只是“AI 替代人”，一旦有环节没达到预期，他就容易把问题归因于方案无效。</p>
+      <p>FDE 进场之前，更优先的事不是直接做方案，而是<strong>校准老板的预期</strong>。要让他理解：AI 能做什么、不能做什么，效果如何验证，需要投入哪些数据、流程和组织资源。</p>
+      <p><strong>预期一旦失真，后面的方案、实施与验收都会偏离。</strong></p>
+      <h2 class="section-title" style="font-size:19px;">第二层：员工凭什么配合你</h2>
+      <p>这是更现实的问题。</p>
+      <p>你在企业里推 AI 系统，一线员工的第一反应往往不是“太好了，效率要提升了”，而是“是不是要裁人了”。</p>
+      <p><strong>恐惧是本能。当一个人觉得自己的饭碗受到威胁时，他很难主动配合，甚至会用各种方式证明系统不可靠。</strong></p>
+      <p>我见过一个典型场景：企业推动智能客服系统，客服团队嘴上说支持，实际测试时专挑最难的问题，然后把失败截图发到工作群里，证明“AI 答得不行”。</p>
+      <p>他们不一定是反对技术，只是在保护自己。</p>
+      <p><strong>怎么破？</strong></p>
+      <p>第一，<strong>不要让 AI 系统以“替代人”的姿态出现。</strong>目标应该是减少重复劳动，让人把精力放在需要判断的工作上。系统设计也要体现这个边界。</p>
+      <p>第二，<strong>让第一批用户成为受益者。</strong>先找愿意配合的人，让他们真实体验到“AI 帮我减轻了负担”，再由受益者影响观望者。</p>
+      <p>第三，<strong>老板需要公开说明目标与边界。</strong>如果老板只是私下批了预算，却没有向团队解释 AI 为什么要做、不会做什么、员工如何参与，大家的担忧就很难缓解。</p>
+      <p><strong>一把手认知是七项能力的前提条件。</strong>老板理解 AI 的边界，员工才更可能配合；系统真正被使用，后续的评测、迭代和资产沉淀才有基础。</p>
+      <p>所以在讲七项能力之前，我先把这个问题说清楚。如果客户老板仍把 AI 理解成简单替代人，优先要做的是校准预期，而不是直接搭系统。</p>
+      <h2 class="section-title">七项能力一览</h2>
+      <p>| # | 能力 | 核心问题 | 一句话 |</p>
+      <p>| --- | --- | --- | --- |</p>
+      <p>| 1 | 价值嗅觉 | 什么场景值得做？ | 不是所有问题都值得用 AI 解决 |</p>
+      <p>| 2 | 问题重构 | 客户真正要的是什么？ | 听懂弦外之音 |</p>
+      <p>| 3 | 快速构建 | 怎么最快跑起来？ | 先做小原型，不直接堆完整产品 |</p>
+      <p>| 4 | 评测和护栏 | 怎么保证不翻车？ | Demo 能跑不等于生产能用 |</p>
+      <p>| 5 | 业务认知 | 客户的业务怎么运转？ | 业务逻辑和代码能力同样重要 |</p>
+      <p>| 6 | 组织推动 | 怎么让客户用起来？ | 做完不算完，用起来才算 |</p>
+      <p>| 7 | 资产复利 | 下一个客户能不能更快？ | 从一次性交付到可复用方案 |</p>
+      <p>下面逐个讲。</p>
+      <h2 class="section-title">① 价值嗅觉——不是什么都值得做 AI</h2>
+      <p>很多企业说“我要用 AI”，但不少场景并不值得做。不是 AI 做不了，而是投入产出不成立。一个低频发生的流程，即使效率明显提升，整体收益也可能有限。</p>
+      <p>怎么判断一个场景值不值得做？看三个信号：</p>
+      <ul>
+      <li><strong>频次高不高。</strong>高频发生的流程，哪怕只改善一部分，也更容易形成可见收益。</li>
+      <li><strong>现在怎么解决。</strong>如果现在主要靠人工、经验或少数关键员工，说明可能存在 AI 切入空间。</li>
+      <li><strong>AI 能不能带来足够明显的改善。</strong>改善幅度太小，通常不足以抵消迁移、培训与维护成本。</li>
+      </ul>
+      <p><strong>价值嗅觉不是天赋，是在真实业务场景里练出来的。看得越多、问得越深，判断才会逐步变准。</strong></p>
+      <h2 class="section-title">② 问题重构——客户说的不一定是客户想要的</h2>
+      <p>这是 FDE 最容易被低估的能力。</p>
+      <p>客户说：“我要一个知识库问答系统。”如果你直接去做，做出来的可能就是：上传文档、检索、生成回答。技术上没问题，但业务上可能没人用。</p>
+      <p>因为客户真正的问题可能是：“老专家快退休了，多年的经验带不走。新人上手周期很长，期间还经常出错。”</p>
+      <p><strong>表层需求是“知识库问答”，深层问题是“经验传承”。</strong></p>
+      <p><strong>FDE 的核心能力，是听懂弦外之音，把表层需求翻译成真实问题。</strong></p>
+      <p>怎么练？可以从一个简单动作开始：每接到一个需求，连续追问几次“为什么”。</p>
+      <h2 class="section-title">③ 快速构建——不是写代码，是组装能力</h2>
+      <p>AI 时代不需要凡事从零开发。Cursor、Claude Code、Copilot 正在持续降低编码门槛，LangGraph、CrewAI、Dify 等框架也把很多 Agent 能力封装成了可以组合的模块。</p>
+      <p><strong>FDE 的构建能力 = 选对工具 + 组合拼接 + 快速验证。</strong></p>
+      <p><strong>关键不是“写得快”，而是“知道该写什么、不该写什么”。</strong>很多时候，FDE 的判断力体现在“不做”上。先砍到少数核心功能，尽快做出可验证原型，通常比一开始堆满功能更有效。</p>
+      <h2 class="section-title">④ 评测和护栏——让 AI 不翻车</h2>
+      <p>Demo 能跑不代表生产能用。</p>
+      <p>FDE 需要知道三件事：<strong>怎么建评测集、怎么设边界、怎么兜底。</strong></p>
+      <p>评测和护栏必须单独预留足够时间，而不是等功能做完后再顺手补上。否则演示时看起来可用，进入真实业务流程后却可能频繁出错。</p>
+      <h2 class="section-title">⑤ 业务认知——懂业务逻辑比只懂代码更重要</h2>
+      <p>这是新增的第一个维度。</p>
+      <p>做了几个项目之后我发现，不少 FDE 项目推进受阻，不是因为技术不行，而是<strong>没有真正理解客户的业务怎么运转。</strong></p>
+      <p>业务认知不只是“知道客户是做什么的”。它包含三个层次。</p>
+      <h2 class="section-title" style="font-size:19px;">第一层：业务逻辑——活是怎么流转的</h2>
+      <p>一个订单从下单到交付，中间经过哪些环节？哪些是系统自动走的，哪些需要人拍板？瓶颈在哪里？</p>
+      <p>如果不懂这些，做出来的系统可能绕过关键审批节点，或者在不该自动化的地方自动化。</p>
+      <p><strong>业务逻辑是 FDE 做方案的地基。</strong>地基不稳，上层方案就容易偏。</p>
+      <h2 class="section-title" style="font-size:19px;">第二层：组织逻辑——谁说了算</h2>
+      <p>每个企业都有自己的权力结构。老板、分管负责人、部门负责人、一线员工，对 AI 的关注点往往不同。</p>
+      <p>老板看到的是战略价值，也会担心数据安全；部门负责人关心能不能减轻负担，也会担心原有流程和职责被打乱；一线员工关心会不会被替代，也担心自己失去话语权。</p>
+      <p><strong>FDE 必须搞清楚：谁能拍板？谁会配合？谁可能产生阻力？</strong></p>
+      <p>有些项目技术方案并不差，却卡在组织逻辑上。不是系统不好，而是找错了推动者，或者跳过了关键流程。</p>
+      <h2 class="section-title" style="font-size:19px;">第三层：决策逻辑——数据怎么变成判断</h2>
+      <p>每个企业都有自己的决策逻辑：采购多少库存、定什么价格、给哪个客户赊账。</p>
+      <p>这些决策背后有一套规则，有些写在制度里，有些藏在老员工脑子里。如果 FDE 不理解这套逻辑，系统给出的建议就可能明显偏离企业的实际判断。</p>
+      <p><strong>怎么提升业务认知？</strong></p>
+      <p>最有效的办法，是深入客户现场。跟着销售理解客户链路，跟着仓库看实际作业，跟着财务梳理真实对账流程。你会发现，很多你“以为”的业务流程，和真实情况相差很远。</p>
+      <h2 class="section-title">⑥ 组织推动——做完不算完，用起来才算</h2>
+      <p>这是最不“技术”的一项能力，却往往直接影响项目能否被采用。</p>
+      <p><strong>系统上线不等于业务采纳。</strong>你搭了一个 Agent 系统，技术上可用，但没人用，业务价值仍接近于零。</p>
+      <p>组织推动要解决四个问题：</p>
+      <p><strong>识别关键人。</strong>每个项目都需要找出关键决策人、业务推动者和真实使用者。缺少其中任何一方，项目都可能卡住。</p>
+      <p><strong>化解员工担忧。</strong>员工不配合，不一定是懒，而可能是担心岗位、职责或评价方式发生变化。FDE 需要把目标讲清楚：减少重复劳动，让人的经验参与关键判断，而不是给出无法兑现的岗位承诺。</p>
+      <p><strong>小步验证。</strong>不要一开始就全面推广。先在边界清晰的小范围跑通，让第一批用户成为案例和证人，再根据真实反馈逐步扩大。</p>
+      <p><strong>量化价值。</strong>仅说“效率提升了”不够。需要先记录真实基线，例如处理时长、参与人数、返工率和错误率，再用上线后的同口径数据对比。数字必须来自现场，不能为了好看编造。</p>
+      <h2 class="section-title">⑦ 资产复利——从一次性交付到可复用方案</h2>
+      <p>这是新增的第二个维度，也直接决定 FDE 能否从一次性交付走向可复用交付。</p>
+      <p>很多人做 FDE，完成一个项目、收一笔费用，然后从零开始做下一个。每个项目都重新写方案、重新搭框架、重新踩坑。</p>
+      <p><strong>这会让交付长期停留在以时间换收入的模式，扩展性很弱。</strong></p>
+      <p>真正能持续提升交付效率的 FDE，每完成一个项目，都会沉淀出可复用的资产：</p>
+      <p><strong>场景模板。</strong>做过一次智能排产后，行业流程、关键约束和常见问题应被整理成可复用模板。</p>
+      <p><strong>评测资产。</strong>在合法合规并获得授权的前提下，项目中形成的匿名化评测方法、样例和指标可以持续沉淀，成为交付资产。</p>
+      <p><strong>工程连接器。</strong>做过一次 ERP 对接后，接口映射、异常处理和验证清单可以复用到相似场景。</p>
+      <p><strong>运营手册。</strong>怎么跟客户沟通、怎么处理上线后的反馈、怎么应对组织阻力，都应该沉淀成 SOP。</p>
+      <p>当资产逐步积累，你交付的就不再只是一次性开发，而是带着场景模板、评测方法、连接器和运营手册进入下一个项目。</p>
+      <p>这就是从“卖时间”到“卖资产”的转变。</p>
+      <h2 class="section-title">完整的能力地图</h2>
+      <p>七项能力加上一把手认知，构成了 FDE 的完整能力地图：</p>
+      <p><strong>一把手认知是大门。</strong>这道门没对齐，后面七项能力很难施展。</p>
+      <p><strong>前四项是“做对事”：</strong>选对场景、理解真问题、快速构建、建立评测与护栏。</p>
+      <p><strong>中间两项是“做稳事”：</strong>理解业务、推动组织采纳。</p>
+      <p><strong>最后一项是“做长久”：</strong>让每个项目成为下一个项目的起点。</p>
+      <p>资产复利又会反过来增强前面的能力。随着项目积累，价值判断、业务认知、构建与推动能力都会逐步增强。</p>
+      <h2 class="section-title">谁能做？怎么开始？</h2>
+      <p>不管你是程序员、产品经理、运营还是行业从业者，这七项能力都可以通过实践逐步训练。</p>
+      <p><strong>一个更稳的开始方式：</strong></p>
+      <p>找一个你熟悉的行业，选择一个边界清晰、频率足够高、结果可以验证的真实流程，先做一轮小范围原型验证。从发现需求、理解业务、搭建系统，到评测、试用、复盘和资产沉淀，完整走一遍。</p>
+      <p>做完这一轮，你会更清楚哪些是自己的强项，哪些是短板，再针对性补齐。</p>
+      <p><strong>不要等所有能力都练好了才开始。没有人在出发前就知道所有答案。</strong></p>
+      <h2 class="section-title">写在最后</h2>
+      <p>从五项到七项，再加上一把手认知这个前提条件，不是数字变多了，而是我对 FDE 交付的理解更完整了。</p>
+      <p>以前我关注的是“怎么做”——怎么选场景、怎么搭系统、怎么上线。现在我更关注“怎么做好”——怎么真正理解客户，怎么让每个项目产生可复用资产。</p>
+      <p><strong>FDE 不只是一个技术岗位，更是一套完整的能力体系。</strong></p>
+      <p>技术只是其中一环。懂业务、懂组织、懂评测、懂资产沉淀，这些能力共同决定一个 FDE 能否把 AI 放进真实业务流程。</p>
+      <p>所有这些还有一个前提：客户的决策者对 AI 有合理认知。如果仍把 AI 理解成简单替代人，优先要做的是校准预期，而不是直接搭系统。</p>
+      <p>AI 正在快速降低部分技术实现门槛。真正拉开差距的，是你是否愿意在这七项能力上持续实践、复盘并沉淀。</p>
+      <p>---</p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>FDE 的七种能力是什么？</summary><div class="faq-answer">在原五项（价值嗅觉、问题重构、快速构建、评测和护栏、组织推动）基础上补上两项：业务认知——搞懂客户的业务究竟怎么运转，很多项目卡在这里而不是技术；资产复利——每完成一次交付都沉淀可复用的东西，让交付从一次性定制逐步变成行业方案。</div></details>
+<details class="faq-item"><summary>为什么一把手认知排在七种能力之前？</summary><div class="faq-answer">AI 项目能否推进，老板的认知往往是关键变量。技术方案不差、项目却卡在老板不理解、员工不配合的情况并不少见。这一层没对齐，后面七项能力很难发挥。</div></details>
+<details class="faq-item"><summary>资产复利怎么理解？</summary><div class="faq-answer">真正持续提升交付效率的 FDE，不是做完项目就结束，而是每次交付都沉淀出可复用的模板、组件、工具或检查规则。项目做多了，交付的不再是一次性定制，而是逐步成形的行业方案。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

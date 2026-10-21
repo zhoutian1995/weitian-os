@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包 — 小天说FDE</title>
+<meta name="description" content="FDE 的交付有两条线：内循环解决眼前问题，外循环沉淀可复用资产。只顾交付沦为高级外包，只顾抽象做出前线不需要的东西。">
+<link rel="canonical" href="https://willeai.com/topics/fde-dual-loop.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包 — 小天说FDE">
+<meta property="og:description" content="FDE 的交付有两条线：内循环解决眼前问题，外循环沉淀可复用资产。只顾交付沦为高级外包，只顾抽象做出前线不需要的东西。">
+<meta property="og:url" content="https://willeai.com/topics/fde-dual-loop.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包",
+      "description": "FDE 的交付有两条线：内循环解决眼前问题，外循环沉淀可复用资产。只顾交付沦为高级外包，只顾抽象做出前线不需要的东西。",
+      "datePublished": "2026-07-02",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/fde-dual-loop.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "FDE 的双循环是什么？", "acceptedAnswer": {"@type": "Answer", "text": "内循环看当前流程：能不能跑、业务方用不用、原动作有没有真的变化；外循环看下一次：共性经验能不能沉淀成模板、组件、工具或规则。两条线偏掉任何一边都会出问题。"}},
+        {"@type": "Question", "name": "为什么说没有沉淀就不是 FDE？", "acceptedAnswer": {"@type": "Answer", "text": "如果每次发现的模式、脚本和判断方法下一个项目都用不上，团队再忙也只是在重复交付：人积累了经验，组织没有接住。FDE 要处理的就是这段断层。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>没有沉淀，就不是 FDE</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">FDE · 方法论</p>
+      <h1 class="article-title">没有沉淀，就不是 FDE：AI 项目如何避免沦为高级外包</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-07-02 发布</span>
+        <span>约 8 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>FDE 的交付有<strong>两条线</strong>：内循环只看当前流程——东西能不能跑、业务方愿不愿意用；外循环看下一次——现场共性能不能变成模板、组件、工具或检查规则。<strong>只顾交付，团队沦为高级外包；只顾抽象，做出前线不需要的东西。</strong>判断标准：先把具体问题跑通，再挑出值得复用的部分。</p>
+    </section>
+    <div class="article-body">
+      <p>最近我在做一件很具体的事：把公众号文章同步到多个平台。第一版我只盯着“发出去”，结果头条后半段排版乱了，草稿箱里多出几份没用的草稿，浏览器也开得一团糟。</p>
+      <p>把问题修完后，我发现真正值钱的不是再点一次发布，而是把标题检查、图片锚点、草稿清理和公开页复核写进发布 Skill。下一篇文章再来，流程才不会从头重跑。</p>
+      <p>这件小事让我重新理解了 FDE。交付要解决眼前的问题，也要留下下次能直接用的东西。下面讲的“双循环”，是我现在检查 FDE 项目是否健康的一套工作框架，不是行业里唯一的定义。</p>
+      <p>FDE 是 Forward Deployed Engineer 的缩写，通常译为前线部署工程师。我的理解很朴素：工程能力要进入真实业务流程，边做边验证，再把现场经验带回产品和平台。</p>
+      <h2 class="section-title">为什么还要讲“沉淀”</h2>
+      <p>项目按时上线，当然重要。但我现在会多问一句：这次发现的模式、临时脚本和判断方法，下一个项目还能不能用？</p>
+      <p>如果答案总是否定的，团队做得再忙，也只是在重复交付。人积累了经验，组织却没有接住。FDE 要处理的就是这段断层。</p>
+      <h2 class="section-title">FDE 不是一条线，而是两条线</h2>
+      <p>我把它拆成两条线。</p>
+      <p>内循环只看当前流程：东西能不能跑，业务方愿不愿意用，原来的动作有没有真的变化。</p>
+      <p>外循环看下一次：现场出现的共性，能不能变成模板、组件、工具或检查规则。</p>
+      <p>两条线偏掉任何一边都会出问题。只顾当前交付，团队会被一次性需求拖住；只顾平台抽象，又很容易做出前线不需要的东西。我的判断标准是：先把具体问题跑通，再从里面挑出值得复用的部分。</p>
+      <h2 class="section-title">第一条线：先把眼前的问题解决掉</h2>
+      <p>FDE 到了前线，先进入真实流程，看业务到底怎么运转。</p>
+      <p>一个流程里，谁在填表，谁在审批，数据从哪里来，为什么同一个信息要在三个系统里重复录入，哪个节点看起来像审批，实际只是转发，哪个环节看起来慢，真正的问题却是上游数据不准。</p>
+      <p>这些东西不在产品手册里，也很难靠一次会议问出来。</p>
+      <p>看见以后，先做一个能跑的小改进。粗糙一点没关系，重要的是尽快回到真实流程里验证。</p>
+      <p>很多方案在评审时都很顺，上线后却没人用。通常不是页面不够漂亮，而是它解决了文档里的问题，没有接住现场动作。</p>
+      <p>内循环大致是：跟着流程走一遍，做出原型，放回环境里试，再根据反馈改。上线和登录数只能说明系统存在；用户在日常工作中愿意继续用，原来的等待或重复动作减少了，才说明这一轮有效。</p>
+      <h2 class="section-title">第二条线：把解法变成下次能用的东西</h2>
+      <p>做当前项目时，我会顺手问几个问题：这是这家企业独有的麻烦，还是同类流程都会遇到？临时脚本能不能抽成工具？配置能不能变成模板？评估方法能不能留下来？</p>
+      <p>这些记录最好在项目过程中完成。等到项目结束再凭记忆复盘，很多有用的小细节已经丢了。</p>
+      <p>有价值的发现往往很小：一个数据字段的映射方式、审批流程里的共性节点、临时写出来的校验脚本，或者现场逼出来的一套评估方法。</p>
+      <p>这些东西如果不及时记录，很容易被当成“项目里的小细节”过去了。但如果它被捕捉下来，被产品和平台团队接住，就可能变成后续项目的基础能力。</p>
+      <p>前线先把它出现在哪里、解决什么问题、为什么可能复用写清楚，再和产品或平台团队判断是否值得标准化。值得，就重构；不值得，就留在当前项目里。不是每个发现都要做成产品。</p>
+      <p>前线做出来的东西可以粗糙，但平台能力不能一直粗糙。更合适的分工是：前线负责发现和验证，平台团队负责重构。这样当前项目能跑，下一个项目也不用完全从零开始。</p>
+      <h2 class="section-title">“闪光点”通常不是大东西</h2>
+      <p>很多人一听“沉淀”，会想到方法论、产品模块和行业方案。实际开始时，它通常只是一个不起眼的小发现。</p>
+      <p>比如，两个客户都需要把旧系统里的客户数据同步到新流程里，只是字段名不同。多个项目里都出现了类似的审批链路，只是审批人和节点数量不同。不同客户都需要判断一段 AI 输出能不能进入下一步，只是评估标准略有差异。多个场景都需要把人类操作日志转成系统可读的结构化记录。</p>
+      <p>单个发现不一定值得投入。它在不同项目里反复出现，才说明背后可能有共性。抽出来以后，下一个项目改配置就能用，团队才有余力处理新的问题。</p>
+      <h2 class="section-title">用这次文章同步理解这个机制</h2>
+      <p>这次同步文章，工具返回“草稿创建成功”时，技术动作其实已经完成了。可一打开公开页，头条后半段排版乱了，图片位置也需要重新核对；草稿箱里还留下了重复项。</p>
+      <p>如果任务停在“接口成功”，下一篇还会再踩一遍。后来我把公开页复核、图片锚点、草稿归属和标签页清理写成硬规则，才算把这次失败变成了下次能用的资产。</p>
+      <p>这个例子很小，但它正好说明外循环在做什么：前线暴露问题，流程吸收问题，工具再变得可靠一点。</p>
+      <h2 class="section-title">沉淀率：不是个人 KPI，而是组织健康信号</h2>
+      <p>讨论 FDE 时，人们很容易想用一个精确比例衡量“有多少现场解法应该变成平台能力”。但在没有统一口径和可靠来源时，单独强调某个数字没有意义。</p>
+      <p>我更愿意把“沉淀率”看成趋势信号，不把它压成个人 KPI。前线首先要解决业务问题，不能为了凑资产而沉淀。</p>
+      <p>如果长期什么都留不下来，团队大概率被一次性定制拖住了。每个项目重新理解、重新开发，做得越多，维护负担越重。</p>
+      <p>但要求所有现场解法都进入平台也不现实。每个企业都有自己的历史包袱、组织习惯、审批偏好和系统限制。这些纯定制逻辑如果全部塞进平台，最后会变成一个谁都不敢动的巨型怪物。</p>
+      <p>真正要观察的是：团队有没有持续从特殊情况里抽出共性，后续同类项目有没有因此变快。刚开始复用资产少很正常；项目结束后没人再整理，才值得警惕。</p>
+      <h2 class="section-title">什么值得沉淀，什么不值得</h2>
+      <p>不是所有前线发现都值得沉淀。下面是我自己在用的一个简单检查表。</p>
+      <p><strong>第一类，通用模式。</strong> 比如数据集成方式、认证流程、权限模型、日志审计、评估框架。这类东西跨客户、跨项目都会出现。一旦沉淀，后续项目直接受益，优先级最高。</p>
+      <p><strong>第二类，行业模板。</strong> 比如某个行业典型的审批流程、合规要求、数据结构、业务动作。这类东西不是所有企业都需要，但同一个行业里会反复出现。它值得沉淀，但不能照搬某一家客户的做法，要抽象出行业共性。</p>
+      <p><strong>第三类，纯定制需求。</strong> 比如某个客户内部独有的审批习惯，某个历史系统留下来的特殊字段，某个管理者个人偏好的报表格式。这类东西可以做，但不应该进平台，留在定制层就够了。</p>
+      <p>最后我只问一句：它会不会让下一个项目更快、更稳？如果答案含糊，就先别急着平台化。</p>
+      <h2 class="section-title">外循环断了，FDE 就变成外包</h2>
+      <p>同样是进现场、写代码、接系统，差异最后会落到一件事上：项目结束后，组织有没有多出一块能复用的能力。</p>
+      <p>如果答案是有，下一个项目会带着组件、模板和判断方法继续走。如果答案是没有，团队只能继续依赖几个能救火的人。人一走，经验也跟着走。</p>
+      <h2 class="section-title">这也是 AI 时代的关键变化</h2>
+      <p>AI 项目把这个问题放大了，因为很多判断要在真实使用中才看得出来。</p>
+      <p>传统软件交付里，很多需求是相对确定的。流程怎么配、字段怎么填、权限怎么设，虽然麻烦，但大体可预期。</p>
+      <p>AI 项目不一样。它经常需要在真实业务里试出来。哪些环节适合自动化，哪些判断必须保留人工，AI 输出怎么评估，用户什么时候信任它，什么情况下必须加护栏，这些问题很难在会议室里一次性想清楚。</p>
+      <p>必须进入前线，快速试，快速改。</p>
+      <p>如果提示词、流程、评估、权限和异常处理每次都重新摸索，成本会很高。我的土办法是：同类问题第二次出现先记下来，第三次还出现，再认真判断是否做成公共能力。这不是行业公式，只是防止自己一直靠记忆救火。</p>
+      <h2 class="section-title">写在最后</h2>
+      <p>我现在判断一个 FDE 项目，不只看它有没有上线，还看它有没有留下东西。当前流程跑通，是第一步；下一次不用从零开始，才说明这次交付真的被组织接住了。</p>
+      <p>---</p>
+      <p>本文来自「小天说FDE」，全平台同名。</p>
+      <p>我会持续分享普通人能用上的 AI 工具、内容工作流和真实实践，欢迎联系我，一起交流 AI。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>FDE 的双循环是什么？</summary><div class="faq-answer">内循环看当前流程：能不能跑、业务方用不用、原动作有没有真的变化；外循环看下一次：共性经验能不能沉淀成模板、组件、工具或规则。两条线偏掉任何一边都会出问题。</div></details>
+<details class="faq-item"><summary>为什么说没有沉淀就不是 FDE？</summary><div class="faq-answer">如果每次发现的模式、脚本和判断方法下一个项目都用不上，团队再忙也只是在重复交付：人积累了经验，组织没有接住。FDE 要处理的就是这段断层。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>

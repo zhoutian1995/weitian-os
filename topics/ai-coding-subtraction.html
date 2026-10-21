@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 越会写代码，FDE 越要做减法 — 小天说FDE</title>
+<meta name="description" content="AI coding 让加功能变得无比便宜，开发能力过剩，AI 从不拒绝你。瓶颈从能不能做换到该不该做——YAGNI 与奥卡姆剃刀的回归。">
+<link rel="canonical" href="https://willeai.com/topics/ai-coding-subtraction.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 越会写代码，FDE 越要做减法 — 小天说FDE">
+<meta property="og:description" content="AI coding 让加功能变得无比便宜，开发能力过剩，AI 从不拒绝你。瓶颈从能不能做换到该不该做——YAGNI 与奥卡姆剃刀的回归。">
+<meta property="og:url" content="https://willeai.com/topics/ai-coding-subtraction.html">
+<meta property="og:site_name" content="小天说FDE · 维天OS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/topics.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "AI 越会写代码，FDE 越要做减法",
+      "description": "AI coding 让加功能变得无比便宜，开发能力过剩，AI 从不拒绝你。瓶颈从能不能做换到该不该做——YAGNI 与奥卡姆剃刀的回归。",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-21",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "publisher": { "@type": "Person", "name": "小天说FDE", "url": "https://willeai.com/" },
+      "mainEntityOfPage": "https://willeai.com/topics/ai-coding-subtraction.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "为什么 AI 越会写代码，越要做减法？", "acceptedAnswer": {"@type": "Answer", "text": "因为开发能力过剩了。以前功能是贵的，天然有人问「有必要吗」；现在 AI 很快做完还帮你论证，没有环节在问这个产品到底为谁解决什么问题。功能成本消失后，复杂度变成了长期的维护成本和用户理解成本。"}},
+        {"@type": "Question", "name": "YAGNI 在 AI 时代怎么用？", "acceptedAnswer": {"@type": "Answer", "text": "以前它管代码里的过度设计，现在管产品里的功能蔓延。一个功能如果唯一的存在理由是「以后可能有」，那它现在就不该做。先回答清楚产品核心问题，不在答案里的功能都不做。"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-brand" href="../index.html">维天<em>OS</em></a>
+  <div class="topnav-links"><a href="./index.html">全部文章</a><a href="./fde-what-is.html">FDE 是什么</a></div>
+</nav>
+<main class="page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="../index.html">首页</a><span class="sep">/</span>
+    <a href="./index.html">全部文章</a><span class="sep">/</span>
+    <span>AI 越会写代码，FDE</span>
+  </nav>
+  <article>
+    <header class="article-header">
+      <p class="article-kicker">AI 编程 · FDE</p>
+      <h1 class="article-title">AI 越会写代码，FDE 越要做减法</h1>
+      <div class="article-meta">
+        <span>小天说FDE</span>
+        <span>2026-10-08 发布</span>
+        <span>约 8 分钟读完</span>
+      </div>
+    </header>
+    <section class="tldr" aria-label="核心结论">
+      <strong class="tldr-label">TL;DR · 一分钟版本</strong>
+      <p>做企业微信销售助理 Agent 的真实经历：<strong>AI coding 把做功能的成本打下来之后，加功能太容易了，而 AI 从不拒绝你。</strong>一个销售助理不知不觉长成半个 CRM，每一步都合理，放在一起用户真正需要的东西反而找不到了。瓶颈从「能不能做」换到「该不该做」——<strong>YAGNI 管产品范围，奥卡姆剃刀管方案复杂度</strong>，两条老原则比任何时候都管用。</p>
+    </section>
+    <div class="article-body">
+      <p>这个项目做到现在，我干得最多的活，不是加功能，是删功能。AI coding 把做功能的成本打下来之后，做减法从“被开发成本逼着”变成了“必须主动做”——这是我这段时间最确定的一个判断。</p>
+      <p>我在做企业微信销售助理 Agent，给销售团队用。最直接的体感是：加功能太容易了。一个需求提出来，交给 Codex 很快做完，质量还过得去。真正的麻烦出在做完之后——我会顺手想到一些“未来可能有用”的东西，而 AI 从不拒绝我。</p>
+      <p>这个过程很顺。助理最早要解决的就是销售跟进问题，做着做着，我跟 AI 说顺便加个销售排行榜吧，反正数据都有；过两天又想，以后多部门要用，把权限补一下；再过几天，既然数据都齐了，做个趋势看板吧。一个简单的销售助理，就这么长成了半个 CRM。</p>
+      <p>最迷惑人的地方在于，每一步都合理。排行榜能激励销售，权限是多部门使用的前提，数据都齐了做个看板顺理成章。AI 不但帮你实现，还会帮你论证。整个过程中真正缺席的，是没有一个环节在问：这个产品到底为谁解决什么问题。</p>
+      <p><strong>这里面真正的问题，是开发能力过剩</strong>。以前功能是贵的，设计、前端、后端、测试，每一层都是真金白银，所以天然会有人问一句“有必要吗”。现在没人问了，瓶颈从“能不能做出来”换到了“该不该做”。每个功能单拎出来都有理由，放在一起，用户真正需要的东西反而找不到了。</p>
+      <p>更麻烦的是，代码便宜了，复杂度一点没降。页面还是要写，状态还是要管，测试还是要有，bug 还是会出，用户还是要花力气理解你的产品。这些成本不会因为 AI 写得快就消失，<strong>它们只是从一次性的开发成本，变成了长期的维护成本和用户理解成本</strong>。对个人开发者和小团队，这笔账更要命，因为你既要写又要养。</p>
+      <p>所以我把两条老原则重新请了回来。这两条原则老得快被遗忘了，但在功能变得无比便宜的今天，它们比任何时候都管用。</p>
+      <p><strong>第一条，YAGNI</strong>：You aren't gonna need it，你现在根本用不上它。它管的是产品范围——这个功能，现在要不要做。写代码的人对这条原则不陌生，它以前管的是代码里的过度设计，现在要管的是产品里的功能蔓延。</p>
+      <p>销售助理的核心问题就三个：哪些客户该跟进，为什么要跟，下一步做什么。把这三个问题回答清楚，这个产品就成立了。排行榜不在答案里，完整 CRM 不在，几十个部门的复杂权限也不在。<strong>一个功能如果唯一的存在理由是“以后可能有”，那它现在就不该做</strong>。</p>
+      <p><strong>第二条，奥卡姆剃刀</strong>：如无必要，勿增实体。它管的是方案复杂度——既然决定要做，有没有更简单的做法。</p>
+      <p>客户的问题很具体：销售经常忘记跟进客户。这个问题不需要 AI 打分、成交率预测、自动优先级、多级预警、排行榜、趋势分析那一整套。第一版可能只需要一条规则：客户超过 24 小时没跟进就提醒负责人，这条规则甚至可以不带任何 AI——先验证提醒本身有没有用，再谈智能化。<strong>能解决主要问题，就停在这里</strong>，多余的实体等真需要的时候再加。</p>
+      <p>一句话区分这两条原则：<strong>YAGNI 控制功能数量，奥卡姆剃刀控制方案复杂度</strong>。一个决定做不做，一个决定做多薄。这两个开关一起拧上，AI 的过剩产能才不会反过来吃掉你的产品。</p>
+      <p>现在我的做法很固定：每个新功能，先过四道门，过完再谈做不做。给 AI 的每一次“顺便”，都要单独过一遍这些判断，因为 AI 只负责把东西做出来，从不替你决定该不该做。</p>
+      <p><strong>第一道门：现在真的有人需要吗。</strong> 这里的“有人”，指真实用户遇到的真实问题，不是我觉得这个功能不错，也不是 AI 建议再补个模块。AI 特别擅长在需求旁边生成十个“相关需求”，每一个看起来都言之有理。越是这种时候，越要回到源头：谁，在什么场景，被什么卡住了。</p>
+      <p><strong>第二道门：不做会怎么样。</strong> 假设这个功能永远不做，用户还能不能完成核心任务。能完成，它大概率就不必存在——这是最省力的判断，不去评估功能本身有多好，只评估没有它会造成什么真实损失。多数时候，答案是没有什么损失。</p>
+      <p><strong>第三道门：有没有更简单的办法。</strong> 一个按钮能解决的不做页面，一条规则能解决的不上系统，人工兜底能解决的不做自动化。刚出现一个小问题就重设计一整套方案，是 AI coding 时代最容易犯的病，因为反正 AI 写得快。但写得快不等于维护得轻，你省下的开发时间，会在每次改动时加倍还回去。</p>
+      <p><strong>第四道门：会不会降低信噪比。</strong> 这道门最容易被忽略。销售打开产品，只想知道三件事：今天跟谁，为什么跟，下一步干什么。首页塞 4 个指标卡、2 个趋势图、一个排行榜、一堆客户画像、十几个标签，每个元素都在争夺注意力，<strong>用户要找的那件重要的事，就被淹没了</strong>。</p>
+      <p>功能越多，找到关键信息的成本越高，产品反而越弱。<strong>信噪比是产品能力，不是页面装修</strong>——首页敢放多满，取决于你对核心任务有多确定，而不是你能做多少。判断办法也朴素：把页面上所有元素遮住，只留完成任务必需的那几个，剩下的每一个，都得重新申请自己的位置。</p>
+      <p>四道门全过，标准其实就一条：<strong>先把“用户来这个产品最核心要完成的事”定死</strong>，所有新功能围着它判断。能明显让这件核心的事做得更好的，做；只是感觉以后有用的，放着。放着不是丢弃，需求攒在那里，哪天它变成真实问题，再动手不迟。</p>
+      <p>回头看这件事的本质：以前开发成本高，减法是被逼的，预算会替你砍需求，不需要你有多少判断力。现在做功能近乎免费，<strong>没有人逼你做减法了，你必须自己长出这个能力</strong>。工具越强，判断力的价值越高，这是 AI coding 给所有做产品的人出的新考题。</p>
+      <p>产品从来不是功能越多越好——用户要的不是大而全的系统，而是打开就知道该干什么的工具。<strong>好的产品，是把用户需要的东西做得足够突出，让其他一切都不构成干扰</strong>。删掉一个功能，经常比加上一个功能更接近好产品。这句话放在五年前是常识，放在今天，是需要重新练回来的本能。</p>
+      <p>写在最后：</p>
+      <p>这是 FDE 系列的一篇。前面聊过 FDE 到底是干嘛的，这篇聊的是这个岗位每天都在做的判断：需求来了，先问该不该做，再问怎么做薄。这也是 FDE 的交付逻辑：<strong>能上线的最小版本，好过想象中的完整版</strong>。完整版是想象出来的，最小版本是真的在跑的，这个系列后面会继续拆这个 Agent 的真实开发过程。</p>
+    </div>
+    <section class="faq-section" aria-label="常见问题">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-list">
+<details class="faq-item"><summary>为什么 AI 越会写代码，越要做减法？</summary><div class="faq-answer">因为开发能力过剩了。以前功能是贵的，天然有人问「有必要吗」；现在 AI 很快做完还帮你论证，没有环节在问这个产品到底为谁解决什么问题。功能成本消失后，复杂度变成了长期的维护成本和用户理解成本。</div></details>
+<details class="faq-item"><summary>YAGNI 在 AI 时代怎么用？</summary><div class="faq-answer">以前它管代码里的过度设计，现在管产品里的功能蔓延。一个功能如果唯一的存在理由是「以后可能有」，那它现在就不该做。先回答清楚产品核心问题，不在答案里的功能都不做。</div></details>
+      </div>
+    </section>
+    <aside class="author-card">
+      <img class="avatar" src="../assets/weitian/wille-portrait.jpg" alt="小天说FDE 头像">
+      <div class="author-info">
+        <h3>小天说FDE</h3>
+        <p>程序员出身。索尼实习 → 大华摄像机系统开发 → 海康威视 → 安防行业 → 裸辞创业 all in AI。用 AI 编程重装了自己的工作方式，现在帮助程序员和学生走通 AI 学习与 FDE 转型。</p>
+        <p class="author-platforms">抖音 / B站 / 小红书 / 视频号 / 快手：小天说FDE · 公众号：维天说</p>
+      </div>
+    </aside>
+    <section class="cta-box">
+      <img class="qr" src="../assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="微信二维码：加微信领取 AI 内容工作流和 Skill 工具">
+      <div class="cta-text">
+        <h3>免费领取：AI 内容工作流 + Skill 工具箱</h3>
+        <p>加微信免费领，备注「FDE」。适合想用 AI 重装自己工作方式的程序员、学生和转型者。</p>
+      </div>
+    </section>
+    <section class="related">
+      <h2 class="section-title">继续读</h2>
+      <div class="related-list">
+        <a class="related-item" href="./index.html"><span class="rel-tag">目录</span><span class="rel-title">全部文章：AI 学习、AI 编程与 FDE 转型</span><span class="rel-arrow">→</span></a>
+        <a class="related-item" href="../index.html"><span class="rel-tag">首页</span><span class="rel-title">维天 OS：我的 AI 内容工作流与 Skill 工具箱</span><span class="rel-arrow">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div>© 2026 小天说FDE · <a href="https://willeai.com/">willeai.com</a> · 维天OS</div>
+  <div>全平台同名：小天说FDE（公众号：维天说）</div>
+</footer>
+</body>
+</html>
