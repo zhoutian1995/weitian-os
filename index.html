@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小天说FDE · 维天OS — 程序员 all in AI 的内容工作流与升级记录</title>
-<meta name="description" content="小天说FDE（公众号：维天说）的个人系统：程序员出身，嵌入式/Linux 背景，all in AI。AI 学习、AI 编程、FDE 转型的真实实践，免费领取 AI 内容工作流与 Skill 工具箱。">
+<title>小天说FDE · 维天OS — FDE学习与企业AI实践</title>
+<meta name="description" content="小天说FDE（公众号：维天说）的真实实践：个人学习做FDE，老板推进企业AI改造。分享AI编程、需求与验收方法，咨询、诊断、培训与实施按实际需求沟通。">
 <link rel="canonical" href="https://willeai.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小天说FDE · 维天OS — 程序员 all in AI 的内容工作流与升级记录">
-<meta property="og:description" content="AI 学习、AI 编程、FDE 转型的真实实践，免费领取 AI 内容工作流与 Skill 工具箱。">
+<meta property="og:title" content="小天说FDE · 维天OS — FDE学习与企业AI实践">
+<meta property="og:description" content="个人FDE学习与项目实践，老板与团队的企业AI改造。先理解问题，再按需求交流咨询、诊断、培训与实施。">
 <meta property="og:url" content="https://willeai.com/">
 <meta property="og:site_name" content="小天说FDE · 维天OS">
 <meta property="og:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
@@ -1751,13 +1751,26 @@ body {
   transition: all .25s var(--ease-out);
 }
 .hero-note-btn:hover { background: var(--red); }
+.hero-cta .cta-text { font-family: 'Noto Sans SC',sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: 0; }
+.hero-cta .cta-sub { font-size: 12px; color: var(--ink-light); letter-spacing: 0; }
+.hero-cta { opacity: 1; margin-top: 22px; }
+.intro-paths { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin: 12px 16px 0; }
+.intro-paths a { min-height: 44px; display: inline-flex; align-items: center; color: var(--blue-deep); text-underline-offset: 5px; font-size: 14px; font-weight: 600; }
+.intro-explore { border: 0; background: none; min-height: 40px; font: inherit; font-size: 12px; color: var(--ink-light); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.hero-route-links { display: grid; gap: 6px; margin: 0 0 14px; }
+.hero-route-links a { color: var(--ink); font-size: 13px; font-weight: 700; text-underline-offset: 4px; min-height: 28px; display: inline-flex; align-items: center; }
+.desktop-menubar a.mb-item { color: inherit; opacity: .95; text-decoration: none; }
+.desktop-menubar a.mb-item:hover { text-decoration: underline; text-underline-offset: 4px; }
+.win-sayhi .sayhi-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.win-sayhi .sayhi-links a { min-height: 36px; display: inline-flex; align-items: center; font-size: 12px; }
+@media (max-width: 420px) { .desktop-menubar { gap: 12px; padding: 0 12px; font-size: 11px; } }
 @media (max-width: 900px) { .hero-note { display: none; } }
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="小天说FDE · 维天OS — 程序员 all in AI 的内容工作流与升级记录">
-<meta name="twitter:description" content="AI 学习、AI 编程、FDE 转型的真实实践，免费领取 AI 内容工作流与 Skill 工具箱。">
+<meta name="twitter:title" content="小天说FDE · 维天OS — FDE学习与企业AI实践">
+<meta name="twitter:description" content="个人FDE学习与项目实践，老板与团队的企业AI改造。先理解问题，再按需求交流咨询、诊断、培训与实施。">
 <meta name="twitter:image" content="https://willeai.com/assets/weitian/wille-portrait.jpg">
 <noscript><style>html { overflow: auto !important; }</style></noscript>
 <script type="application/ld+json">
@@ -1769,7 +1782,12 @@ body {
       "name": "小天说FDE",
       "alternateName": "维天说",
       "url": "https://willeai.com/",
-      "description": "程序员出身，嵌入式软件、Linux 与制造业安防摄像机系统开发背景，现 all in AI：分享个人 AI 学习、AI 编程实践与 FDE 转型的真实经验。",
+      "description": "程序员、嵌入式软件与Linux背景，分享FDE学习和AI编程实践，与学习FDE的个人及推进企业AI改造的老板交流；企业咨询、诊断、培训与实施由杭州纬聆科技有限公司承接。",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "杭州纬聆科技有限公司",
+        "url": "https://willeai.cn/"
+      },
       "knowsAbout": [
         "FDE",
         "AI编程",
@@ -1832,9 +1850,14 @@ body {
       <div class="macbook-shadow"></div>
     </div>
     <div class="hero-cta" id="heroCta">
-      <div class="cta-text">Scroll to Launch</div>
-      <div class="cta-sub">滚轮 / 触控 / 点击屏幕都可以进入</div>
-      <div class="cta-arrow">↓</div>
+      <div class="cta-text">小天说FDE · 维天OS</div>
+      <div class="cta-sub">FDE学习与企业AI改造的真实实践</div>
+      <nav class="intro-paths" aria-label="按目标开始">
+        <a href="topics/#fde-start" onclick="event.stopPropagation()">我想学习FDE</a>
+        <a href="https://willeai.cn/services/#ai-start" onclick="event.stopPropagation()">我想推进企业AI改造</a>
+      </nav>
+      <button class="intro-explore" type="button">进入维天OS</button>
+      <div class="cta-arrow" aria-hidden="true">↓</div>
     </div>
   </section>
 
@@ -1842,18 +1865,18 @@ body {
   <div class="desktop" id="desktop">
     <div class="desktop-menubar">
       <span class="mb-logo">维天 OS</span>
-      <span class="mb-item">关于</span>
-      <span class="mb-item">理念</span>
-      <span class="mb-item">近况</span>
+      <a class="mb-item" href="topics/#fde-start">学习FDE</a>
+      <a class="mb-item" href="https://willeai.cn/services/#ai-start">企业AI改造</a>
       <span class="mb-clock" id="mbClock">--:--</span>
     </div>
 
     <div class="desktop-surface" id="desktopSurface">
       <div class="hero-note">
         <div class="hero-note-kicker">WELCOME TO 维天OS</div>
-        <div class="hero-note-title">程序员 all in AI</div>
-        <div class="hero-note-sub">帮你用 AI 重装工作方式：AI 学习 · AI 编程 · FDE 转型。一个人 + AI，跑通完整内容系统。</div>
-        <button class="hero-note-btn" type="button" data-win="win-sayhi">免费领取 AI 内容工作流</button>
+        <div class="hero-note-title">小天说FDE</div>
+        <div class="hero-note-sub">个人学习做FDE，老板推进企业AI改造。先看真实方法，再交流具体问题。</div>
+        <div class="hero-route-links"><a href="topics/#fde-start">我想学习FDE</a><a href="https://willeai.cn/services/#ai-start">我想推进企业AI改造</a></div>
+        <button class="hero-note-btn" type="button" data-win="win-sayhi">联系本人企业微信</button>
       </div>
 
       <!-- Animated star wallpaper -->
@@ -1979,27 +2002,28 @@ body {
       </template>
 
       <template id="win-sayhi">
-        <div class="os-window" data-title="领取工作流" data-url="维天说 AI 内容工作流" style="width:500px;">
+        <div class="os-window" data-title="学习与企业AI交流" data-url="小天说FDE · 本人企业微信" style="width:560px;">
           <div class="os-body win-sayhi">
-            <div class="sayhi-heading">免费领取 AI 内容工作流</div>
-            <div class="sayhi-sub">一个人，也能搭起自己的 AI 内容工作流</div>
+            <div class="sayhi-heading">学习FDE，或推进企业AI改造。</div>
+            <div class="sayhi-sub">从你最想解决的一个问题开始，资料和工具按需选用。</div>
             <div class="claim-layout">
               <div>
-                <img class="claim-qr" src="assets/weitian/wechat-workflow-claim-ad445c44c425.png" alt="添加维天说领取 AI 内容工作流的微信二维码" loading="lazy">
-                <a class="claim-save" href="assets/weitian/wechat-workflow-claim-ad445c44c425.png" download="wechat-workflow-claim-ad445c44c425.png">保存二维码图片</a>
+                <img class="claim-qr" src="assets/weitian/wecom-contact-764be1abb583.jpg" alt="添加小天老师本人企业微信，交流FDE学习或企业AI改造" width="311" height="304" loading="lazy">
+                <a class="claim-save" href="assets/weitian/wecom-contact-764be1abb583.jpg" download="小天说FDE-企微联系码.jpg">保存企微联系码</a>
               </div>
               <div>
                 <ul class="claim-list">
-                  <li>AI 内容工作流 Skill</li>
-                  <li>初始化脚本与目录模板</li>
-                  <li>从真实素材跑出第一份内容的说明</li>
+                  <li>个人FDE学习与项目实践</li>
+                  <li>企业AI咨询与入企诊断</li>
+                  <li>老板/团队培训与AI落地实施</li>
                 </ul>
-                <div class="claim-note">领取后，从一段真实经历开始，跟着流程跑出第一条选题和口播稿。</div>
-                <div class="claim-note">扫码添加后备注「工作流」。手机用户可长按或保存二维码，再用微信识别。</div>
+                <div class="claim-note">学习交流备注「FDE」；企业需求备注「企业AI」，并说明一个具体问题。</div>
+                <div class="claim-note">工具、Skill和实践资料作为配套；正式服务范围在沟通后确认。</div>
               </div>
             </div>
             <div class="sayhi-links">
-              <span>先领取 → 跑一遍 → 遇到卡点再来问</span>
+              <a href="topics/#fde-start">个人FDE学习起步</a>
+              <a href="https://willeai.cn/services/#ai-start">企业AI改造与四项服务</a>
             </div>
           </div>
         </div>
@@ -2084,12 +2108,12 @@ body {
         <div class="os-window" data-title="企业服务" data-url="weitian-os / enterprise" style="width:460px;">
           <div class="os-body win-md">
             <h2>企业服务</h2>
-            <p style="font-size:13px;color:var(--ink-light);margin-bottom:14px;">ToC 内容之外，企业客户按场景承接诊断、培训与落地。</p>
+            <p style="font-size:13px;color:var(--ink-light);margin-bottom:14px;">为想推进企业AI改造的老板与团队，按具体问题匹配服务，不按行业限定。</p>
             <div style="font-size:13.5px;line-height:2;">
               <p><strong>经营主体</strong>：杭州纬聆科技有限公司</p>
-              <p><strong>AI 落地</strong>：企业 AI 诊断 · 场景选择 · 系统集成 · 数据处理</p>
-              <p><strong>培训</strong>：AI 工具与 AI 编程内训 · 业务团队实操陪跑</p>
-              <p><strong>内容</strong>：数字内容制作 · 视频制作 · 广告与营销策划</p>
+              <p><strong>咨询与入企诊断</strong>：方向判断 · 流程梳理 · 资料条件 · 试点选择</p>
+              <p><strong>企业AI培训</strong>：老板学习 · 团队内训 · 岗位实践</p>
+              <p><strong>AI落地实施</strong>：应用构建 · 系统接入 · 验收与交接</p>
             </div>
             <p style="font-size:12.5px;color:var(--ink-faint);margin:14px 0 10px;">服务介绍与联系方式见公司官网：</p>
             <a href="https://willeai.cn" target="_blank" rel="noopener noreferrer" style="font-family:'Fira Code',monospace;font-size:13px;color:var(--blue-deep);">willeai.cn ↗</a>

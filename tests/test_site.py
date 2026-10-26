@@ -115,7 +115,7 @@ class SiteTests(unittest.TestCase):
 
     def test_catalog_and_sitemap_match(self):
         self.assertEqual(len(self.article_urls), len(set(self.article_urls)))
-        self.assertCountEqual(self.sitemap, [ORIGIN, ORIGIN + "topics/", *self.article_urls])
+        self.assertCountEqual(self.sitemap, [ORIGIN, ORIGIN + "topics/", ORIGIN + "learn/", *self.article_urls])
 
     def test_catalog_counts(self):
         count = len(self.article_urls)
@@ -247,7 +247,7 @@ class SiteTests(unittest.TestCase):
     def test_stylesheet_cache_version(self):
         expected = hashlib.sha256((ROOT / "topics/assets/topics.css").read_bytes()).hexdigest()[:12]
         for url, page in self.pages.items():
-            if url == ORIGIN:
+            if url in {ORIGIN, ORIGIN + "learn/"}:
                 continue
             links = [attrs["href"] for tag, attrs in page.head_elements
                      if tag == "link" and urlsplit(attrs.get("href", "")).path == "assets/topics.css"]

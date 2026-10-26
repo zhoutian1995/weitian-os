@@ -22,6 +22,16 @@
 
 基于 [hiesther.me](https://hiesther.me/) by ESTHER不二进行非商业修改，保留原作者署名和许可信息。
 
+2026-10-25的双人群商业承接改动目前仅保留在本地工作区，尚未部署到个人站。原模板商业授权未核实，不能把用户的业务实施授权等同于权利方商用授权，也不能删除或改写本许可。公司站使用原创页面，本次已单独推进；个人站须先取得适当商业授权或明确批准原创替换范围。当前实际部署与验证证据以KnowledgeBase《双人群承接首批实施与验收-20261025》为准。
+
+## 原创学习入口
+
+`/learn/` 是独立原创的AI/FDE学习实践页，HTML、CSS与JS不引用OS模板界面资源；说明见 `learn/LICENSE.md`。它提供程序员、学生和业务背景三种起步任务，作品证据清单、既有资料链接与本人联系码，不代表新收费课程或就业保证。
+
+本轮部署仅允许新增原创学习路径、必要的本人联系码与Sitemap/LLMS导航，以及匿名事件技术补丁；不把本地尚未核实模板商用授权的首页/OS改动一并发布。上线与否以部署回执及公网回读为准。
+
+匿名事件补丁可通过 `scripts/deploy_geo_events.py --site personal --include-learning --expected-static-manifest <SSD静态基线JSON> --expected-release <当前真实release> --receipt <SSD回执>` 部署；公司站事件配置用 `--site company`，使用实际宝塔Nginx路径。两者都保留原release、校验当前版本并按条件回退，不自动提交Git或改变备案。
+
 ## 维护检查
 
 ```bash
